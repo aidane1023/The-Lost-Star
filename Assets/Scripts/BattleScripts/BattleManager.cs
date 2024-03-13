@@ -9,10 +9,13 @@ public class BattleManager : MonoBehaviour
     PlayerBattler player;
     public List<EnemyBattler> enemies; //all enemies in a scene
 
+    public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
     public EnemyBattler target; //current enemy being targeted for an attack
 
     public List<GameObject> enemiesToSpawn; //make static eventually
     public List<Transform> enemySpots;
+
+    public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,37 @@ public class BattleManager : MonoBehaviour
             enemies.Add(newEnemy.GetComponent<EnemyBattler>());
             x++;
         }
+    }
+
+    public void Transition()
+    {
+        //check if any enemies died
+        if (gameState == GameState.PlayerAttack)
+        {
+            gameState = GameState.EnemyTurn;
+            EnemyAttacks();
+        }
+        else if (gameState == GameState.EnemyTurn)
+        {
+            gameState = GameState.PlayerTurn;
+            EnemyAttacks();
+        }
+    }
+
+    public void AttackChoosen(int enemyNum)
+    {
+        EnemyBattler enemyTarget = enemies[enemyNum];
+        if (playerAttackName == "Jump")
+        {
+            player.StartCoroutine("JumpAttack", enemyTarget);
+        }
+    }
+
+    //public void PlayerAttack()
+
+    public void EnemyAttacks()
+    {
+        //
     }
 }
 
