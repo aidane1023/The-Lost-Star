@@ -24,5 +24,10 @@ public class EnemyBattler : MonoBehaviour
         
     }
 
+    public void Attack1()
+    {
+            //
+    }
+
 
 }
