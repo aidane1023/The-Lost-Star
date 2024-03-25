@@ -6,6 +6,8 @@ public class BattleManager : MonoBehaviour
 {
     public GameState gameState = GameState.Transition;
 
+    BattleMenuScript menuScript;
+
     PlayerBattler player;
     public List<EnemyBattler> enemies; //all enemies in a scene
 
@@ -20,6 +22,7 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerBattler>();
+        menuScript = GameObject.FindObjectOfType<BattleMenuScript>();
         StartCoroutine("BattleStart");
         InitialSpawn();
     }
@@ -35,7 +38,8 @@ public class BattleManager : MonoBehaviour
         gameState = GameState.Transition;
         yield return new WaitForSeconds(2f);
         gameState = GameState.PlayerTurn;
-        player.StartCoroutine("JumpAttack", enemies[0]);
+        menuScript.battleButtonCanvas.SetActive(true);
+        //player.StartCoroutine("JumpAttack", enemies[0]);
     }
 
     void InitialSpawn()
@@ -60,16 +64,27 @@ public class BattleManager : MonoBehaviour
         else if (gameState == GameState.EnemyTurn)
         {
             gameState = GameState.PlayerTurn;
-            EnemyAttacks();
+            menuScript.battleButtonCanvas.SetActive(true);
         }
     }
 
-    public void AttackChoosen(int enemyNum)
+    public void AttackName(string newName) //the player selected the attack they are using
     {
-        EnemyBattler enemyTarget = enemies[enemyNum];
-        if (playerAttackName == "Jump")
+        playerAttackName = newName;
+    }
+
+    public void TargetChoosen(int enemyNum) //the player selected their target and will begin attacking
+    {
+        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum] != null)
         {
-            player.StartCoroutine("JumpAttack", enemyTarget);
+            gameState = GameState.PlayerAttack;
+            EnemyBattler enemyTarget = enemies[enemyNum];
+            if (playerAttackName == "Jump")
+            {
+                player.StartCoroutine("JumpAttack", enemyTarget);
+            }
+            //disableUI
+            menuScript.battleButtonCanvas.SetActive(false);
         }
     }
 
@@ -77,7 +92,8 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyAttacks()
     {
-        //
+        //once all the enemies finish attacking, then it transitions back to the player turn
+        Transition();
     }
 }
 
