@@ -7,11 +7,17 @@ public class podiumdisplay : MonoBehaviour
 {
 
     public Database itemDatabase;
-    public 
+    public SpriteRenderer displaySprite;
+    public float itemScale = 4;
+   
+    public void Start()
+    {
+        randomDisplay();
+    }
 
     public void Update()
     {
-        randomDisplay();
+       
     }
 
     void randomDisplay()
@@ -20,6 +26,7 @@ public class podiumdisplay : MonoBehaviour
 
         int randomID = Random.Range(0, itemDatabase.Items.Count);
         InventoryItemData randomItem = itemDatabase.GetItem(randomID);
-        Debug.Log(randomItem);
+        displaySprite.sprite = randomItem.Icon;
+        displaySprite.size = new Vector2 (itemScale, itemScale);
     }
 }
