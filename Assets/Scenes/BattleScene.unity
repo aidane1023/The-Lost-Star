@@ -472,13 +472,12 @@ MonoBehaviour:
   enemies: []
   playerAttackName: 
   target: {fileID: 0}
-  enemiesToSpawn:
-  - {fileID: 593130735233437778, guid: 63850bdf3e80a5e41a9ef3a3c13f68e5, type: 3}
   enemySpots:
   - {fileID: 725686395}
   - {fileID: 7265913}
   - {fileID: 494054624}
   enemyAttacksLeft: -1
+  backupEnemy: {fileID: 0}
 --- !u!1 &232046586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,6 +2989,51 @@ MonoBehaviour:
           m_StringArgument: Spin
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &988024735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 988024737}
+  - component: {fileID: 988024736}
+  m_Layer: 0
+  m_Name: EscapeObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &988024736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988024735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5154e7572ba71a479fbe03e4fed8247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1729823587}
+--- !u!4 &988024737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988024735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.81, y: 3.964571, z: -2.8579073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033797538
 GameObject:
   m_ObjectHideFlags: 0
@@ -6706,7 +6750,7 @@ Transform:
   m_GameObject: {fileID: 1729823586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.552, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1036382399}

@@ -14,7 +14,7 @@ public class podiumdisplay : MonoBehaviour
     public Transform objectToFollow;
     public Vector3 offset;
    
-    public void Start()
+    public void Awake()
     {
         randomDisplay();
         holding = false;
