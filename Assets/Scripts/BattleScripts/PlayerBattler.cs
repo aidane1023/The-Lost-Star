@@ -65,6 +65,7 @@ public class PlayerBattler : MonoBehaviour
         if(keyCorrect)
         {
             //timed correctly!
+            keyCorrect = false;
             transform.DOJump(enemy.head.position, 0.8f, 1, 1, false);
             yield return new WaitForSeconds(0.6f);
             actionKeyNeeded = "z";
@@ -81,6 +82,7 @@ public class PlayerBattler : MonoBehaviour
         }
         transform.DOMove(playerSpot.position, 1f, false);
         yield return new WaitForSeconds(1f);
+        keyCorrect = false;
         battleManager.Transition();
 
     }
