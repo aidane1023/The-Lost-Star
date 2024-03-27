@@ -13,7 +13,8 @@ public class PlayerBattler : MonoBehaviour
     public float starPoints = 5;
     public float maxStarPoints = 5;//skill points
     public float xp; //max is 100
-    public float attackPower = 2;
+    public float jumpAttackPower = 1;
+    public float spinAttackPower = 2;
     public float defense = 0;
 
     public float buffLength;
@@ -21,7 +22,7 @@ public class PlayerBattler : MonoBehaviour
 
     string actionKeyNeeded; //what is needed to achieve the action input
     bool keyCooldown = false; //if the key was pressed early, this is enabled, to prevent registering anymore inputs until cooldown has ended
-    bool keyCorrect = false; //made true if the corretc key was pressed for an attack
+    bool keyCorrect = false; //made true if the correct key was pressed for an attack
     // Start is called before the first frame update
     void Start()
     {
@@ -53,20 +54,26 @@ public class PlayerBattler : MonoBehaviour
 
     public IEnumerator JumpAttack(EnemyBattler enemy)
     {
+        actionKeyNeeded = "";
         battleManager.gameState = GameState.PlayerAttack;
         transform.DOMove(enemy.inFront.position, 1f, false);
         yield return new WaitForSeconds(1f);
-        transform.DOJump(enemy.head.position, 0.8f, 1, 1, false);
+        transform.DOJump(enemy.head.position, 0.8f, 1, 0.8f, false);
         yield return new WaitForSeconds(0.6f);
         actionKeyNeeded = "z";
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
+        actionKeyNeeded = "";
+        enemy.RecieveDamage(jumpAttackPower);
         if(keyCorrect)
         {
             //timed correctly!
-            transform.DOJump(enemy.head.position, 0.8f, 1, 1, false);
+            keyCorrect = false;
+            transform.DOJump(enemy.head.position, 0.8f, 1, 0.8f, false);
             yield return new WaitForSeconds(0.6f);
             actionKeyNeeded = "z";
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.2f);
+            actionKeyNeeded = "";
+            enemy.RecieveDamage(jumpAttackPower);
             transform.DOJump(enemy.inFront.position, 0.8f, 1, 0.5f, false);
             yield return new WaitForSeconds(0.5f);
         }
@@ -78,13 +85,14 @@ public class PlayerBattler : MonoBehaviour
         }
         transform.DOMove(playerSpot.position, 1f, false);
         yield return new WaitForSeconds(1f);
+        keyCorrect = false;
         battleManager.Transition();
 
     }
 
     public IEnumerator KeyCooldownTimer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         keyCooldown = false;
     }
 }
