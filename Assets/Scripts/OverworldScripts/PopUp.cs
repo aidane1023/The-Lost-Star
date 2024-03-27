@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PopUp : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class PopUp : MonoBehaviour
     {
         if ((Vector3.Distance(player.position, this.transform.position) <= 1.2f) && Input.GetKeyUp(KeyCode.Z))
         {
+            BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
             battleInitiator.InitiateBattle();
         }
     }

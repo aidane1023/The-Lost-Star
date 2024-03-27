@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class BattleManager : MonoBehaviour
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
     public EnemyBattler target; //current enemy being targeted for an attack
 
+    public static int sceneToLoad = 0;
     public static List<GameObject> enemiesToSpawn = new List<GameObject>(); //make static eventually
+    public static Vector3 overworldSpawn;
     public List<Transform> enemySpots;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
@@ -97,6 +100,14 @@ public class BattleManager : MonoBehaviour
     {
         //once all the enemies finish attacking, then it transitions back to the player turn
         Transition();
+    }
+
+    public void BattleEnd(bool fled)
+    {
+        if(fled)
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
     }
 }
 

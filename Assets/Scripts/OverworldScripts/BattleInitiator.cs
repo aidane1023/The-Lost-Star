@@ -16,6 +16,7 @@ public class BattleInitiator : MonoBehaviour
     public void InitiateBattle()
     {
         BattleManager.enemiesToSpawn.Clear();
+        BattleManager.overworldSpawn = transform.position;
         foreach(GameObject enemy in battlers)
         {
             BattleManager.enemiesToSpawn.Add(enemy);

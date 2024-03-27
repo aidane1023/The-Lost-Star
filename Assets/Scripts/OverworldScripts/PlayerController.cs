@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
        rb = gameObject.GetComponent<Rigidbody>(); 
+        if(BattleManager.overworldSpawn != new Vector3 (0,0,0)) RelocateAfterBattle();
     }
 
     void Update()
@@ -45,5 +46,11 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = false;
         }
+    }
+
+    void RelocateAfterBattle()
+    {
+        transform.position = BattleManager.overworldSpawn;
+        BattleManager.overworldSpawn = new Vector3(0,0,0);   
     }
 }
