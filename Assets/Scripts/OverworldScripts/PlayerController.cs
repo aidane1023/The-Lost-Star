@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 castPos = transform.position;
-        castPos.y += 1;
+        castPos.y += 1f;
 
         if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
         {

@@ -9,6 +9,9 @@ public class BattleMenuScript : MonoBehaviour
     public GameObject menuAttack, menuSpin, menuSkill, menuRun, menuBag;
     public GameObject inventoryButton1, enemyAttackButton1, enemySpinButton1;
 
+    //TheCanvas
+    public GameObject battleButtonCanvas;
+
     public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI;
     public GameObject player;
     private PlayerBattler playerBattlerScript;
@@ -27,6 +30,8 @@ public class BattleMenuScript : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(menuAttack);
         //Debug.Log("Selected game object:" + EventSystem.current.currentSelectedGameObject.name);
         //Debug.Log("Health: " + playerBattlerScript.health);
+
+        battleButtonCanvas.SetActive(false);
     }
 
     void Update()
