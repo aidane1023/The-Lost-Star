@@ -24,10 +24,5 @@ public class DemoSceneManager : MonoBehaviour
         {
             SceneManager.LoadScene ("DemoHub");
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 }
