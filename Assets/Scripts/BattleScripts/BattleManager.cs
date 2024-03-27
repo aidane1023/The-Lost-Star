@@ -14,16 +14,19 @@ public class BattleManager : MonoBehaviour
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
     public EnemyBattler target; //current enemy being targeted for an attack
 
-    public List<GameObject> enemiesToSpawn; //make static eventually
+    public static List<GameObject> enemiesToSpawn = new List<GameObject>(); //make static eventually
     public List<Transform> enemySpots;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
+
+    public GameObject backupEnemy; //for testing
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerBattler>();
         menuScript = GameObject.FindObjectOfType<BattleMenuScript>();
         StartCoroutine("BattleStart");
+        if(enemiesToSpawn.Count == 0) enemiesToSpawn.Add(backupEnemy);
         InitialSpawn();
     }
 

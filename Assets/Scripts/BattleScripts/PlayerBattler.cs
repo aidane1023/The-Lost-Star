@@ -54,22 +54,25 @@ public class PlayerBattler : MonoBehaviour
 
     public IEnumerator JumpAttack(EnemyBattler enemy)
     {
+        actionKeyNeeded = "";
         battleManager.gameState = GameState.PlayerAttack;
         transform.DOMove(enemy.inFront.position, 1f, false);
         yield return new WaitForSeconds(1f);
-        transform.DOJump(enemy.head.position, 0.8f, 1, 1, false);
+        transform.DOJump(enemy.head.position, 0.8f, 1, 0.8f, false);
         yield return new WaitForSeconds(0.6f);
         actionKeyNeeded = "z";
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
+        actionKeyNeeded = "";
         enemy.RecieveDamage(jumpAttackPower);
         if(keyCorrect)
         {
             //timed correctly!
             keyCorrect = false;
-            transform.DOJump(enemy.head.position, 0.8f, 1, 1, false);
+            transform.DOJump(enemy.head.position, 0.8f, 1, 0.8f, false);
             yield return new WaitForSeconds(0.6f);
             actionKeyNeeded = "z";
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.2f);
+            actionKeyNeeded = "";
             enemy.RecieveDamage(jumpAttackPower);
             transform.DOJump(enemy.inFront.position, 0.8f, 1, 0.5f, false);
             yield return new WaitForSeconds(0.5f);
@@ -89,7 +92,7 @@ public class PlayerBattler : MonoBehaviour
 
     public IEnumerator KeyCooldownTimer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         keyCooldown = false;
     }
 }
