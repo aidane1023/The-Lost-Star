@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2320186322054823135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8758065114952607225}
+  m_Layer: 0
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8758065114952607225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320186322054823135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.63, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8416875909299138431}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4899908748564806797
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +97,7 @@ Transform:
   - {fileID: 8416875911373171472}
   - {fileID: 8416875910533228980}
   - {fileID: 2552122446875237585}
+  - {fileID: 8758065114952607225}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,7 +203,10 @@ MonoBehaviour:
   - DustShoot
   inFront: {fileID: 2552122446875237585}
   head: {fileID: 8416875910533228980}
+  projectileStart: {fileID: 8758065114952607225}
   damageStar: {fileID: 6620711889202787246, guid: d5a6147b1e950e5429cce9a74a669076, type: 3}
+  battleManager: {fileID: 0}
+  projectile: {fileID: 9008961830160705516, guid: 08ba26d8be324eb44809cafb5b38d184, type: 3}
 --- !u!1 &8416875910533228983
 GameObject:
   m_ObjectHideFlags: 0

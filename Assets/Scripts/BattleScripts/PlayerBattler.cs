@@ -2,11 +2,17 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerBattler : MonoBehaviour
 {
     Transform playerSpot;
     BattleManager battleManager;
+    [HideInInspector]
+    public PlayerBattlerAnimator playerAnimator;
+
+    public GameObject damageStar; //the icon that shows damage dealt
+    public DefenseMode defenseMode;
 
     public float health = 10;
     public float maxHealth = 10;
@@ -28,6 +34,7 @@ public class PlayerBattler : MonoBehaviour
     {
         battleManager = GameObject.FindObjectOfType<BattleManager>();
         playerSpot = GameObject.Find("PlayerSpot").transform;
+        playerAnimator = GetComponent<PlayerBattlerAnimator>();
         health = maxHealth;
     }
 
@@ -49,11 +56,25 @@ public class PlayerBattler : MonoBehaviour
                 }
             }
         }
+
+        if(battleManager.gameState == GameState.EnemyTurn)
+        {
+            if (Input.GetKeyDown(KeyCode.Z) && !keyCooldown)
+            {
+                if(defenseMode == DefenseMode.Guard)
+                {
+                    StartCoroutine("Guard");
+                }
+            }
+        }
         
     }
 
     public IEnumerator JumpAttack(EnemyBattler enemy)
     {
+        playerAnimator.OnNeutral();
+
+
         actionKeyNeeded = "";
         battleManager.gameState = GameState.PlayerAttack;
         transform.DOMove(enemy.inFront.position, 1f, false);
@@ -90,9 +111,52 @@ public class PlayerBattler : MonoBehaviour
 
     }
 
+    public void RecieveDamage(float damage)
+    {
+        damage -= defense;
+        if (damage < 0) damage = 0;
+        health -= damage;
+        //show the damage star
+
+        RectTransform textTransform = Instantiate(damageStar).GetComponent<RectTransform>();
+        textTransform.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
+        textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        Canvas canvas = GameObject.Find("2D UI Canvas").GetComponent<Canvas>();
+        textTransform.SetParent(canvas.transform);
+
+        playerAnimator.StartCoroutine("OnHurt");
+    }
+
     public IEnumerator KeyCooldownTimer()
     {
         yield return new WaitForSeconds(0.7f);
         keyCooldown = false;
     }
+
+    ///////////////////////////////
+    ///DEFENSE FUNCTIONS///////////
+    ///////////////////////////////
+    IEnumerator Guard()
+    {
+        playerAnimator.OnGuard();
+        keyCooldown = true;
+        defense += 1;
+        //guard active
+        yield return new WaitForSeconds(0.3f);
+        playerAnimator.OnCooldown();
+        defense -= 1;
+        //guard off
+        yield return new WaitForSeconds(1.1f);
+        playerAnimator.OnNeutral();
+        if (keyCooldown) keyCooldown = false;
+    }
+}
+
+public enum DefenseMode
+{
+    Guard,
+    Jump,
+    Counter, //superguard nearby enemies when they get close
+    Reflect //swing, against projectiles
+
 }
