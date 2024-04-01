@@ -13,4 +13,5 @@ public class InventoryItemData : ScriptableObject
     public int maxStackSize;
     public int Durability;
     public int maxDurability;
+    public int Value;
 }
