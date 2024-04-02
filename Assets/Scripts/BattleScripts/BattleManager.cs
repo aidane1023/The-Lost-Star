@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
 
     PlayerBattler player;
     public List<EnemyBattler> enemies; //all enemies in a scene
+    int enemyTurnsTaken;
 
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
     public EnemyBattler target; //current enemy being targeted for an attack
@@ -62,6 +63,10 @@ public class BattleManager : MonoBehaviour
     public void Transition()
     {
         //check if any enemies died
+        //foreach (EnemyBattler enemy in enemies)
+        //{
+
+        //}
         if (gameState == GameState.PlayerAttack)
         {
             gameState = GameState.EnemyTurn;
@@ -71,6 +76,7 @@ public class BattleManager : MonoBehaviour
         {
             gameState = GameState.PlayerTurn;
             menuScript.battleButtonCanvas.SetActive(true);
+            player.playerAnimator.OnThink();
         }
     }
 
@@ -83,6 +89,7 @@ public class BattleManager : MonoBehaviour
     {
         if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum] != null)
         {
+            player.playerAnimator.OnNeutral();
             gameState = GameState.PlayerAttack;
             EnemyBattler enemyTarget = enemies[enemyNum];
             if (playerAttackName == "Jump")
@@ -98,8 +105,17 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyAttacks()
     {
+        if (enemyTurnsTaken == enemies.Count)
+        {
+            enemyTurnsTaken = 0;
+            Transition();
+        }
         //once all the enemies finish attacking, then it transitions back to the player turn
-        Transition();
+        else
+        {
+            enemies[enemyTurnsTaken].Attack();
+            enemyTurnsTaken++;
+        }
     }
 
     public void BattleEnd(bool fled)
@@ -116,5 +132,5 @@ public enum GameState
     PlayerTurn, //player choosing which attack to use and what to target
     EnemyTurn, //enemy is attacking and the player can only defend
     PlayerAttack, //game is checking inputs for action commands
-    Transition //game is transitioning, aka the playe cannot input anything
+    Transition //game is transitioning, aka the player cannot input anything
 }

@@ -14,12 +14,15 @@ public class EnemyBattler : MonoBehaviour
     [Header("Transforms")]
     public Transform inFront;
     public Transform head;
+    public Transform projectileStart;
 
     public GameObject damageStar; //the icon that shows damage dealt
+    [HideInInspector]
+    public BattleManager battleManager;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        battleManager = FindObjectOfType<BattleManager>();
     }
 
     // Update is called once per frame
@@ -28,9 +31,9 @@ public class EnemyBattler : MonoBehaviour
         
     }
 
-    public void Attack1()
+    public virtual void Attack()
     {
-            //
+      
     }
 
     public void RecieveDamage(float damage)
