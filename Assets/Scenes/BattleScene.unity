@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -472,8 +472,6 @@ MonoBehaviour:
   enemies: []
   playerAttackName: 
   target: {fileID: 0}
-  enemiesToSpawn:
-  - {fileID: 593130735233437778, guid: 63850bdf3e80a5e41a9ef3a3c13f68e5, type: 3}
   enemySpots:
   - {fileID: 725686395}
   - {fileID: 7265913}
@@ -2370,6 +2368,12 @@ MonoBehaviour:
   playerHealthTextUI: {fileID: 511197729}
   playerSPTextUI: {fileID: 1819979513}
   playerXPTextUI: {fileID: 382597965}
+  playerAttackTitleTextUI: {fileID: 0}
+  playerAttackDescTextUI: {fileID: 0}
+  playerSpinTitleTextUI: {fileID: 0}
+  playerSpinDescTextUI: {fileID: 0}
+  playerItemTitleTextUI: {fileID: 0}
+  playerItemDescTextUI: {fileID: 0}
   player: {fileID: 1729823586}
 --- !u!4 &873230091
 Transform:
@@ -6709,8 +6713,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729823586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.552, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalPosition: {x: -3.501, y: 0, z: 0}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1036382399}
