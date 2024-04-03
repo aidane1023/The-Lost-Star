@@ -8,12 +8,16 @@ public class Dialogue : MonoBehaviour
 {
 
     public TextMeshProUGUI textComponent, nameComponent;
-    public string[] lines, talkingName;
-    public bool[] effect, leftIsTalking;
+    public TextMeshProUGUI[] buttonComponent;
+    public GameObject[] dialogueButton;
+    public int dialogueButtonCount;
+    public bool hasDialogueOptions;
+    public string[] buttonText, talkingName, lines;
+    public bool[] effect, leftIsTalking; 
     public GameObject[] leftPortrait, rightPortrait;
     private Image leftImage, rightImage;
     public float textSpeed;
-    private int index;
+    private int index, buttonIndex;
 
     Color notTalkingColor = new Color(0.3f, 0.3f, 0.3f, 1f);
     Color talkingColor = new Color(1f, 1f, 1f, 1f);
@@ -34,6 +38,16 @@ public class Dialogue : MonoBehaviour
         foreach (char c in talkingName[index].ToCharArray())
         {
             nameComponent.text += c;
+        }
+        
+        if (hasDialogueOptions == true)
+        {
+            for (int i = 0; i < dialogueButtonCount; i++)
+            {
+                dialogueButton[i].SetActive(false);
+                buttonComponent[i].text = string.Empty;
+                buttonComponent[i].text = buttonText[i];
+            }
         }
 
         BeginDialogue();
@@ -90,12 +104,22 @@ public class Dialogue : MonoBehaviour
             leftImage = leftPortrait[index].GetComponent<Image>();
             leftImage.color = notTalkingColor;
         }
-
-        foreach(char c in lines[index].ToCharArray())
-        {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
+       foreach (char c in lines[index].ToCharArray())
+       {
+           textComponent.text += c;
+           yield return new WaitForSeconds(textSpeed);
+       }
+       if (textComponent.text == lines[index] && hasDialogueOptions == true)
+       {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                for (int i = 0; i < dialogueButtonCount; i++)
+                {
+                    dialogueButton[i].SetActive(true);
+                }
+                
+            }
+       }
     }
 
     void NextLine()
@@ -122,12 +146,31 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            //textComponent.text = string.Empty;
-            //index = 0;
-            gameObject.SetActive(false);
-            leftPortrait[index].SetActive(false);
-            rightPortrait[index].SetActive(false);
+            if (hasDialogueOptions == true)
+            {
+                for (int i = 0; i < dialogueButtonCount; i++)
+                {
+                    dialogueButton[i].SetActive(true);
+                    buttonComponent[i].text = string.Empty;
+                    buttonComponent[i].text = buttonText[i];
+                }
+            }
+            else
+            {
+                //textComponent.text = string.Empty;
+                //index = 0;
+                gameObject.SetActive(false);
+                leftPortrait[index].SetActive(false);
+                rightPortrait[index].SetActive(false);
+            }
 
         }
+    }
+
+    public void EndDialogue()
+    {
+        gameObject.SetActive(false);
+        leftPortrait[index].SetActive(false);
+        rightPortrait[index].SetActive(false);
     }
 }
