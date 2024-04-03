@@ -26,6 +26,13 @@ public class BattleMenuScript : MonoBehaviour
         SPText = playerSPTextUI.GetComponent<TextMeshProUGUI>();
         XPText = playerXPTextUI.GetComponent<TextMeshProUGUI>();
 
+        //attackTitle = playerAttackTitleTextUI.GetComponent<TextMeshProUGUI>();
+        //attackDesc = playerAttackDescTextUI.GetComponent<TextMeshProUGUI>();
+        //spinTitle = playerSpinTitleTextUI.GetComponent<TextMeshProUGUI>();
+        //spinDesc = playerSpinDescTextUI.GetComponent<TextMeshProUGUI>();
+        //itemTitle = playerItemTitleTextUI.GetComponent<TextMeshProUGUI>();
+        //itemDesc = playerItemDescTextUI.GetComponent<TextMeshProUGUI>();
+
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(menuAttack);
         //Debug.Log("Selected game object:" + EventSystem.current.currentSelectedGameObject.name);
@@ -63,6 +70,9 @@ public class BattleMenuScript : MonoBehaviour
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(enemyAttackButton1);
+        
+        //attackTitle.text = "Jump!";
+        //attackDesc.text = "Jump on the enemy and press Z at the right time to jump again and deal even more damage!";
     }
 
     public void EnemySpinSelector()
@@ -70,6 +80,9 @@ public class BattleMenuScript : MonoBehaviour
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(enemySpinButton1);
+
+        //spinTitle.text = "Spin!";
+        //spinDesc.text = "Idk what to put here yet tbh...";
     }
 
     public void ReturnMenu()
