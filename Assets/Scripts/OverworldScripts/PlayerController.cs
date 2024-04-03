@@ -7,16 +7,15 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float groundDist;
 
-    Animator animator;
-    float moving;
+    public Animator animator;
+    private float moving;
 
     public LayerMask terrainLayer;
     public Rigidbody rb;
     public SpriteRenderer sr;
     
     void Start()
-    {
-        animator = gameObject.GetComponent<Animator>();
+    {;
         rb = gameObject.GetComponent<Rigidbody>(); 
         if(BattleManager.overworldSpawn != new Vector3 (0,0,0)) RelocateAfterBattle();
     }
@@ -42,6 +41,7 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0, y);
         rb.velocity = moveDir * speed;
 
+        /*
         if (x != 0 && x < 0)
         {
             sr.flipX = true;
@@ -50,8 +50,9 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = false;
         }
+        */
 
-        moving = Mathf.Abs(x + y);
+        moving = (x*x + y*y);
         animator.SetFloat("moving", moving);
     }
 
