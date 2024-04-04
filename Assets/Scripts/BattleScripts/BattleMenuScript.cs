@@ -28,12 +28,12 @@ public class BattleMenuScript : MonoBehaviour
         SPText = playerSPTextUI.GetComponent<TextMeshProUGUI>();
         XPText = playerXPTextUI.GetComponent<TextMeshProUGUI>();
 
-        attackTitle = playerAttackTitleTextUI.GetComponent<TextMeshProUGUI>();
-        attackDesc = playerAttackDescTextUI.GetComponent<TextMeshProUGUI>();
-        spinTitle = playerSpinTitleTextUI.GetComponent<TextMeshProUGUI>();
-        spinDesc = playerSpinDescTextUI.GetComponent<TextMeshProUGUI>();
-        itemTitle = playerItemTitleTextUI.GetComponent<TextMeshProUGUI>();
-        itemDesc = playerItemDescTextUI.GetComponent<TextMeshProUGUI>();
+        //attackTitle = playerAttackTitleTextUI.GetComponent<TextMeshProUGUI>();
+        //attackDesc = playerAttackDescTextUI.GetComponent<TextMeshProUGUI>();
+        //spinTitle = playerSpinTitleTextUI.GetComponent<TextMeshProUGUI>();
+        //spinDesc = playerSpinDescTextUI.GetComponent<TextMeshProUGUI>();
+        //itemTitle = playerItemTitleTextUI.GetComponent<TextMeshProUGUI>();
+        //itemDesc = playerItemDescTextUI.GetComponent<TextMeshProUGUI>();
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(menuAttack);
@@ -71,8 +71,8 @@ public class BattleMenuScript : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(enemyAttackButton1);
         
-        attackTitle.text = "Jump!";
-        attackDesc.text = "Jump on the enemy and press Z at the right time to jump again and deal even more damage!";
+        //attackTitle.text = "Jump!";
+        //attackDesc.text = "Jump on the enemy and press Z at the right time to jump again and deal even more damage!";
     }
 
     public void EnemySpinSelector()
