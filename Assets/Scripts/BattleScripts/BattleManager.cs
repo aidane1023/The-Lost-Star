@@ -96,6 +96,10 @@ public class BattleManager : MonoBehaviour
             {
                 player.StartCoroutine("JumpAttack", enemyTarget);
             }
+            if (playerAttackName == "Spin")
+            {
+                player.StartCoroutine("SpinAttack", enemyTarget);
+            }
             //disableUI
             menuScript.battleButtonCanvas.SetActive(false);
         }
