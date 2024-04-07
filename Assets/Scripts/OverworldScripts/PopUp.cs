@@ -10,7 +10,7 @@ public class PopUp : MonoBehaviour
     
     void Update()
     {
-        if(TrainingDummy.cleared)
+        if (TrainingDummy.cleared)
         {
             if ((Vector3.Distance(player.position, this.transform.position) <= 3.3f))
             {

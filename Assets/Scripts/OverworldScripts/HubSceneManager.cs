@@ -38,7 +38,8 @@ public class HubSceneManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.H))
         {
-            SceneManager.LoadScene ("DemoHub");
+            SceneManager.LoadScene ("HUBBuild");
         }
     }
 }
+

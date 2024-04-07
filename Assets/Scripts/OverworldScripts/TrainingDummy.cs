@@ -9,7 +9,7 @@ public class TrainingDummy : MonoBehaviour
     public Transform player;
     BattleInitiator battleInitiator;
 
-    public static bool cleared = false;
+    public static bool cleared = true;
 
     void Awake()
     {
@@ -27,7 +27,7 @@ public class TrainingDummy : MonoBehaviour
             anim.SetBool("InRange", false);
         }
 
-        if ((Vector3.Distance(player.position, this.transform.position) <= 1.2f) && Input.GetKeyUp(KeyCode.Z))
+        if ((Vector3.Distance(player.position, this.transform.position) <= 2f) && Input.GetKeyUp(KeyCode.Z))
         {
             BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
             battleInitiator.InitiateBattle();
