@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask terrainLayer;
     public Rigidbody rb;
     public SpriteRenderer sr;
+
+    
     
     void Start()
     {
-       rb = gameObject.GetComponent<Rigidbody>(); 
+       rb = gameObject.GetComponent<Rigidbody>();
+
     }
 
     void Update()
@@ -45,5 +48,10 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = false;
         }
+
+      
+
     }
-}
+
+   
+ }

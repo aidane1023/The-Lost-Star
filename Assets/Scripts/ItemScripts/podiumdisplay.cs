@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 
-public class podiumdisplay : MonoBehaviour
+public class PodiumDisplay : MonoBehaviour
 {
     public Database itemDatabase;
     public SpriteRenderer displaySprite;
@@ -20,28 +20,35 @@ public class podiumdisplay : MonoBehaviour
     public float duration = 100.0f;
     private float cumulativeRotation = 0f;
     private bool interact = false;
-    private bool activeShop = false;
+    public bool activeShop = false;
     private float savedSpeed;
+    public GameObject trail;
+    private GameObject playerObject;
+
 
 
     private PlayerController playerController;
+    public ShopManager shopManager;
 
 
     private Vector3 startingPosition;
-    private bool holding = false;
+    public bool holding = false;
 
     private void Start()
     {
         startingPosition = transform.position;
         RandomDisplay();
 
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
             playerController = playerObject.GetComponent<PlayerController>();
         }
 
+
         savedSpeed = playerController.speed;
+
+
     }
 
 
@@ -55,7 +62,7 @@ public class podiumdisplay : MonoBehaviour
 
         if (holding)
         {
-           
+
             cumulativeRotation += rotationSpeed * Time.deltaTime;
             cumulativeRotation = cumulativeRotation % 360;
 
@@ -63,10 +70,14 @@ public class podiumdisplay : MonoBehaviour
             Vector3 rotatedPosition = desiredRotation * offset;
             transform.position = objectToFollow.position + rotatedPosition;
 
-            if (activeShop && Input.GetKeyDown (KeyCode.Space))
+
+
+            if (activeShop && Input.GetKeyDown(KeyCode.Space))
             {
                 Shop();
             }
+
+
         }
     }
 
@@ -74,12 +85,8 @@ public class podiumdisplay : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("shop"))
-        {
 
-            activeShop = true;
-        }
-        else if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             interact = true;
         }
@@ -87,14 +94,10 @@ public class podiumdisplay : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("shop"))
-        {
 
-            activeShop = false;
-        }
-        else if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            interact =  false;
+            interact = false;
         }
     }
 
@@ -102,7 +105,7 @@ public class podiumdisplay : MonoBehaviour
 
     private void PickUpObject()
     {
-        
+        shopManager.AddItemValue(value);
         playerController.speed = 0f;
 
         Vector3 jumpTarget = objectToFollow.position + (Vector3.right * distance);
@@ -110,33 +113,39 @@ public class podiumdisplay : MonoBehaviour
             offset = transform.position - objectToFollow.position;
             holding = true;
             playerController.speed = savedSpeed;
+
         });
+
+
     }
 
 
     private void Shop()
     {
 
-        if (money < value)
+        if (money < shopManager.TotalValue)
         {
             holding = false;
             ReturnToSender();
 
         }
-        else if (money >= value)
+        else if (money >= shopManager.TotalValue)
         {
-           
+            StartCoroutine(TrailDecay());
             playerController.speed = 0f;
             transform.DOJump(objectToFollow.position, 1, 1, 1.0f, false).OnComplete(() => {
+
                 playerController.speed = savedSpeed;
+                trail.transform.parent = playerObject.transform;
+             
                 Destroy(gameObject);
                 holding = false;
- 
+
 
             });
 
             money = money - value;
-         
+
         }
     }
 
@@ -157,4 +166,26 @@ public class podiumdisplay : MonoBehaviour
         transform.DOJump(startingPosition, 1, 1, 1.0f, false);
     }
 
+    private IEnumerator TrailDecay()
+        {
+        TrailRenderer trailRenderer = trail.GetComponent<TrailRenderer>();
+                trailRenderer.autodestruct = true;
+               
+                trailRenderer.time = 3f;
+                yield return new WaitForSeconds(0.3f);
+                trailRenderer.time = 2.5f;
+                yield return new WaitForSeconds(0.3f);
+                trailRenderer.time = 2f;
+                yield return new WaitForSeconds(0.3f);
+                trailRenderer.time = 1.5f;
+                yield return new WaitForSeconds(0.3f);
+                trailRenderer.time = 1f;
+                yield return new WaitForSeconds(0.3f);
+                trailRenderer.time = 0.5f;
+                yield return new WaitForSeconds(0.3f);
+                trailRenderer.time = 0f;
+                trailRenderer.emitting = false; 
+
+
+    }
 }
