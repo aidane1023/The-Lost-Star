@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5484063001625381436}
   - component: {fileID: 5484063001625381434}
-  - component: {fileID: 5484063001625381433}
+  - component: {fileID: 3487541907950004463}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Untagged
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!136 &5484063001625381433
-CapsuleCollider:
+--- !u!65 &3487541907950004463
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,10 +95,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.05
-  m_Height: 0.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.27, z: 0.02}
+  serializedVersion: 2
+  m_Size: {x: 0.11, y: 0.41, z: 0.01}
+  m_Center: {x: -0.000000013038516, y: 0.2524654, z: -0.000000014901161}
 --- !u!1 &5484063002409949617
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +110,6 @@ GameObject:
   - component: {fileID: 5484063002409949616}
   - component: {fileID: 5484063002409949627}
   - component: {fileID: 5484063002409949626}
-  - component: {fileID: 5484063002409949625}
   m_Layer: 0
   m_Name: Training Prototype
   m_TagString: Untagged
@@ -181,19 +179,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53fa40fc2859e4d41a944adc035b9d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
---- !u!114 &5484063002409949625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5484063002409949617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4f0c5b799bae5409b6cdad4586efea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 5484063002409949616}
