@@ -17,12 +17,12 @@ public class EnemyChase : MonoBehaviour
 
     void Update()
     {
-        if ((Vector3.Distance(player.position, this.transform.position) <= 8f))
+        if ((Vector3.Distance(player.position, this.transform.position) <= 3f))
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
 
-        if ((Vector3.Distance(player.position, this.transform.position) <= 0.2f))
+        if ((Vector3.Distance(player.position, this.transform.position) <= 0.4f))
         {
             BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
             battleInitiator.InitiateBattle();
