@@ -6,10 +6,10 @@ using TMPro;
 
 public class UIHUDScript : MonoBehaviour
 {
-    //public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI;
+    //public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI, playerCoinTextUI;
     //public GameObject player;
 
-    //TextMeshProUGUI healthText, SPText, XPText;
+    //TextMeshProUGUI healthText, SPText, XPText, coinText;
 
     //private PlayerStats playerStatsScript;
 
@@ -20,6 +20,7 @@ public class UIHUDScript : MonoBehaviour
         //healthText = playerHealthTextUI.GetComponent<TextMeshProUGUI>();
         //SPText = playerSPTextUI.GetComponent<TextMeshProUGUI>();
         //XPText = playerXPTextUI.GetComponent<TextMeshProUGUI>();
+        //coinText = playerCoinTextUI.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -28,5 +29,6 @@ public class UIHUDScript : MonoBehaviour
         //healthText.text = $"Health: {playerStatsScript.health}/{playerStatsScript.maxHealth}";
         //SPText.text = $"SP: {playerStatsScript.starPoints}/{playerStatsScript.maxStarPoints}";
         //XPText.text = $"XP: {playerStatsScript.xp}/100";
+        //coinText.text = $"Coins: {playerStatsScript.Coins}";
     }
 }
