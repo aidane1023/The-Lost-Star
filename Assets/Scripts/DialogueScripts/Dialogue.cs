@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
@@ -154,6 +155,8 @@ public class Dialogue : MonoBehaviour
                     buttonComponent[i].text = string.Empty;
                     buttonComponent[i].text = buttonText[i];
                 }
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(dialogueButton[0]);
             }
             else
             {

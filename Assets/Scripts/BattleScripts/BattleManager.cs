@@ -23,6 +23,7 @@ public class BattleManager : MonoBehaviour
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
+    public int enemyCount; //For UI enemy selectors
     public GameObject backupEnemy; //for testing
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,7 @@ public class BattleManager : MonoBehaviour
             GameObject newEnemy = Instantiate(enemy, enemySpots[x].position, Quaternion.identity);
             enemies.Add(newEnemy.GetComponent<EnemyBattler>());
             x++;
+            enemyCount++;
         }
     }
 
