@@ -317,6 +317,37 @@ Transform:
   m_Father: {fileID: 1255518244}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &121570168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121570169}
+  m_Layer: 0
+  m_Name: Follow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121570169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121570168}
+  m_LocalRotation: {x: -0.17364816, y: -0, z: -0, w: 0.9848078}
+  m_LocalPosition: {x: -0.052999973, y: 0.47705978, z: -0.045934334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1321432643}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128574640
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +646,7 @@ PrefabInstance:
     - target: {fileID: 3113565404452663492, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
       propertyPath: objectToFollow
       value: 
-      objectReference: {fileID: 1321432643}
+      objectReference: {fileID: 121570169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
 --- !u!1 &194008423
@@ -994,7 +1025,7 @@ PrefabInstance:
     - target: {fileID: 3113565404452663492, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
       propertyPath: objectToFollow
       value: 
-      objectReference: {fileID: 1321432643}
+      objectReference: {fileID: 121570169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
 --- !u!1 &301473016
@@ -1615,7 +1646,7 @@ PrefabInstance:
     - target: {fileID: 3113565404452663492, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
       propertyPath: objectToFollow
       value: 
-      objectReference: {fileID: 1321432643}
+      objectReference: {fileID: 121570169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
 --- !u!1 &781287880
@@ -1914,7 +1945,7 @@ PrefabInstance:
     - target: {fileID: 3113565404452663492, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
       propertyPath: objectToFollow
       value: 
-      objectReference: {fileID: 1321432643}
+      objectReference: {fileID: 121570169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
 --- !u!1 &838788695
@@ -2700,11 +2731,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9848078
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.17364816
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2716,7 +2747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2931,7 +2962,7 @@ PrefabInstance:
     - target: {fileID: 3113565404452663492, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
       propertyPath: objectToFollow
       value: 
-      objectReference: {fileID: 1321432643}
+      objectReference: {fileID: 121570169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
 --- !u!1 &1862936262
@@ -3472,6 +3503,6 @@ PrefabInstance:
     - target: {fileID: 3113565404452663492, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
       propertyPath: objectToFollow
       value: 
-      objectReference: {fileID: 1321432643}
+      objectReference: {fileID: 121570169}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f334ce97e1f9be4487fc78cdc046c02, type: 3}
