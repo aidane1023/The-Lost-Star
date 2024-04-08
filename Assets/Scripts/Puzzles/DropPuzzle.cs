@@ -13,6 +13,7 @@ public class DropPuzzle : MonoBehaviour
     public GameObject tube;
     public GameObject player;
     private PlayerController playerController;
+    private SphereSpawner sphereSpawner;
     private Rigidbody tubeRB;
     private float speed = 3;
     private float savedSpeed;
