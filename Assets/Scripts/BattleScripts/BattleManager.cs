@@ -86,7 +86,7 @@ public class BattleManager : MonoBehaviour
 
     public void TargetChoosen(int enemyNum) //the player selected their target and will begin attacking
     {
-        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum] != null)
+        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf)
         {
             player.playerAnimator.OnNeutral();
             gameState = GameState.PlayerAttack;
@@ -111,7 +111,7 @@ public class BattleManager : MonoBehaviour
         //check if any enemies died
         for(int i = 0; i < enemies.Count; i++)
         {
-            if(enemies[i] != null && enemies[i].health <= 0)
+            if(enemies[i].gameObject.activeSelf && enemies[i].health <= 0)
             {
                 enemies[i].gameObject.SetActive(false);
                 defeatedEnemies++;
@@ -126,10 +126,15 @@ public class BattleManager : MonoBehaviour
                 Transition();
             }
             //once all the enemies finish attacking, then it transitions back to the player turn
-            else
+            else if(enemies[enemyTurnsTaken].gameObject.activeSelf)
             {
                 enemies[enemyTurnsTaken].Attack();
                 enemyTurnsTaken++;
+            }
+            else
+            {
+                enemyTurnsTaken++;
+                EnemyAttacks();
             }
         }
     }

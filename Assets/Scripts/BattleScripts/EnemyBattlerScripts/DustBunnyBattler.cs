@@ -26,7 +26,7 @@ public class DustBunnyBattler : EnemyBattler
     {
         yield return new WaitForSeconds(1);
         GameObject newProjectile = Instantiate(projectile, projectileStart.position, Quaternion.identity);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         battleManager.EnemyAttacks();
     }
 }
