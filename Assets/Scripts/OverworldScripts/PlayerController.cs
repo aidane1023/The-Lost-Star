@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer sr;
     
     void Start()
-    {;
+    {
         rb = gameObject.GetComponent<Rigidbody>();
         if(BattleManager.overworldSpawn != new Vector3 (0,0,0)) RelocateAfterBattle();
-        if (HubSceneManager.leftHub != new Vector3 (0,0,0) && DemoSceneManager.home) RelocateAfterStage();
+        //if (HubSceneManager.leftHub != new Vector3 (0,0,0) && DemoSceneManager.home) RelocateAfterStage();
     }
 
     void Update()
@@ -44,10 +44,10 @@ public class PlayerController : MonoBehaviour
         BattleManager.overworldSpawn = new Vector3(0,0,0);   
     }
 
-    void RelocateAfterStage()
-    {
-        transform.position = HubSceneManager.leftHub;
-        HubSceneManager.leftHub = new Vector3(0,0,0);
-        DemoSceneManager.home = false;
-    }
+    //void RelocateAfterStage()
+    //{
+        //transform.position = HubSceneManager.leftHub;
+        //HubSceneManager.leftHub = new Vector3(0,0,0);
+        //DemoSceneManager.home = false;
+    //}
 }
