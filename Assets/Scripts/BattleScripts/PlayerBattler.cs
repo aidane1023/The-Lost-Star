@@ -148,7 +148,7 @@ public class PlayerBattler : MonoBehaviour
         attackHandler.isCharging = true;
         attackHandler.chargeRate = 50;
         keyCorrect = false;
-        yield return new WaitUntil (() => keyCorrect);
+        yield return new WaitUntil (() => keyCorrect || attackHandler.chargeAmount >= 107);
         if(attackHandler.chargeAmount >= attackHandler.chargeThreshholdMax || attackHandler.chargeAmount < attackHandler.chargeThreshholdMin)
         {
             //timed incorrectly
