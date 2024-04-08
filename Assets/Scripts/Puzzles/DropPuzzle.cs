@@ -13,11 +13,12 @@ public class DropPuzzle : MonoBehaviour
     public GameObject tube;
     public GameObject player;
     private PlayerController playerController;
-    private SphereSpawner sphereSpawner;
+
     private Rigidbody tubeRB;
     private float speed = 3;
     private float savedSpeed;
     public GameObject spawner;
+    public GameObject sphere;
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
@@ -28,9 +29,10 @@ public class DropPuzzle : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         savedSpeed = playerController.speed;
     }
+
     private void Update()
     {
-       
+        
 
         if (inRange && Input.GetKeyDown(KeyCode.F))
         {
@@ -47,8 +49,14 @@ public class DropPuzzle : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             Vector3 moveDir = new Vector3(x, 0, 0);
             tubeRB.velocity = moveDir * speed;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(sphere, spawner.transform.position, spawner.transform.rotation);
+            }
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -64,6 +72,7 @@ public class DropPuzzle : MonoBehaviour
             inRange = false;
         }
     }
+
     IEnumerator WaitActive()
     {
         playerController.speed = 0;

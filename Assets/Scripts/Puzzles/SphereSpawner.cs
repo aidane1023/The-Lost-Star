@@ -5,8 +5,9 @@ using UnityEngine;
 public class SphereSpawner : MonoBehaviour
 {
     public GameObject sphere;
+  
 
-    private void SpawnSphere()
+    public void SpawnSphere()
     {
         Instantiate(sphere);
     }
