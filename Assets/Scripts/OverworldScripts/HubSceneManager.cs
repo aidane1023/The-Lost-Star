@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class HubSceneManager : MonoBehaviour
 {
     public int scene;
+    public static Vector3 leftHub;
 
     public Transform player;
 
@@ -18,9 +19,11 @@ public class HubSceneManager : MonoBehaviour
                 switch (scene)
                 {
                 case 0:
-                    SceneManager.LoadScene ("Shop");
+                    leftHub = player.position;
+                    SceneManager.LoadScene ("BearShop");
                     break;
                 case 1:
+                    leftHub = player.position;
                     SceneManager.LoadScene ("LevelOne");
                     break;
                 case 2:
@@ -34,11 +37,6 @@ public class HubSceneManager : MonoBehaviour
                     break;
                 }   
             }
-        }
-
-        if (Input.GetKeyUp(KeyCode.H))
-        {
-            SceneManager.LoadScene ("HUBBuild");
         }
     }
 }

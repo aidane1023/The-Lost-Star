@@ -18,14 +18,13 @@ public class NPCBehavior : MonoBehaviour
         //for (int i = 0; i < dialogueCount; i++)
        // {
             dialogue = dialogueObjects[0].GetComponent<Dialogue>();
+            playerController = player.GetComponent<PlayerController>();
        // }
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerController = player.GetComponent<PlayerController>();
-
         if ((Vector3.Distance(player.transform.position, this.transform.position) <= 3f) && Input.GetKeyUp(KeyCode.Z) && !textPlaying)
         {
             playerAnimator.SetFloat("moving", 0);
