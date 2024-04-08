@@ -6,12 +6,13 @@ public class NPCBehavior : MonoBehaviour
 {
     public GameObject player;
     PlayerController playerController;
-    public GameObject[] dialogueObjects;
+    public GameObject[] dialogueObjects, interactObjects;
     private Dialogue dialogue;
     bool textPlaying = false;
     public Animator playerAnimator;
     public int dialogueCount;
     int index = 0;
+    float timer = 0f;
     
     void Start()
     {
@@ -32,16 +33,27 @@ public class NPCBehavior : MonoBehaviour
             player.GetComponent<PlayerController>().enabled = false;
             textPlaying = true;
             dialogueObjects[0].SetActive(true);
+            interactObjects[0].SetActive(false);
             dialogue.DialogueTriggered();
         }
         if ((dialogue.dialogueEnded == true) && (textPlaying == true))
         {
-            Debug.Log("Dialogue ended.");
-            playerController.speed = 2f;
-            //index = 2;
-            player.GetComponent<PlayerController>().enabled = true;
-            textPlaying = false;
-            //Reset();
+            if (timer < 2.0f)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                Debug.Log("Dialogue ended.");
+                playerController.speed = 2f;
+                //index = 2;
+                player.GetComponent<PlayerController>().enabled = true;
+                timer = 0f;
+                interactObjects[0].SetActive(true);
+                textPlaying = false;
+                //Reset();
+            }
+
         }
         
     }
