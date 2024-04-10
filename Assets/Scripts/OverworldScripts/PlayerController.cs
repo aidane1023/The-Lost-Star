@@ -7,14 +7,17 @@ public class PlayerController : MonoBehaviour
     public float speed;
 
     public Animator animator;
+    private float movingX;
     private float moving;
+    private bool flip;
     public Rigidbody rb;
     public SpriteRenderer sr;
     
     void Start()
-    {;
-        rb = gameObject.GetComponent<Rigidbody>(); 
+    {
+        rb = gameObject.GetComponent<Rigidbody>();
         if(BattleManager.overworldSpawn != new Vector3 (0,0,0)) RelocateAfterBattle();
+        //if (HubSceneManager.leftHub != new Vector3 (0,0,0) && DemoSceneManager.home) RelocateAfterStage();
     }
 
     void Update()
@@ -26,15 +29,18 @@ public class PlayerController : MonoBehaviour
 
         if (x != 0 && x < 0)
         {
+            flip = true;
             sr.flipX = true;
         }
         else if (x != 0 && x > 0)
         {
+            flip = false;
             sr.flipX = false;
         }
 
         moving = (x*x + y*y);
         animator.SetFloat("moving", moving);
+        animator.SetBool("flip", flip);
     }
 
     void RelocateAfterBattle()
@@ -42,5 +48,12 @@ public class PlayerController : MonoBehaviour
         transform.position = BattleManager.overworldSpawn;
         BattleManager.overworldSpawn = new Vector3(0,0,0);   
     }
+
+    //void RelocateAfterStage()
+    //{
+        //transform.position = HubSceneManager.leftHub;
+        //HubSceneManager.leftHub = new Vector3(0,0,0);
+        //DemoSceneManager.home = false;
+    //}
 }
 

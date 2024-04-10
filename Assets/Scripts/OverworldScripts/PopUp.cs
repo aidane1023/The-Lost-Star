@@ -10,13 +10,17 @@ public class PopUp : MonoBehaviour
     
     void Update()
     {
-        if ((Vector3.Distance(player.position, this.transform.position) <= 3.3f))
+        if (TrainingDummy.cleared)
         {
-            anim.SetBool("InRange", true);
+            if ((Vector3.Distance(player.position, this.transform.position) <= 3.3f))
+            {
+                anim.SetBool("InRange", true);
+            }
+            else
+            {
+                anim.SetBool("InRange", false);
+            }
         }
-        else
-        {
-            anim.SetBool("InRange", false);
-        }
+        
     }
 }

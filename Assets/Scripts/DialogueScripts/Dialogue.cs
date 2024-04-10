@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
@@ -25,11 +26,13 @@ public class Dialogue : MonoBehaviour
 
     public int defaultTextSize;
     public int effectTextSize;
+    public bool dialogueEnded = false;
 
     // Start is called before the first frame update
     public void DialogueTriggered()
     {
         index = 0;
+        dialogueEnded = false;
         textComponent.text = string.Empty;
         nameComponent.text = string.Empty;
         leftPortrait[index].SetActive(true);
@@ -154,6 +157,8 @@ public class Dialogue : MonoBehaviour
                     buttonComponent[i].text = string.Empty;
                     buttonComponent[i].text = buttonText[i];
                 }
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(dialogueButton[0]);
             }
             else
             {
@@ -169,6 +174,7 @@ public class Dialogue : MonoBehaviour
 
     public void EndDialogue()
     {
+        dialogueEnded = true;
         gameObject.SetActive(false);
         leftPortrait[index].SetActive(false);
         rightPortrait[index].SetActive(false);
