@@ -14,11 +14,15 @@ public class DropPuzzle : MonoBehaviour
     public GameObject player;
     private PlayerController playerController;
 
+
     private Rigidbody tubeRB;
     private float speed = 3;
     private float savedSpeed;
     public GameObject spawner;
     public GameObject sphere;
+    public bool delete = false;
+    private CountManager manager;
+    public GameObject managerObject;
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
@@ -28,6 +32,7 @@ public class DropPuzzle : MonoBehaviour
         tubeRB = tube.GetComponent<Rigidbody>();
         playerController = player.GetComponent<PlayerController>();
         savedSpeed = playerController.speed;
+        manager = managerObject.GetComponent<CountManager>();
     }
 
     private void Update()
@@ -44,6 +49,12 @@ public class DropPuzzle : MonoBehaviour
 
         }
 
+        if (inRange && Input.GetKeyDown(KeyCode.Escape))
+            { secondaryCamera.Priority = 10;
+            primaryCamera.Priority = 20;
+            StartCoroutine(Finished());
+            }
+
         if (active)
         {
             float x = Input.GetAxis("Horizontal");
@@ -52,8 +63,18 @@ public class DropPuzzle : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(sphere, spawner.transform.position, spawner.transform.rotation);
+             Instantiate(sphere, spawner.transform.position+Random.onUnitSphere*0.1f, spawner.transform.rotation);
             }
+
+            if (manager.box1Count == 1 && manager.box2Count == 2 && manager.box3Count == 3)
+            {
+                active = false;
+                secondaryCamera.Priority = 10;
+                primaryCamera.Priority = 20;
+                StartCoroutine(Finished());
+            }
+
+           
         }
     }
 
@@ -78,5 +99,12 @@ public class DropPuzzle : MonoBehaviour
         playerController.speed = 0;
         yield return new WaitForSeconds(2);
         active = true;
+    }
+    IEnumerator Finished()
+    {
+        
+        yield return new WaitForSeconds(2);
+        playerController.speed = savedSpeed;
+        active = false;
     }
 }
