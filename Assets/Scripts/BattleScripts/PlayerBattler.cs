@@ -10,15 +10,18 @@ public class PlayerBattler : MonoBehaviour
     BattleManager battleManager;
     [HideInInspector]
     public PlayerBattlerAnimator playerAnimator;
+    [HideInInspector]
+    public PlayerAttacksHandler attackHandler;
 
     public GameObject damageStar; //the icon that shows damage dealt
     public DefenseMode defenseMode;
 
-    public float health = 10;
-    public float maxHealth = 10;
-    public float starPoints = 5;
-    public float maxStarPoints = 5;//skill points
-    public float xp; //max is 100
+    public static float health = 10;
+    public static float maxHealth = 10;
+    public static float starPoints = 5;
+    public static float maxStarPoints = 5;//skill points
+    public static float xp; //max is 100
+    public static float coins; 
     public float jumpAttackPower = 1;
     public float spinAttackPower = 2;
     public float defense = 0;
@@ -32,6 +35,7 @@ public class PlayerBattler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        attackHandler = GetComponent<PlayerAttacksHandler>();
         battleManager = GameObject.FindObjectOfType<BattleManager>();
         playerSpot = GameObject.Find("PlayerSpot").transform;
         playerAnimator = GetComponent<PlayerBattlerAnimator>();
@@ -54,6 +58,22 @@ public class PlayerBattler : MonoBehaviour
                     keyCooldown = true;
                     StartCoroutine("KeyCooldownTimer");
                 }
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (actionKeyNeeded == "left" && !keyCooldown)
+                {
+                    keyCorrect = true;
+                }
+                Debug.Log("Left Arrow Pressed");
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                if (actionKeyNeeded == "left" && !keyCooldown)
+                {
+                    keyCorrect = true;
+                }
+                Debug.Log("Left Arrow Lifted");
             }
         }
 
@@ -107,6 +127,45 @@ public class PlayerBattler : MonoBehaviour
         transform.DOMove(playerSpot.position, 1f, false);
         yield return new WaitForSeconds(1f);
         keyCorrect = false;
+        battleManager.Transition();
+
+    }
+
+    public IEnumerator SpinAttack(EnemyBattler enemy)
+    {
+        playerAnimator.OnNeutral();
+
+
+        actionKeyNeeded = "";
+        battleManager.gameState = GameState.PlayerAttack;
+        transform.DOMove(enemy.inFront.position, 1f, false);
+        yield return new WaitForSeconds(1f);
+        keyCorrect = false;
+        actionKeyNeeded = "left";
+        attackHandler.chargeUI.SetActive(true);
+        attackHandler.chargeAmount = 0;
+        attackHandler.chargeMeter.fillAmount = attackHandler.chargeAmount/100;
+        yield return new WaitUntil (() => keyCorrect);
+        attackHandler.isCharging = true;
+        attackHandler.chargeRate = 50;
+        keyCorrect = false;
+        yield return new WaitUntil (() => keyCorrect || attackHandler.chargeAmount >= 107);
+        if(attackHandler.chargeAmount >= attackHandler.chargeThreshholdMax || attackHandler.chargeAmount < attackHandler.chargeThreshholdMin)
+        {
+            //timed incorrectly
+            enemy.RecieveDamage(spinAttackPower/2);
+        }
+        else
+        {
+            enemy.RecieveDamage(spinAttackPower);
+        }
+        actionKeyNeeded = "";
+        keyCorrect = false;
+        attackHandler.chargeUI.SetActive(false);
+        attackHandler.isCharging = false;
+        attackHandler.chargeAmount = 0;
+        transform.DOMove(playerSpot.position, 1f, false);
+        yield return new WaitForSeconds(1f);
         battleManager.Transition();
 
     }

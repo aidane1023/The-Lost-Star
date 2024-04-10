@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -11,15 +12,20 @@ public class BattleManager : MonoBehaviour
     PlayerBattler player;
     public List<EnemyBattler> enemies; //all enemies in a scene
     int enemyTurnsTaken;
+    int defeatedEnemies = 0;
 
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
     public EnemyBattler target; //current enemy being targeted for an attack
 
+    public static int sceneToLoad = 0;
     public static List<GameObject> enemiesToSpawn = new List<GameObject>(); //make static eventually
+    public static Vector3 overworldSpawn;
+    public static int enemyID = -1;
     public List<Transform> enemySpots;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
+    public int enemyCount; //For UI enemy selectors
     public GameObject backupEnemy; //for testing
     // Start is called before the first frame update
     void Start()
@@ -54,16 +60,12 @@ public class BattleManager : MonoBehaviour
             GameObject newEnemy = Instantiate(enemy, enemySpots[x].position, Quaternion.identity);
             enemies.Add(newEnemy.GetComponent<EnemyBattler>());
             x++;
+            enemyCount++;
         }
     }
 
     public void Transition()
     {
-        //check if any enemies died
-        //foreach (EnemyBattler enemy in enemies)
-        //{
-
-        //}
         if (gameState == GameState.PlayerAttack)
         {
             gameState = GameState.EnemyTurn;
@@ -84,7 +86,7 @@ public class BattleManager : MonoBehaviour
 
     public void TargetChoosen(int enemyNum) //the player selected their target and will begin attacking
     {
-        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum] != null)
+        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf)
         {
             player.playerAnimator.OnNeutral();
             gameState = GameState.PlayerAttack;
@@ -92,6 +94,10 @@ public class BattleManager : MonoBehaviour
             if (playerAttackName == "Jump")
             {
                 player.StartCoroutine("JumpAttack", enemyTarget);
+            }
+            if (playerAttackName == "Spin")
+            {
+                player.StartCoroutine("SpinAttack", enemyTarget);
             }
             //disableUI
             menuScript.battleButtonCanvas.SetActive(false);
@@ -102,16 +108,47 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyAttacks()
     {
-        if (enemyTurnsTaken == enemies.Count)
+        //check if any enemies died
+        for(int i = 0; i < enemies.Count; i++)
         {
-            enemyTurnsTaken = 0;
-            Transition();
+            if(enemies[i].gameObject.activeSelf && enemies[i].health <= 0)
+            {
+                enemies[i].gameObject.SetActive(false);
+                defeatedEnemies++;
+            }
         }
-        //once all the enemies finish attacking, then it transitions back to the player turn
+        if(defeatedEnemies >= enemies.Count) BattleEnd(false);
         else
         {
-            enemies[enemyTurnsTaken].Attack();
-            enemyTurnsTaken++;
+            if (enemyTurnsTaken == enemies.Count)
+            {
+                enemyTurnsTaken = 0;
+                Transition();
+            }
+            //once all the enemies finish attacking, then it transitions back to the player turn
+            else if(enemies[enemyTurnsTaken].gameObject.activeSelf)
+            {
+                enemies[enemyTurnsTaken].Attack();
+                enemyTurnsTaken++;
+            }
+            else
+            {
+                enemyTurnsTaken++;
+                EnemyAttacks();
+            }
+        }
+    }
+
+    public void BattleEnd(bool fled)
+    {
+        if(fled)
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            //gain xp and make the enemy die via battle initiator
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }
