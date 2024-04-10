@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private bool flip;
     public Rigidbody rb;
     public SpriteRenderer sr;
+
+    public static bool frozen = false;
     
     void Start()
     {
@@ -27,18 +29,18 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0, y);
         rb.velocity = moveDir * speed;
 
-        if (x != 0 && x < 0)
+        if (x != 0 && x < 0 && speed > 0)
         {
             flip = true;
             sr.flipX = true;
         }
-        else if (x != 0 && x > 0)
+        else if (x != 0 && x > 0 && speed > 0)
         {
             flip = false;
             sr.flipX = false;
         }
 
-        moving = (x*x + y*y);
+        moving = (x*x + y*y)*speed;
         animator.SetFloat("moving", moving);
         animator.SetBool("flip", flip);
     }
