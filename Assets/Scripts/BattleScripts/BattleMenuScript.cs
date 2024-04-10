@@ -9,6 +9,7 @@ using TMPro;
 public class BattleMenuScript : MonoBehaviour
 {
     public GameObject menuAttack, menuSpin, menuSkill, menuRun, menuBag;
+    public GameObject[] backButtons;
     //public GameObject inventoryButton1;
 
     //TheCanvas
@@ -25,6 +26,8 @@ public class BattleMenuScript : MonoBehaviour
     Image xpBarColorFill;
     
     private Image attackColor, spinColor, skillColor, runColor, bagColor;
+    private Image[] backColor;
+    int buttonLength;
 
     Color notSelectedColor = new Color(0.3f, 0.3f, 0.3f, 1f);
     Color selectedColor = new Color(1f, 1f, 1f, 1f);
@@ -64,7 +67,7 @@ public class BattleMenuScript : MonoBehaviour
         //Debug.Log("Selected game object:" + EventSystem.current.currentSelectedGameObject);
         selectedOption = EventSystem.current.currentSelectedGameObject;
         //Debug.Log("Selected game object: " + selectedOption);
-        
+
     }
 
     void menuAnimator()
@@ -90,6 +93,15 @@ public class BattleMenuScript : MonoBehaviour
             {
                 enemyAttackSelectorButtons[i].SetActive(true);
             }
+
+        buttonLength = backButtons.Length; // FIX THIS SHIT!!!!! NOW!!!!
+        for (int i = 0; i < buttonLength; i++)
+        {
+            if (backButtons[i].activeSelf == true && backColor[i] != null)
+            {
+                backColor[i] = backButtons[i].GetComponent<Image>();
+            }
+        }
 
         attackTitle.text = "Jump!";
         attackDesc.text = "Jump on the enemy and press Z at the right time to jump again and deal even more damage!";
@@ -145,6 +157,11 @@ public class BattleMenuScript : MonoBehaviour
                 bagColor.color = selectedColor;
                 Debug.Log("Bag Sprite Color Changed");
                 break;
+
+            //case "Back 1":
+            //    backColor[0].color = selectedColor;
+            //    Debug.Log("Attack Selector Back Button Color Changed");
+            //    break;
 
             case "default":
                 break;
