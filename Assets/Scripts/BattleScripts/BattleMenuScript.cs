@@ -16,7 +16,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI, xpBarUI, playerAttackTitleTextUI, playerAttackDescTextUI, playerSpinTitleTextUI, playerSpinDescTextUI, playerItemTitleTextUI, playerItemDescTextUI;
     public GameObject player, battleManager;
-    private PlayerBattler playerBattlerScript;
+    //private PlayerBattler PlayerBattler;
     private BattleManager battleManagerScript;
     GameObject selectedOption, savedOption;
     public GameObject[] enemyAttackSelectorButtons, enemySpinSelectorButtons, inventoryButtons;
@@ -31,7 +31,7 @@ public class BattleMenuScript : MonoBehaviour
 
     void Start()
     {
-        playerBattlerScript = player.GetComponent<PlayerBattler>();
+        //PlayerBattler = player.GetComponent<PlayerBattler>();
         battleManagerScript = battleManager.GetComponent<BattleManager>();
         healthText = playerHealthTextUI.GetComponent<TextMeshProUGUI>();
         SPText = playerSPTextUI.GetComponent<TextMeshProUGUI>();
@@ -57,10 +57,10 @@ public class BattleMenuScript : MonoBehaviour
 
     void Update()
     {
-        healthText.text = $"HP: {playerBattlerScript.health}/{playerBattlerScript.maxHealth}";
-        SPText.text = $"SP: {playerBattlerScript.starPoints}/{playerBattlerScript.maxStarPoints}"; 
-        XPText.text = $"XP: {Mathf.Round(playerBattlerScript.xp)}/100";  
-        xpBarColorFill.fillAmount = (playerBattlerScript.xp/100);
+        healthText.text = $"HP: {PlayerBattler.health}/{PlayerBattler.maxHealth}";
+        SPText.text = $"SP: {PlayerBattler.starPoints}/{PlayerBattler.maxStarPoints}"; 
+        XPText.text = $"XP: {Mathf.Round(PlayerBattler.xp)}/100";  
+        xpBarColorFill.fillAmount = (PlayerBattler.xp/100);
         //Debug.Log("Selected game object:" + EventSystem.current.currentSelectedGameObject);
         selectedOption = EventSystem.current.currentSelectedGameObject;
         //Debug.Log("Selected game object: " + selectedOption);
