@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
         Vector3 moveDir = new Vector3(x, 0, y);
         rb.velocity = moveDir * speed;
 
@@ -58,3 +58,4 @@ public class PlayerController : MonoBehaviour
         //DemoSceneManager.home = false;
     //}
 }
+
