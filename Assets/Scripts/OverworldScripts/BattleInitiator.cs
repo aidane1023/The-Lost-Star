@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class BattleInitiator : MonoBehaviour
 {
     public GameObject[] battlers;
+    public GameObject[] pickups;
     public bool isGrunt = false;
     public int enemyID = -1;
     // Start is called before the first frame update
@@ -32,6 +33,11 @@ public class BattleInitiator : MonoBehaviour
     {
         BattleManager.enemyID = -1;
         OverworldEnemyManager.enemiesDefeated.Add(enemyID);
+        foreach(GameObject pickup in pickups)
+        {
+            Instantiate(pickup, transform.position, Quaternion.identity);
+            Debug.Log("Made A Coin");
+        }
         Destroy(this.gameObject);
     }
 }
