@@ -11,7 +11,7 @@ public class PodiumDisplay : MonoBehaviour
     public float itemScale = 4;
     public Transform objectToFollow;
     public Vector3 offset;
-    public int money = 10;
+    public static int money = 100;
     public int value;
     public float distance = 1f;
     public float rotationSpeed = 200f;
