@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BattleMenuScript : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class BattleMenuScript : MonoBehaviour
     public GameObject[] backButtons;
 
     //TheCanvas
-    public GameObject battleButtonCanvas;
+    public GameObject battleButtonCanvas, winScreen, promptImage;
 
     public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI, xpBarUI, playerAttackTitleTextUI, 
     playerAttackDescTextUI, playerSpinTitleTextUI, playerSpinDescTextUI, playerItemTitleTextUI, playerItemDescTextUI,
@@ -29,6 +30,7 @@ public class BattleMenuScript : MonoBehaviour
     private Image attackColor, spinColor, skillColor, runColor, bagColor;
     private Image[] backColor;
     int buttonLength;
+    float timer;
 
     Color notSelectedColor = new Color(0.66f, 0.66f, 0.66f, 1f);
     Color selectedColor = new Color(1f, 1f, 1f, 1f);
@@ -77,7 +79,30 @@ public class BattleMenuScript : MonoBehaviour
         //Debug.Log("Selected game object:" + EventSystem.current.currentSelectedGameObject);
         selectedOption = EventSystem.current.currentSelectedGameObject;
         //Debug.Log("Selected game object: " + selectedOption);
+        
+        if (battleManagerScript.battleWon == true)
+        {
+            battleButtonCanvas.SetActive(true);
+            menuAttack.SetActive(false);
+            menuSpin.SetActive(false);
+            menuSkill.SetActive(false);
+            menuRun.SetActive(false);
+            menuBag.SetActive(false);
+            winScreen.SetActive(true);
 
+            if (timer < 2.0f)
+            {
+                timer += Time.deltaTime;
+            }
+            else 
+            {
+                promptImage.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    SceneManager.LoadScene(BattleManager.sceneToLoad);
+                }
+            }
+        }
     }
 
     void menuAnimator()
