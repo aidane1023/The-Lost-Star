@@ -31,3 +31,9 @@ public class PlayerAttacksHandler : MonoBehaviour
         }
     }
 }
+
+public enum AttackName
+{
+    Null,
+    Pin
+}

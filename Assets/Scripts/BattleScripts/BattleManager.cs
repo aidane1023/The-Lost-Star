@@ -7,6 +7,8 @@ public class BattleManager : MonoBehaviour
 {
     public GameState gameState = GameState.Transition;
 
+    public static PlayerInventory inventory;
+
     BattleMenuScript menuScript;
 
     PlayerBattler player;
@@ -21,7 +23,10 @@ public class BattleManager : MonoBehaviour
     public static List<GameObject> enemiesToSpawn = new List<GameObject>(); //make static eventually
     public static Vector3 overworldSpawn;
     public static int enemyID = -1;
+    public static int level = 0; //dictates which setpieces spawn
     public List<Transform> enemySpots;
+
+    public List<GameObject> setPieces;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
@@ -35,6 +40,8 @@ public class BattleManager : MonoBehaviour
         StartCoroutine("BattleStart");
         if(enemiesToSpawn.Count == 0) enemiesToSpawn.Add(backupEnemy);
         InitialSpawn();
+
+        setPieces[level].SetActive(true);
     }
 
     // Update is called once per frame

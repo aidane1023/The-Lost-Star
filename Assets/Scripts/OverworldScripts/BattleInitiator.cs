@@ -9,6 +9,7 @@ public class BattleInitiator : MonoBehaviour
     public GameObject[] pickups;
     public bool isGrunt = false;
     public int enemyID = -1;
+    public int level = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class BattleInitiator : MonoBehaviour
             BattleManager.enemiesToSpawn.Add(enemy);
         }
         BattleManager.enemyID = enemyID;
+        BattleManager.level = level;
         SceneManager.LoadScene ("BattleScene");
     }
 
