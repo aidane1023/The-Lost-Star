@@ -16,11 +16,12 @@ public class PlayerBattler : MonoBehaviour
     public GameObject damageStar; //the icon that shows damage dealt
     public DefenseMode defenseMode;
 
-    public float health = 10;
-    public float maxHealth = 10;
-    public float starPoints = 5;
-    public float maxStarPoints = 5;//skill points
-    public float xp; //max is 100
+    public static float health = 10;
+    public static float maxHealth = 10;
+    public static float starPoints = 5;
+    public static float maxStarPoints = 5;//skill points
+    public static float xp; //max is 100
+    public static float coins; 
     public float jumpAttackPower = 1;
     public float spinAttackPower = 2;
     public float defense = 0;
