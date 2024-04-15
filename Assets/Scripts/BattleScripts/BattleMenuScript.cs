@@ -28,8 +28,8 @@ public class BattleMenuScript : MonoBehaviour
     Image xpBarColorFill;
     
     private Image attackColor, spinColor, skillColor, runColor, bagColor;
-    private Image[] backColor;
-    int buttonLength;
+    private Image[] backColor, skillButtonColor;
+    int backButtonLength, skillButtonLength;
     float timer;
 
     Color notSelectedColor = new Color(0.66f, 0.66f, 0.66f, 1f);
@@ -66,8 +66,10 @@ public class BattleMenuScript : MonoBehaviour
 
         battleButtonCanvas.SetActive(false);
 
-        buttonLength = backButtons.Length; // ok it's fixed now I think
-        backColor = new Image[buttonLength];
+        backButtonLength = backButtons.Length; // ok it's fixed now I think
+        backColor = new Image[backButtonLength];
+        skillButtonLength = skillButtons.Length; // ok it's fixed now I think
+        skillButtonColor = new Image[skillButtonLength];
     }
 
     void Update()
@@ -218,7 +220,7 @@ public class BattleMenuScript : MonoBehaviour
                     backColor[2] = backButtons[2].GetComponent<Image>();
                     Debug.Log("Back Button Component");
                 }
-                backColor[0].color = selectedColor;
+                backColor[2].color = selectedColor;
                 //Debug.Log("Inventory Back Button Color Changed");
                 break;
             
@@ -268,7 +270,7 @@ public class BattleMenuScript : MonoBehaviour
             case "Back Attack":
                 if (backColor[0] == null){
                     backColor[0] = backButtons[0].GetComponent<Image>();
-                    Debug.Log("Back Button Component");
+                    Debug.Log("Back Button Image Component Cached");
                 }
                 backColor[0].color = notSelectedColor;
                 //Debug.Log("Attack Selector Back Button Color Changed");
@@ -277,7 +279,7 @@ public class BattleMenuScript : MonoBehaviour
             case "Back Spin":
                 if (backColor[1] == null){
                     backColor[1] = backButtons[1].GetComponent<Image>();
-                    Debug.Log("Back Button Component");
+                    Debug.Log("Back Button Image Component Cached");
                 }
                 backColor[1].color = notSelectedColor;
                 //Debug.Log("Spin Selector Back Button Color Changed");
@@ -286,20 +288,48 @@ public class BattleMenuScript : MonoBehaviour
             case "Back Inventory":
                 if (backColor[2] == null){
                     backColor[2] = backButtons[2].GetComponent<Image>();
-                    Debug.Log("Back Button Component");
+                    Debug.Log("Back Button Image Component Cached");
                 }
-                backColor[0].color = notSelectedColor;
+                backColor[2].color = notSelectedColor;
                 //Debug.Log("Inventory Back Button Color Changed");
                 break;
             
             case "Back Skill":
                 if (backColor[3] == null){
                     backColor[3] = backButtons[3].GetComponent<Image>();
-                    Debug.Log("Back Button Component");
+                    Debug.Log("Back Button Image Component Cached");
                 }
                 backColor[3].color = notSelectedColor;
                 //Debug.Log("Skill Back Button Color Changed");
                 break;
+
+            case "Skill 1":
+                if (skillButtonColor[0] == null)
+                {
+                    skillButtonColor[0] = skillButtons[0].GetComponent<Image>();
+                    Debug.Log("Skill Button Image Component Cached");
+                }
+                skillButtonColor[0].color = skillNotSelectedColor;
+                break;
+
+            case "Skill 2":
+                if (skillButtonColor[1] == null)
+                {
+                    skillButtonColor[1] = skillButtons[1].GetComponent<Image>();
+                    Debug.Log("Skill Button Image Component Cached");
+                }
+                skillButtonColor[1].color = skillNotSelectedColor;
+                break;
+
+            case "Skill 3":
+                if (skillButtonColor[2] == null)
+                {
+                    skillButtonColor[2] = skillButtons[2].GetComponent<Image>();
+                    Debug.Log("Skill Button Image Component Cached");
+                }
+                skillButtonColor[2].color = skillNotSelectedColor;
+                break;
+
 
             case "default":
                 break;  
@@ -364,51 +394,34 @@ public class BattleMenuScript : MonoBehaviour
             case 1:
                 skillTitle.text = "Skill Title 1";
                 skillDesc.text = "Skill Description 1";
+                if (skillButtonColor[0] == null)
+                {
+                    skillButtonColor[0] = skillButtons[0].GetComponent<Image>();
+                    Debug.Log("Skill Button Image Component Cached");
+                }
+                skillButtonColor[0].color = skillSelectedColor;
                 break;
 
             case 2:
                 skillTitle.text = "Skill Title 2";
                 skillDesc.text = "Skill Description 2";
+                if (skillButtonColor[1] == null)
+                {
+                    skillButtonColor[1] = skillButtons[1].GetComponent<Image>();
+                    Debug.Log("Skill Button Image Component Cached");
+                }
+                skillButtonColor[1].color = skillSelectedColor;
                 break;
             
             case 3:
                 skillTitle.text = "Skill Title 3";
                 skillDesc.text = "Skill Description 3";
-                break;
-
-            case 4:
-                skillTitle.text = "Skill Title 4";
-                skillDesc.text = "Skill Description 4";
-                break;
-
-            case 5:
-                skillTitle.text = "Skill Title 5";
-                skillDesc.text = "Skill Description 5";
-                break;
-
-            case 6:
-                skillTitle.text = "Skill Title 6";
-                skillDesc.text = "Skill Description 6";
-                break;
-
-            case 7:
-                skillTitle.text = "Skill Title 7";
-                skillDesc.text = "Skill Description 7";
-                break;
-
-            case 8:
-                skillTitle.text = "Skill Title 8";
-                skillDesc.text = "Skill Description 8";
-                break;
-
-            case 9:
-                skillTitle.text = "Skill Title 9";
-                skillDesc.text = "Skill Description 9";
-                break;
-
-            case 10:
-                skillTitle.text = "Skill Title 10";
-                skillDesc.text = "Skill Description 10";
+                if (skillButtonColor[2] == null)
+                {
+                    skillButtonColor[2] = skillButtons[2].GetComponent<Image>();
+                    Debug.Log("Skill Button Image Component Cached");
+                }
+                skillButtonColor[2].color = skillSelectedColor;
                 break;
 
             default:
