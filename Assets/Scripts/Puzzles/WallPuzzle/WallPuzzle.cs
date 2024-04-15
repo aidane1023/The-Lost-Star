@@ -69,7 +69,7 @@ public class WallPuzzle : MonoBehaviour
         if (activeBall == null)
         {
             win = true;
-            StartCoroutine(Finished());
+            active = false;
         }
     }
 
