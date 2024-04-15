@@ -17,6 +17,7 @@ public class TiltPuzzle : MonoBehaviour
     public GameObject spawner;
     private bool noActiveBall = true;
     private GameObject activeBall = null;
+    public bool win;
 
 
 
@@ -43,16 +44,16 @@ public class TiltPuzzle : MonoBehaviour
     {
 
 
-        if (inRange && Input.GetKeyDown(KeyCode.F))
+        if (inRange && Input.GetKeyDown(KeyCode.F) && win != true)
         {
             secondaryCamera.Priority = 20;
-            primaryCamera.Priority = 10;
+            primaryCamera.Priority = 0;
             StartCoroutine(WaitActive());
         }
 
         if (inRange && Input.GetKeyDown(KeyCode.Escape))
         {
-            secondaryCamera.Priority = 10;
+            secondaryCamera.Priority = 0;
             primaryCamera.Priority = 20;
             StartCoroutine(Finished());
         }
@@ -85,7 +86,7 @@ public class TiltPuzzle : MonoBehaviour
         {
             noActiveBall = true;
            
-            cam3.Priority = 10;
+            cam3.Priority = 0;
         }
     }
 
@@ -98,7 +99,12 @@ public class TiltPuzzle : MonoBehaviour
 
         if (other.gameObject.CompareTag("ball") && activeBall != null)
         {
-            Debug.Log("Win condition met!");
+            win = true;
+            cam3.Priority = 0;
+            secondaryCamera.Priority = 0;
+            primaryCamera.Priority = 20;
+            StartCoroutine(Finished());
+
         }
     }
 
