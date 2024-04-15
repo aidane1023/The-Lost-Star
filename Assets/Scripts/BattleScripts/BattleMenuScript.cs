@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class BattleMenuScript : MonoBehaviour
 {
     public GameObject menuAttack, menuSpin, menuSkill, menuRun, menuBag;
-    public GameObject[] backButtons;
+    public GameObject[] backButtons, menuBgs;
 
     //TheCanvas
     public GameObject battleButtonCanvas, winScreen, promptImage;
@@ -82,6 +82,15 @@ public class BattleMenuScript : MonoBehaviour
         selectedOption = EventSystem.current.currentSelectedGameObject;
         //Debug.Log("Selected game object: " + selectedOption);
         
+        if (menuAttack.activeSelf == false)
+        {
+            menuBgs[0].SetActive(false);
+        }
+        else
+        {
+            menuBgs[0].SetActive(true);
+        }
+
         if (battleManagerScript.battleWon == true)
         {
             battleButtonCanvas.SetActive(true);
@@ -159,7 +168,7 @@ public class BattleMenuScript : MonoBehaviour
         attackDesc.text = "Hold    until the right time to deal extra damage!";
     }
 
-    public void ReturnMenu(GameObject returnButton)
+    public void ReturnMenu()
     {
         EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Selected GameObject is: Null");
