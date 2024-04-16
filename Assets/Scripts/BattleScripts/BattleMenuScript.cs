@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class BattleMenuScript : MonoBehaviour
 {
     public GameObject menuAttack, menuSpin, menuSkill, menuRun, menuBag;
-    public GameObject[] backButtons, menuBgs;
+    public GameObject[] backButtons, menuBgs, skillButtons, inventoryButtons;
 
     //TheCanvas
     public GameObject battleButtonCanvas, winScreen, promptImage;
@@ -22,7 +22,7 @@ public class BattleMenuScript : MonoBehaviour
     //private PlayerBattler PlayerBattler;
     private BattleManager battleManagerScript;
     GameObject selectedOption, savedOption;
-    public GameObject[] enemyAttackSelectorButtons, enemySpinSelectorButtons, inventoryButtons, skillButtons;
+    public GameObject[] enemyAttackSelectorButtons, enemySpinSelectorButtons, enemySkillSelectorButtons;
 
     TextMeshProUGUI healthText, SPText, XPText, attackTitle, attackDesc, spinTitle, spinDesc, itemTitle, itemDesc, skillTitle, skillDesc;
     Image xpBarColorFill;
@@ -130,7 +130,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public void OpenSkills()
     {
-        savedOption = EventSystem.current.currentSelectedGameObject;
+        savedOption = menuSkill;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(skillButtons[0]);
     }
@@ -166,6 +166,19 @@ public class BattleMenuScript : MonoBehaviour
 
         attackTitle.text = "Spin!";
         attackDesc.text = "Hold    until the right time to deal extra damage!";
+    }
+
+    public void EnemySkillSelector()
+    {
+        savedOption = EventSystem.current.currentSelectedGameObject;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(enemySkillSelectorButtons[0]);
+        
+        Debug.Log("Enemy Count: " + battleManagerScript.enemyCount);
+        for (int i = 0; i < battleManagerScript.enemyCount; i++)
+            {
+                enemySkillSelectorButtons[i].SetActive(true);
+            }
     }
 
     public void ReturnMenu()
