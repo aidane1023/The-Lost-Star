@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
     PlayerBattler player;
     public List<EnemyBattler> enemies; //all enemies in a scene
     int enemyTurnsTaken;
+    int defeatedEnemies = 0;
 
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
     public EnemyBattler target; //current enemy being targeted for an attack
@@ -19,7 +20,9 @@ public class BattleManager : MonoBehaviour
     public static int sceneToLoad = 0;
     public static List<GameObject> enemiesToSpawn = new List<GameObject>(); //make static eventually
     public static Vector3 overworldSpawn;
+    public static int enemyID = -1;
     public List<Transform> enemySpots;
+    public bool battleWon = false;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
@@ -38,7 +41,7 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator BattleStart()
@@ -64,11 +67,6 @@ public class BattleManager : MonoBehaviour
 
     public void Transition()
     {
-        //check if any enemies died
-        //foreach (EnemyBattler enemy in enemies)
-        //{
-
-        //}
         if (gameState == GameState.PlayerAttack)
         {
             gameState = GameState.EnemyTurn;
@@ -89,7 +87,7 @@ public class BattleManager : MonoBehaviour
 
     public void TargetChoosen(int enemyNum) //the player selected their target and will begin attacking
     {
-        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum] != null)
+        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf)
         {
             player.playerAnimator.OnNeutral();
             gameState = GameState.PlayerAttack;
@@ -111,16 +109,34 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyAttacks()
     {
-        if (enemyTurnsTaken == enemies.Count)
+        //check if any enemies died
+        for(int i = 0; i < enemies.Count; i++)
         {
-            enemyTurnsTaken = 0;
-            Transition();
+            if(enemies[i].gameObject.activeSelf && enemies[i].health <= 0)
+            {
+                enemies[i].gameObject.SetActive(false);
+                defeatedEnemies++;
+            }
         }
-        //once all the enemies finish attacking, then it transitions back to the player turn
+        if(defeatedEnemies >= enemies.Count) BattleEnd(false);
         else
         {
-            enemies[enemyTurnsTaken].Attack();
-            enemyTurnsTaken++;
+            if (enemyTurnsTaken == enemies.Count)
+            {
+                enemyTurnsTaken = 0;
+                Transition();
+            }
+            //once all the enemies finish attacking, then it transitions back to the player turn
+            else if(enemies[enemyTurnsTaken].gameObject.activeSelf)
+            {
+                enemies[enemyTurnsTaken].Attack();
+                enemyTurnsTaken++;
+            }
+            else
+            {
+                enemyTurnsTaken++;
+                EnemyAttacks();
+            }
         }
     }
 
@@ -129,6 +145,12 @@ public class BattleManager : MonoBehaviour
         if(fled)
         {
             SceneManager.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            //gain xp and make the enemy die via battle initiator
+            //SceneManager.LoadScene(sceneToLoad);
+            battleWon = true;
         }
     }
 }
