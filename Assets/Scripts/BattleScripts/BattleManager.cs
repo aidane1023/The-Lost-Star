@@ -22,6 +22,7 @@ public class BattleManager : MonoBehaviour
     public static Vector3 overworldSpawn;
     public static int enemyID = -1;
     public List<Transform> enemySpots;
+    public bool battleWon = false;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
@@ -40,7 +41,7 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator BattleStart()
@@ -148,7 +149,8 @@ public class BattleManager : MonoBehaviour
         else
         {
             //gain xp and make the enemy die via battle initiator
-            SceneManager.LoadScene(sceneToLoad);
+            //SceneManager.LoadScene(sceneToLoad);
+            battleWon = true;
         }
     }
 }
