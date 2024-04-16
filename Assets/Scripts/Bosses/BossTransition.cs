@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class BossTransition : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Camera cam1;
+    public Camera cam2;
+    public Animator anim1;
+    public Animator anim2;
+
+    void Start() 
     {
-        
+        cam1.enabled = true;
+        cam2.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Player") 
+        {
+            cam1.enabled = false;
+            cam2.enabled = true;
+            StartCoroutine(PlayTransition());
+        }
+    }
+
+    IEnumerator PlayTransition()
+    {
+        anim1.SetBool("pan", true);
+        yield return new WaitForSeconds(1.6f);
+        anim2.SetBool("rise", true);
+        yield return new WaitForSeconds(0.5f);
         
     }
 }
