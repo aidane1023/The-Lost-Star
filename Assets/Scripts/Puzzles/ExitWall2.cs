@@ -1,0 +1,106 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Cinemachine;
+using Unity.VisualScripting;
+
+public class ExitWall2 : MonoBehaviour
+{
+   
+    public Light dropLight;
+
+   
+    private DropPuzzle dropP;
+    public GameObject dropPuzzle;
+    private PlayerController playerController;
+    public GameObject player;
+    private float savedSpeed;
+
+   
+    private bool dropWinRun;
+    private bool wallUpRun;
+
+    public CinemachineVirtualCamera primaryCamera;
+    public CinemachineVirtualCamera lightCamera;
+    public CinemachineVirtualCamera wallCamera;
+    public GameObject door;
+    private Rigidbody doorRB;
+
+    private int speed = 5;
+
+
+    void Start()
+    {
+       
+        dropLight.enabled = false;
+
+      
+        dropWinRun = false;
+        wallUpRun = false;
+
+       
+        dropP = dropPuzzle.GetComponent<DropPuzzle>();
+        playerController = player.GetComponent<PlayerController>();
+        doorRB = door.GetComponent<Rigidbody>();
+        savedSpeed = playerController.speed;
+
+
+    }
+
+
+    void Update()
+    {
+       
+
+        if (dropP.win == true && dropWinRun != true)
+        {
+            StartCoroutine(SwitchToLight(dropLight));
+            dropWinRun = true;
+
+
+        }
+
+       
+    }
+
+    IEnumerator SwitchToLight(Light name)
+    {
+        playerController.speed = 0;
+        primaryCamera.Priority = 0;
+        lightCamera.Priority = 20;
+        yield return new WaitForSeconds(2);
+        name.enabled = true;
+        yield return new WaitForSeconds(1);
+
+        if (dropWinRun && wallUpRun != true)
+        {
+
+            StartCoroutine(SwitchToWall());
+            wallUpRun = true;
+        }
+        else StartCoroutine(BackToPlayer());
+
+    }
+
+    IEnumerator BackToPlayer()
+    {
+        primaryCamera.Priority = 20;
+        lightCamera.Priority = 0;
+        yield return new WaitForSeconds(2);
+        playerController.speed = savedSpeed;
+    }
+
+    IEnumerator SwitchToWall()
+    {
+        playerController.speed = 0;
+        primaryCamera.Priority = 0;
+        wallCamera.Priority = 30;
+        yield return new WaitForSeconds(2);
+        Vector3 moveDir = new Vector3(0, 1, 0);
+        doorRB.velocity = moveDir * speed;
+        yield return new WaitForSeconds(1);
+        StartCoroutine(BackToPlayer());
+        wallCamera.Priority = 0;
+
+    }
+}
