@@ -20,15 +20,19 @@ public class WallPuzzle : MonoBehaviour
     public GameObject sphere;
     public bool win;
     public GameObject red;
+    public GameObject red2;
     public GameObject blue;
     public GameObject green;
     private bool redDown = true;
     private bool blueDown = true;
     private bool greenDown = true;
+    private bool redDown2 = false;
     private Rigidbody redRB;
+    private Rigidbody redRB2;
     private Rigidbody blueRB;
     private Rigidbody greenRB;
     public GameObject activeBall;
+    private bool wait;
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
@@ -37,10 +41,12 @@ public class WallPuzzle : MonoBehaviour
     {
         tubeRB = tube.GetComponent<Rigidbody>();
         redRB = red.GetComponent<Rigidbody>();
+        redRB2 = red2.GetComponent<Rigidbody>();
         blueRB = blue.GetComponent<Rigidbody>();
         greenRB = green.GetComponent<Rigidbody>();
         playerController = player.GetComponent<PlayerController>();
         savedSpeed = playerController.speed;
+        wait = false;
 
     }
 
@@ -120,6 +126,16 @@ public class WallPuzzle : MonoBehaviour
             redRB.velocity = moveDir * speed * -1;
             redDown = true;
         }
+        if (redDown2)
+        {
+            redRB2.velocity = moveDir * speed;
+            redDown2 = false;
+        }
+        else
+        {
+            redRB2.velocity = moveDir * speed * -1;
+            redDown2 = true;
+        }
     }
 
     public void GreenMove()
@@ -156,10 +172,18 @@ public class WallPuzzle : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0, 0);
         tubeRB.velocity = moveDir * speed;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && wait != true)
         {
+            StartCoroutine(NoSpam());
             Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
 
         }
+    }
+
+    IEnumerator NoSpam()
+    {
+        wait = true;
+        yield return new WaitForSeconds(2);
+        wait = false;
     }
 }

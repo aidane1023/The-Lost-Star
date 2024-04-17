@@ -24,6 +24,7 @@ public class DropPuzzle : MonoBehaviour
     private CountManager manager;
     public GameObject managerObject;
     public bool win;
+    private int ballsLeft = 11;
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
@@ -60,12 +61,18 @@ public class DropPuzzle : MonoBehaviour
             Vector3 moveDir = new Vector3(x, 0, 0);
             tubeRB.velocity = moveDir * speed;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && ballsLeft > 0)
             {
              Instantiate(sphere, spawner.transform.position+Random.onUnitSphere*0.1f, spawner.transform.rotation);
+                ballsLeft --;
             }
 
-            if (manager.box1Count == 1 && manager.box2Count == 2 && manager.box3Count == 3)
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                ballsLeft = 11;
+            }
+
+            if (manager.box1Count == 2 && manager.box2Count == 4 && manager.box3Count == 3)
             {
                 active = false;
                 
