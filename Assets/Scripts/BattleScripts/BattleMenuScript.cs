@@ -140,7 +140,7 @@ public class BattleMenuScript : MonoBehaviour
     public void EnemyAttackSelector()
     {
         savedOption = EventSystem.current.currentSelectedGameObject;
-        Debug.Log("Selected GameObject is: " + EventSystem.current.currentSelectedGameObject);
+        //Debug.Log("Selected GameObject is: " + EventSystem.current.currentSelectedGameObject);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(enemyAttackSelectorButtons[0]);
 
