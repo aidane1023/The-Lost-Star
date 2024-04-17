@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossTransition : MonoBehaviour
 {
+    public GameObject hud;
     public Camera cam1;
     public Camera cam2;
     public Animator anim1;
@@ -13,6 +14,7 @@ public class BossTransition : MonoBehaviour
     {
         cam1.enabled = true;
         cam2.enabled = false;
+        hud.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
