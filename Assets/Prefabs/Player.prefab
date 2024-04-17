@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8820558103507940417}
   - component: {fileID: 8820558103507940421}
   - component: {fileID: 7465424820575400071}
+  - component: {fileID: 2065668961342044422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69891a1e5345f284b930cd801a26f423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   animator: {fileID: 8820558104767205859}
   rb: {fileID: 8820558103507940416}
   sr: {fileID: 8820558103083726148}
@@ -191,6 +192,14 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.49
   m_Center: {x: -0.12, y: 0.47, z: -0.1}
+--- !u!81 &2065668961342044422
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820558103507940418}
+  m_Enabled: 1
 --- !u!1 &8820558104767205853
 GameObject:
   m_ObjectHideFlags: 0

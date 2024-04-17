@@ -41,7 +41,7 @@ public class BattleManager : MonoBehaviour
         if(enemiesToSpawn.Count == 0) enemiesToSpawn.Add(backupEnemy);
         InitialSpawn();
 
-        setPieces[level].SetActive(true);
+        if(level > 0) setPieces[(level - 1)].SetActive(true);
     }
 
     // Update is called once per frame
