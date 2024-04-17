@@ -569,7 +569,7 @@ public class BattleMenuScript : MonoBehaviour
 
             default:
                 skillTitle.text = "";
-                skillDesc.text = "Please select an item.";
+                skillDesc.text = "Please select a skill.";
                 break;
         }
     }
