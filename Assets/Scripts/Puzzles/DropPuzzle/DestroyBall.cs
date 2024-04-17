@@ -24,13 +24,5 @@ public class DestroyBall : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.gameObject.CompareTag("blueRed"))
-        {
-            Destroy(gameObject);
-        }
-        if (other.gameObject.CompareTag("greenBlue"))
-        {
-            Destroy(gameObject);
-        }
     }
 }

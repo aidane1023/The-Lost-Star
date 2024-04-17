@@ -23,8 +23,6 @@ public class DropPuzzle : MonoBehaviour
     public bool delete = false;
     private CountManager manager;
     public GameObject managerObject;
-    public bool win;
-    private int ballsLeft = 11;
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
@@ -41,9 +39,10 @@ public class DropPuzzle : MonoBehaviour
     {
         
 
-        if (inRange && Input.GetKeyDown(KeyCode.F) && win != true)
+        if (inRange && Input.GetKeyDown(KeyCode.F))
         {
-           
+            secondaryCamera.Priority = 20;
+            primaryCamera.Priority = 10;
             StartCoroutine(WaitActive());
            
             
@@ -51,7 +50,8 @@ public class DropPuzzle : MonoBehaviour
         }
 
         if (inRange && Input.GetKeyDown(KeyCode.Escape))
-            { 
+            { secondaryCamera.Priority = 10;
+            primaryCamera.Priority = 20;
             StartCoroutine(Finished());
             }
 
@@ -61,23 +61,17 @@ public class DropPuzzle : MonoBehaviour
             Vector3 moveDir = new Vector3(x, 0, 0);
             tubeRB.velocity = moveDir * speed;
 
-            if (Input.GetKeyDown(KeyCode.Space) && ballsLeft > 0)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
              Instantiate(sphere, spawner.transform.position+Random.onUnitSphere*0.1f, spawner.transform.rotation);
-                ballsLeft --;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                ballsLeft = 11;
-            }
-
-            if (manager.box1Count == 2 && manager.box2Count == 4 && manager.box3Count == 3)
+            if (manager.box1Count == 1 && manager.box2Count == 2 && manager.box3Count == 3)
             {
                 active = false;
-                
-                
-                win = true;
+                secondaryCamera.Priority = 10;
+                primaryCamera.Priority = 20;
+                StartCoroutine(Finished());
             }
 
            
@@ -102,19 +96,15 @@ public class DropPuzzle : MonoBehaviour
 
     IEnumerator WaitActive()
     {
-        primaryCamera.Priority = 0;
-        secondaryCamera.Priority = 20;
-        
         playerController.speed = 0;
         yield return new WaitForSeconds(2);
         active = true;
     }
     IEnumerator Finished()
     {
-        active = false;
-        secondaryCamera.Priority = 0;
-        primaryCamera.Priority = 20;
+        
         yield return new WaitForSeconds(2);
         playerController.speed = savedSpeed;
+        active = false;
     }
 }
