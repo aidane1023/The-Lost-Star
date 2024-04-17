@@ -4,21 +4,20 @@ using UnityEngine;
 using Cinemachine;
 using Unity.VisualScripting;
 
-public class ExitWall : MonoBehaviour
+public class ExitWall2 : MonoBehaviour
 {
-    public Light wallLight;
-    public Light tiltLight;
+   
+    public Light dropLight;
 
-    private WallPuzzle wallP;
-    public GameObject wallPuzzle;
-    private TiltPuzzle tiltP;
-    public GameObject tiltPuzzle;
+   
+    private DropPuzzle dropP;
+    public GameObject dropPuzzle;
     private PlayerController playerController;
     public GameObject player;
     private float savedSpeed;
 
-    private bool wallWinRun;
-    private bool tiltWinRun;
+   
+    private bool dropWinRun;
     private bool wallUpRun;
 
     public CinemachineVirtualCamera primaryCamera;
@@ -32,42 +31,34 @@ public class ExitWall : MonoBehaviour
 
     void Start()
     {
-        wallLight.enabled = false;
-        tiltLight.enabled = false;
+       
+        dropLight.enabled = false;
 
-        wallWinRun = false;
-        tiltWinRun = false;
+      
+        dropWinRun = false;
         wallUpRun = false;
 
-        wallP = wallPuzzle.GetComponent<WallPuzzle>();
-        tiltP = tiltPuzzle.GetComponent<TiltPuzzle>();
-
+       
+        dropP = dropPuzzle.GetComponent<DropPuzzle>();
         playerController = player.GetComponent<PlayerController>();
         doorRB = door.GetComponent<Rigidbody>();
         savedSpeed = playerController.speed;
-        
+
 
     }
 
-  
+
     void Update()
     {
-        if (wallP.win == true && wallWinRun != true)
-        {
-            StartCoroutine(SwitchToLight(wallLight));
-            wallWinRun=true;
-
-        }
-
-        if (tiltP.win == true && tiltWinRun != true)
-        {
-            StartCoroutine(SwitchToLight(tiltLight));
-            tiltWinRun=true;
-
-
-        }
-
        
+
+        if (dropP.win == true && dropWinRun != true)
+        {
+            StartCoroutine(SwitchToLight(dropLight));
+            dropWinRun = true;
+
+
+        }
 
        
     }
@@ -81,14 +72,14 @@ public class ExitWall : MonoBehaviour
         name.enabled = true;
         yield return new WaitForSeconds(1);
 
-        if (wallWinRun && tiltWinRun && wallUpRun != true)
+        if (dropWinRun && wallUpRun != true)
         {
 
             StartCoroutine(SwitchToWall());
             wallUpRun = true;
         }
         else StartCoroutine(BackToPlayer());
-        
+
     }
 
     IEnumerator BackToPlayer()
@@ -99,7 +90,7 @@ public class ExitWall : MonoBehaviour
         playerController.speed = savedSpeed;
     }
 
-     IEnumerator SwitchToWall()
+    IEnumerator SwitchToWall()
     {
         playerController.speed = 0;
         primaryCamera.Priority = 0;
