@@ -28,8 +28,8 @@ public class BattleMenuScript : MonoBehaviour
     Image xpBarColorFill;
     
     private Image attackColor, spinColor, skillColor, runColor, bagColor;
-    private Image[] backColor, skillButtonColor;
-    int backButtonLength, skillButtonLength;
+    private Image[] backColor, skillButtonColor, inventoryButtonColor;
+    int backButtonLength, skillButtonLength, inventoryButtonLength;
     float timer;
 
     Color notSelectedColor = new Color(0.66f, 0.66f, 0.66f, 1f);
@@ -70,6 +70,8 @@ public class BattleMenuScript : MonoBehaviour
         backColor = new Image[backButtonLength];
         skillButtonLength = skillButtons.Length; // ok it's fixed now I think
         skillButtonColor = new Image[skillButtonLength];
+        inventoryButtonLength = inventoryButtons.Length;
+        inventoryButtonColor = new Image[inventoryButtonLength];
     }
 
     void Update()
@@ -352,6 +354,69 @@ public class BattleMenuScript : MonoBehaviour
                 skillButtonColor[2].color = skillNotSelectedColor;
                 break;
 
+                case "Inventory 1":
+                if (inventoryButtonColor[0] == null){
+                    inventoryButtonColor[0] = inventoryButtons[0].GetComponent<Image>();
+                    Debug.Log("Inventory 1 Button Component Cached");
+                }
+                inventoryButtonColor[0].color = notSelectedColor;
+                break;
+
+                case "Inventory 2":
+                if (inventoryButtonColor[1] == null){
+                    inventoryButtonColor[1] = inventoryButtons[1].GetComponent<Image>();
+                    Debug.Log("Inventory 2 Button Component Cached");
+                }
+                inventoryButtonColor[1].color = notSelectedColor;
+                break;
+
+                case "Inventory 3":
+                if (inventoryButtonColor[2] == null){
+                    inventoryButtonColor[2] = inventoryButtons[2].GetComponent<Image>();
+                    Debug.Log("Inventory 3 Button Component Cached");
+                }
+                inventoryButtonColor[2].color = notSelectedColor;
+                break;
+
+                case "Inventory 4":
+                if (inventoryButtonColor[3] == null){
+                    inventoryButtonColor[3] = inventoryButtons[3].GetComponent<Image>();
+                    Debug.Log("Inventory 4 Button Component Cached");
+                }
+                inventoryButtonColor[3].color = notSelectedColor;
+                break;
+
+                case "Inventory 5":
+                if (inventoryButtonColor[4] == null){
+                    inventoryButtonColor[4] = inventoryButtons[4].GetComponent<Image>();
+                    Debug.Log("Inventory 5 Button Component Cached");
+                }
+                inventoryButtonColor[4].color = notSelectedColor;
+                break;
+
+                case "Inventory 6":
+                if (inventoryButtonColor[5] == null){
+                    inventoryButtonColor[5] = inventoryButtons[5].GetComponent<Image>();
+                    Debug.Log("Inventory 6 Button Component Cached");
+                }
+                inventoryButtonColor[5].color = notSelectedColor;
+                break;
+
+                case "Inventory 7":
+                if (inventoryButtonColor[6] == null){
+                    inventoryButtonColor[6] = inventoryButtons[6].GetComponent<Image>();
+                    Debug.Log("Inventory 7 Button Component Cached");
+                }
+                inventoryButtonColor[6].color = notSelectedColor;
+                break;
+
+                case "Inventory 8":
+                if (inventoryButtonColor[7] == null){
+                    inventoryButtonColor[7] = inventoryButtons[7].GetComponent<Image>();
+                    Debug.Log("Inventory 8 Button Component Cached");
+                }
+                inventoryButtonColor[7].color = notSelectedColor;
+                break;
 
             case "default":
                 break;  
@@ -365,41 +430,97 @@ public class BattleMenuScript : MonoBehaviour
             case 1:
                 itemTitle.text = "Item Title 1";
                 itemDesc.text = "Item Description 1";
+
+                if (inventoryButtonColor[0] == null){
+                    inventoryButtonColor[0] = inventoryButtons[0].GetComponent<Image>();
+                    Debug.Log("Inventory 1 Button Component Cached");
+                }
+                inventoryButtonColor[0].color = selectedColor;
+
                 break;
 
             case 2:
                 itemTitle.text = "Item Title 2";
                 itemDesc.text = "Item Description 2";
+
+                if (inventoryButtonColor[1] == null){
+                    inventoryButtonColor[1] = inventoryButtons[1].GetComponent<Image>();
+                    Debug.Log("Inventory 2 Button Component Cached");
+                }
+                inventoryButtonColor[1].color = selectedColor;
+
                 break;
 
             case 3:
                 itemTitle.text = "Item Title 3";
                 itemDesc.text = "Item Description 3";
+
+                if (inventoryButtonColor[2] == null){
+                    inventoryButtonColor[2] = inventoryButtons[2].GetComponent<Image>();
+                    Debug.Log("Inventory 3 Button Component Cached");
+                }
+                inventoryButtonColor[2].color = selectedColor;
+
                 break;
 
             case 4:
                 itemTitle.text = "Item Title 4";
                 itemDesc.text = "Item Description 4";
+
+                if (inventoryButtonColor[3] == null){
+                    inventoryButtonColor[3] = inventoryButtons[3].GetComponent<Image>();
+                    Debug.Log("Inventory 4 Button Component Cached");
+                }
+                inventoryButtonColor[3].color = selectedColor;
+
                 break;
 
             case 5:
                 itemTitle.text = "Item Title 5";
                 itemDesc.text = "Item Description 5";
+
+                    if (inventoryButtonColor[4] == null){
+                    inventoryButtonColor[4] = inventoryButtons[4].GetComponent<Image>();
+                    Debug.Log("Inventory 5 Button Component Cached");
+                }
+                inventoryButtonColor[4].color = selectedColor;
+
                 break;
 
             case 6:
                 itemTitle.text = "Item Title 6";
                 itemDesc.text = "Item Description 6";
+
+                if (inventoryButtonColor[5] == null){
+                    inventoryButtonColor[5] = inventoryButtons[5].GetComponent<Image>();
+                    Debug.Log("Inventory 6 Button Component Cached");
+                }
+                inventoryButtonColor[5].color = selectedColor;
+
                 break;
 
             case 7:
                 itemTitle.text = "Item Title 7";
                 itemDesc.text = "Item Description 7";
+
+                if (inventoryButtonColor[6] == null){
+                    inventoryButtonColor[6] = inventoryButtons[6].GetComponent<Image>();
+                    Debug.Log("Inventory 7 Button Component Cached");
+                }
+                inventoryButtonColor[6].color = selectedColor;
+
                 break;
 
             case 8:
                 itemTitle.text = "Item Title 8";
                 itemDesc.text = "Item Description 8";
+
+                if (inventoryButtonColor[7] == null){
+                    inventoryButtonColor[7] = inventoryButtons[7].GetComponent<Image>();
+                    Debug.Log("Inventory 8 Button Component Cached");
+                }
+                inventoryButtonColor[7].color = selectedColor;
+
                 break;
 
             default:
