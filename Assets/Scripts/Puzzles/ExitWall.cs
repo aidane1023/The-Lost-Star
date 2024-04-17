@@ -10,11 +10,11 @@ public class ExitWall : MonoBehaviour
     public Light tiltLight;
 
     private WallPuzzle wallP;
-    public GameObject wallPuzzle;
+    //public GameObject wallPuzzle;
     private TiltPuzzle tiltP;
-    public GameObject tiltPuzzle;
+    //public GameObject tiltPuzzle;
     private PlayerController playerController;
-    public GameObject player;
+    //public GameObject player;
     private float savedSpeed;
 
     private bool wallWinRun;
@@ -39,10 +39,10 @@ public class ExitWall : MonoBehaviour
         tiltWinRun = false;
         wallUpRun = false;
 
-        wallP = wallPuzzle.GetComponent<WallPuzzle>();
-        tiltP = tiltPuzzle.GetComponent<TiltPuzzle>();
+        wallP = FindObjectOfType<WallPuzzle>();
+        tiltP = FindObjectOfType<TiltPuzzle>();
 
-        playerController = player.GetComponent<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
         doorRB = door.GetComponent<Rigidbody>();
         savedSpeed = playerController.speed;
         
