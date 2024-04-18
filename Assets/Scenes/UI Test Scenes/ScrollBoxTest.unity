@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 153343682}
   - component: {fileID: 153343683}
+  - component: {fileID: 153343684}
   m_Layer: 0
   m_Name: Fake Player
   m_TagString: Untagged
@@ -162,13 +163,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153343681}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 462f20eabce5e6c459dd3ac91b9ad377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 8fe3974b56dfeac479e0ca4e29158578, type: 2}
-  itemName: []
+  textName: {fileID: 1930017707}
+  textDescription: {fileID: 2084896961}
+  price: {fileID: 0}
+--- !u!114 &153343684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153343681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098f192442187f345bbddb67625a4e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  textName: {fileID: 0}
+  textDescription: {fileID: 0}
+  price: {fileID: 0}
 --- !u!1 &231913494
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +434,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1930017707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4525842990603290798, guid: 0a41e69131325a04981485c1d5872131, type: 3}
+  m_PrefabInstance: {fileID: 4525842991164063742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2084896961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4525842990697685641, guid: 0a41e69131325a04981485c1d5872131, type: 3}
+  m_PrefabInstance: {fileID: 4525842991164063742}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &413273167040845658
 PrefabInstance:
   m_ObjectHideFlags: 0
