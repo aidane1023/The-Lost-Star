@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21584,7 +21584,6 @@ MonoBehaviour:
   primaryCamera: {fileID: 1250421462}
   lightCamera: {fileID: 1425507444}
   wallCamera: {fileID: 1094998518}
-  rocketCamera: {fileID: 0}
   door: {fileID: 1212650812}
 --- !u!54 &1212650815
 Rigidbody:
@@ -21670,12 +21669,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1215128467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6341186033715874dbe7b106e6fe5d9f, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b1cfc4a99561c458e8114ceb23c9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLight: {fileID: 152106590}
-  tiltLight: {fileID: 432405119}
-  primaryCamera: {fileID: 1250421462}
+  wallLight: {fileID: 432405119}
+  tiltLight: {fileID: 152106590}
+  primaryCamera: {fileID: 0}
   lightCamera: {fileID: 1517806142}
   wallCamera: {fileID: 1518720788}
   door: {fileID: 1215128467}
@@ -24008,7 +24007,7 @@ GameObject:
   - component: {fileID: 1380977854}
   - component: {fileID: 1380977853}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Front collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
