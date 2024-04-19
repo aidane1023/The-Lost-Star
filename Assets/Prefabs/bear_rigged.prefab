@@ -780,8 +780,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6439019751770380353}
   - component: {fileID: 1133731237610029627}
-  - component: {fileID: 8623496787375012604}
   - component: {fileID: 2839824133189001935}
+  - component: {fileID: 1956103787892668764}
   m_Layer: 0
   m_Name: bear_rigged
   m_TagString: Untagged
@@ -827,23 +827,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8623496787375012604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5913277944151606011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d601df178c92c44ac66bb40117b3c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1133731237610029627}
-  range: {fileID: 0}
-  swingInterval: 10
-  wanderInterval: 50
-  watchInterval: 120
 --- !u!135 &2839824133189001935
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -852,11 +835,28 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5913277944151606011}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.11
-  m_Center: {x: 0, y: 0.76, z: 1.51}
+  m_Radius: 1.47
+  m_Center: {x: 0, y: 0.43, z: 1.53}
+--- !u!114 &1956103787892668764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913277944151606011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a119086766f3dec4da8cdf862e19abe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1133731237610029627}
+  range: {fileID: 2839824133189001935}
+  swingInterval: 8
+  wanderInterval: 50
+  watchInterval: 80
 --- !u!1 &6687393957868699116
 GameObject:
   m_ObjectHideFlags: 0
