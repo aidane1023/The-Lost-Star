@@ -9,7 +9,7 @@ public class ExitWall : MonoBehaviour
     public Light wallLight;
     public Light tiltLight;
 
-    private WallPuzzle wallP;
+    //private WallPuzzle wallP;
     //public GameObject wallPuzzle;
     private TiltPuzzle tiltP;
     //public GameObject tiltPuzzle;
@@ -39,7 +39,7 @@ public class ExitWall : MonoBehaviour
         tiltWinRun = false;
         wallUpRun = false;
 
-        wallP = FindObjectOfType<WallPuzzle>();
+        //wallP = FindObjectOfType<WallPuzzle>();
         tiltP = FindObjectOfType<TiltPuzzle>();
 
         playerController = FindObjectOfType<PlayerController>();
@@ -52,6 +52,7 @@ public class ExitWall : MonoBehaviour
   
     void Update()
     {
+        /*
         if (wallP.win == true && wallWinRun != true)
         {
             StartCoroutine(SwitchToLight(wallLight));
@@ -66,7 +67,7 @@ public class ExitWall : MonoBehaviour
 
 
         }
-
+        */
        
 
        
