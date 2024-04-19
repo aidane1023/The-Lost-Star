@@ -14,7 +14,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.8430996
+  m_TransitionDuration: 0.50026035
   m_TransitionOffset: 0
   m_ExitTime: 0.79689246
   m_HasExitTime: 1
@@ -231,7 +231,7 @@ AnimatorStateTransition:
 --- !u!1102 &-2745587320488680239
 AnimatorState:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -383,7 +383,13 @@ AnimatorController:
   - m_Name: DanceSelection
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 10
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Swing
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: WalkAround
@@ -393,12 +399,6 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: LongWait
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Swing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -450,7 +450,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: OpenIdle
     m_EventTreshold: 0
-  - m_ConditionMode: 1
+  - m_ConditionMode: 6
     m_ConditionEvent: Swing
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
