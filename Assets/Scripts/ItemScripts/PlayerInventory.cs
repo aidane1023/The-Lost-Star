@@ -7,5 +7,5 @@ using UnityEngine;
 public class PlayerInventory : ScriptableObject
 {
     //DO THIS
-    public InventoryItemData[] heldItems = new InventoryItemData[8];
+    public List<InventoryItemData> heldItems = new List<InventoryItemData>();
 }

@@ -12,6 +12,7 @@ public class PlayerBattler : MonoBehaviour
     public PlayerBattlerAnimator playerAnimator;
     [HideInInspector]
     public PlayerAttacksHandler attackHandler;
+    public PlayerInventory inventory;
 
     public GameObject damageStar; //the icon that shows damage dealt
     public DefenseMode defenseMode;
