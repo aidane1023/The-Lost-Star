@@ -8910,7 +8910,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 0
+  m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 4031396528731931503}
   m_Follow: {fileID: 0}
@@ -9799,6 +9799,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallLight: {fileID: 152106590}
   tiltLight: {fileID: 432405119}
+  wallPuzzle: {fileID: 1762137627798489303}
+  tiltPuzzle: {fileID: 3929735212830362316}
+  player: {fileID: 2068702311}
   primaryCamera: {fileID: 1250421462}
   lightCamera: {fileID: 1517806142}
   wallCamera: {fileID: 1518720788}
