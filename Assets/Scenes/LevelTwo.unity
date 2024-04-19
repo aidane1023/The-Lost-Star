@@ -5054,8 +5054,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353761114}
-  m_LocalRotation: {x: 0.068657756, y: 0.0010947345, z: -0.00007533982, w: 0.9976397}
-  m_LocalPosition: {x: -1.8493704, y: 3, z: -9.776523}
+  m_LocalRotation: {x: 0.10929561, y: 0.003397224, z: -0.0003735416, w: 0.9940034}
+  m_LocalPosition: {x: -1.8691854, y: 3.36, z: -9.776663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21584,6 +21584,7 @@ MonoBehaviour:
   primaryCamera: {fileID: 1250421462}
   lightCamera: {fileID: 1425507444}
   wallCamera: {fileID: 1094998518}
+  rocketCamera: {fileID: 0}
   door: {fileID: 1212650812}
 --- !u!54 &1212650815
 Rigidbody:
@@ -21672,12 +21673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b1cfc4a99561c458e8114ceb23c9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallLight: {fileID: 432405119}
-  tiltLight: {fileID: 152106590}
-  primaryCamera: {fileID: 0}
-  lightCamera: {fileID: 1517806142}
-  wallCamera: {fileID: 1518720788}
-  door: {fileID: 1215128467}
 --- !u!54 &1215128470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21945,8 +21940,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250421461}
-  m_LocalRotation: {x: 0.068657756, y: 0.0010947345, z: -0.00007533982, w: 0.9976397}
-  m_LocalPosition: {x: -1.84, y: 3, z: -11.110001}
+  m_LocalRotation: {x: 0.10929561, y: 0.003397224, z: -0.0003735416, w: 0.9940034}
+  m_LocalPosition: {x: -1.84, y: 3.36, z: -13.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33008,7 +33003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 2, z: -5.09}
+  m_FollowOffset: {x: 0, y: 2.36, z: -7.91}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
