@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public SpriteRenderer sr;
 
+    public AudioSource source;
+
     public static bool frozen = false;
     
     void Start()
@@ -43,6 +45,9 @@ public class PlayerController : MonoBehaviour
         moving = (x*x + y*y)*speed;
         animator.SetFloat("moving", moving);
         animator.SetBool("flip", flip);
+
+        if (rb.velocity.magnitude == 0) source.volume = 0;
+        else source.volume = 0.5f;
     }
 
     void RelocateAfterBattle()
