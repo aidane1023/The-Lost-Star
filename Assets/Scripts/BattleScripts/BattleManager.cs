@@ -150,6 +150,7 @@ public class BattleManager : MonoBehaviour
     {
         if(fled)
         {
+            enemyID = -1;
             SceneManager.LoadScene(sceneToLoad);
         }
         else
