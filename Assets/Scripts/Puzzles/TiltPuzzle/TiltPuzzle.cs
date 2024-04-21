@@ -17,6 +17,7 @@ public class TiltPuzzle : MonoBehaviour
     public GameObject spawner;
     private bool noActiveBall = true;
     private GameObject activeBall = null;
+    public bool win;
 
 
 
@@ -43,17 +44,16 @@ public class TiltPuzzle : MonoBehaviour
     {
 
 
-        if (inRange && Input.GetKeyDown(KeyCode.F))
+        if (inRange && Input.GetKeyDown(KeyCode.F) && win != true)
         {
-            secondaryCamera.Priority = 20;
-            primaryCamera.Priority = 10;
+   
+            
             StartCoroutine(WaitActive());
         }
 
         if (inRange && Input.GetKeyDown(KeyCode.Escape))
         {
-            secondaryCamera.Priority = 10;
-            primaryCamera.Priority = 20;
+            
             StartCoroutine(Finished());
         }
 
@@ -74,7 +74,8 @@ public class TiltPuzzle : MonoBehaviour
                 activeBall = Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
                 cam3.Follow = activeBall.transform;
                 cam3.LookAt = activeBall.transform;
-                cam3.Priority = 30;
+                secondaryCamera.Priority = 0;
+                cam3.Priority = 20;
 
                
             }
@@ -85,7 +86,8 @@ public class TiltPuzzle : MonoBehaviour
         {
             noActiveBall = true;
            
-            cam3.Priority = 10;
+            cam3.Priority = 0;
+            secondaryCamera.Priority = 20;
         }
     }
 
@@ -98,7 +100,10 @@ public class TiltPuzzle : MonoBehaviour
 
         if (other.gameObject.CompareTag("ball") && activeBall != null)
         {
-            Debug.Log("Win condition met!");
+            cam3.Priority = 0;
+            win = true;
+            active = false;
+            
         }
     }
 
@@ -112,16 +117,20 @@ public class TiltPuzzle : MonoBehaviour
 
     IEnumerator WaitActive()
     {
+        primaryCamera.Priority = 0;
+        secondaryCamera.Priority = 20;
+        
         playerController.speed = 0;
         yield return new WaitForSeconds(2);
         active = true;
     }
     IEnumerator Finished()
     {
-
+        active = false;
+        secondaryCamera.Priority = 0;
+        primaryCamera.Priority = 20;
         yield return new WaitForSeconds(2);
         playerController.speed = savedSpeed;
-        active = false;
     }
 
 

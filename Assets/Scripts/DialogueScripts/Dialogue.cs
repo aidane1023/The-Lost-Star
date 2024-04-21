@@ -129,11 +129,10 @@ public class Dialogue : MonoBehaviour
     {
         if (index < lines.Length - 1)
         {
+            
             leftPortrait[index].SetActive(false);
             rightPortrait[index].SetActive(false);
-
             index++;
-
             leftPortrait[index].SetActive(true);
             rightPortrait[index].SetActive(true);
 
@@ -156,6 +155,7 @@ public class Dialogue : MonoBehaviour
                     dialogueButton[i].SetActive(true);
                     buttonComponent[i].text = string.Empty;
                     buttonComponent[i].text = buttonText[i];
+                    Debug.Log("Dialogue " + i + " Active");
                 }
                 EventSystem.current.SetSelectedGameObject(null);
                 EventSystem.current.SetSelectedGameObject(dialogueButton[0]);
