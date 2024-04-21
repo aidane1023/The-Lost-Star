@@ -23,7 +23,7 @@ public class UIHUDScript : MonoBehaviour
         SPText = playerSPTextUI.GetComponent<TextMeshProUGUI>();
         XPText = playerXPTextUI.GetComponent<TextMeshProUGUI>();
         xpBarColorFill = xpBarUI.GetComponent<Image>();
-        //coinText = playerCoinTextUI.GetComponent<TextMeshProUGUI>();
+        coinText = playerCoinTextUI.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -33,6 +33,6 @@ public class UIHUDScript : MonoBehaviour
         SPText.text = $"SP: {PlayerBattler.starPoints}/{PlayerBattler.maxStarPoints}";
         XPText.text = $"XP: {PlayerBattler.xp}/100";
         xpBarColorFill.fillAmount = (PlayerBattler.xp/100);
-        //coinText.text = $"Coins: {playerStatsScript.Coins}";
+        coinText.text = $"Coins: {PlayerBattler.coins}";
     }
 }
