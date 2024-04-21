@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-using UnityEngine.UI;
 
 public class UIHUDScript : MonoBehaviour
 {
-    public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI, playerCoinTextUI, xpBarUI;
+    //public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI, playerCoinTextUI;
     //public GameObject player;
 
-    TextMeshProUGUI healthText, SPText, XPText, coinText;
-    Image xpBarColorFill;
+    //TextMeshProUGUI healthText, SPText, XPText, coinText;
 
     //private PlayerStats playerStatsScript;
 

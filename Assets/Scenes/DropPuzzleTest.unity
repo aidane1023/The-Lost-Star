@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -391,11 +391,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &222793342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2481348354041876021, guid: e2a009a4f74cc6c44861d697fb960b30, type: 3}
-  m_PrefabInstance: {fileID: 2481348354130116683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &268415610
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,11 +894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &570109937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100186134847088884, guid: a1e8eca188ccad04cbafde00268b9e2d, type: 3}
-  m_PrefabInstance: {fileID: 100186135384409861}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &572229915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,16 +2019,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1549896597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6341186033715874dbe7b106e6fe5d9f, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b1cfc4a99561c458e8114ceb23c9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wallLight: {fileID: 2037932223}
   tiltLight: {fileID: 950468476}
-  dropLight: {fileID: 1913558157}
-  wallPuzzle: {fileID: 222793342}
-  tiltPuzzle: {fileID: 570109937}
-  dropPuzzle: {fileID: 1945075799}
-  player: {fileID: 69566945}
   primaryCamera: {fileID: 872206211}
   lightCamera: {fileID: 178914960}
   wallCamera: {fileID: 1053231760}
@@ -2532,11 +2517,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1945075799 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6264489578023347640, guid: c97b337d737711044bda22a348896a60, type: 3}
-  m_PrefabInstance: {fileID: 6264489579392820719}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2037932222
 GameObject:
   m_ObjectHideFlags: 0

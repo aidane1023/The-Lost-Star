@@ -25,9 +25,6 @@ public class PodiumDisplay : MonoBehaviour
     public GameObject trail;
     private GameObject playerObject;
 
-    public PlayerInventory inventory;
-    InventoryItemData itemData;
-
 
 
     private PlayerController playerController;
@@ -108,8 +105,6 @@ public class PodiumDisplay : MonoBehaviour
 
     private void PickUpObject()
     {
-        shopManager.itemsToBeBought.Add(itemData);
-
         shopManager.AddItemValue(value);
         playerController.speed = 0f;
 
@@ -128,13 +123,13 @@ public class PodiumDisplay : MonoBehaviour
     private void Shop()
     {
 
-        if (PlayerBattler.coins < shopManager.TotalValue || (inventory.heldItems.Count + shopManager.itemsToBeBought.Count) >= 8)
+        if (money < shopManager.TotalValue)
         {
             holding = false;
             ReturnToSender();
 
         }
-        else if (PlayerBattler.coins >= shopManager.TotalValue)
+        else if (money >= shopManager.TotalValue)
         {
             StartCoroutine(TrailDecay());
             playerController.speed = 0f;
@@ -149,12 +144,7 @@ public class PodiumDisplay : MonoBehaviour
 
             });
 
-            PlayerBattler.coins = PlayerBattler.coins - value;
-
-            foreach(InventoryItemData item in shopManager.itemsToBeBought)
-            {
-                inventory.heldItems.Add(item);
-            }
+            money = money - value;
 
         }
     }
@@ -169,7 +159,6 @@ public class PodiumDisplay : MonoBehaviour
         displaySprite.sprite = randomItem.Icon;
         displaySprite.size = new Vector2(itemScale, itemScale);
         value = randomItem.Value;
-        itemData = randomItem;
     }
 
     private void ReturnToSender()
