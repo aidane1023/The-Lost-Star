@@ -10,6 +10,9 @@ public class BattleInitiator : MonoBehaviour
     public bool isGrunt = false;
     public int enemyID = -1;
     public int level = 0;
+    public bool canRunFromFight = true;
+
+    public bool isTutorial = false; //variable to check if fighting the dummy
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,8 @@ public class BattleInitiator : MonoBehaviour
     // Update is called once per frame
     public void InitiateBattle()
     {
+        if(isTutorial) TrainingDummy.cleared = true;
+
         BattleManager.enemiesToSpawn.Clear();
         BattleManager.overworldSpawn = transform.position;
         foreach(GameObject enemy in battlers)
@@ -28,6 +33,8 @@ public class BattleInitiator : MonoBehaviour
         }
         BattleManager.enemyID = enemyID;
         BattleManager.level = level;
+        if(canRunFromFight) BattleManager.canRun = true;
+        else BattleManager.canRun = false;
         SceneManager.LoadScene ("BattleScene");
     }
 

@@ -24,6 +24,7 @@ public class BattleManager : MonoBehaviour
     public static Vector3 overworldSpawn;
     public static int enemyID = -1;
     public static int level = 0; //dictates which setpieces spawn
+    public static bool canRun = true;
     public List<Transform> enemySpots;
 
     public List<GameObject> setPieces;
@@ -32,6 +33,9 @@ public class BattleManager : MonoBehaviour
 
     public int enemyCount; //For UI enemy selectors
     public GameObject backupEnemy; //for testing
+    [HideInInspector]
+    public bool battleWon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -149,12 +153,12 @@ public class BattleManager : MonoBehaviour
 
     public void BattleEnd(bool fled)
     {
-        if(fled)
+        if(fled && canRun)
         {
             enemyID = -1;
             SceneManager.LoadScene(sceneToLoad);
         }
-        else
+        else if(!fled)
         {
             //gain xp and make the enemy die via battle initiator
             SceneManager.LoadScene(sceneToLoad);
