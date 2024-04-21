@@ -16,7 +16,7 @@ public class UiInventoryScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemLength = inventory.heldItems.Length;
+        itemLength = inventory.heldItems.Count;
         itemNames = new string[itemLength];
         itemDescriptions = new string[itemLength];
 

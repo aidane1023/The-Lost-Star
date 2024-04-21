@@ -35,7 +35,6 @@ public class BattleManager : MonoBehaviour
     public int enemyCount; //For UI enemy selectors
     public GameObject backupEnemy; //for testing
     [HideInInspector]
-    public bool battleWon;
 
     // Start is called before the first frame update
     void Start()
