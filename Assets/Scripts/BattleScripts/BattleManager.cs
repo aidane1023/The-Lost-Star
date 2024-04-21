@@ -7,6 +7,8 @@ public class BattleManager : MonoBehaviour
 {
     public GameState gameState = GameState.Transition;
 
+    public static PlayerInventory inventory;
+
     BattleMenuScript menuScript;
 
     PlayerBattler player;
@@ -21,13 +23,20 @@ public class BattleManager : MonoBehaviour
     public static List<GameObject> enemiesToSpawn = new List<GameObject>(); //make static eventually
     public static Vector3 overworldSpawn;
     public static int enemyID = -1;
+    public static int level = 0; //dictates which setpieces spawn
+    public static bool canRun = true;
     public List<Transform> enemySpots;
     public bool battleWon = false;
+
+    public List<GameObject> setPieces;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
     public int enemyCount; //For UI enemy selectors
     public GameObject backupEnemy; //for testing
+    [HideInInspector]
+    public bool battleWon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +45,8 @@ public class BattleManager : MonoBehaviour
         StartCoroutine("BattleStart");
         if(enemiesToSpawn.Count == 0) enemiesToSpawn.Add(backupEnemy);
         InitialSpawn();
+
+        if(level > 0) setPieces[(level - 1)].SetActive(true);
     }
 
     // Update is called once per frame
@@ -143,11 +154,12 @@ public class BattleManager : MonoBehaviour
 
     public void BattleEnd(bool fled)
     {
-        if(fled)
+        if(fled && canRun)
         {
+            enemyID = -1;
             SceneManager.LoadScene(sceneToLoad);
         }
-        else
+        else if(!fled)
         {
             //gain xp and make the enemy die via battle initiator
             //SceneManager.LoadScene(sceneToLoad);

@@ -15,6 +15,8 @@ public class PlayerAttacksHandler : MonoBehaviour
 
     public bool isCharging = false;
 
+    //TODO: ATTACKS(A RYTHYM ONE WHERE A BUTTON FLASHES ON THE SCREEN THAT THE PLAYER PRESSES (EACH PRESS THROWS A BAND), A MASH ONE, AND A BALANCE ONE WHERE THE PLAYER PRESSES LEFT AND RIGHT TO KEEP A BAR IN THE MIDDLE, USE THIS FOR PIN ATTACK)
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,4 +32,10 @@ public class PlayerAttacksHandler : MonoBehaviour
             chargeMeter.fillAmount = chargeAmount/100;
         }
     }
+}
+
+public enum AttackName
+{
+    Null,
+    Pin
 }

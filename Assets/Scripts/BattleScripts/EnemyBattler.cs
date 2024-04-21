@@ -15,6 +15,8 @@ public class EnemyBattler : MonoBehaviour
     public Transform inFront;
     public Transform head;
     public Transform projectileStart;
+    [HideInInspector]
+    public Transform playerFront;
 
     public GameObject damageStar; //the icon that shows damage dealt
     [HideInInspector]
@@ -23,6 +25,7 @@ public class EnemyBattler : MonoBehaviour
     public void Start()
     {
         battleManager = FindObjectOfType<BattleManager>();
+        playerFront = GameObject.Find("Player_InFront").transform;
     }
 
     // Update is called once per frame

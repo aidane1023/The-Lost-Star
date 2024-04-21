@@ -2099,6 +2099,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
       propertyPath: enemyID
       value: 4
       objectReference: {fileID: 0}
@@ -4340,6 +4344,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
       propertyPath: enemyID
       value: 2
       objectReference: {fileID: 0}
@@ -4857,6 +4865,10 @@ PrefabInstance:
     - target: {fileID: 4544452988847421682, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
+      propertyPath: level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
       propertyPath: enemyID
@@ -6497,6 +6509,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544452988847421683, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
       propertyPath: enemyID
       value: 3
       objectReference: {fileID: 0}
@@ -7763,14 +7779,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
   m_PrefabInstance: {fileID: 124389725}
   m_PrefabAsset: {fileID: 0}
---- !u!81 &1148752931
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676945081}
-  m_Enabled: 1
 --- !u!1 &1156779335
 GameObject:
   m_ObjectHideFlags: 0
