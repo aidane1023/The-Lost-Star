@@ -100,10 +100,9 @@ public class TiltPuzzle : MonoBehaviour
 
         if (other.gameObject.CompareTag("ball") && activeBall != null)
         {
-            cam3.Priority = 0;
             win = true;
             active = false;
-            
+            cam3.Priority = 0;
         }
     }
 

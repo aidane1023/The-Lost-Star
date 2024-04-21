@@ -14,6 +14,7 @@ public class BossTransition : MonoBehaviour
     {
         cam1.enabled = true;
         cam2.enabled = false;
+        hud.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -22,7 +23,6 @@ public class BossTransition : MonoBehaviour
         {
             cam1.enabled = false;
             cam2.enabled = true;
-            hud.SetActive(false);
             StartCoroutine(PlayTransition());
         }
     }

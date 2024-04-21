@@ -7,6 +7,8 @@ public class ShopManager : MonoBehaviour
     private int totalValue = 0; //private total value
     public int TotalValue { get { return totalValue; } } //public totalvalue
 
+    public List<InventoryItemData> itemsToBeBought;
+
 
     public void AddItemValue(int value)
     {
