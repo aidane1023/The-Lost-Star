@@ -26,7 +26,6 @@ public class BattleManager : MonoBehaviour
     public static int level = 0; //dictates which setpieces spawn
     public static bool canRun = true;
     public List<Transform> enemySpots;
-    public bool battleWon = false;
 
     public List<GameObject> setPieces;
 
@@ -35,6 +34,7 @@ public class BattleManager : MonoBehaviour
     public int enemyCount; //For UI enemy selectors
     public GameObject backupEnemy; //for testing
     [HideInInspector]
+    public bool battleWon;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +51,7 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     IEnumerator BattleStart()
@@ -161,8 +161,7 @@ public class BattleManager : MonoBehaviour
         else if(!fled)
         {
             //gain xp and make the enemy die via battle initiator
-            //SceneManager.LoadScene(sceneToLoad);
-            battleWon = true;
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }

@@ -23,8 +23,14 @@ public class ExitWall2 : MonoBehaviour
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera lightCamera;
     public CinemachineVirtualCamera wallCamera;
+    public CinemachineVirtualCamera rocketCamera;
+
     public GameObject door;
     private Rigidbody doorRB;
+
+
+
+ 
 
     private int speed = 5;
 
@@ -39,10 +45,12 @@ public class ExitWall2 : MonoBehaviour
         wallUpRun = false;
 
        
+       
         dropP = dropPuzzle.GetComponent<DropPuzzle>();
         playerController = player.GetComponent<PlayerController>();
         doorRB = door.GetComponent<Rigidbody>();
         savedSpeed = playerController.speed;
+        
 
 
     }
@@ -103,4 +111,6 @@ public class ExitWall2 : MonoBehaviour
         wallCamera.Priority = 0;
 
     }
+
+   
 }
