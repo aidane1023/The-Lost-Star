@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544452987370961888}
   - component: {fileID: 4544452987370961889}
+  - component: {fileID: 5235792502602234447}
   m_Layer: 0
   m_Name: Animaton
   m_TagString: Untagged
@@ -139,6 +140,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5235792502602234447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4544452987370961895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a181d681c81d6468d5476d3c29a67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 4544452987370961889}
 --- !u!1 &4544452988306649361
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +307,9 @@ MonoBehaviour:
   - {fileID: 4353301494756480417, guid: 7128c68079793c24a8290edf1d6b4d7d, type: 3}
   isGrunt: 0
   enemyID: -1
+  level: 0
+  canRunFromFight: 1
+  isTutorial: 0
 --- !u!114 &4544452988847421645
 MonoBehaviour:
   m_ObjectHideFlags: 0
