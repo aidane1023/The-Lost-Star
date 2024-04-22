@@ -11,7 +11,7 @@ public class UIPauseScript : MonoBehaviour
 {
     public GameObject[] inventoryButtons, backButtons, inventorySelectedGraphic, inventoryDisabledGraphic, defaultButtons;
     public TextMeshProUGUI[] inventoryButtonText;
-    public GameObject pauseMenu, pausePage, pauseResumeButton, pauseInventoryButton, pauseControlsButton, itemTitleUI, itemDescUI,
+    public GameObject pauseMenu, pausePage, pauseResumeButton, pauseInventoryButton, pauseControlsButton, itemTitleUI, itemDescUI, menuControls, controlsUI, keyboardButton,
     itemDescriptionsUI, itemPanelUI;
     GameObject savedOption;
     UiInventoryScript inventory;
@@ -64,6 +64,11 @@ public class UIPauseScript : MonoBehaviour
                 itemPanelUI.SetActive(false);
                 itemDescriptionsUI.SetActive(false);
             }
+            if (currentMenu == 2)
+            {
+                ReturnMenu();
+                controlsUI.SetActive(false);
+            }
         }
         if (EventSystem.current.currentSelectedGameObject == null)
         {
@@ -99,6 +104,14 @@ public class UIPauseScript : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void OpenControls()
+    {
+        currentMenu = 2;
+        savedOption = menuControls;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(keyboardButton);
     }
 
     public void OpenInventory()
