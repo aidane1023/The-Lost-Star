@@ -169,6 +169,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battlers:
   - {fileID: 593130735233437778, guid: 63850bdf3e80a5e41a9ef3a3c13f68e5, type: 3}
+  pickups: []
+  isGrunt: 0
+  enemyID: -1
+  level: 1
+  canRunFromFight: 0
+  isTutorial: 1
 --- !u!114 &5484063002409949626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5484063002409949616}
   player: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
+  movingUp: 0
+  source: {fileID: 0}
 --- !u!1 &5484063003390043251
 GameObject:
   m_ObjectHideFlags: 0

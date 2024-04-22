@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class UIPauseScript : MonoBehaviour

@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-using UnityEngine.UI;
 
 public class UIHUDScript : MonoBehaviour
 {
-    public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI, playerCoinTextUI, xpBarUI;
-    //public GameObject player;
+    public GameObject playerHealthTextUI, playerSPTextUI, playerXPTextUI, playerCoinTextUI;
+    public GameObject player;
 
     TextMeshProUGUI healthText, SPText, XPText, coinText;
-    Image xpBarColorFill;
 
     //private PlayerStats playerStatsScript;
 
@@ -22,7 +20,7 @@ public class UIHUDScript : MonoBehaviour
         healthText = playerHealthTextUI.GetComponent<TextMeshProUGUI>();
         SPText = playerSPTextUI.GetComponent<TextMeshProUGUI>();
         XPText = playerXPTextUI.GetComponent<TextMeshProUGUI>();
-        xpBarColorFill = xpBarUI.GetComponent<Image>();
+        //xpBarColorFill = xpBarUI.GetComponent<Image>();
         coinText = playerCoinTextUI.GetComponent<TextMeshProUGUI>();
     }
 
@@ -32,7 +30,7 @@ public class UIHUDScript : MonoBehaviour
         healthText.text = $"HP: {PlayerBattler.health}/{PlayerBattler.maxHealth}";
         SPText.text = $"SP: {PlayerBattler.starPoints}/{PlayerBattler.maxStarPoints}";
         XPText.text = $"XP: {PlayerBattler.xp}/100";
-        xpBarColorFill.fillAmount = (PlayerBattler.xp/100);
+        //xpBarColorFill.fillAmount = (PlayerBattler.xp/100);
         coinText.text = $"Coins: {PlayerBattler.coins}";
     }
 }
