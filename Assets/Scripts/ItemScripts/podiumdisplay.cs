@@ -54,7 +54,7 @@ public class PodiumDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (interact && !holding && Input.GetKeyDown(KeyCode.Space))
+        if (interact && !holding && Input.GetKeyDown(KeyCode.Z))
         {
             PickUpObject();
         }
@@ -72,7 +72,7 @@ public class PodiumDisplay : MonoBehaviour
 
 
 
-            if (activeShop && Input.GetKeyDown(KeyCode.Space))
+            if (activeShop && Input.GetKeyDown(KeyCode.Z))
             {
                 Shop();
             }
