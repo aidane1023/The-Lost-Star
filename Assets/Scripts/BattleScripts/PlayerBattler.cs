@@ -7,7 +7,8 @@ using TMPro;
 public class PlayerBattler : MonoBehaviour
 {
     Transform playerSpot;
-    BattleManager battleManager;
+    [HideInInspector]
+    public BattleManager battleManager;
     [HideInInspector]
     public PlayerBattlerAnimator playerAnimator;
     [HideInInspector]
@@ -29,9 +30,11 @@ public class PlayerBattler : MonoBehaviour
     public float buffLength;
     public string buffType;
 
-    string actionKeyNeeded; //what is needed to achieve the action input
+    [HideInInspector]
+    public string actionKeyNeeded; //what is needed to achieve the action input
     bool keyCooldown = false; //if the key was pressed early, this is enabled, to prevent registering anymore inputs until cooldown has ended
-    bool keyCorrect = false; //made true if the correct key was pressed for an attack
+    [HideInInspector]
+    public bool keyCorrect = false; //made true if the correct key was pressed for an attack
     // Start is called before the first frame update
     void Start()
     {
