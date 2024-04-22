@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossTransition : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class BossTransition : MonoBehaviour
         anim1.SetBool("pan", true);
         yield return new WaitForSeconds(1.6f);
         anim2.SetBool("rise", true);
-        yield return new WaitForSeconds(0.5f);
-        
+        yield return new WaitForSeconds(2.8f);
+        SceneManager.LoadScene("HUBBuild");
     }
 }

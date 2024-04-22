@@ -9,9 +9,9 @@ public class BearAnimation : MonoBehaviour
 
     public static int danceSelect = 10;
 
-    public float swingInterval = 8.0f;
-    public float wanderInterval = 50.0f;
-    public float watchInterval = 80.0f;
+    public float swingInterval = 15.0f;
+    public float wanderInterval = 55.0f;
+    public float watchInterval = 3.0f;
     private float currentTime = 1;
     private int roundedTime;
 
@@ -36,7 +36,7 @@ public class BearAnimation : MonoBehaviour
         }
         else if (roundedTime % swingInterval == 0)
         {
-            if (Random.Range(0,3) == 1)
+            if (Random.Range(0,2) == 1)
             {
                 Debug.Log("Swing");
                 StartCoroutine(Delay(0));
