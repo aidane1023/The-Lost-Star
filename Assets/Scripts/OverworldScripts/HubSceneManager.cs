@@ -27,11 +27,13 @@ public class HubSceneManager : MonoBehaviour
                     SceneManager.LoadScene ("LevelOne");
                     break;
                 case 2:
-                    //LevelTwo
-                    break;
+                        leftHub = player.position;
+                        SceneManager.LoadScene("LevelTwo");
+                        break;
                 case 3:
-                    //LevelThree
-                    break;
+                        leftHub = player.position;
+                        SceneManager.LoadScene("LevelThree");
+                        break;
                 case 4:
                     //WinGame?
                     break;
