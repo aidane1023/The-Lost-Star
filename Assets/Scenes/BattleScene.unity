@@ -3222,6 +3222,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1573623789, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573623789, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573623789, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573623790, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1285423134}
+    - target: {fileID: 1573623790, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573623790, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
