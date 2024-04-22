@@ -246,15 +246,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8d6b151268e8b4cb5470f07532474c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9999
-  maxHealth: 9999
+  health: 5
+  maxHealth: 5
   xpWorth: 0
   defense: 0
   coinDropRate: 0
-  attacks: []
+  attacks:
+  - Attack1
   inFront: {fileID: 6890239830394495936}
   head: {fileID: 593130734030804645}
+  projectileStart: {fileID: 0}
+  playerFront: {fileID: 0}
   damageStar: {fileID: 6620711889202787246, guid: d5a6147b1e950e5429cce9a74a669076, type: 3}
+  battleManager: {fileID: 0}
 --- !u!1 &4542443460185899932
 GameObject:
   m_ObjectHideFlags: 0
