@@ -2987,10 +2987,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1448198676146686876, guid: d7cd00e1be1acac47a07f4179b9fa3b0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91e9b770063e7c6419b4a45dd8d18457, type: 2}
     - target: {fileID: 919132149155446097, guid: d7cd00e1be1acac47a07f4179b9fa3b0, type: 3}
       propertyPath: m_Name
       value: cardboardcounterforShop
       objectReference: {fileID: 0}
+    - target: {fileID: 2328169485041697687, guid: d7cd00e1be1acac47a07f4179b9fa3b0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ec2dbb984d2d9244839496fa84c8eeb, type: 2}
+    - target: {fileID: 8354995725138125388, guid: d7cd00e1be1acac47a07f4179b9fa3b0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ec2dbb984d2d9244839496fa84c8eeb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7cd00e1be1acac47a07f4179b9fa3b0, type: 3}
 --- !u!1001 &1145810122
@@ -3246,7 +3258,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1053940336}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1053940336}
   m_Lens:
     FieldOfView: 50
