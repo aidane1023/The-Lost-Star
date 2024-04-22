@@ -16,7 +16,7 @@ public class CountManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             box1Count = 0;
             box2Count = 0;
