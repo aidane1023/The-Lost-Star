@@ -124,7 +124,7 @@ public class BattleMenuScript : MonoBehaviour
         inventory.RefreshInventory();
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(inventoryButtons[0]);
+        EventSystem.current.SetSelectedGameObject(backButtons[2]);
 
         for (int i = 0; i < inventoryButtonLength; i++)
         {
@@ -156,17 +156,17 @@ public class BattleMenuScript : MonoBehaviour
 
     public void OpenSkills()
     {
-        for (int i = 0; i < inventoryButtonLength; i ++)
-        {
-            if (inventoryButtonColor[i] == null)
-            {
-                inventoryButtonColor[i] = inventoryButtons[i].GetComponent<Image>();
-                Debug.Log("Inventory " + i + " Button Component Cached");
-            }
-        }
+        //for (int i = 0; i < inventoryButtonLength; i ++)
+        //{
+        //    if (inventoryButtonColor[i] == null)
+        //    {
+        //        inventoryButtonColor[i] = inventoryButtons[i].GetComponent<Image>();
+        //        Debug.Log("Inventory " + i + " Button Component Cached");
+        //    }
+        //}
         savedOption = menuSkill;
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(skillButtons[0]);
+        EventSystem.current.SetSelectedGameObject(backButtons[3]);
     }
 
     public void EnemyAttackSelector()
