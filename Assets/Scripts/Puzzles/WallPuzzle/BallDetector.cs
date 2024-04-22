@@ -20,12 +20,14 @@ public class BallDetector : MonoBehaviour
             {
                 puzzle.BlueMove();
                 puzzle.RedMove();
+                // wall move
             }
 
             if (gameObject.CompareTag("greenBlue"))
             {
                 puzzle.GreenMove();
                 puzzle.BlueMove();
+                //wall move
             }
 
         }

@@ -65,6 +65,7 @@ public class TiltPuzzle : MonoBehaviour
             {
 
                 planksRB[i].transform.Rotate(0, 0, -rotationAmount);
+            //add rotate sound
               
             }
 
@@ -72,6 +73,7 @@ public class TiltPuzzle : MonoBehaviour
             {
                 noActiveBall = false;
                 activeBall = Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
+                //add ball drop sound
                 cam3.Follow = activeBall.transform;
                 cam3.LookAt = activeBall.transform;
                 secondaryCamera.Priority = 0;

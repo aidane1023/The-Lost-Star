@@ -60,9 +60,11 @@ public class DropPuzzle : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             Vector3 moveDir = new Vector3(x, 0, 0);
             tubeRB.velocity = moveDir * speed;
+            //add moving sound
 
             if (Input.GetKeyDown(KeyCode.Z) && ballsLeft > 0)
             {
+                //add ball drop sound
              Instantiate(sphere, spawner.transform.position+Random.onUnitSphere*0.1f, spawner.transform.rotation);
                 ballsLeft --;
             }

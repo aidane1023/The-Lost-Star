@@ -172,11 +172,13 @@ public class WallPuzzle : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0, 0);
         tubeRB.velocity = moveDir * speed;
 
+        //add movement
+
         if (Input.GetKeyDown(KeyCode.Z) && wait != true)
         {
             StartCoroutine(NoSpam());
             Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
-
+            //add ball drp[]
         }
     }
 
