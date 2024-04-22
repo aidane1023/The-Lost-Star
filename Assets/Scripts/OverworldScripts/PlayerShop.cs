@@ -5,22 +5,22 @@ using UnityEngine;
 public class PlayerShop : MonoBehaviour
 {
 
-    private List<PodiumDisplay> podiumDisplays = new List<PodiumDisplay>();
+    private List<ItemDisplay> itemDisplays = new List<ItemDisplay>();
     //gets script podium display and creates a list for the objects in it
 
     private void Start()
     {
       
 
-       podiumDisplays.Clear();
+       itemDisplays.Clear();
         GameObject[] podiumObjects = GameObject.FindGameObjectsWithTag("podium"); //gets all the objects tagged podium and puts it into a list
 
         foreach (GameObject podiumObject in podiumObjects) //foreach loop that grabs each podiumdisplay script component so it can be use
         {
-            PodiumDisplay pd = podiumObject.GetComponent<PodiumDisplay>();
+            ItemDisplay pd = podiumObject.GetComponent<ItemDisplay>();
             if (pd != null)
             {
-                podiumDisplays.Add(pd); //puts into list
+                itemDisplays.Add(pd); //puts into list
             }
         }
 
@@ -35,7 +35,7 @@ public class PlayerShop : MonoBehaviour
         if (other.CompareTag("shop"))
         {
             //activates shop mode for all podiums that are held
-            foreach (var display in podiumDisplays)
+            foreach (var display in itemDisplays)
             {
                 display.activeShop = true;
             }
@@ -47,7 +47,7 @@ public class PlayerShop : MonoBehaviour
        if (other.CompareTag("shop"))
         {
             // deactivates shop mode for all podiums that are held
-            foreach (var display in podiumDisplays)
+            foreach (var display in itemDisplays)
             {
                 display.activeShop = false;
             }
