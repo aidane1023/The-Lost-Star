@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class UIMainMenu : MonoBehaviour
 {
 
-    public GameObject menuStart, menuControls, menuCredits, menuExit, defaultMain, defaultCredits, defaultControls, creditsMenu;
+    public GameObject menuStart, menuControls, menuCredits, menuExit, defaultMain, defaultCredits, defaultControls, creditsMenu, controlsMenu, title;
     public GameObject[] credits;
     int currentMenu;
     private GameObject savedOption;
@@ -47,6 +47,10 @@ public class UIMainMenu : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(defaultCredits);
                 break;
 
+                case 2:
+                EventSystem.current.SetSelectedGameObject(defaultControls);
+                break;
+
                 default:
                 break;
             }
@@ -57,16 +61,27 @@ public class UIMainMenu : MonoBehaviour
             if (currentMenu == 1);
             {
                 creditsMenu.SetActive(false);
+                title.SetActive(true);
                 ReturnMenu(savedOption);
                 Debug.Log(savedOption);
                 currentMenu = 0;
             }
+
+            if (currentMenu == 2);
+            {
+                controlsMenu.SetActive(false);
+                title.SetActive(true);
+                ReturnMenu(savedOption);
+                Debug.Log(savedOption);
+                currentMenu = 0;
+            }
+            
         }
     }
 
     public void ReturnMenu(GameObject returnOption)
     {
-        if (currentMenu == 1)
+        if (currentMenu == 1 || currentMenu == 2)
         {
             startButton.interactable = true;
             controlsButton.interactable = true;
@@ -84,6 +99,14 @@ public class UIMainMenu : MonoBehaviour
         savedOption = menuCredits;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(defaultCredits);
+    }
+
+    public void OpenControls()
+    {
+        currentMenu = 2;
+        savedOption = menuControls;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(defaultControls);
     }
 
     public void ExitGame()
