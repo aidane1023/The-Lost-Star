@@ -54,12 +54,12 @@ public class WallPuzzle : MonoBehaviour
     {
 
 
-        if (inRange && Input.GetKeyDown(KeyCode.F) && win != true)
+        if (inRange && Input.GetKeyDown(KeyCode.Z) && win != true)
         {
             StartCoroutine(WaitActive());
         }
 
-        else if (inRange && Input.GetKeyDown(KeyCode.Escape))
+        else if (inRange && Input.GetKeyDown(KeyCode.X))
         {
           
             StartCoroutine(Finished());
@@ -172,7 +172,7 @@ public class WallPuzzle : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0, 0);
         tubeRB.velocity = moveDir * speed;
 
-        if (Input.GetKeyDown(KeyCode.Space) && wait != true)
+        if (Input.GetKeyDown(KeyCode.Z) && wait != true)
         {
             StartCoroutine(NoSpam());
             Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);

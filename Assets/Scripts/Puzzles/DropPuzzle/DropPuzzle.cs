@@ -41,7 +41,7 @@ public class DropPuzzle : MonoBehaviour
     {
         
 
-        if (inRange && Input.GetKeyDown(KeyCode.F) && win != true)
+        if (inRange && Input.GetKeyDown(KeyCode.Z) && win != true)
         {
            
             StartCoroutine(WaitActive());
@@ -61,13 +61,13 @@ public class DropPuzzle : MonoBehaviour
             Vector3 moveDir = new Vector3(x, 0, 0);
             tubeRB.velocity = moveDir * speed;
 
-            if (Input.GetKeyDown(KeyCode.Space) && ballsLeft > 0)
+            if (Input.GetKeyDown(KeyCode.Z) && ballsLeft > 0)
             {
              Instantiate(sphere, spawner.transform.position+Random.onUnitSphere*0.1f, spawner.transform.rotation);
                 ballsLeft --;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.X))
             {
                 ballsLeft = 11;
             }

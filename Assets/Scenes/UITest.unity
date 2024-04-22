@@ -856,7 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5154e7572ba71a479fbe03e4fed8247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 636529080}
 --- !u!65 &518374967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -932,6 +931,7 @@ GameObject:
   - component: {fileID: 636529083}
   - component: {fileID: 636529082}
   - component: {fileID: 636529081}
+  - component: {fileID: 636529084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -968,7 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  animator: {fileID: 0}
+  animator: {fileID: 636529084}
   rb: {fileID: 636529082}
   sr: {fileID: 2126194183}
 --- !u!54 &636529082
@@ -1000,6 +1000,27 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.55
   m_Center: {x: 0, y: 0.8, z: -0.4}
+--- !u!95 &636529084
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636529079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2702e7616214a947a1059dc1f8a6e0e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &702381553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1182,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battlers:
   - {fileID: 593130735233437778, guid: 63850bdf3e80a5e41a9ef3a3c13f68e5, type: 3}
+  pickups: []
+  isGrunt: 0
+  enemyID: -1
 --- !u!114 &747549229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 209.7923, y: 27.8986}
+  m_AnchoredPosition: {x: 1708, y: 309}
   m_SizeDelta: {x: 297.5847, y: 55.7971}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1718307877
@@ -2543,7 +2567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2120428436
 Transform:
   m_ObjectHideFlags: 0

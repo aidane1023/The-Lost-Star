@@ -44,14 +44,14 @@ public class TiltPuzzle : MonoBehaviour
     {
 
 
-        if (inRange && Input.GetKeyDown(KeyCode.F) && win != true)
+        if (inRange && Input.GetKeyDown(KeyCode.Z) && win != true && noActiveBall)
         {
    
             
             StartCoroutine(WaitActive());
         }
 
-        if (inRange && Input.GetKeyDown(KeyCode.Escape))
+        if (inRange && Input.GetKeyDown(KeyCode.X))
         {
             
             StartCoroutine(Finished());
@@ -68,7 +68,7 @@ public class TiltPuzzle : MonoBehaviour
               
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && noActiveBall)
+            if (Input.GetKeyDown(KeyCode.Z) && noActiveBall)
             {
                 noActiveBall = false;
                 activeBall = Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);

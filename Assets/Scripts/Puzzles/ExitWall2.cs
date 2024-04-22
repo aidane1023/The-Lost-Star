@@ -23,7 +23,6 @@ public class ExitWall2 : MonoBehaviour
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera lightCamera;
     public CinemachineVirtualCamera wallCamera;
-    public CinemachineVirtualCamera rocketCamera;
 
     public GameObject door;
     private Rigidbody doorRB;
