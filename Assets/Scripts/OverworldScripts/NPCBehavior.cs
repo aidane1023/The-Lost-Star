@@ -13,6 +13,9 @@ public class NPCBehavior : MonoBehaviour
     public int dialogueCount;
     int index = 0;
     float timer = 0f;
+
+    public AudioSource source;
+    public AudioClip dialoguePress;
     
     void Start()
     {
@@ -35,6 +38,8 @@ public class NPCBehavior : MonoBehaviour
             dialogueObjects[0].SetActive(true);
             interactObjects[0].SetActive(false);
             dialogue.DialogueTriggered();
+
+            source.PlayOneShot(dialoguePress);
         }
         if ((dialogue.dialogueEnded == true) && (textPlaying == true))
         {

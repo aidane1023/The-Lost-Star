@@ -26,6 +26,12 @@ public class DropPuzzle : MonoBehaviour
     public bool win;
     private int ballsLeft = 11;
 
+    public AudioSource source;
+    public AudioClip ballDrop;
+    public AudioSource machineSource;
+    public AudioClip buttonClick;
+    public AudioClip puzzleSolved;
+
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
 
@@ -50,6 +56,9 @@ public class DropPuzzle : MonoBehaviour
 
         }
 
+        if (tubeRB.velocity.magnitude == 0) machineSource.volume = 0;
+        else machineSource.volume = 1f;
+
         if (inRange && Input.GetKeyDown(KeyCode.Escape))
             { 
             StartCoroutine(Finished());
@@ -61,10 +70,14 @@ public class DropPuzzle : MonoBehaviour
             Vector3 moveDir = new Vector3(x, 0, 0);
             tubeRB.velocity = moveDir * speed;
 
+
+
             if (Input.GetKeyDown(KeyCode.Z) && ballsLeft > 0)
             {
+                
              Instantiate(sphere, spawner.transform.position+Random.onUnitSphere*0.1f, spawner.transform.rotation);
                 ballsLeft --;
+            StartCoroutine("BallSound");
             }
 
             if (Input.GetKeyDown(KeyCode.X))
@@ -78,6 +91,8 @@ public class DropPuzzle : MonoBehaviour
                 
                 
                 win = true;
+                
+                if (!source.isPlaying) source.PlayOneShot(puzzleSolved);
             }
 
            
@@ -106,6 +121,7 @@ public class DropPuzzle : MonoBehaviour
         secondaryCamera.Priority = 20;
         
         playerController.speed = 0;
+        source.PlayOneShot(buttonClick);
         yield return new WaitForSeconds(2);
         active = true;
     }
@@ -116,5 +132,10 @@ public class DropPuzzle : MonoBehaviour
         primaryCamera.Priority = 20;
         yield return new WaitForSeconds(2);
         playerController.speed = savedSpeed;
+    }
+    IEnumerator BallSound()
+    {
+        yield return new WaitForSeconds(0.7f);
+        source.PlayOneShot(ballDrop);
     }
 }
