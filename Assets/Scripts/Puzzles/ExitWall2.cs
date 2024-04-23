@@ -33,6 +33,9 @@ public class ExitWall2 : MonoBehaviour
 
     private int speed = 5;
 
+    public AudioSource source;
+    public AudioClip doorRaising;
+
 
     void Start()
     {
@@ -84,6 +87,8 @@ public class ExitWall2 : MonoBehaviour
 
             StartCoroutine(SwitchToWall());
             wallUpRun = true;
+            yield return new WaitForSeconds(1.5f);
+            source.PlayOneShot(doorRaising);
         }
         else StartCoroutine(BackToPlayer());
 
