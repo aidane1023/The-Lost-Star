@@ -28,6 +28,8 @@ public class Dialogue : MonoBehaviour
     public int effectTextSize;
     public bool dialogueEnded = false;
 
+    public AudioSource typewriterSource;
+
     // Start is called before the first frame update
     public void DialogueTriggered()
     {
@@ -71,6 +73,11 @@ public class Dialogue : MonoBehaviour
                 textComponent.text = lines[index];
             }
         }
+
+        if (textComponent.text == lines[index])
+        {
+            typewriterSource.Stop();
+        }
     }
 
     void BeginDialogue()
@@ -81,6 +88,8 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        typewriterSource.Play(0);
+
         Debug.Log(index);
 
         //Effect Code
