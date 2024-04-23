@@ -88,7 +88,7 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        typewriterSource.Play(0);
+        typewriterSource.Play();
 
         Debug.Log(index);
 
