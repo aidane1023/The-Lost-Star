@@ -87,6 +87,7 @@ public class BattleManager : MonoBehaviour
             gameState = GameState.PlayerTurn;
             menuScript.battleButtonCanvas.SetActive(true);
             menuScript.ReturnMenu();
+            menuScript.RestartMenu();
             player.playerAnimator.OnThink();
         }
     }

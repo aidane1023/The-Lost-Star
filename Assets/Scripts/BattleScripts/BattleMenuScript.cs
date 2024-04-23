@@ -199,6 +199,12 @@ public class BattleMenuScript : MonoBehaviour
         }
     }
 
+    public void RestartMenu()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(menuAttack);
+    }
+
     void menuAnimator()
     {
         //EventSystem.current.currentSelectedGameObject;
