@@ -33,6 +33,7 @@ public class WallPuzzle : MonoBehaviour
     private Rigidbody greenRB;
     public GameObject activeBall;
     private bool wait;
+    
     public AudioSource source;
     public AudioClip ballDrop;
     public AudioSource machineSource;

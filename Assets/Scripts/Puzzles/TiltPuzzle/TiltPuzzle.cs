@@ -18,6 +18,7 @@ public class TiltPuzzle : MonoBehaviour
     private bool noActiveBall = true;
     private GameObject activeBall = null;
     public bool win;
+    
     public AudioSource source;
     public AudioClip ballDrop;
     public AudioSource machineSource;
