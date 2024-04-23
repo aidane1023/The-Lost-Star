@@ -18,6 +18,12 @@ public class TiltPuzzle : MonoBehaviour
     private bool noActiveBall = true;
     private GameObject activeBall = null;
     public bool win;
+    public AudioSource source;
+    public AudioClip ballDrop;
+    public AudioSource machineSource;
+    public AudioClip buttonClick;
+    public AudioClip puzzleSolved;
+
 
 
 
@@ -68,10 +74,14 @@ public class TiltPuzzle : MonoBehaviour
               
             }
 
+            if (x == 0) machineSource.volume = 0;
+            else machineSource.volume = 1f;
+
             if (Input.GetKeyDown(KeyCode.Z) && noActiveBall)
             {
                 noActiveBall = false;
                 activeBall = Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
+                StartCoroutine("BallSound");
                 cam3.Follow = activeBall.transform;
                 cam3.LookAt = activeBall.transform;
                 secondaryCamera.Priority = 0;
@@ -81,6 +91,7 @@ public class TiltPuzzle : MonoBehaviour
             }
 
         }
+        else machineSource.volume = 0;
 
         if (active && activeBall == null && !noActiveBall)
         {
@@ -103,6 +114,7 @@ public class TiltPuzzle : MonoBehaviour
             cam3.Priority = 0;
             win = true;
             active = false;
+            source.PlayOneShot(puzzleSolved);
             
         }
     }
@@ -121,6 +133,7 @@ public class TiltPuzzle : MonoBehaviour
         secondaryCamera.Priority = 20;
         
         playerController.speed = 0;
+        source.PlayOneShot(buttonClick);
         yield return new WaitForSeconds(2);
         active = true;
     }
@@ -131,6 +144,12 @@ public class TiltPuzzle : MonoBehaviour
         primaryCamera.Priority = 20;
         yield return new WaitForSeconds(2);
         playerController.speed = savedSpeed;
+        
+    }
+    IEnumerator BallSound()
+    {
+        yield return new WaitForSeconds(0.7f);
+        source.PlayOneShot(ballDrop);
     }
 
 

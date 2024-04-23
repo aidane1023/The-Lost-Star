@@ -55,6 +55,7 @@ public class ExitWall : MonoBehaviour
         if (wallP.win == true && wallWinRun != true)
         {
             StartCoroutine(SwitchToLight(wallLight));
+            wallP.source.PlayOneShot(wallP.puzzleSolved);
             wallWinRun=true;
 
         }
