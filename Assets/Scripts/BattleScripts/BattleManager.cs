@@ -139,6 +139,7 @@ public class BattleManager : MonoBehaviour
             {
                 enemies[i].gameObject.SetActive(false);
                 defeatedEnemies++;
+                BridgeBehavior.enemyCount--;
             }
         }
         if(defeatedEnemies >= enemies.Count) BattleEnd(false);
