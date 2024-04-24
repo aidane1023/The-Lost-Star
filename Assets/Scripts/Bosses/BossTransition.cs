@@ -11,6 +11,8 @@ public class BossTransition : MonoBehaviour
     public Animator anim1;
     public Animator anim2;
 
+    public PlayerController playerController;
+
     void Start() 
     {
         cam1.enabled = true;
@@ -21,6 +23,7 @@ public class BossTransition : MonoBehaviour
     {
         if (other.tag == "Player") 
         {
+            playerController.speed = 0;
             cam1.enabled = false;
             cam2.enabled = true;
             hud.SetActive(false);
@@ -34,6 +37,7 @@ public class BossTransition : MonoBehaviour
         yield return new WaitForSeconds(1.6f);
         anim2.SetBool("rise", true);
         yield return new WaitForSeconds(2.8f);
-        SceneManager.LoadScene("HUBBuild");
+        hud.SetActive(false);
+        SceneManager.LoadScene("HubBuild");
     }
 }
