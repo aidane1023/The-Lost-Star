@@ -111,6 +111,18 @@ public class BattleManager : MonoBehaviour
             {
                 player.StartCoroutine("SpinAttack", enemyTarget);
             }
+            if (playerAttackName == "BottleCapAttack")
+            {
+                player.attackHandler.StartCoroutine("BottleCapAttack", enemyTarget);
+            }
+            if (playerAttackName == "PinAttack")
+            {
+                player.attackHandler.StartCoroutine("PinAttack", enemyTarget);
+            }
+            if (playerAttackName == "RubberBandAttack")
+            {
+                player.attackHandler.StartCoroutine("RubberBandAttack", enemyTarget);
+            }
             //disableUI
             menuScript.battleButtonCanvas.SetActive(false);
         }

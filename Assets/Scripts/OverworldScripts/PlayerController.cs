@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("flip", flip);
 
         if (rb.velocity.magnitude == 0) source.volume = 0;
-        else source.volume = 0.5f;
+        else source.volume = 0.3f;
     }
 
     void RelocateAfterBattle()

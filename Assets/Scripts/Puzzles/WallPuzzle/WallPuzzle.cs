@@ -33,6 +33,12 @@ public class WallPuzzle : MonoBehaviour
     private Rigidbody greenRB;
     public GameObject activeBall;
     private bool wait;
+    
+    public AudioSource source;
+    public AudioClip ballDrop;
+    public AudioSource machineSource;
+    public AudioClip buttonClick;
+    public AudioClip puzzleSolved;
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
@@ -65,7 +71,8 @@ public class WallPuzzle : MonoBehaviour
             StartCoroutine(Finished());
         }
 
-        
+        if (tubeRB.velocity.magnitude == 0) machineSource.volume = 0;
+        else machineSource.volume = 1f;
 
         if (active)
         {
@@ -101,6 +108,7 @@ public class WallPuzzle : MonoBehaviour
         secondaryCamera.Priority = 20;
         primaryCamera.Priority = 0;
         playerController.speed = 0;
+        source.PlayOneShot(buttonClick);
         yield return new WaitForSeconds(2);
         active = true;
     }
@@ -172,11 +180,13 @@ public class WallPuzzle : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0, 0);
         tubeRB.velocity = moveDir * speed;
 
+        
+
         if (Input.GetKeyDown(KeyCode.Z) && wait != true)
         {
             StartCoroutine(NoSpam());
             Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
-
+            StartCoroutine("BallSound");
         }
     }
 
@@ -186,4 +196,10 @@ public class WallPuzzle : MonoBehaviour
         yield return new WaitForSeconds(2);
         wait = false;
     }
+    IEnumerator BallSound()
+    {
+        yield return new WaitForSeconds(0.7f);
+        source.PlayOneShot(ballDrop);
+    }
+
 }
