@@ -240,12 +240,12 @@ GameObject:
   - component: {fileID: 1565950006}
   - component: {fileID: 1565950005}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Disabled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1565950004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -253,18 +253,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565950003}
-  m_LocalRotation: {x: -0, y: -0, z: -0.6850571, w: 0.72848946}
+  m_LocalRotation: {x: -0, y: -0, z: -0.69513017, w: 0.71888393}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6909618698333503867}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.48}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -88.075}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.000034, y: 3.0000305}
-  m_SizeDelta: {x: 175.872, y: 504.3327}
+  m_AnchoredPosition: {x: -6, y: 6}
+  m_SizeDelta: {x: 175.872, y: 688.8621}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1565950006
 CanvasRenderer:
@@ -3601,6 +3601,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 6909618697180462295}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 6909618698333503860}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6
@@ -7485,7 +7497,7 @@ GameObject:
   - component: {fileID: 5700118092434578042}
   - component: {fileID: 5700118092434578043}
   m_Layer: 5
-  m_Name: EquipmentCircle
+  m_Name: HubCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7498,18 +7510,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5700118092434578041}
-  m_LocalRotation: {x: -0, y: -0, z: -0.03580075, w: 0.999359}
+  m_LocalRotation: {x: -0, y: -0, z: -0.030882806, w: 0.999523}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 17.58, y: 17.58, z: 17.58}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6909618698333503867}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.539}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: -5}
-  m_SizeDelta: {x: 27.389, y: 7.08}
+  m_AnchoredPosition: {x: -9, y: 6}
+  m_SizeDelta: {x: 38.4006, y: 7.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5700118092434578042
 CanvasRenderer:
@@ -7584,8 +7596,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.833}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65.99997, y: -4.9999695}
-  m_SizeDelta: {x: 19.945, y: 5.793}
+  m_AnchoredPosition: {x: -45.5718, y: -2.9132}
+  m_SizeDelta: {x: 22.2811, y: 5.793}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5700118093014452845
 CanvasRenderer:
@@ -9241,7 +9253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 714.53}
+  m_AnchoredPosition: {x: 16, y: 696}
   m_SizeDelta: {x: 432.3362, y: 99.6704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909618696554778149
@@ -10014,7 +10026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: 178}
+  m_AnchoredPosition: {x: 37.000034, y: 170}
   m_SizeDelta: {x: 433.93, y: 74.4728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909618697180462289
@@ -10102,13 +10114,13 @@ MonoBehaviour:
       - m_Target: {fileID: 7325075258162274274}
         m_TargetAssemblyTypeName: UILoadScene, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6909618697277217400
@@ -10123,7 +10135,7 @@ GameObject:
   - component: {fileID: 6909618697277217403}
   - component: {fileID: 6909618697277217402}
   m_Layer: 5
-  m_Name: EquipmentText
+  m_Name: HubText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10146,8 +10158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13, y: 0.00006866455}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2, y: 0.000011444092}
+  m_SizeDelta: {x: 137.4108, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909618697277217403
 CanvasRenderer:
@@ -10177,7 +10189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Equipment
+  m_text: Return to Hub
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b991bd2bd0390545aaeaf39527fd0b8, type: 2}
   m_sharedMaterial: {fileID: -1627459799947750229, guid: 2b991bd2bd0390545aaeaf39527fd0b8, type: 2}
@@ -10422,7 +10434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 475}
+  m_AnchoredPosition: {x: 70.00003, y: 561}
   m_SizeDelta: {x: 433.9247, y: 74.4728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909618698048205037
@@ -10558,7 +10570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 83, y: 377}
+  m_AnchoredPosition: {x: 93.00003, y: 463}
   m_SizeDelta: {x: 433.93, y: 74.4728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909618698070093124
@@ -10716,6 +10728,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6909618697180462295}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6909618698333503860}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6
@@ -10985,7 +11009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.99997, y: 279.99994}
+  m_AnchoredPosition: {x: 49.000034, y: 272}
   m_SizeDelta: {x: 433.93, y: 74.4728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909618698305042606
@@ -11166,6 +11190,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6909618698333503860}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6909618698333503866
 GameObject:
   m_ObjectHideFlags: 0
@@ -11179,12 +11215,12 @@ GameObject:
   - component: {fileID: 6909618698333503861}
   - component: {fileID: 6909618698333503860}
   m_Layer: 5
-  m_Name: Equipment
+  m_Name: Hub Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6909618698333503867
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11205,7 +11241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.367, y: 383}
+  m_AnchoredPosition: {x: 49, y: 367}
   m_SizeDelta: {x: 433.93, y: 74.4728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6909618698333503862
@@ -11229,7 +11265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11285,11 +11321,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 5700118092434578043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7325075258162274274}
+        m_TargetAssemblyTypeName: UILoadScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HUBBuild
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6909618698368908590
 GameObject:
   m_ObjectHideFlags: 0
@@ -11977,6 +12025,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 6909618697180462295}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 6909618698333503860}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6

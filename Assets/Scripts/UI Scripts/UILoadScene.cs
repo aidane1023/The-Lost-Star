@@ -12,12 +12,12 @@ public class UILoadScene : MonoBehaviour
     public TextMeshProUGUI loadProgressText;
     // Start is called before the first frame update
     
-    public void LoadScene(int sceneID)
+    public void LoadScene(string sceneID)
     {
         StartCoroutine(LoadSceneAsync(sceneID));
     }
 
-    IEnumerator LoadSceneAsync(int sceneID)
+    IEnumerator LoadSceneAsync(string sceneID)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
         operation.allowSceneActivation = false;
