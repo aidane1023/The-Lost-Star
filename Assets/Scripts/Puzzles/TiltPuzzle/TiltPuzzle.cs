@@ -115,7 +115,7 @@ public class TiltPuzzle : MonoBehaviour
             cam3.Priority = 0;
             win = true;
             active = false;
-            source.PlayOneShot(puzzleSolved);
+            source.PlayOneShot(puzzleSolved, 0.3f);
             
         }
     }
