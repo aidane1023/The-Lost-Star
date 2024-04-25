@@ -36,6 +36,8 @@ public class BattleManager : MonoBehaviour
     public GameObject backupEnemy; //for testing
     [HideInInspector]
     public bool battleWon;
+    [HideInInspector]
+    public bool waitingForEnemyDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +83,7 @@ public class BattleManager : MonoBehaviour
         if (gameState == GameState.PlayerAttack)
         {
             gameState = GameState.EnemyTurn;
-            EnemyAttacks();
+            StartCoroutine(EnemyAttacks());
         }
         else if (gameState == GameState.EnemyTurn)
         {
@@ -136,13 +138,16 @@ public class BattleManager : MonoBehaviour
 
     //public void PlayerAttack()
 
-    public void EnemyAttacks()
+    public IEnumerator EnemyAttacks()
     {
         //check if any enemies died
         for(int i = 0; i < enemies.Count; i++)
         {
             if(enemies[i].gameObject.activeSelf && enemies[i].health <= 0)
             {
+                waitingForEnemyDeath = true;
+                enemies[i].Death();
+                yield return new  WaitUntil(() => !waitingForEnemyDeath);
                 enemies[i].gameObject.SetActive(false);
                 defeatedEnemies++;
                 BridgeBehavior.enemyCount--;
@@ -165,7 +170,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 enemyTurnsTaken++;
-                EnemyAttacks();
+                StartCoroutine(EnemyAttacks());
             }
         }
     }

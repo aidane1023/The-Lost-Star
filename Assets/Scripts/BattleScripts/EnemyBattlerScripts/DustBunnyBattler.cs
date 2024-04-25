@@ -15,15 +15,13 @@ public class DustBunnyBattler : EnemyBattler
         base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void Attack() 
     {
         StartCoroutine("DustAttack");
+    }
+    public override void Death() 
+    {
+        StartCoroutine("DeathAnimation");
     }
     public IEnumerator DustAttack()
     {
@@ -31,6 +29,11 @@ public class DustBunnyBattler : EnemyBattler
         GameObject newProjectile = Instantiate(projectile, projectileStart.position, Quaternion.identity);
         source.PlayOneShot(bunnyShot);
         yield return new WaitForSeconds(3);
-        battleManager.EnemyAttacks();
+        battleManager.StartCoroutine("EnemyAttacks");
+    }
+    public IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
+        battleManager.waitingForEnemyDeath = false;
     }
 }
