@@ -7769,14 +7769,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1285423134}
     - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 188739220}
@@ -7784,42 +7776,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 188739220}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: AttackCost
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
-      value: BattleManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_IntArgument
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_StringArgument
-      value: PinAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209326245401, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209381560898, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_text
-      value: Pin
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -7828,38 +7784,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 188739220}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: AttackCost
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
-      value: BattleManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_StringArgument
-      value: BottleCapAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792209822357701, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -7868,46 +7792,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 188739220}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: AttackCost
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
-      value: BattleManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_StringArgument
-      value: RubberBandAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210327063937, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210422453807, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_text
-      value: Bottle Cap
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584792210674284646, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_text
-      value: Rubber Band
-      objectReference: {fileID: 0}
-    - target: {fileID: 5162794167433143145, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154562103041933862, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7154562103266186767, guid: 0bae44d8fe914cb4dab9d021a355a696, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

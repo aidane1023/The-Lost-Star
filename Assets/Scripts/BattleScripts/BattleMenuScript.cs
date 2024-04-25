@@ -22,7 +22,7 @@ public class BattleMenuScript : MonoBehaviour
     //private PlayerBattler PlayerBattler;
     private BattleManager battleManagerScript;
     GameObject selectedOption, savedOption;
-    public GameObject[] enemyAttackSelectorButtons, enemySpinSelectorButtons, enemySkillSelectorButtons, inventoryDisabledGraphic, inventorySelectedGraphic;
+    public GameObject[] enemyAttackSelectorButtons, enemySpinSelectorButtons, enemySkillSelectorButtons, inventoryDisabledGraphic, inventorySelectedGraphic, skillDisabledGraphic, skillEnabledGraphic;
     GameObject[] defaultButtons;
 
     TextMeshProUGUI healthText, SPText, XPText, attackTitle, attackDesc, spinTitle, spinDesc, itemTitle, itemDesc, skillTitle, skillDesc;
@@ -31,7 +31,7 @@ public class BattleMenuScript : MonoBehaviour
     public Image runButtonImage;
     Image xpBarColorFill;
     UiInventoryScript inventory;
-    Button[] inventoryButtonComponent, backButtonComponents;
+    Button[] inventoryButtonComponent, backButtonComponents, skillButtonComponents;
     Button runButtonComponent;
     //EventTrigger[] buttonHoverTrigger;
     
@@ -39,6 +39,8 @@ public class BattleMenuScript : MonoBehaviour
     private Image[] backColor, skillButtonColor, inventoryButtonColor;
     int backButtonLength, skillButtonLength, inventoryButtonLength, currentMenu;
     float timer;
+
+    int[] spCosts;
 
     public static bool isTutorial;
 
@@ -86,6 +88,12 @@ public class BattleMenuScript : MonoBehaviour
         inventoryButtonLength = inventoryButtons.Length;
         inventoryButtonColor = new Image[inventoryButtonLength];
         inventoryButtonComponent = new Button[inventoryButtonLength];
+        skillButtonComponents = new Button[skillButtonLength];
+        spCosts = new int[3];
+
+        spCosts[0] = 2;
+        spCosts[1] = 3;
+        spCosts[2] = 2;
 
         for (int i = 0; i < backButtonLength; i++)
         {
@@ -272,6 +280,30 @@ public class BattleMenuScript : MonoBehaviour
         savedOption = menuSkill;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(backButtons[3]);
+
+            for (int i = 0; i < skillButtonLength; i++)
+            {
+                if (skillButtonComponents[i] == null)
+                {
+                    skillButtonComponents[i] = skillButtons[i].GetComponent<Button>();
+                }
+            }
+
+        for (int i = 0; i < skillButtonLength; i++)
+        {
+            if (PlayerBattler.starPoints < spCosts[i])
+            {
+                skillButtonComponents[i].interactable = false;
+                skillEnabledGraphic[i].SetActive(false);
+                skillDisabledGraphic[i].SetActive(true);
+            }
+            else
+            {
+                skillButtonComponents[i].interactable = true;
+                skillEnabledGraphic[i].SetActive(true);
+                skillDisabledGraphic[i].SetActive(false);
+            }
+        }
     }
 
     public void OpenSkillSelector(int menuValue)

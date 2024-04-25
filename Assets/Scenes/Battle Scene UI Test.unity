@@ -206,10 +206,12 @@ MonoBehaviour:
   - {fileID: 725686395}
   - {fileID: 7265913}
   - {fileID: 494054624}
-  battleWon: 0
+  setPieces: []
   enemyAttacksLeft: -1
   enemyCount: 0
   backupEnemy: {fileID: 8416875909299138371, guid: d368efd4696ab314ba93ea506a63d11a, type: 3}
+  battleWon: 0
+  waitingForEnemyDeath: 0
 --- !u!1 &279551846
 GameObject:
   m_ObjectHideFlags: 0
@@ -3019,9 +3021,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd3b7cb6bc861642807e19ef1e0822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleManager: {fileID: 0}
   playerAnimator: {fileID: 0}
   attackHandler: {fileID: 0}
-  inventory: {fileID: 0}
   damageStar: {fileID: 6620711889202787246, guid: d5a6147b1e950e5429cce9a74a669076, type: 3}
   defenseMode: 0
   jumpAttackPower: 1
@@ -3029,6 +3031,8 @@ MonoBehaviour:
   defense: 0
   buffLength: 0
   buffType: 
+  actionKeyNeeded: 
+  keyCorrect: 0
 --- !u!212 &1729823591
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3141,12 +3145,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeUI: {fileID: 605619230}
+  zButton: {fileID: 0}
   chargeMeter: {fileID: 605619232}
+  heldItem: {fileID: 0}
+  pin: {fileID: 0}
+  bottleCap: {fileID: 0}
+  rubberBand: {fileID: 0}
   chargeAmount: 0
   chargeThreshholdMin: 95
   chargeThreshholdMax: 105
   chargeRate: 0
   isCharging: 0
+  isMashing: 0
+  isBalancing: 0
 --- !u!1 &1869775829
 GameObject:
   m_ObjectHideFlags: 0

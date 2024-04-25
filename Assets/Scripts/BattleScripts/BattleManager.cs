@@ -17,7 +17,7 @@ public class BattleManager : MonoBehaviour
     int defeatedEnemies = 0;
 
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
-    int moveCost;
+    public int moveCost;
     public EnemyBattler target; //current enemy being targeted for an attack
 
     public static int sceneToLoad = 0;
