@@ -19,6 +19,9 @@ public class BridgeBehavior : MonoBehaviour
     public static int enemyCount = 5;
     private bool played = false;
 
+    public AudioSource source;
+    public AudioClip puzzleSolved;
+
     void Update()
     {
         if (enemyCount == 0 && played == false)
@@ -36,6 +39,7 @@ public class BridgeBehavior : MonoBehaviour
         yield return new WaitForSeconds(2.2f);
         anim.SetBool("Raise", false);
         box.isTrigger = true;
+        source.PlayOneShot(puzzleSolved);
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(BackToPlayer());
     }
