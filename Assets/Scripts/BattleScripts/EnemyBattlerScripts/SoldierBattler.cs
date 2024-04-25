@@ -28,6 +28,10 @@ public class SoldierBattler : EnemyBattler
     {
         StartCoroutine("SmackAttack");
     }
+    public override void Death() 
+    {
+        StartCoroutine("DeathAnimation");
+    }
     public IEnumerator SmackAttack()
     {
         float r = Random.Range(1.3f, 2.1f);
@@ -41,6 +45,12 @@ public class SoldierBattler : EnemyBattler
         renderer.sprite = sprites[0];
         transform.DOMove(origin, 1f, false);
         yield return new WaitForSeconds(1f);
-        battleManager.EnemyAttacks();
+        battleManager.StartCoroutine("EnemyAttacks");
+    }
+
+    public IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
+        battleManager.waitingForEnemyDeath = false;
     }
 }
