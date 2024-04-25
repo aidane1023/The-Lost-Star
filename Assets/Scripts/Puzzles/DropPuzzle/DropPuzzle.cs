@@ -92,7 +92,7 @@ public class DropPuzzle : MonoBehaviour
                 
                 win = true;
                 
-                if (!source.isPlaying) source.PlayOneShot(puzzleSolved);
+                if (!source.isPlaying) source.PlayOneShot(puzzleSolved, 0.3f);
             }
 
            

@@ -17,6 +17,7 @@ public class BattleManager : MonoBehaviour
     int defeatedEnemies = 0;
 
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
+    int moveCost;
     public EnemyBattler target; //current enemy being targeted for an attack
 
     public static int sceneToLoad = 0;
@@ -95,11 +96,16 @@ public class BattleManager : MonoBehaviour
     {
         playerAttackName = newName;
     }
+    public void AttackCost(int spCost) 
+    {
+        moveCost = spCost;
+    }
 
     public void TargetChoosen(int enemyNum) //the player selected their target and will begin attacking
     {
-        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf)
+        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf && moveCost <= PlayerBattler.starPoints)
         {
+            PlayerBattler.starPoints -= moveCost;
             player.playerAnimator.OnNeutral();
             gameState = GameState.PlayerAttack;
             EnemyBattler enemyTarget = enemies[enemyNum];
