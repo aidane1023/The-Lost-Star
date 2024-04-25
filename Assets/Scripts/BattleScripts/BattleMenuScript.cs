@@ -27,15 +27,20 @@ public class BattleMenuScript : MonoBehaviour
 
     TextMeshProUGUI healthText, SPText, XPText, attackTitle, attackDesc, spinTitle, spinDesc, itemTitle, itemDesc, skillTitle, skillDesc;
     public TextMeshProUGUI[] inventoryButtonText;
+    public GameObject runSelectedGraphic, runDisabledGraphic;
+    public Image runButtonImage;
     Image xpBarColorFill;
     UiInventoryScript inventory;
     Button[] inventoryButtonComponent, backButtonComponents;
+    Button runButtonComponent;
     //EventTrigger[] buttonHoverTrigger;
     
     private Image attackColor, spinColor, skillColor, runColor, bagColor, inventoryDisabledImage;
     private Image[] backColor, skillButtonColor, inventoryButtonColor;
     int backButtonLength, skillButtonLength, inventoryButtonLength, currentMenu;
     float timer;
+
+    public static bool isTutorial;
 
     Color disabledColor = new Color(0.4f, 0.4f, 0.4f, 1f);
     Color enabledColor = new Color(0.66f, 0.66f, 0.66f, 1f);
@@ -68,6 +73,7 @@ public class BattleMenuScript : MonoBehaviour
         skillTitle = playerSkillTitleTextUI.GetComponent<TextMeshProUGUI>();
         skillDesc = playerSkillDescTextUI.GetComponent<TextMeshProUGUI>();
         inventory = GetComponent<UiInventoryScript>();
+        runButtonComponent = menuRun.GetComponent<Button>();
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(menuAttack);
@@ -98,6 +104,20 @@ public class BattleMenuScript : MonoBehaviour
         //{
         //    Debug.Log("Default: " + defaultButtons[i]);
         //}
+
+        if (isTutorial)
+        {
+            runButtonComponent.interactable = false;
+            runSelectedGraphic.SetActive(false);
+            runDisabledGraphic.SetActive(true);
+            isTutorial = false;
+        }
+        else
+        {
+            runButtonComponent.interactable = true;
+            runSelectedGraphic.SetActive(true);
+            runDisabledGraphic.SetActive(false);
+        }
 
 
         battleButtonCanvas.SetActive(false);

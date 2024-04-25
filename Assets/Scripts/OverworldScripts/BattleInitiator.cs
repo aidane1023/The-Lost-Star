@@ -23,7 +23,11 @@ public class BattleInitiator : MonoBehaviour
     // Update is called once per frame
     public void InitiateBattle()
     {
-        if(isTutorial) TrainingDummy.cleared = true;
+        if(isTutorial)
+        {
+            BattleMenuScript.isTutorial = true;
+            TrainingDummy.cleared = true;
+        }
 
         BattleManager.enemiesToSpawn.Clear();
         BattleManager.overworldSpawn = transform.position;
