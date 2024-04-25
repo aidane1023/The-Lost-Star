@@ -10,13 +10,15 @@ public class EnemyBattler : MonoBehaviour
     public float xpWorth; //how much xp it is worth
     public float defense = 0;
     public float coinDropRate; //how many coins it drops
-    public string[] attacks; //the list of attacks this enemy can use
+    //public string[] attacks; //the list of attacks this enemy can use
     [Header("Transforms")]
     public Transform inFront;
     public Transform head;
     public Transform projectileStart;
     [HideInInspector]
     public Transform playerFront;
+    [HideInInspector]
+    public Transform playerFront2;
 
     public GameObject damageStar; //the icon that shows damage dealt
     [HideInInspector]
@@ -26,6 +28,7 @@ public class EnemyBattler : MonoBehaviour
     {
         battleManager = FindObjectOfType<BattleManager>();
         playerFront = GameObject.Find("Player_InFront").transform;
+        playerFront2 = GameObject.Find("Player_InFront_2").transform;
     }
 
     // Update is called once per frame
@@ -35,6 +38,11 @@ public class EnemyBattler : MonoBehaviour
     }
 
     public virtual void Attack()
+    {
+      
+    }
+
+    public virtual void Death()
     {
       
     }

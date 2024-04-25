@@ -209,11 +209,15 @@ public class PlayerAttacksHandler : MonoBehaviour
                 yield return new WaitForSeconds(0.4f);
                 enemy.RecieveDamage(1);
             }
-            else  yield return new WaitForSeconds(0.4f);
+            else
+            {
+                i += 4;
+                yield return new WaitForSeconds(0.4f);
+            }
             zButton.SetActive(false);
             i++;
         }
-        while(i < 3);
+        while(i <= 3);
 
 
 

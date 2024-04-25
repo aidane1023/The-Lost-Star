@@ -732,8 +732,8 @@ public class BattleMenuScript : MonoBehaviour
         switch(value)
         {
             case 1:
-                skillTitle.text = "Skill Title 1";
-                skillDesc.text = "Skill Description 1";
+                skillTitle.text = "BottleCap Toss";
+                skillDesc.text = "Mash Z to toss a bottle cap, ricocheting off of all enemies. Costs 2 SP.";
                 if (skillButtonColor[0] == null)
                 {
                     skillButtonColor[0] = skillButtons[0].GetComponent<Image>();
@@ -743,8 +743,8 @@ public class BattleMenuScript : MonoBehaviour
                 break;
 
             case 2:
-                skillTitle.text = "Skill Title 2";
-                skillDesc.text = "Skill Description 2";
+                skillTitle.text = "Pin Lift";
+                skillDesc.text = "Balance a hefty pin using left and right inputs to deal strong damage to one foe. Costs 3 SP.";
                 if (skillButtonColor[1] == null)
                 {
                     skillButtonColor[1] = skillButtons[1].GetComponent<Image>();
@@ -754,8 +754,8 @@ public class BattleMenuScript : MonoBehaviour
                 break;
             
             case 3:
-                skillTitle.text = "Skill Title 3";
-                skillDesc.text = "Skill Description 3";
+                skillTitle.text = "Rubber Band Sling";
+                skillDesc.text = "Time Z presses to sling up to 4 rubber bands at one target. Costs 2 SP.";
                 if (skillButtonColor[2] == null)
                 {
                     skillButtonColor[2] = skillButtons[2].GetComponent<Image>();

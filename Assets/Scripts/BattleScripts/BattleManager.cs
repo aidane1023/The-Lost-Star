@@ -17,6 +17,7 @@ public class BattleManager : MonoBehaviour
     int defeatedEnemies = 0;
 
     public string playerAttackName; //name of attack player chose, such as "Jump" or "Spin"
+    int moveCost;
     public EnemyBattler target; //current enemy being targeted for an attack
 
     public static int sceneToLoad = 0;
@@ -35,6 +36,8 @@ public class BattleManager : MonoBehaviour
     public GameObject backupEnemy; //for testing
     [HideInInspector]
     public bool battleWon;
+    [HideInInspector]
+    public bool waitingForEnemyDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -80,7 +83,7 @@ public class BattleManager : MonoBehaviour
         if (gameState == GameState.PlayerAttack)
         {
             gameState = GameState.EnemyTurn;
-            EnemyAttacks();
+            StartCoroutine(EnemyAttacks());
         }
         else if (gameState == GameState.EnemyTurn)
         {
@@ -96,11 +99,16 @@ public class BattleManager : MonoBehaviour
     {
         playerAttackName = newName;
     }
+    public void AttackCost(int spCost) 
+    {
+        moveCost = spCost;
+    }
 
     public void TargetChoosen(int enemyNum) //the player selected their target and will begin attacking
     {
-        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf)
+        if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf && moveCost <= PlayerBattler.starPoints)
         {
+            PlayerBattler.starPoints -= moveCost;
             player.playerAnimator.OnNeutral();
             gameState = GameState.PlayerAttack;
             EnemyBattler enemyTarget = enemies[enemyNum];
@@ -131,15 +139,19 @@ public class BattleManager : MonoBehaviour
 
     //public void PlayerAttack()
 
-    public void EnemyAttacks()
+    public IEnumerator EnemyAttacks()
     {
         //check if any enemies died
         for(int i = 0; i < enemies.Count; i++)
         {
             if(enemies[i].gameObject.activeSelf && enemies[i].health <= 0)
             {
+                waitingForEnemyDeath = true;
+                enemies[i].Death();
+                yield return new  WaitUntil(() => !waitingForEnemyDeath);
                 enemies[i].gameObject.SetActive(false);
                 defeatedEnemies++;
+                BridgeBehavior.enemyCount--;
             }
         }
         if(defeatedEnemies >= enemies.Count) BattleEnd(false);
@@ -159,7 +171,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 enemyTurnsTaken++;
-                EnemyAttacks();
+                StartCoroutine(EnemyAttacks());
             }
         }
     }

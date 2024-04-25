@@ -26,16 +26,30 @@ public class SockHydraBattler : EnemyBattler
     {
         StartCoroutine("BiteAttack");
     }
+    public override void Death() 
+    {
+        StartCoroutine("DeathAnimation");
+    }
     public IEnumerator BiteAttack()
     {
-        float r = Random.Range(1.3f, 2.1f);
-        transform.DOMove(playerFront.position, 1f, false);
-        yield return new WaitForSeconds(r);
-        yield return new WaitForSeconds(0.4f);
-        player.RecieveDamage(2);
+        anim.Play("Slither");
+        transform.DOMove(playerFront2.position, 1.4f, false);
+        yield return new WaitForSeconds(1.9f);
+        anim.Play("Attack");
+        yield return new WaitForSeconds(1.7f);
+        player.RecieveDamage(1);
         yield return new WaitForSeconds(0.9f);
+        anim.Play("Slither");
         transform.DOMove(origin, 1f, false);
         yield return new WaitForSeconds(1f);
-        battleManager.EnemyAttacks();
+        anim.Play("Nod");
+        battleManager.StartCoroutine("EnemyAttacks");
+    }
+
+    public IEnumerator DeathAnimation()
+    {
+        anim.Play("Dies");
+        yield return new WaitForSeconds(2.7f);
+        battleManager.waitingForEnemyDeath = false;
     }
 }

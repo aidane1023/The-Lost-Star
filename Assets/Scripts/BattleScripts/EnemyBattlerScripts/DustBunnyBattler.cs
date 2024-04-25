@@ -6,27 +6,34 @@ using DG.Tweening;
 public class DustBunnyBattler : EnemyBattler
 {
     public GameObject projectile;
+
+    public AudioSource source;
+    public AudioClip bunnyShot;
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void Attack() 
     {
         StartCoroutine("DustAttack");
+    }
+    public override void Death() 
+    {
+        StartCoroutine("DeathAnimation");
     }
     public IEnumerator DustAttack()
     {
         yield return new WaitForSeconds(1);
         GameObject newProjectile = Instantiate(projectile, projectileStart.position, Quaternion.identity);
+        source.PlayOneShot(bunnyShot);
         yield return new WaitForSeconds(3);
-        battleManager.EnemyAttacks();
+        battleManager.StartCoroutine("EnemyAttacks");
+    }
+    public IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
+        battleManager.waitingForEnemyDeath = false;
     }
 }
