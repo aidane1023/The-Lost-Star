@@ -11,24 +11,19 @@ public class BossTransition : MonoBehaviour
     public Animator anim1;
     public Animator anim2;
 
-    public GameObject player;
-
-    BattleInitiator battleInitiator;
+    public PlayerController playerController;
 
     void Start() 
     {
         cam1.enabled = true;
         cam2.enabled = false;
-        battleInitiator = GetComponent<BattleInitiator>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") 
         {
-            player.GetComponent<PlayerController>().speed = 0;
-            player.GetComponent<Transform>().position = new Vector3 (185.7f, 0.63f, 3.13f);
-            player.GetComponent<Transform>().eulerAngles = new Vector3 (50f, 0f, 0f);
+            playerController.speed = 0;
             cam1.enabled = false;
             cam2.enabled = true;
             hud.SetActive(false);
@@ -42,7 +37,7 @@ public class BossTransition : MonoBehaviour
         yield return new WaitForSeconds(1.6f);
         anim2.SetBool("rise", true);
         yield return new WaitForSeconds(2.8f);
-        BattleManager.sceneToLoad = 2;
-        battleInitiator.InitiateBattle();
+        hud.SetActive(false);
+        SceneManager.LoadScene("HubBuild");
     }
 }

@@ -141,7 +141,7 @@ public class PodiumDisplay : MonoBehaviour
                 Destroy(gameObject);
                 holding = false;
 
-                BearAnimation.danceSelect = Random.Range(0, 7);
+
             });
 
             money = money - value;
