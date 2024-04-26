@@ -106,15 +106,17 @@ public class ItemDisplay : MonoBehaviour
                     continue;
                 }
                 playerController.speed = 0f;
-                
+                StartCoroutine(TrailDecay());
                 transform.DOJump(objectToFollow.position, arcHeight, 1, 1.0f, false).OnComplete(() => {
-                    Destroy(gameObject);
                     playerController.speed = savedSpeed;
+                    trail.transform.parent = playerObject.transform;
+                    Destroy(gameObject);
+                    pickedItems.Clear();
+                    PlayerBattler.coins -= totalCost;
+                    shopManager.ResetTotalValue();
                 });
             }
-            pickedItems.Clear();
-            PlayerBattler.coins -= totalCost;
-            shopManager.ResetTotalValue(); 
+            
         }
         else
         {
@@ -161,4 +163,28 @@ public class ItemDisplay : MonoBehaviour
             value = currentItem.Value;
         }
     }
+
+    private IEnumerator TrailDecay()
+    {
+        TrailRenderer trailRenderer = trail.GetComponent<TrailRenderer>();
+        trailRenderer.autodestruct = true;
+
+        trailRenderer.time = 3f;
+        yield return new WaitForSeconds(0.3f);
+        trailRenderer.time = 2.5f;
+        yield return new WaitForSeconds(0.3f);
+        trailRenderer.time = 2f;
+        yield return new WaitForSeconds(0.3f);
+        trailRenderer.time = 1.5f;
+        yield return new WaitForSeconds(0.3f);
+        trailRenderer.time = 1f;
+        yield return new WaitForSeconds(0.3f);
+        trailRenderer.time = 0.5f;
+        yield return new WaitForSeconds(0.3f);
+        trailRenderer.time = 0f;
+        trailRenderer.emitting = false;
+
+
+    }
+
 }
