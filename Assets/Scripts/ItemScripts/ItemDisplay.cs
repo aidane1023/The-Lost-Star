@@ -29,6 +29,7 @@ public class ItemDisplay : MonoBehaviour
     private Vector3 startingPosition;
     public bool holding = false;
     private static List<ItemDisplay> pickedItems = new List<ItemDisplay>(); // List to track picked up items
+    private static bool IsHoldingItem;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class ItemDisplay : MonoBehaviour
         itemName.text = currentItem.Name;
         itemDesc.text = currentItem.Description;
         itemPrice.text = currentItem.Value.ToString();
+        IsHoldingItem = false;
 
         playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
@@ -48,10 +50,11 @@ public class ItemDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (interact && !holding && Input.GetKeyDown(KeyCode.Z))
+        if (interact && !holding && Input.GetKeyDown(KeyCode.Z) && !IsHoldingItem)
         {
             PickUpObject();
             shopUI.SetActive(false);
+            IsHoldingItem=true;
         }
 
         if (holding)
@@ -128,6 +131,7 @@ public class ItemDisplay : MonoBehaviour
                     pickedItems.Clear();
                     PlayerBattler.coins -= totalCost;
                     shopManager.ResetTotalValue();
+                    IsHoldingItem = false;
                 });
             }
             
@@ -183,19 +187,14 @@ public class ItemDisplay : MonoBehaviour
         TrailRenderer trailRenderer = trail.GetComponent<TrailRenderer>();
         trailRenderer.autodestruct = true;
 
-        trailRenderer.time = 3f;
-        yield return new WaitForSeconds(0.3f);
-        trailRenderer.time = 2.5f;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         trailRenderer.time = 2f;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         trailRenderer.time = 1.5f;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         trailRenderer.time = 1f;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         trailRenderer.time = 0.5f;
-        yield return new WaitForSeconds(0.3f);
-        trailRenderer.time = 0f;
         trailRenderer.emitting = false;
 
 

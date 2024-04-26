@@ -19,4 +19,15 @@ public class PlayerInventory : ScriptableObject
         }
         return false; 
     }
+
+     public int CountAvailableSlots()
+    {
+        int availableSlots = 0;
+        for (int i = 0; i < heldItems.Length; i++)
+        {
+            if (heldItems[i] == null)
+                availableSlots++;
+        }
+        return availableSlots;
+    }
 }

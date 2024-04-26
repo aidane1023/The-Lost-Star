@@ -17,6 +17,7 @@ public class InventoryItemData : ScriptableObject
     public int maxDurability;
     public int Value;
     public int healthRestored, spRestored;
+    public int spCost;
 
     public void ConsumableUsed(bool inBattle)
     {
