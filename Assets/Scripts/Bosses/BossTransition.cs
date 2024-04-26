@@ -10,7 +10,6 @@ public class BossTransition : MonoBehaviour
     public Camera cam2;
     public Animator anim1;
     public Animator anim2;
-    public Animator anim3;
 
     public GameObject player;
 
@@ -43,8 +42,6 @@ public class BossTransition : MonoBehaviour
         yield return new WaitForSeconds(1.6f);
         anim2.SetBool("rise", true);
         yield return new WaitForSeconds(2.8f);
-        anim3.SetBool("InBattle", true);
-        hud.SetActive(false);
         BattleManager.sceneToLoad = 1;
         battleInitiator.InitiateBattle();
     }
