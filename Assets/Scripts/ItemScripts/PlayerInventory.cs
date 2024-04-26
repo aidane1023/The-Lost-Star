@@ -1,11 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Inventory System/Inventory")]
 [System.Serializable]
 public class PlayerInventory : ScriptableObject
 {
-    //DO THIS
     public InventoryItemData[] heldItems = new InventoryItemData[8];
+
+    // Method to add an item to the inventory
+    public bool AddItem(InventoryItemData item)
+    {
+        for (int i = 0; i < heldItems.Length; i++)
+        {
+            if (heldItems[i] == null) 
+            {
+                heldItems[i] = item; 
+                return true; 
+            }
+        }
+        return false; 
+    }
 }
