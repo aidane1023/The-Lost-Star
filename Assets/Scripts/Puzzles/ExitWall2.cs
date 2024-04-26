@@ -35,6 +35,7 @@ public class ExitWall2 : MonoBehaviour
 
     public AudioSource source;
     public AudioClip doorRaising;
+    public AudioClip puzzleSolved;
 
 
     void Start()
@@ -65,6 +66,7 @@ public class ExitWall2 : MonoBehaviour
         if (dropP.win == true && dropWinRun != true)
         {
             StartCoroutine(SwitchToLight(dropLight));
+    
             dropWinRun = true;
 
 
@@ -80,6 +82,7 @@ public class ExitWall2 : MonoBehaviour
         lightCamera.Priority = 20;
         yield return new WaitForSeconds(2);
         name.enabled = true;
+        source.PlayOneShot(puzzleSolved);
         yield return new WaitForSeconds(1);
 
         if (dropWinRun && wallUpRun != true)

@@ -25974,6 +25974,7 @@ MonoBehaviour:
   door: {fileID: 1212650812}
   source: {fileID: 0}
   doorRaising: {fileID: 0}
+  puzzleSolved: {fileID: 0}
 --- !u!54 &1212650815
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26011,6 +26012,7 @@ MonoBehaviour:
   door: {fileID: 1212650812}
   source: {fileID: 1212650817}
   doorRaising: {fileID: 8300000, guid: 0db2772cbc26ba742b7f89fcee945872, type: 3}
+  puzzleSolved: {fileID: 8300000, guid: aa5b72b2c6e56fc498bc67ed9594fc01, type: 3}
 --- !u!82 &1212650817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51275,6 +51277,7 @@ MonoBehaviour:
   machineSource: {fileID: 3929735212830362321}
   buttonClick: {fileID: 8300000, guid: b95f7b4da10b54048988ad0e0c03f6e6, type: 3}
   puzzleSolved: {fileID: 8300000, guid: aa5b72b2c6e56fc498bc67ed9594fc01, type: 3}
+  puzzleFail: {fileID: 8300000, guid: dc4eea482b616434baa079a9ae790d30, type: 3}
   primaryCamera: {fileID: 1250421462}
   secondaryCamera: {fileID: 2028703678}
   cam3: {fileID: 584598098}
@@ -52211,7 +52214,6 @@ MonoBehaviour:
   ballDrop: {fileID: 8300000, guid: dfd8da99df6c44e45b85345f73d49688, type: 3}
   machineSource: {fileID: 4031396529032116349}
   buttonClick: {fileID: 8300000, guid: b95f7b4da10b54048988ad0e0c03f6e6, type: 3}
-  puzzleSolved: {fileID: 8300000, guid: aa5b72b2c6e56fc498bc67ed9594fc01, type: 3}
   primaryCamera: {fileID: 1250421462}
   secondaryCamera: {fileID: 1146286424}
 --- !u!82 &4031396529032116348

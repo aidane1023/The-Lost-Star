@@ -24,6 +24,7 @@ public class TiltPuzzle : MonoBehaviour
     public AudioSource machineSource;
     public AudioClip buttonClick;
     public AudioClip puzzleSolved;
+    public AudioClip puzzleFail;
 
 
 
@@ -97,7 +98,8 @@ public class TiltPuzzle : MonoBehaviour
         if (active && activeBall == null && !noActiveBall)
         {
             noActiveBall = true;
-           
+            source.PlayOneShot(puzzleFail);
+
             cam3.Priority = 0;
             secondaryCamera.Priority = 20;
         }
