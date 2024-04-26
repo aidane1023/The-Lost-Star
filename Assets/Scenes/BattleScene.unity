@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18374029, g: 0.22820967, b: 0.29925597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -865,7 +865,7 @@ MonoBehaviour:
   - {fileID: 2074323924}
   enemyAttacksLeft: -1
   enemyCount: 0
-  backupEnemy: {fileID: 5561330905851064923, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
+  backupEnemy: {fileID: 1397064651577771540, guid: 1645cfc978b9ea244912a125798e6388, type: 3}
   battleWon: 0
   waitingForEnemyDeath: 0
 --- !u!1 &190991347 stripped
@@ -6520,14 +6520,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477311764}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.22850528, y: -0.09445374, z: -0.02609904, w: 0.9685983}
+  m_LocalPosition: {x: 1.56, y: 3.23, z: -3.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.959, y: -12.52, z: -5.984}
 --- !u!1 &1482599539
 GameObject:
   m_ObjectHideFlags: 0
@@ -9822,7 +9822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1397064651577771540, guid: 1645cfc978b9ea244912a125798e6388, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2017661603899635801, guid: 1645cfc978b9ea244912a125798e6388, type: 3}
       propertyPath: m_RootOrder
