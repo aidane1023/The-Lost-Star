@@ -22,7 +22,7 @@ public class PlayerBattler : MonoBehaviour
     public static float starPoints = 5;
     public static float maxStarPoints = 5;//skill points
     public static float xp; //max is 100
-    public static float coins; 
+    public static float coins = 3; 
     public float jumpAttackPower = 1;
     public float spinAttackPower = 2;
     public float defense = 0;
