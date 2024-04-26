@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   Name: Starchip Cookie
+  isConsumable: 1
+  attack: 0
   Description: 
   Icon: {fileID: 21300000, guid: 8939c50aa4f7b814a814558722730ee1, type: 3}
   maxStackSize: 0
   Durability: 0
   maxDurability: 0
-  Value: 10
+  Value: 1
+  healthRestored: 0
+  spRestored: 0

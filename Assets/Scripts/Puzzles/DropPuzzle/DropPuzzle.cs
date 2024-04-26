@@ -30,7 +30,7 @@ public class DropPuzzle : MonoBehaviour
     public AudioClip ballDrop;
     public AudioSource machineSource;
     public AudioClip buttonClick;
-    public AudioClip puzzleSolved;
+    
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
@@ -91,10 +91,7 @@ public class DropPuzzle : MonoBehaviour
                 
                 
                 win = true;
-                
-                if (!source.isPlaying) source.PlayOneShot(puzzleSolved, 0.3f);
             }
-
            
         }
     }
