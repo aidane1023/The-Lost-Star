@@ -19,30 +19,29 @@ public class BearAnimation : MonoBehaviour
     {
         currentTime += Time.fixedDeltaTime;
         roundedTime = (int) currentTime;
-
-        /*
-        if (roundedTime % wanderInterval == 0)
+    
+        if (anim.GetBool("OpenIdle") == true)
         {
-            if (Random.Range(0,8) == 1)
+            if (roundedTime % watchInterval == 0)
             {
-                StartCoroutine(Delay(1));  
-            }   
+                StartCoroutine(Delay(1));
+            }
+            else if (roundedTime % swingInterval == 0)
+            {
+                if (Random.Range(0,2) == 1)
+                {
+                    Debug.Log("Swing");
+                    StartCoroutine(Delay(0));
+                }
+                
+            }
         }
-        */
-
-        if (roundedTime % watchInterval == 0)
+        
+        if (danceSelect <= 6)
         {
             StartCoroutine(Delay(2));
         }
-        else if (roundedTime % swingInterval == 0)
-        {
-            if (Random.Range(0,2) == 1)
-            {
-                Debug.Log("Swing");
-                StartCoroutine(Delay(0));
-            }
-            
-        }
+        
     }
 
     void OnTriggerEnter()
@@ -70,20 +69,18 @@ public class BearAnimation : MonoBehaviour
                 anim.SetBool("Swing", false);
                 break;
             case 1:
-                anim.SetBool("WalkAround", true);
-                yield return new WaitForSeconds(0.5f);
-                anim.SetBool("OpenIdle", false);
-                yield return new WaitForSeconds(12.1f);
-                anim.SetBool("WalkAround", false);
-                anim.SetBool("OpenIdle", true);
-                break;
-            case 2:
                 anim.SetBool("LongWait", true);
                 yield return new WaitForSeconds(0.5f);
                 anim.SetBool("OpenIdle", false);
                 yield return new WaitForSeconds(8.25f);
-                anim.SetBool("LongWait", true);
+                anim.SetBool("LongWait", false);
                 anim.SetBool("OpenIdle", true);
+                break;
+            case 2:
+                anim.SetInteger("DanceSelection", danceSelect);
+                yield return new WaitForSeconds(6.7f);
+                danceSelect = 10;
+                anim.SetInteger("DanceSelection", danceSelect);
                 break;
         }
     }
