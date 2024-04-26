@@ -289,6 +289,11 @@ Transform:
   m_Father: {fileID: 1025069446}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &19362854 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4461411875630744641, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
+  m_PrefabInstance: {fileID: 5561330904545778360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &33377538
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,11 +622,6 @@ Transform:
   m_Father: {fileID: 1212916769}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &94707898 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5561330905851064923, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
-  m_PrefabInstance: {fileID: 5561330904545778360}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &128552398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -865,7 +865,7 @@ MonoBehaviour:
   - {fileID: 2074323924}
   enemyAttacksLeft: -1
   enemyCount: 0
-  backupEnemy: {fileID: 94707898}
+  backupEnemy: {fileID: 5561330905851064923, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
   battleWon: 0
   waitingForEnemyDeath: 0
 --- !u!1 &190991347 stripped
@@ -9721,6 +9721,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4206545721493775279, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206545721493775279, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206545721493775279, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5561330905851064923, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
       propertyPath: m_Name
       value: PuppetBattler
@@ -9776,7 +9788,7 @@ PrefabInstance:
     - target: {fileID: 5561330905851064927, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 19362854}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
 --- !u!1 &5658427312130768359
