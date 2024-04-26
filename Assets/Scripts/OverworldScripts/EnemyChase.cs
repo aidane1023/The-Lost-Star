@@ -29,7 +29,6 @@ public class EnemyChase : MonoBehaviour
             BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
             battleInitiator.InitiateBattle();
         }
-
     }
 
     IEnumerator SpawnCooldown()
