@@ -21,6 +21,7 @@ public class BridgeBehavior : MonoBehaviour
 
     public AudioSource source;
     public AudioClip puzzleSolved;
+    public AudioClip bridgeCreak;
 
     void Update()
     {
@@ -39,6 +40,7 @@ public class BridgeBehavior : MonoBehaviour
         yield return new WaitForSeconds(2.2f);
         anim.SetBool("Raise", false);
         box.isTrigger = true;
+        source.PlayOneShot(bridgeCreak);
         source.PlayOneShot(puzzleSolved);
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(BackToPlayer());
