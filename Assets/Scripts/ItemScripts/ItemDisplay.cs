@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemDisplay : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class ItemDisplay : MonoBehaviour
     private bool interact = false;
     public bool activeShop = false;
     private float savedSpeed;
-    public GameObject trail;
+    public GameObject trail, shopUI;
+    public TextMeshProUGUI itemName, itemDesc, itemPrice;
     private GameObject playerObject;
     private PlayerController playerController;
     public ShopManager shopManager;
@@ -32,6 +34,9 @@ public class ItemDisplay : MonoBehaviour
     {
         startingPosition = transform.position;
         RandomDisplay();
+        itemName.text = currentItem.Name;
+        itemDesc.text = currentItem.Description;
+        itemPrice.text = currentItem.Value.ToString();
 
         playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
@@ -46,6 +51,7 @@ public class ItemDisplay : MonoBehaviour
         if (interact && !holding && Input.GetKeyDown(KeyCode.Z))
         {
             PickUpObject();
+            shopUI.SetActive(false);
         }
 
         if (holding)
@@ -68,6 +74,10 @@ public class ItemDisplay : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             interact = true;
+            if (holding == false)
+            {
+                shopUI.SetActive(true);
+            }
         }
     }
 
@@ -76,6 +86,10 @@ public class ItemDisplay : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             interact = false;
+            if (holding == false)
+            {
+                shopUI.SetActive(false);
+            }
         }
     }
 
