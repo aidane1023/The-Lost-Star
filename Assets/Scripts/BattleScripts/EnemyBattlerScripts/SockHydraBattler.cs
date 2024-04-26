@@ -8,11 +8,11 @@ public class SockHydraBattler : EnemyBattler
     PlayerBattler player;
     Vector3 origin;
     public Animator anim;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        anim.SetBool("InBattle",true);
+        anim.SetBool("InBattle", true);
         player = FindObjectOfType<PlayerBattler>();
         base.Start();
         origin = transform.position;
