@@ -40,6 +40,8 @@ public class WallPuzzle : MonoBehaviour
     public AudioClip buttonClick;
     public AudioClip puzzleSolved;
 
+    public UIPauseScript uiPauseScript;
+
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
 
@@ -65,7 +67,7 @@ public class WallPuzzle : MonoBehaviour
             StartCoroutine(WaitActive());
         }
 
-        else if (inRange && Input.GetKeyDown(KeyCode.X))
+        else if (inRange && Input.GetKeyDown(KeyCode.Escape))
         {
           
             StartCoroutine(Finished());
@@ -91,6 +93,7 @@ public class WallPuzzle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRange = true;
+            uiPauseScript.enabled = false;
         }
     }
 
@@ -100,6 +103,7 @@ public class WallPuzzle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRange = false;
+            uiPauseScript.enabled = true;
         }
     }
 

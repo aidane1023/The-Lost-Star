@@ -30,6 +30,8 @@ public class DropPuzzle : MonoBehaviour
     public AudioClip ballDrop;
     public AudioSource machineSource;
     public AudioClip buttonClick;
+
+    public UIPauseScript uiPauseScript;
     
 
     public CinemachineVirtualCamera primaryCamera;
@@ -80,7 +82,7 @@ public class DropPuzzle : MonoBehaviour
             StartCoroutine("BallSound");
             }
 
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 ballsLeft = 11;
             }
@@ -101,6 +103,7 @@ public class DropPuzzle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRange = true;
+            uiPauseScript.enabled = false;
         }
     }
 
@@ -109,6 +112,7 @@ public class DropPuzzle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRange = false;
+            uiPauseScript.enabled = true;
         }
     }
 

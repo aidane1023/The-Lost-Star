@@ -26,7 +26,7 @@ public class TiltPuzzle : MonoBehaviour
     public AudioClip puzzleSolved;
     public AudioClip puzzleFail;
 
-
+    public UIPauseScript uiPauseScript;
 
 
     public CinemachineVirtualCamera primaryCamera;
@@ -59,7 +59,7 @@ public class TiltPuzzle : MonoBehaviour
             StartCoroutine(WaitActive());
         }
 
-        if (inRange && Input.GetKeyDown(KeyCode.X))
+        if (inRange && Input.GetKeyDown(KeyCode.Escape))
         {
             
             StartCoroutine(Finished());
@@ -110,6 +110,7 @@ public class TiltPuzzle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRange = true;
+            uiPauseScript.enabled = false;
         }
 
         if (other.gameObject.CompareTag("ball") && activeBall != null)
@@ -127,6 +128,7 @@ public class TiltPuzzle : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRange = false;
+            uiPauseScript.enabled = true;
         }
     }
 
