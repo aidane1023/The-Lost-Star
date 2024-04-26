@@ -11,12 +11,9 @@ public class UIHUDScript : MonoBehaviour
 
     TextMeshProUGUI healthText, SPText, XPText, coinText;
 
-    //private PlayerStats playerStatsScript;
-
     // Start is called before the first frame update
     void Start()
     {
-        //playerStatsScript = player.GetComponent<>();
         healthText = playerHealthTextUI.GetComponent<TextMeshProUGUI>();
         SPText = playerSPTextUI.GetComponent<TextMeshProUGUI>();
         XPText = playerXPTextUI.GetComponent<TextMeshProUGUI>();

@@ -4425,7 +4425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.015}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 356.50024, y: 410.69995}
+  m_AnchoredPosition: {x: 356.8, y: 405.1}
   m_SizeDelta: {x: 230, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8500988313489883899
@@ -10396,6 +10396,12 @@ MonoBehaviour:
   keyboardButton: {fileID: 4508949823320144356}
   itemDescriptionsUI: {fileID: 1092749563551541185}
   itemPanelUI: {fileID: 7411752152529705450}
+  menuButtons:
+  - {fileID: 6909618698048204947}
+  - {fileID: 6909618698070093130}
+  - {fileID: 6909618698333503860}
+  - {fileID: 6909618698305042604}
+  - {fileID: 6909618697180462295}
 --- !u!1 &6909618698048204945
 GameObject:
   m_ObjectHideFlags: 0
@@ -13529,7 +13535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 21.719}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 121.49634, y: 470.3878}
+  m_AnchoredPosition: {x: 121.49609, y: 470.3878}
   m_SizeDelta: {x: 120.96973, y: 117.56848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3808872114334165415

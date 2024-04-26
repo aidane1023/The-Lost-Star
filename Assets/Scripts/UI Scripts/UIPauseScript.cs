@@ -18,17 +18,20 @@ public class UIPauseScript : MonoBehaviour
 
     TextMeshProUGUI itemTitle, itemDesc;
 
+    Scene scene;
+    string sceneName;
 
     int inventoryButtonLength, currentMenu;
     private Image[] inventoryButtonColor;
     Button[] inventoryButtonComponent;
+    public Button[] menuButtons;
 
     Color disabledColor = new Color(0.4f, 0.4f, 0.4f, 1f);
     Color enabledColor = new Color(0.66f, 0.66f, 0.66f, 1f);
     Color notSelectedColor = new Color(0.66f, 0.66f, 0.66f, 1f);
     Color selectedColor = new Color(1f, 1f, 1f, 1f);
 
-    bool isPauseActive;
+    public static bool isPauseActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,9 @@ public class UIPauseScript : MonoBehaviour
         itemTitle = itemTitleUI.GetComponent<TextMeshProUGUI>();
         itemDesc = itemDescUI.GetComponent<TextMeshProUGUI>();
         inventory = GetComponent<UiInventoryScript>();
+        scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+        Debug.Log(scene.name);
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(pauseResumeButton);
@@ -53,9 +59,8 @@ public class UIPauseScript : MonoBehaviour
             if (currentMenu == 0)
             {
                 pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
-
                 EventSystem.current.SetSelectedGameObject(null);
-                EventSystem.current.SetSelectedGameObject(pauseResumeButton);
+                EventSystem.current.SetSelectedGameObject(defaultButtons[0]);
             }
         
             if (currentMenu == 1)
@@ -75,10 +80,10 @@ public class UIPauseScript : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(defaultButtons[currentMenu]);
             Debug.Log("Selected");
         }
-        
+
         if (isPauseActive)
         {
-           Time.timeScale = 0f;
+            Time.timeScale = 0f;
         }
         else
         {
@@ -88,11 +93,19 @@ public class UIPauseScript : MonoBehaviour
 
     public void ReturnMenu()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            menuButtons[i].interactable = true;
+        }
         EventSystem.current.SetSelectedGameObject(null);
-        //Debug.Log("Selected GameObject is: Null");
-        //Debug.Log("Saved Option is: " + savedOption);
+        Debug.Log("Selected GameObject is: Null");
+        Debug.Log("Saved Option is: " + savedOption);
         EventSystem.current.SetSelectedGameObject(savedOption);
-        //Debug.Log("Selected GameObject is: " + EventSystem.current.currentSelectedGameObject);
+        Debug.Log("Selected GameObject is: " + EventSystem.current.currentSelectedGameObject);
+        if (sceneName == "HUBBuild")
+            {
+                menuButtons[2].interactable = false;
+            }
         currentMenu = 0;
     }
 
