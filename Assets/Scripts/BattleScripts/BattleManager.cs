@@ -7,7 +7,7 @@ public class BattleManager : MonoBehaviour
 {
     public GameState gameState = GameState.Transition;
 
-    public static PlayerInventory inventory;
+    public PlayerInventory inventory;
 
     BattleMenuScript menuScript;
 
@@ -108,6 +108,7 @@ public class BattleManager : MonoBehaviour
     {
         if(enemies.Count >= (enemyNum + 1) && enemies[enemyNum].gameObject.activeSelf && moveCost <= PlayerBattler.starPoints)
         {
+            int i = 0;
             PlayerBattler.starPoints -= moveCost;
             player.playerAnimator.OnNeutral();
             gameState = GameState.PlayerAttack;
@@ -123,18 +124,60 @@ public class BattleManager : MonoBehaviour
             if (playerAttackName == "BottleCapAttack")
             {
                 player.attackHandler.StartCoroutine("BottleCapAttack", enemyTarget);
+                foreach (InventoryItemData item in inventory.heldItems)
+                {
+                    if(item != null && item.ID == 1)
+                    {
+                        inventory.heldItems[i] = null;
+                        break;
+                    }
+                    i++;
+                }
             }
             if (playerAttackName == "PinAttack")
             {
                 player.attackHandler.StartCoroutine("PinAttack", enemyTarget);
+                foreach (InventoryItemData item in inventory.heldItems)
+                {
+                    if(item != null && item.ID == 3)
+                    {
+                        inventory.heldItems[i] = null;
+                        break;
+                    }
+                    i++;
+                }
             }
             if (playerAttackName == "RubberBandAttack")
             {
                 player.attackHandler.StartCoroutine("RubberBandAttack", enemyTarget);
+                foreach (InventoryItemData item in inventory.heldItems)
+                {
+                    if(item != null && item.ID == 2)
+                    {
+                        inventory.heldItems[i] = null;
+                        break;
+                    } 
+                    i++;
+                }
             }
             //disableUI
             menuScript.battleButtonCanvas.SetActive(false);
         }
+    }
+
+    public void ItemUsed(int buttonNum)
+    {
+        if(inventory.heldItems[buttonNum] != null && inventory.heldItems[buttonNum].isConsumable)
+        {
+            InventoryItemData item = inventory.heldItems[buttonNum];
+            PlayerBattler.health += item.healthRestored;
+            if(PlayerBattler.health > PlayerBattler.maxHealth) PlayerBattler.health = PlayerBattler.maxHealth;
+            PlayerBattler.starPoints += item.spRestored;
+            if(PlayerBattler.starPoints > PlayerBattler.maxStarPoints) PlayerBattler.starPoints = PlayerBattler.maxStarPoints;
+            inventory.heldItems[buttonNum] = null;
+            StartCoroutine("EnemyAttacks");
+            menuScript.battleButtonCanvas.SetActive(false);
+        } 
     }
 
     //public void PlayerAttack()
@@ -142,6 +185,7 @@ public class BattleManager : MonoBehaviour
     public IEnumerator EnemyAttacks()
     {
         //check if any enemies died
+        yield return new WaitForSeconds(1);
         for(int i = 0; i < enemies.Count; i++)
         {
             if(enemies[i].gameObject.activeSelf && enemies[i].health <= 0)
