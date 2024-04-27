@@ -31,6 +31,11 @@ public class ItemDisplay : MonoBehaviour
     private static List<ItemDisplay> pickedItems = new List<ItemDisplay>(); // List to track picked up items
     private static bool IsHoldingItem;
 
+    public AudioSource source;
+    public AudioClip pickUp;
+    public AudioClip storeCheckout;
+    public AudioClip noMoney;
+
     private void Start()
     {
         startingPosition = transform.position;
@@ -55,6 +60,7 @@ public class ItemDisplay : MonoBehaviour
             PickUpObject();
             shopUI.SetActive(false);
             IsHoldingItem=true;
+            source.PlayOneShot(pickUp);
         }
 
         if (holding)
@@ -117,6 +123,8 @@ public class ItemDisplay : MonoBehaviour
         {
             foreach (var item in pickedItems)
             {
+                source.PlayOneShot(storeCheckout);
+    
                 if (!item.AddToInventory())
                 {
                     item.ReturnToSender(); 
@@ -138,6 +146,7 @@ public class ItemDisplay : MonoBehaviour
         }
         else
         {
+            source.PlayOneShot(noMoney);
             foreach (var item in pickedItems)
             {
                 item.ReturnToSender();
