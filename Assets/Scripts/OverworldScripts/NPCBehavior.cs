@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCBehavior : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject player, characterDialogue;
     PlayerController playerController;
     public GameObject[] dialogueObjects, interactObjects;
     private Dialogue dialogue;
@@ -20,10 +20,10 @@ public class NPCBehavior : MonoBehaviour
     void Start()
     {
         //for (int i = 0; i < dialogueCount; i++)
-       // {
-            dialogue = dialogueObjects[0].GetComponent<Dialogue>();
-            playerController = player.GetComponent<PlayerController>();
-       // }
+        //{
+        dialogue = dialogueObjects[0].GetComponent<Dialogue>();      
+        //}
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -31,8 +31,10 @@ public class NPCBehavior : MonoBehaviour
     {
         if ((Vector3.Distance(player.transform.position, this.transform.position) <= 3f) && Input.GetKeyUp(KeyCode.Z) && !textPlaying)
         {
+            characterDialogue.SetActive(true);
             playerAnimator.SetFloat("moving", 0);
             playerController.speed = 0f;
+            player.GetComponent<AudioSource>().enabled = false;
             player.GetComponent<PlayerController>().enabled = false;
             textPlaying = true;
             dialogueObjects[0].SetActive(true);
@@ -43,6 +45,10 @@ public class NPCBehavior : MonoBehaviour
         }
         if ((dialogue.dialogueEnded == true) && (textPlaying == true))
         {
+            player.GetComponent<PlayerController>().enabled = true;
+            player.GetComponent<AudioSource>().enabled = true;
+            playerController.speed = 4f;
+            characterDialogue.SetActive(false);
             if (timer < 2.0f)
             {
                 timer += Time.deltaTime;
@@ -50,9 +56,8 @@ public class NPCBehavior : MonoBehaviour
             else
             {
                 Debug.Log("Dialogue ended.");
-                playerController.speed = 2f;
                 //index = 2;
-                player.GetComponent<PlayerController>().enabled = true;
+                
                 timer = 0f;
                 interactObjects[0].SetActive(true);
                 textPlaying = false;

@@ -27,6 +27,7 @@ public class Dialogue : MonoBehaviour
     public int defaultTextSize;
     public int effectTextSize;
     public bool dialogueEnded = false;
+    public static bool dialogueActive;
 
     public AudioSource typewriterSource;
 
@@ -35,6 +36,7 @@ public class Dialogue : MonoBehaviour
     {
         index = 0;
         dialogueEnded = false;
+        dialogueActive = true;
         textComponent.text = string.Empty;
         nameComponent.text = string.Empty;
         leftPortrait[index].SetActive(true);
@@ -176,6 +178,7 @@ public class Dialogue : MonoBehaviour
                 gameObject.SetActive(false);
                 leftPortrait[index].SetActive(false);
                 rightPortrait[index].SetActive(false);
+                EndDialogue();
             }
 
         }
@@ -184,6 +187,7 @@ public class Dialogue : MonoBehaviour
     public void EndDialogue()
     {
         dialogueEnded = true;
+        dialogueActive = false;
         gameObject.SetActive(false);
         leftPortrait[index].SetActive(false);
         rightPortrait[index].SetActive(false);
