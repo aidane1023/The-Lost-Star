@@ -249,7 +249,7 @@ public class BattleMenuScript : MonoBehaviour
         for (int i = 0; i < inventoryButtonLength; i++)
         {
             inventoryButtonText[i].text = inventory.itemNames[i];
-           if (inventoryButtonColor[i] == null)
+            if (inventoryButtonColor[i] == null)
             {
                 inventoryButtonColor[i] = inventoryButtons[i].GetComponent<Image>();
                 inventoryButtonComponent[i] = inventoryButtons[i].GetComponent<Button>();
@@ -280,6 +280,14 @@ public class BattleMenuScript : MonoBehaviour
         savedOption = menuSkill;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(backButtons[3]);
+
+        //for (int i = 0; i < inventoryButtonLength; i++)
+        //{
+            //if !(inventory[i].isEmpty)
+            //{
+                
+            //}
+        //}
 
             for (int i = 0; i < skillButtonLength; i++)
             {

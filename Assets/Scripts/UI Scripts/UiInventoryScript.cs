@@ -10,6 +10,8 @@ public class UiInventoryScript : MonoBehaviour
     [HideInInspector]
     public string[] itemNames, itemDescriptions;
     [HideInInspector]
+    public int[] itemID;
+    [HideInInspector]
     public bool[] isEmpty;
     
     int itemLength;
@@ -38,6 +40,7 @@ public class UiInventoryScript : MonoBehaviour
             {
                 itemNames[i] = inventory.heldItems[i].Name;
                 itemDescriptions[i] = inventory.heldItems[i].Description;
+                //itemID
                 isEmpty[i] = false;
             }
             else
