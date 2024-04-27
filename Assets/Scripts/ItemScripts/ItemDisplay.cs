@@ -114,6 +114,9 @@ public class ItemDisplay : MonoBehaviour
                     pickedItems.Clear();
                     PlayerBattler.coins -= totalCost;
                     shopManager.ResetTotalValue();
+                    IsHoldingItem = false;
+
+                    BearAnimation.danceSelect = Random.Range(0,7);
                 });
             }
             
