@@ -57,7 +57,7 @@ public class EnemyBattler : MonoBehaviour
         RectTransform textTransform = Instantiate(damageStar).GetComponent<RectTransform>();
         textTransform.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
         textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        Canvas canvas = GameObject.Find("2D UI Canvas").GetComponent<Canvas>();
+        Canvas canvas = GameObject.Find("Damage Canvas").GetComponent<Canvas>();
         textTransform.SetParent(canvas.transform);
     }
 

@@ -46,8 +46,18 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("moving", moving);
         animator.SetBool("flip", flip);
 
+        if (UIPauseScript.isPauseActive)
+        {
+            source.enabled = false;
+        }
+        else
+        {
+            source.enabled = true;
+        }
+
         if (rb.velocity.magnitude == 0) source.volume = 0;
         else source.volume = 0.3f;
+
     }
 
     void RelocateAfterBattle()

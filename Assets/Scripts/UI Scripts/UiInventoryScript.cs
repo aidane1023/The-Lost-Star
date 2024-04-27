@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class UiInventoryScript : MonoBehaviour
 {
-    public PlayerInventory inventory;
+    public PlayerInventory playerInventory;
 
     public GameObject textName, textDescription;
     [HideInInspector]
     public string[] itemNames, itemDescriptions;
+    [HideInInspector]
+    public int[] itemID;
     [HideInInspector]
     public bool[] isEmpty;
     
@@ -16,7 +18,7 @@ public class UiInventoryScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemLength = inventory.heldItems.Length;
+        itemLength = playerInventory.heldItems.Length;
         itemNames = new string[itemLength];
         itemDescriptions = new string[itemLength];
 
@@ -31,13 +33,14 @@ public class UiInventoryScript : MonoBehaviour
 
     public void RefreshInventory()
     {
-        //Debug.Log(inventory.heldItems[0].Name);
+        //Debug.Log(playerInventory.heldItems[0].Name);
         for (int i = 0; i < itemLength; i++)
         {
-            if(inventory.heldItems[i] != null)
+            if(playerInventory.heldItems[i] != null && playerInventory.heldItems[i].ID != -1)
             {
-                itemNames[i] = inventory.heldItems[i].Name;
-                itemDescriptions[i] = inventory.heldItems[i].Description;
+                itemNames[i] = playerInventory.heldItems[i].Name;
+                itemDescriptions[i] = playerInventory.heldItems[i].Description;
+                //itemID
                 isEmpty[i] = false;
             }
             else
@@ -47,7 +50,7 @@ public class UiInventoryScript : MonoBehaviour
                 isEmpty[i] = true;
             }
         }
-        //itemName[0] = inventory.heldItems[0].Name;
+        //itemName[0] = playerInventory.heldItems[0].Name;
         //Debug.Log(itemNames[0] + " " + itemLength);
     }
 }

@@ -22,19 +22,27 @@ public class BattleMenuScript : MonoBehaviour
     //private PlayerBattler PlayerBattler;
     private BattleManager battleManagerScript;
     GameObject selectedOption, savedOption;
-    public GameObject[] enemyAttackSelectorButtons, enemySpinSelectorButtons, enemySkillSelectorButtons, inventoryDisabledGraphic, inventorySelectedGraphic;
+    public GameObject[] enemyAttackSelectorButtons, enemySpinSelectorButtons, enemySkillSelectorButtons, inventoryDisabledGraphic, inventorySelectedGraphic, skillDisabledGraphic, skillEnabledGraphic;
+    GameObject[] defaultButtons;
 
     TextMeshProUGUI healthText, SPText, XPText, attackTitle, attackDesc, spinTitle, spinDesc, itemTitle, itemDesc, skillTitle, skillDesc;
     public TextMeshProUGUI[] inventoryButtonText;
+    public GameObject runSelectedGraphic, runDisabledGraphic;
+    public Image runButtonImage;
     Image xpBarColorFill;
     UiInventoryScript inventory;
-    Button[] inventoryButtonComponent;
+    Button[] inventoryButtonComponent, backButtonComponents, skillButtonComponents;
+    Button runButtonComponent;
     //EventTrigger[] buttonHoverTrigger;
     
     private Image attackColor, spinColor, skillColor, runColor, bagColor, inventoryDisabledImage;
     private Image[] backColor, skillButtonColor, inventoryButtonColor;
-    int backButtonLength, skillButtonLength, inventoryButtonLength;
+    int backButtonLength, skillButtonLength, inventoryButtonLength, currentMenu;
     float timer;
+
+    int[] spCosts;
+
+    public static bool isTutorial;
 
     Color disabledColor = new Color(0.4f, 0.4f, 0.4f, 1f);
     Color enabledColor = new Color(0.66f, 0.66f, 0.66f, 1f);
@@ -67,19 +75,60 @@ public class BattleMenuScript : MonoBehaviour
         skillTitle = playerSkillTitleTextUI.GetComponent<TextMeshProUGUI>();
         skillDesc = playerSkillDescTextUI.GetComponent<TextMeshProUGUI>();
         inventory = GetComponent<UiInventoryScript>();
+        runButtonComponent = menuRun.GetComponent<Button>();
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(menuAttack);
 
-        battleButtonCanvas.SetActive(false);
-
         backButtonLength = backButtons.Length; // ok it's fixed now I think
         backColor = new Image[backButtonLength];
-        skillButtonLength = skillButtons.Length; // ok it's fixed now I think
+        backButtonComponents = new Button[backButtonLength];
+        skillButtonLength = skillButtons.Length; 
         skillButtonColor = new Image[skillButtonLength];
         inventoryButtonLength = inventoryButtons.Length;
         inventoryButtonColor = new Image[inventoryButtonLength];
         inventoryButtonComponent = new Button[inventoryButtonLength];
+        skillButtonComponents = new Button[skillButtonLength];
+        spCosts = new int[3];
+
+        spCosts[0] = 2;
+        spCosts[1] = 3;
+        spCosts[2] = 2;
+
+        for (int i = 0; i < backButtonLength; i++)
+        {
+            backButtonComponents[i] = backButtons[i].GetComponent<Button>();
+        }
+
+        defaultButtons = new GameObject[6]; 
+        defaultButtons[0] = menuAttack; //Main Buttons
+        defaultButtons[1] = backButtons[0]; // Attack Default
+        defaultButtons[2] = backButtons[1]; // Spin Default
+        defaultButtons[3] = backButtons[3]; // Skill Default
+        defaultButtons[4] = backButtons[4]; // Skill Selector Default
+        defaultButtons[5] = backButtons[2]; // Bag Default
+
+        //for (int i = 0; i < defaultButtons.Length; i++)
+        //{
+        //    Debug.Log("Default: " + defaultButtons[i]);
+        //}
+
+        if (isTutorial)
+        {
+            runButtonComponent.interactable = false;
+            runSelectedGraphic.SetActive(false);
+            runDisabledGraphic.SetActive(true);
+            isTutorial = false;
+        }
+        else
+        {
+            runButtonComponent.interactable = true;
+            runSelectedGraphic.SetActive(true);
+            runDisabledGraphic.SetActive(false);
+        }
+
+
+        battleButtonCanvas.SetActive(false);
     }
 
     void Update()
@@ -91,6 +140,70 @@ public class BattleMenuScript : MonoBehaviour
         //Debug.Log("Selected game object:" + EventSystem.current.currentSelectedGameObject);
         selectedOption = EventSystem.current.currentSelectedGameObject;
         //Debug.Log("Selected game object: " + selectedOption);
+
+        // This code is a mess but it works 
+        if (EventSystem.current.currentSelectedGameObject == null) 
+        {
+            switch(currentMenu)
+            {
+                case 0:
+                EventSystem.current.SetSelectedGameObject(defaultButtons[0]);
+                break;
+
+                case 1:
+                EventSystem.current.SetSelectedGameObject(defaultButtons[1]);
+                break;
+
+                case 2:
+                EventSystem.current.SetSelectedGameObject(defaultButtons[2]);
+                break;
+
+                case 3:
+                EventSystem.current.SetSelectedGameObject(defaultButtons[5]);
+                break;
+
+                case 4:
+                EventSystem.current.SetSelectedGameObject(defaultButtons[3]);
+                break;
+
+                case 5:
+                EventSystem.current.SetSelectedGameObject(defaultButtons[4]);
+                break;
+
+                default:
+                EventSystem.current.SetSelectedGameObject(defaultButtons[0]);
+                break;
+            }               
+        }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            switch(currentMenu)
+            {
+                case 1:
+                backButtonComponents[0].onClick.Invoke();
+                break;
+
+                case 2:
+                backButtonComponents[1].onClick.Invoke();
+                break;
+
+                case 3:
+                backButtonComponents[2].onClick.Invoke();
+                break;
+
+                case 4:
+                backButtonComponents[3].onClick.Invoke();
+                break;
+
+                case 5:
+                backButtonComponents[4].onClick.Invoke();
+                break;
+
+                default:
+                break;
+            }               
+        }
 
         if (battleManagerScript.battleWon == true)
         {
@@ -114,6 +227,12 @@ public class BattleMenuScript : MonoBehaviour
         }
     }
 
+    public void RestartMenu()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(menuAttack);
+    }
+
     void menuAnimator()
     {
         //EventSystem.current.currentSelectedGameObject;
@@ -121,6 +240,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public void OpenInventory()
     {
+        currentMenu = 3;
         inventory.RefreshInventory();
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
@@ -128,8 +248,9 @@ public class BattleMenuScript : MonoBehaviour
 
         for (int i = 0; i < inventoryButtonLength; i++)
         {
-            inventoryButtonText[i].text = inventory.itemNames[i];
-           if (inventoryButtonColor[i] == null)
+            if(inventory.playerInventory.heldItems[i] != null) inventoryButtonText[i].text = inventory.playerInventory.heldItems[i].Name;
+            else inventoryButtonText[i].text = "Empty";
+            if (inventoryButtonColor[i] == null)
             {
                 inventoryButtonColor[i] = inventoryButtons[i].GetComponent<Image>();
                 inventoryButtonComponent[i] = inventoryButtons[i].GetComponent<Button>();
@@ -156,21 +277,55 @@ public class BattleMenuScript : MonoBehaviour
 
     public void OpenSkills()
     {
-        //for (int i = 0; i < inventoryButtonLength; i ++)
-        //{
-        //    if (inventoryButtonColor[i] == null)
-        //    {
-        //        inventoryButtonColor[i] = inventoryButtons[i].GetComponent<Image>();
-        //        Debug.Log("Inventory " + i + " Button Component Cached");
-        //    }
-        //}
+        currentMenu = 4;
         savedOption = menuSkill;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(backButtons[3]);
+        List<int> availableMoves = new List<int>();
+
+        foreach (InventoryItemData item in inventory.playerInventory.heldItems)
+        {
+            if(item != null)
+            {
+                if(item.ID == 1) availableMoves.Add(0);//bottlecap
+                if(item.ID == 3) availableMoves.Add(1);//pin
+                if(item.ID == 2) availableMoves.Add(2);//rubberband
+            }
+        }
+
+        for (int i = 0; i < skillButtonLength; i++)
+        {
+            if (skillButtonComponents[i] == null)
+            {
+                skillButtonComponents[i] = skillButtons[i].GetComponent<Button>();
+            }
+        }
+
+        for (int i = 0; i < skillButtonLength; i++)
+        {
+            if (PlayerBattler.starPoints < spCosts[i] || !availableMoves.Contains(i))
+            {
+                skillButtonComponents[i].interactable = false;
+                skillEnabledGraphic[i].SetActive(false);
+                skillDisabledGraphic[i].SetActive(true);
+            }
+            else
+            {
+                skillButtonComponents[i].interactable = true;
+                skillEnabledGraphic[i].SetActive(true);
+                skillDisabledGraphic[i].SetActive(false);
+            }
+        }
+    }
+
+    public void OpenSkillSelector(int menuValue)
+    {
+        currentMenu = menuValue;
     }
 
     public void EnemyAttackSelector()
     {
+        currentMenu = 1;
         savedOption = EventSystem.current.currentSelectedGameObject;
         //Debug.Log("Selected GameObject is: " + EventSystem.current.currentSelectedGameObject);
         EventSystem.current.SetSelectedGameObject(null);
@@ -188,6 +343,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public void EnemySpinSelector()
     {
+        currentMenu = 2;
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(enemySpinSelectorButtons[0]);
@@ -204,6 +360,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public void EnemySkillSelector()
     {
+        currentMenu = 5;
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(enemySkillSelectorButtons[0]);
@@ -217,6 +374,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public void ReturnMenu()
     {
+        currentMenu = 0;
         EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Selected GameObject is: Null");
         //Debug.Log("Saved Option is: " + savedOption);
@@ -481,136 +639,29 @@ public class BattleMenuScript : MonoBehaviour
 
     public void ItemDescriptions(int value)
     {
-        switch (value)
+        --value;
+        if(inventory.playerInventory.heldItems[value] == null || inventory.playerInventory.heldItems[value].ID == -1)
         {
-            case 1:               
-                if (inventoryButtonColor[0] == null)
-                {
-                    inventoryButtonColor[0] = inventoryButtons[0].GetComponent<Image>();
-                    Debug.Log("Inventory 1 Button Component Cached");
-                }
-                if (inventory.isEmpty[0] != true)
-                {
-                    inventoryButtonColor[0].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[0];
-                    itemDesc.text = inventory.itemDescriptions[0];
-                }
-               
-
-                break;
-
-            case 2:
-                if (inventoryButtonColor[1] == null)
-                {
-                    inventoryButtonColor[1] = inventoryButtons[1].GetComponent<Image>();
-                    Debug.Log("Inventory 2 Button Component Cached");
-                }
-                if (inventory.isEmpty[1] != true)
-                {
-                    inventoryButtonColor[1].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[1];
-                    itemDesc.text = inventory.itemDescriptions[1];
-                }
-
-                break;
-
-            case 3:
-                
-
-                if (inventoryButtonColor[2] == null)
-                {
-                    inventoryButtonColor[2] = inventoryButtons[2].GetComponent<Image>();
-                    Debug.Log("Inventory 3 Button Component Cached");
-                }
-                if (inventory.isEmpty[2] != true)
-                {
-                    inventoryButtonColor[2].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[2];
-                    itemDesc.text = inventory.itemDescriptions[2];
-                }
-
-                break;
-
-            case 4:
-                if (inventoryButtonColor[3] == null)
-                {
-                    inventoryButtonColor[3] = inventoryButtons[3].GetComponent<Image>();
-                    Debug.Log("Inventory 4 Button Component Cached");
-                }
-                if (inventory.isEmpty[3] != true)
-                {
-                    inventoryButtonColor[3].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[3];
-                    itemDesc.text = inventory.itemDescriptions[3];
-                }
-
-                break;
-
-            case 5:
-                    if (inventoryButtonColor[4] == null)
-                    {
-                    inventoryButtonColor[4] = inventoryButtons[4].GetComponent<Image>();
-                    Debug.Log("Inventory 5 Button Component Cached");
-                }
-                if (inventory.isEmpty[4] != true)
-                {
-                    inventoryButtonColor[4].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[4];
-                    itemDesc.text = inventory.itemDescriptions[4];
-                }
-
-                break;
-
-            case 6:
-                if (inventoryButtonColor[5] == null)
-                {
-                    inventoryButtonColor[5] = inventoryButtons[5].GetComponent<Image>();
-                    Debug.Log("Inventory 6 Button Component Cached");
-                }
-                if (inventory.isEmpty[5] != true)
-                {
-                    inventoryButtonColor[5].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[5];
-                    itemDesc.text = inventory.itemDescriptions[5];
-                }
-
-                break;
-
-            case 7:
-                if (inventoryButtonColor[6] == null)
-                {
-                    inventoryButtonColor[6] = inventoryButtons[6].GetComponent<Image>();
-                    Debug.Log("Inventory 7 Button Component Cached");
-                }
-                if (inventory.isEmpty[6] != true)
-                {
-                    inventoryButtonColor[6].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[6];
-                    itemDesc.text = inventory.itemDescriptions[6];
-                }
-
-                break;
-
-            case 8:               
-                if (inventoryButtonColor[7] == null)
-                {
-                    inventoryButtonColor[7] = inventoryButtons[7].GetComponent<Image>();
-                    Debug.Log("Inventory 8 Button Component Cached");
-                }
-                if (inventory.isEmpty[7] != true)
-                {
-                    inventoryButtonColor[7].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[7];
-                    itemDesc.text = inventory.itemDescriptions[7];
-                }
-
-                break;
-
-            default:
-                itemTitle.text = "";
-                itemDesc.text = "Select an item.";
-                break;      
+            itemTitle.text = "";
+            itemDesc.text = "Select an item.";
         }
+        else
+        {
+            if (inventoryButtonColor[value] == null)
+            {
+                inventoryButtonColor[value] = inventoryButtons[value].GetComponent<Image>();
+                //Debug.Log("Inventory 1 Button Component Cached");
+            }
+            if (inventory.isEmpty[value] == false)
+            {
+                inventoryButtonColor[value].color = selectedColor;
+                itemTitle.text = inventory.playerInventory.heldItems[value].Name;
+                itemDesc.text = inventory.playerInventory.heldItems[value].Description;
+            }
+        }
+
+        
+        
     }
 
     public void SkillDescriptions(int value)

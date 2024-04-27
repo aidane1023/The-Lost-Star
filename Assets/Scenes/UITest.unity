@@ -498,7 +498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386617508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.27, y: -0.027069092, z: 3.24}
+  m_LocalPosition: {x: -21.06, y: -0.027069092, z: 3.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -971,6 +971,7 @@ MonoBehaviour:
   animator: {fileID: 636529084}
   rb: {fileID: 636529082}
   sr: {fileID: 2126194183}
+  source: {fileID: 0}
 --- !u!54 &636529082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1185,6 +1186,9 @@ MonoBehaviour:
   pickups: []
   isGrunt: 0
   enemyID: -1
+  level: 0
+  canRunFromFight: 1
+  isTutorial: 0
 --- !u!114 &747549229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,6 +1203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 747549230}
   player: {fileID: 636529080}
+  movingUp: 0
+  source: {fileID: 0}
 --- !u!95 &747549230
 Animator:
   serializedVersion: 5
