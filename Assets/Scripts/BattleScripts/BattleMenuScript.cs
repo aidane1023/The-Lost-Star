@@ -248,7 +248,8 @@ public class BattleMenuScript : MonoBehaviour
 
         for (int i = 0; i < inventoryButtonLength; i++)
         {
-            inventoryButtonText[i].text = inventory.itemNames[i];
+            if(inventory.playerInventory.heldItems[i] != null) inventoryButtonText[i].text = inventory.playerInventory.heldItems[i].Name;
+            else inventoryButtonText[i].text = "Empty";
             if (inventoryButtonColor[i] == null)
             {
                 inventoryButtonColor[i] = inventoryButtons[i].GetComponent<Image>();
@@ -280,26 +281,29 @@ public class BattleMenuScript : MonoBehaviour
         savedOption = menuSkill;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(backButtons[3]);
+        List<int> availableMoves = new List<int>();
 
-        //for (int i = 0; i < inventoryButtonLength; i++)
-        //{
-            //if !(inventory[i].isEmpty)
-            //{
-                
-            //}
-        //}
-
-            for (int i = 0; i < skillButtonLength; i++)
+        foreach (InventoryItemData item in inventory.playerInventory.heldItems)
+        {
+            if(item != null)
             {
-                if (skillButtonComponents[i] == null)
-                {
-                    skillButtonComponents[i] = skillButtons[i].GetComponent<Button>();
-                }
+                if(item.ID == 1) availableMoves.Add(0);//bottlecap
+                if(item.ID == 3) availableMoves.Add(1);//pin
+                if(item.ID == 2) availableMoves.Add(2);//rubberband
             }
+        }
 
         for (int i = 0; i < skillButtonLength; i++)
         {
-            if (PlayerBattler.starPoints < spCosts[i])
+            if (skillButtonComponents[i] == null)
+            {
+                skillButtonComponents[i] = skillButtons[i].GetComponent<Button>();
+            }
+        }
+
+        for (int i = 0; i < skillButtonLength; i++)
+        {
+            if (PlayerBattler.starPoints < spCosts[i] || !availableMoves.Contains(i))
             {
                 skillButtonComponents[i].interactable = false;
                 skillEnabledGraphic[i].SetActive(false);
@@ -635,136 +639,29 @@ public class BattleMenuScript : MonoBehaviour
 
     public void ItemDescriptions(int value)
     {
-        switch (value)
+        --value;
+        if(inventory.playerInventory.heldItems[value] == null || inventory.playerInventory.heldItems[value].ID == -1)
         {
-            case 1:               
-                if (inventoryButtonColor[0] == null)
-                {
-                    inventoryButtonColor[0] = inventoryButtons[0].GetComponent<Image>();
-                    Debug.Log("Inventory 1 Button Component Cached");
-                }
-                if (inventory.isEmpty[0] != true)
-                {
-                    inventoryButtonColor[0].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[0];
-                    itemDesc.text = inventory.itemDescriptions[0];
-                }
-               
-
-                break;
-
-            case 2:
-                if (inventoryButtonColor[1] == null)
-                {
-                    inventoryButtonColor[1] = inventoryButtons[1].GetComponent<Image>();
-                    Debug.Log("Inventory 2 Button Component Cached");
-                }
-                if (inventory.isEmpty[1] != true)
-                {
-                    inventoryButtonColor[1].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[1];
-                    itemDesc.text = inventory.itemDescriptions[1];
-                }
-
-                break;
-
-            case 3:
-                
-
-                if (inventoryButtonColor[2] == null)
-                {
-                    inventoryButtonColor[2] = inventoryButtons[2].GetComponent<Image>();
-                    Debug.Log("Inventory 3 Button Component Cached");
-                }
-                if (inventory.isEmpty[2] != true)
-                {
-                    inventoryButtonColor[2].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[2];
-                    itemDesc.text = inventory.itemDescriptions[2];
-                }
-
-                break;
-
-            case 4:
-                if (inventoryButtonColor[3] == null)
-                {
-                    inventoryButtonColor[3] = inventoryButtons[3].GetComponent<Image>();
-                    Debug.Log("Inventory 4 Button Component Cached");
-                }
-                if (inventory.isEmpty[3] != true)
-                {
-                    inventoryButtonColor[3].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[3];
-                    itemDesc.text = inventory.itemDescriptions[3];
-                }
-
-                break;
-
-            case 5:
-                    if (inventoryButtonColor[4] == null)
-                    {
-                    inventoryButtonColor[4] = inventoryButtons[4].GetComponent<Image>();
-                    Debug.Log("Inventory 5 Button Component Cached");
-                }
-                if (inventory.isEmpty[4] != true)
-                {
-                    inventoryButtonColor[4].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[4];
-                    itemDesc.text = inventory.itemDescriptions[4];
-                }
-
-                break;
-
-            case 6:
-                if (inventoryButtonColor[5] == null)
-                {
-                    inventoryButtonColor[5] = inventoryButtons[5].GetComponent<Image>();
-                    Debug.Log("Inventory 6 Button Component Cached");
-                }
-                if (inventory.isEmpty[5] != true)
-                {
-                    inventoryButtonColor[5].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[5];
-                    itemDesc.text = inventory.itemDescriptions[5];
-                }
-
-                break;
-
-            case 7:
-                if (inventoryButtonColor[6] == null)
-                {
-                    inventoryButtonColor[6] = inventoryButtons[6].GetComponent<Image>();
-                    Debug.Log("Inventory 7 Button Component Cached");
-                }
-                if (inventory.isEmpty[6] != true)
-                {
-                    inventoryButtonColor[6].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[6];
-                    itemDesc.text = inventory.itemDescriptions[6];
-                }
-
-                break;
-
-            case 8:               
-                if (inventoryButtonColor[7] == null)
-                {
-                    inventoryButtonColor[7] = inventoryButtons[7].GetComponent<Image>();
-                    Debug.Log("Inventory 8 Button Component Cached");
-                }
-                if (inventory.isEmpty[7] != true)
-                {
-                    inventoryButtonColor[7].color = selectedColor;
-                    itemTitle.text = inventory.itemNames[7];
-                    itemDesc.text = inventory.itemDescriptions[7];
-                }
-
-                break;
-
-            default:
-                itemTitle.text = "";
-                itemDesc.text = "Select an item.";
-                break;      
+            itemTitle.text = "";
+            itemDesc.text = "Select an item.";
         }
+        else
+        {
+            if (inventoryButtonColor[value] == null)
+            {
+                inventoryButtonColor[value] = inventoryButtons[value].GetComponent<Image>();
+                //Debug.Log("Inventory 1 Button Component Cached");
+            }
+            if (inventory.isEmpty[value] == false)
+            {
+                inventoryButtonColor[value].color = selectedColor;
+                itemTitle.text = inventory.playerInventory.heldItems[value].Name;
+                itemDesc.text = inventory.playerInventory.heldItems[value].Description;
+            }
+        }
+
+        
+        
     }
 
     public void SkillDescriptions(int value)
