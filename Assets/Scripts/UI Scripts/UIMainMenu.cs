@@ -12,6 +12,7 @@ public class UIMainMenu : MonoBehaviour
 
     public GameObject menuStart, menuControls, menuCredits, menuExit, defaultMain, defaultCredits, defaultControls, creditsMenu, controlsMenu, title;
     public GameObject[] credits;
+    public AudioSource audioSource;
     int currentMenu;
     private GameObject savedOption;
     private Button startButton, controlsButton, creditsButton, exitButton;
