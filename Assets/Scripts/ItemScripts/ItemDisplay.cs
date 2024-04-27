@@ -123,6 +123,8 @@ public class ItemDisplay : MonoBehaviour
         {
             foreach (var item in pickedItems)
             {
+                source.PlayOneShot(storeCheckout);
+    
                 if (!item.AddToInventory())
                 {
                     item.ReturnToSender(); 
@@ -144,6 +146,7 @@ public class ItemDisplay : MonoBehaviour
         }
         else
         {
+            source.PlayOneShot(noMoney);
             foreach (var item in pickedItems)
             {
                 item.ReturnToSender();
