@@ -42,7 +42,7 @@ public class BossTransition : MonoBehaviour
         yield return new WaitForSeconds(1.6f);
         anim2.SetBool("rise", true);
         yield return new WaitForSeconds(2.8f);
-        BattleManager.sceneToLoad = 2;
+        BattleManager.sceneToLoad = 5;
         battleInitiator.InitiateBattle();
     }
 }

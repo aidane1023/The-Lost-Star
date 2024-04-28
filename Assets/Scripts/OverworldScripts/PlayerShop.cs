@@ -10,7 +10,6 @@ public class PlayerShop : MonoBehaviour
 
     private void Start()
     {
-      
 
        itemDisplays.Clear();
         GameObject[] podiumObjects = GameObject.FindGameObjectsWithTag("podium"); //gets all the objects tagged podium and puts it into a list

@@ -146,6 +146,7 @@ public class PlayerBattler : MonoBehaviour
         keyCorrect = false;
         actionKeyNeeded = "left";
         attackHandler.chargeUI.SetActive(true);
+        attackHandler.spinPrompts.SetActive(true);
         attackHandler.chargeAmount = 0;
         attackHandler.chargeMeter.fillAmount = attackHandler.chargeAmount/100;
         yield return new WaitUntil (() => keyCorrect);
@@ -165,6 +166,7 @@ public class PlayerBattler : MonoBehaviour
         actionKeyNeeded = "";
         keyCorrect = false;
         attackHandler.chargeUI.SetActive(false);
+        attackHandler.spinPrompts.SetActive(false);
         attackHandler.isCharging = false;
         attackHandler.chargeAmount = 0;
         transform.DOMove(playerSpot.position, 1f, false);
