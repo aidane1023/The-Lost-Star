@@ -23,7 +23,7 @@ public class DummyBattler : EnemyBattler
     {
         yield return new WaitForSeconds(1);
         if(battleManager == null) battleManager = FindObjectOfType<BattleManager>();
-        battleManager.EnemyAttacks();
+        battleManager.StartCoroutine("EnemyAttacks");
 
     }
 }
