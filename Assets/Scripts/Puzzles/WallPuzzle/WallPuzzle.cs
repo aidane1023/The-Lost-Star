@@ -38,7 +38,6 @@ public class WallPuzzle : MonoBehaviour
     public AudioClip ballDrop;
     public AudioSource machineSource;
     public AudioClip buttonClick;
-    public AudioClip puzzleSolved;
 
     public UIPauseScript uiPauseScript;
 

@@ -6930,8 +6930,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353761114}
-  m_LocalRotation: {x: 0.08219437, y: -1e-45, z: 0, w: 0.99661636}
-  m_LocalPosition: {x: 28.73, y: 3.36, z: 7.49}
+  m_LocalRotation: {x: 0.111836135, y: 0.0013012483, z: -0.00014644543, w: 0.99372584}
+  m_LocalPosition: {x: -2.0809188, y: 3.44, z: -9.778157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9490,7 +9490,7 @@ Transform:
   - {fileID: 1382637828}
   - {fileID: 1110253417}
   m_Father: {fileID: 948648504}
-  m_RootOrder: 117
+  m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531019417
 GameObject:
@@ -18914,7 +18914,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 948648504}
-  m_RootOrder: 74
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &765541689
 PrefabInstance:
@@ -19004,6 +19004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770828524}
   - component: {fileID: 770828523}
+  - component: {fileID: 770828525}
   m_Layer: 0
   m_Name: Soldier_Popup (1)
   m_TagString: Untagged
@@ -19078,6 +19079,19 @@ Transform:
   m_Father: {fileID: 948648504}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 6.196, y: 136.505, z: 11.245}
+--- !u!65 &770828525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770828522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20, z: 0.20000139}
+  m_Center: {x: -0.0000018522144, y: 7.3999977, z: -0.00000008270144}
 --- !u!1001 &776492739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22599,6 +22613,9 @@ Transform:
   - {fileID: 1858578420}
   - {fileID: 640961860}
   - {fileID: 1168594053}
+  - {fileID: 1201264123}
+  - {fileID: 1777440160}
+  - {fileID: 1420386761}
   - {fileID: 2126033836}
   - {fileID: 738353010}
   - {fileID: 216468391}
@@ -22620,15 +22637,14 @@ Transform:
   - {fileID: 1566239410}
   - {fileID: 803880233}
   - {fileID: 2045238163}
-  - {fileID: 1201264123}
-  - {fileID: 1777440160}
-  - {fileID: 1420386761}
+  - {fileID: 1643836377}
+  - {fileID: 761098910}
+  - {fileID: 529825536}
   - {fileID: 575574709}
   - {fileID: 1822980365}
   - {fileID: 1754839950}
-  - {fileID: 1643836377}
   - {fileID: 242371691}
-  - {fileID: 761098910}
+  - {fileID: 1867306441}
   - {fileID: 320798352}
   - {fileID: 1555470214}
   - {fileID: 1719750764}
@@ -22671,7 +22687,6 @@ Transform:
   - {fileID: 960009963}
   - {fileID: 1662269723}
   - {fileID: 1398592188}
-  - {fileID: 529825536}
   - {fileID: 686879571}
   - {fileID: 1740200423}
   - {fileID: 1464374095}
@@ -22743,7 +22758,6 @@ Transform:
   - {fileID: 2064798555}
   - {fileID: 1876837398}
   - {fileID: 1133982216}
-  - {fileID: 1867306441}
   - {fileID: 631894723}
   - {fileID: 294237926}
   - {fileID: 320371806}
@@ -27589,7 +27603,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 948648504}
-  m_RootOrder: 66
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 27.61, z: 0}
 --- !u!1001 &1202620921
 PrefabInstance:
@@ -27996,6 +28010,7 @@ MonoBehaviour:
   door: {fileID: 1215128467}
   source: {fileID: 1215128472}
   doorRaising: {fileID: 8300000, guid: 0db2772cbc26ba742b7f89fcee945872, type: 3}
+  puzzleSolved: {fileID: 8300000, guid: aa5b72b2c6e56fc498bc67ed9594fc01, type: 3}
 --- !u!82 &1215128472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28720,8 +28735,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250421461}
-  m_LocalRotation: {x: 0.08219437, y: -1e-45, z: -0, w: 0.99661636}
-  m_LocalPosition: {x: 28.73, y: 3.36, z: 7.49}
+  m_LocalRotation: {x: 0.111836135, y: 0.0013012483, z: -0.00014644543, w: 0.99372584}
+  m_LocalPosition: {x: -2.07, y: 3.44, z: -11.332001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31169,6 +31184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375857650}
   - component: {fileID: 1375857649}
+  - component: {fileID: 1375857651}
   m_Layer: 0
   m_Name: Soldier_Popup
   m_TagString: Untagged
@@ -31243,6 +31259,19 @@ Transform:
   m_Father: {fileID: 948648504}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 6.196, y: -28.494, z: 11.245}
+--- !u!65 &1375857651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375857648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.000002, y: 19.999998, z: 0.43096486}
+  m_Center: {x: 0.0000076127303, y: 7.4000006, z: -0.115483895}
 --- !u!1001 &1378052079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31791,7 +31820,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 948648504}
-  m_RootOrder: 68
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &1423829471
 PrefabInstance:
@@ -35823,7 +35852,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 948648504}
-  m_RootOrder: 72
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &1646651636
 PrefabInstance:
@@ -38383,7 +38412,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 948648504}
-  m_RootOrder: 67
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 39.597, z: 0}
 --- !u!1001 &1785178390
 PrefabInstance:
@@ -39757,7 +39786,7 @@ Transform:
   - {fileID: 123943787}
   - {fileID: 1832122414}
   m_Father: {fileID: 948648504}
-  m_RootOrder: 189
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: -93.947, z: 0}
 --- !u!1 &1870355806 stripped
 GameObject:
@@ -45116,7 +45145,6 @@ MonoBehaviour:
   ballDrop: {fileID: 8300000, guid: dfd8da99df6c44e45b85345f73d49688, type: 3}
   machineSource: {fileID: 1762137627798489305}
   buttonClick: {fileID: 8300000, guid: b95f7b4da10b54048988ad0e0c03f6e6, type: 3}
-  puzzleSolved: {fileID: 8300000, guid: aa5b72b2c6e56fc498bc67ed9594fc01, type: 3}
   uiPauseScript: {fileID: 1882397681}
   primaryCamera: {fileID: 1250421462}
   secondaryCamera: {fileID: 1378882179}
@@ -55661,7 +55689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8820558104436304183}
   m_LocalRotation: {x: 0.17364815, y: 0, z: 0, w: 0.9848077}
-  m_LocalPosition: {x: 28.73, y: 1, z: 12.7}
+  m_LocalPosition: {x: -2.07, y: 1.08, z: -6.122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
