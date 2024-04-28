@@ -11,10 +11,8 @@ public class ItemPickup : MonoBehaviour
     Color clearColor, originalColor;
     bool collectable = false;
 
-    public AudioSource source;
+    AudioSource source;
     public ParticleSystem particleEffects;
-
-    public AudioClip pickUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +79,6 @@ public class ItemPickup : MonoBehaviour
             {
                 PlayerBattler.coins++;
                 Debug.Log("coinCollected");
-                source.PlayOneShot(pickUp);
             }
             if(type == PickupType.Heart && PlayerBattler.health < PlayerBattler.maxHealth)
             {
