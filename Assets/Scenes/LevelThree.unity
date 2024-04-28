@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1699,7 +1699,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5c5c484f990d1cd48b95f659a91635a9, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c5c484f990d1cd48b95f659a91635a9, type: 3}
       propertyPath: m_LocalScale.x
@@ -9715,7 +9715,7 @@ RectTransform:
   - {fileID: 178285495}
   - {fileID: 1524989543}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11680,6 +11680,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b27d78879cd1cd84fa1f53020cd3e3aa, type: 3}
   m_PrefabInstance: {fileID: 1322610865}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &453216924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 453216926}
+  - component: {fileID: 453216925}
+  m_Layer: 0
+  m_Name: Transition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &453216925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453216924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &453216926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453216924}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.37, y: 10.15, z: 40.44}
+  m_LocalScale: {x: 5.9756675, y: 5.65157, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457629420
 GameObject:
   m_ObjectHideFlags: 0
@@ -12728,7 +12773,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502114163
 GameObject:
@@ -13440,7 +13485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6909618697592134366, guid: 279a172b4eb633545893fe0da1e827fb, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6909618697592134366, guid: 279a172b4eb633545893fe0da1e827fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15239,17 +15284,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &610026438 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5364177646279397689, guid: 3f0e07eaef9e5ce4fa4e4ac080360fd6, type: 3}
-  m_PrefabInstance: {fileID: 1159254877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610026433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764162f1317466740917afd853893e26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &616695116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9045796553798548058, guid: 11a817fcd443fb54faa972f60e3ad1f6, type: 3}
@@ -18828,7 +18862,7 @@ Transform:
   - {fileID: 1752978370}
   - {fileID: 2057535448}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771232347
 GameObject:
@@ -18982,16 +19016,8 @@ MonoBehaviour:
   - {fileID: 2024194518}
   interactObjects:
   - {fileID: 1075114670}
-  dialogue:
-  - {fileID: 1610789791}
-  - {fileID: 583976656}
-  - {fileID: 2024194520}
   playerAnimator: {fileID: 1700258797}
   dialogueCount: 3
-  isMozzy: 0
-  isBouncer: 1
-  isLegoGuy: 0
-  itemManager: {fileID: 1345492176}
   source: {fileID: 771232349}
   dialoguePress: {fileID: 8300000, guid: bc651c2bf55856b4096fb474b3de9105, type: 3}
 --- !u!1 &776800946 stripped
@@ -22746,7 +22772,7 @@ Transform:
   m_Children:
   - {fileID: 983368474}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954801113
 GameObject:
@@ -23977,7 +24003,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1000274609
 PrefabInstance:
@@ -25274,7 +25300,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5c5c484f990d1cd48b95f659a91635a9, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c5c484f990d1cd48b95f659a91635a9, type: 3}
       propertyPath: m_LocalScale.x
@@ -32850,7 +32876,7 @@ Transform:
   - {fileID: 1512096027}
   - {fileID: 1493316043}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355051729
 GameObject:
@@ -36570,7 +36596,7 @@ Transform:
   - {fileID: 818043996}
   - {fileID: 18423308}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 31.661, z: 90}
 --- !u!1 &1538940333
 GameObject:
@@ -38731,17 +38757,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2785817178924971765, guid: 6fe0fbc695b181f4eb5e8b0ec24b18e2, type: 3}
   m_PrefabInstance: {fileID: 1059649957}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1610789791 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2785817178924971764, guid: 6fe0fbc695b181f4eb5e8b0ec24b18e2, type: 3}
-  m_PrefabInstance: {fileID: 1059649957}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610789789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764162f1317466740917afd853893e26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1610901972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7171058562028668902, guid: 5c5c484f990d1cd48b95f659a91635a9, type: 3}
@@ -41904,17 +41919,8 @@ MonoBehaviour:
   - {fileID: 1636669299}
   interactObjects:
   - {fileID: 1245324563}
-  dialogue:
-  - {fileID: 1670686381}
-  - {fileID: 1868303907}
-  - {fileID: 1697163783}
-  - {fileID: 1636669301}
   playerAnimator: {fileID: 1700258797}
   dialogueCount: 4
-  isMozzy: 1
-  isBouncer: 0
-  isLegoGuy: 0
-  itemManager: {fileID: 1345492176}
   source: {fileID: 1752978368}
   dialoguePress: {fileID: 8300000, guid: bc651c2bf55856b4096fb474b3de9105, type: 3}
 --- !u!4 &1752978370
@@ -42080,7 +42086,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1764311411
 GameObject:
@@ -42933,7 +42939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalScale.x
@@ -44329,17 +44335,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6595088746633799910, guid: f280a3c78ed30664189f4bc4603710dc, type: 3}
   m_PrefabInstance: {fileID: 1001241311}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1868303907 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6595088746633799904, guid: f280a3c78ed30664189f4bc4603710dc, type: 3}
-  m_PrefabInstance: {fileID: 1001241311}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868303905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764162f1317466740917afd853893e26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1873657903
 GameObject:
   m_ObjectHideFlags: 0
@@ -49267,16 +49262,8 @@ MonoBehaviour:
   - {fileID: 2047615047}
   interactObjects:
   - {fileID: 35017052}
-  dialogue:
-  - {fileID: 610026438}
-  - {fileID: 725714369}
-  - {fileID: 2047615052}
   playerAnimator: {fileID: 1700258797}
   dialogueCount: 4
-  isMozzy: 0
-  isBouncer: 0
-  isLegoGuy: 1
-  itemManager: {fileID: 1345492176}
   source: {fileID: 2057535449}
   dialoguePress: {fileID: 8300000, guid: bc651c2bf55856b4096fb474b3de9105, type: 3}
 --- !u!1 &2066602555 stripped
