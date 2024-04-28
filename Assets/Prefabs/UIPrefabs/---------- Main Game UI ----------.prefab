@@ -831,8 +831,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 517, y: -242}
-  m_SizeDelta: {x: 878.45, y: 134.4}
+  m_AnchoredPosition: {x: 604.5164, y: -261.57608}
+  m_SizeDelta: {x: 703.417, y: 173.552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2749514975029976646
 CanvasRenderer:
@@ -862,7 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Direction pad for attacks
+  m_text: Attacks/Menu Navigation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b991bd2bd0390545aaeaf39527fd0b8, type: 2}
   m_sharedMaterial: {fileID: -1627459799947750229, guid: 2b991bd2bd0390545aaeaf39527fd0b8, type: 2}
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 84.65
+  m_fontSize: 81.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6609,8 +6609,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -454, y: -15}
-  m_SizeDelta: {x: 206.1, y: 206.1}
+  m_AnchoredPosition: {x: -465, y: -0.000054836}
+  m_SizeDelta: {x: 238.394, y: 324.894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1748937146105449484
 CanvasRenderer:
@@ -6640,7 +6640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 717312562, guid: 975b6a67f1889bb458b565428c153de0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 733b1c90181315548830b24c55e5c158, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7866,7 +7866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2413364047355110537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7884,8 +7884,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -472, y: 0.00006485}
-  m_SizeDelta: {x: 169.6, y: 169.6}
+  m_AnchoredPosition: {x: -471, y: 0.000032425}
+  m_SizeDelta: {x: 209.328, y: 209.328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &538216275850678969
 CanvasRenderer:
@@ -7915,7 +7915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 561936635, guid: 95f5c83916614164483eb9bc6ddce6b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18bb6d34d2f105444a7a5a603a0ba61a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8755,8 +8755,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 517, y: -64.074}
-  m_SizeDelta: {x: 878.45, y: 166.547}
+  m_AnchoredPosition: {x: 604.5164, y: -64.074}
+  m_SizeDelta: {x: 703.417, y: 166.547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6250931215718112233
 CanvasRenderer:
@@ -8786,7 +8786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Joystick for attacks and menu navigation
+  m_text: Movement/Menu Navigation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b991bd2bd0390545aaeaf39527fd0b8, type: 2}
   m_sharedMaterial: {fileID: -1627459799947750229, guid: 2b991bd2bd0390545aaeaf39527fd0b8, type: 2}
@@ -11625,7 +11625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8761661717620462640
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11643,8 +11643,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -472, y: 0.00006485}
-  m_SizeDelta: {x: 169.6, y: 169.6}
+  m_AnchoredPosition: {x: -469, y: -0.000015259}
+  m_SizeDelta: {x: 209.904, y: 209.904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3658682969979282129
 CanvasRenderer:
@@ -11674,7 +11674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 561936635, guid: 95f5c83916614164483eb9bc6ddce6b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b7cd3fa58a56e44bae7f15b1eb61cf5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
