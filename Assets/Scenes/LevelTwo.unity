@@ -43156,8 +43156,25 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 8820558104436304179}
+    - target: {fileID: 5067437046564712080, guid: 14a4cab56bed14e478c0bacbf0709ad8, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067437046564712080, guid: 14a4cab56bed14e478c0bacbf0709ad8, type: 3}
+      propertyPath: pickups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067437046564712080, guid: 14a4cab56bed14e478c0bacbf0709ad8, type: 3}
+      propertyPath: battlers.Array.data[0]
+      value: 
+      objectReference: {fileID: 435333498161875449}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a4cab56bed14e478c0bacbf0709ad8, type: 3}
+--- !u!1 &435333498161875449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 435333498609075213, guid: 14a4cab56bed14e478c0bacbf0709ad8, type: 3}
+  m_PrefabInstance: {fileID: 435333498161875448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &790797412220493897
 GameObject:
   m_ObjectHideFlags: 0
