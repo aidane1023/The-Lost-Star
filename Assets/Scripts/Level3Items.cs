@@ -5,9 +5,9 @@ using UnityEngine;
 public class Level3Items : MonoBehaviour
 {
     public bool mozzieTalked;
-    public bool watchFound;
-    public bool lighterFound;
-    public bool ticketFound;
+    public bool watchFound, watchGiven;
+    public bool lighterFound, lighterGiven;
+    public bool ticketFound, ticketGiven;
 
     private void Start()
     {
