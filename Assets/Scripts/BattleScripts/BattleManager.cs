@@ -39,6 +39,10 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]
     public bool waitingForEnemyDeath;
 
+    [Header ("Audio")]
+    AudioSource source;
+    public AudioClip runSound, itemUsedSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +53,8 @@ public class BattleManager : MonoBehaviour
         InitialSpawn();
 
         if(level > 0) setPieces[(level - 1)].SetActive(true);
+
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -169,6 +175,7 @@ public class BattleManager : MonoBehaviour
     {
         if(inventory.heldItems[buttonNum] != null && inventory.heldItems[buttonNum].isConsumable)
         {
+            source.PlayOneShot(itemUsedSound);
             InventoryItemData item = inventory.heldItems[buttonNum];
             PlayerBattler.health += item.healthRestored;
             if(PlayerBattler.health > PlayerBattler.maxHealth) PlayerBattler.health = PlayerBattler.maxHealth;
@@ -224,6 +231,7 @@ public class BattleManager : MonoBehaviour
     {
         if(fled && canRun)
         {
+            source.PlayOneShot(runSound);
             enemyID = -1;
             SceneManager.LoadScene(sceneToLoad);
         }

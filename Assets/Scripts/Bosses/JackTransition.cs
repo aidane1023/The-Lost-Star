@@ -44,8 +44,8 @@ public class JackTransition : MonoBehaviour
         crowd.SetBool("Cheer",true);
         yield return new WaitForSeconds(0.5f);
         box.SetBool("Open", true);
-        yield retun new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(5.5f);
         BattleManager.sceneToLoad = 7;
-        battleInitiator.InitiateBattle();
+        GetComponent<BattleInitiator>().InitiateBattle();
     }
 }
