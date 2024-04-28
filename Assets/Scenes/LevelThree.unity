@@ -15284,6 +15284,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &610026437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5364177646279397689, guid: 3f0e07eaef9e5ce4fa4e4ac080360fd6, type: 3}
+  m_PrefabInstance: {fileID: 1159254877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610026433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764162f1317466740917afd853893e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &616695116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9045796553798548058, guid: 11a817fcd443fb54faa972f60e3ad1f6, type: 3}
@@ -19016,14 +19027,17 @@ MonoBehaviour:
   - {fileID: 2024194518}
   interactObjects:
   - {fileID: 1075114670}
-  dialogue: []
+  dialogue:
+  - {fileID: 1610789791}
+  - {fileID: 583976656}
+  - {fileID: 2024194520}
   isOneShot: 0
   playerAnimator: {fileID: 1700258797}
   dialogueCount: 3
   isMozzy: 0
-  isBouncer: 0
+  isBouncer: 1
   isLegoGuy: 0
-  itemManager: {fileID: 0}
+  itemManager: {fileID: 1345492176}
   source: {fileID: 771232349}
   dialoguePress: {fileID: 8300000, guid: bc651c2bf55856b4096fb474b3de9105, type: 3}
 --- !u!1 &776800946 stripped
@@ -38763,6 +38777,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2785817178924971765, guid: 6fe0fbc695b181f4eb5e8b0ec24b18e2, type: 3}
   m_PrefabInstance: {fileID: 1059649957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1610789791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2785817178924971764, guid: 6fe0fbc695b181f4eb5e8b0ec24b18e2, type: 3}
+  m_PrefabInstance: {fileID: 1059649957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610789789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764162f1317466740917afd853893e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1610901972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7171058562028668902, guid: 5c5c484f990d1cd48b95f659a91635a9, type: 3}
@@ -41925,14 +41950,18 @@ MonoBehaviour:
   - {fileID: 1636669299}
   interactObjects:
   - {fileID: 1245324563}
-  dialogue: []
+  dialogue:
+  - {fileID: 1670686381}
+  - {fileID: 1868303907}
+  - {fileID: 1697163783}
+  - {fileID: 1636669301}
   isOneShot: 0
   playerAnimator: {fileID: 1700258797}
   dialogueCount: 4
-  isMozzy: 0
+  isMozzy: 1
   isBouncer: 0
   isLegoGuy: 0
-  itemManager: {fileID: 0}
+  itemManager: {fileID: 1345492176}
   source: {fileID: 1752978368}
   dialoguePress: {fileID: 8300000, guid: bc651c2bf55856b4096fb474b3de9105, type: 3}
 --- !u!4 &1752978370
@@ -44347,6 +44376,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6595088746633799910, guid: f280a3c78ed30664189f4bc4603710dc, type: 3}
   m_PrefabInstance: {fileID: 1001241311}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1868303907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6595088746633799904, guid: f280a3c78ed30664189f4bc4603710dc, type: 3}
+  m_PrefabInstance: {fileID: 1001241311}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868303905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764162f1317466740917afd853893e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1873657903
 GameObject:
   m_ObjectHideFlags: 0
@@ -49274,14 +49314,17 @@ MonoBehaviour:
   - {fileID: 2047615047}
   interactObjects:
   - {fileID: 35017052}
-  dialogue: []
+  dialogue:
+  - {fileID: 610026437}
+  - {fileID: 725714369}
+  - {fileID: 2047615052}
   isOneShot: 0
   playerAnimator: {fileID: 1700258797}
   dialogueCount: 4
   isMozzy: 0
   isBouncer: 0
-  isLegoGuy: 0
-  itemManager: {fileID: 0}
+  isLegoGuy: 1
+  itemManager: {fileID: 1345492176}
   source: {fileID: 2057535449}
   dialoguePress: {fileID: 8300000, guid: bc651c2bf55856b4096fb474b3de9105, type: 3}
 --- !u!1 &2066602555 stripped
