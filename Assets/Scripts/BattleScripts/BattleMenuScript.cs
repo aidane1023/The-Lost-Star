@@ -355,7 +355,7 @@ public class BattleMenuScript : MonoBehaviour
             }
 
         attackTitle.text = "Spin!";
-        attackDesc.text = "Hold    until the right time to deal extra damage!";
+        attackDesc.text = "Hold    or   until the right time to deal extra damage!";
     }
 
     public void EnemySkillSelector()
@@ -670,7 +670,7 @@ public class BattleMenuScript : MonoBehaviour
         {
             case 1:
                 skillTitle.text = "BottleCap Toss";
-                skillDesc.text = "Mash Z to toss a bottle cap, ricocheting off of all enemies. Costs 2 SP.";
+                skillDesc.text = "Mash    or    to toss a bottle cap, ricocheting off of all enemies. Costs 2 SP.";
                 if (skillButtonColor[0] == null)
                 {
                     skillButtonColor[0] = skillButtons[0].GetComponent<Image>();
@@ -692,7 +692,7 @@ public class BattleMenuScript : MonoBehaviour
             
             case 3:
                 skillTitle.text = "Rubber Band Sling";
-                skillDesc.text = "Time Z presses to sling up to 4 rubber bands at one target. Costs 2 SP.";
+                skillDesc.text = "Time    or   presses to sling up to 4 rubber bands at one target. Costs 2 SP.";
                 if (skillButtonColor[2] == null)
                 {
                     skillButtonColor[2] = skillButtons[2].GetComponent<Image>();

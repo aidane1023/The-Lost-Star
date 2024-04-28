@@ -8,6 +8,7 @@ public class PlayerAttacksHandler : MonoBehaviour
 {
     PlayerBattler player;
     public GameObject chargeUI;
+    public GameObject spinPrompts, pinUIPrompts;
     public GameObject zButton;
     public Image chargeMeter;
 
@@ -151,6 +152,7 @@ public class PlayerAttacksHandler : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         heldItem.sprite = pin;
         chargeUI.SetActive(true);
+        pinUIPrompts.SetActive(true);
         chargeAmount = 50;
         chargeMeter.fillAmount = chargeAmount/100;
         isBalancing = true;
@@ -177,6 +179,7 @@ public class PlayerAttacksHandler : MonoBehaviour
         player.actionKeyNeeded = "";
         player.keyCorrect = false;
         chargeUI.SetActive(false);
+        pinUIPrompts.SetActive(false);
         isBalancing = false;
         chargeAmount = 0;
         yield return new WaitForSeconds(1f);
