@@ -7,7 +7,7 @@ public class DestroyBall : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetButtonDown("Cancel"))
         {
             Destroy(gameObject);
         }

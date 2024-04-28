@@ -24,7 +24,7 @@ public class DropPuzzle : MonoBehaviour
     private CountManager manager;
     public GameObject managerObject;
     public bool win;
-    private int ballsLeft = 11;
+    public int ballsLeft = 9;
 
     public AudioSource source;
     public AudioClip ballDrop;
@@ -32,10 +32,16 @@ public class DropPuzzle : MonoBehaviour
     public AudioClip buttonClick;
 
     public UIPauseScript uiPauseScript;
+
+    private bool wait;
     
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
+
+    public GameObject evilBox;
+
+    private bool sound;
 
     private void Start()
     {
@@ -43,13 +49,16 @@ public class DropPuzzle : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         savedSpeed = playerController.speed;
         manager = managerObject.GetComponent<CountManager>();
+        sound = true;
+        evilBox.SetActive(false);
+        wait = false;
     }
 
     private void Update()
     {
         
 
-        if (inRange && Input.GetKeyDown(KeyCode.Z) && win != true)
+        if (inRange && Input.GetButtonDown("Submit") && win != true)
         {
            
             StartCoroutine(WaitActive());
@@ -61,7 +70,7 @@ public class DropPuzzle : MonoBehaviour
         if (tubeRB.velocity.magnitude == 0) machineSource.volume = 0;
         else machineSource.volume = 1f;
 
-        if (inRange && Input.GetKeyDown(KeyCode.Escape))
+        if (inRange && Input.GetButtonDown("Cancel"))
             { 
             StartCoroutine(Finished());
             }
@@ -74,26 +83,24 @@ public class DropPuzzle : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.Z) && ballsLeft > 0)
+            if (Input.GetButtonDown("Submit") && ballsLeft != 0 && wait != true)
             {
-                
+
              Instantiate(sphere, spawner.transform.position+Random.onUnitSphere*0.1f, spawner.transform.rotation);
                 ballsLeft --;
             StartCoroutine("BallSound");
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetButtonDown("Cancel"))
             {
-                ballsLeft = 11;
+                ballsLeft = 9;
             }
 
-            if (manager.box1Count == 2 && manager.box2Count == 4 && manager.box3Count == 3)
+            if (ballsLeft == 0)
             {
-                active = false;
-                
-                
-                win = true;
+                StartCoroutine(BallCheck());
             }
+                
            
         }
     }
@@ -122,13 +129,15 @@ public class DropPuzzle : MonoBehaviour
         secondaryCamera.Priority = 20;
         
         playerController.speed = 0;
-        source.PlayOneShot(buttonClick);
+        if (sound) { source.PlayOneShot(buttonClick); }
+        sound = false;
         yield return new WaitForSeconds(2);
         active = true;
     }
     IEnumerator Finished()
     {
         active = false;
+        sound = true;
         secondaryCamera.Priority = 0;
         primaryCamera.Priority = 20;
         yield return new WaitForSeconds(2);
@@ -139,4 +148,32 @@ public class DropPuzzle : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         source.PlayOneShot(ballDrop);
     }
+
+    IEnumerator BallCheck()
+    {
+        yield return new WaitForSeconds(1);
+        if (manager.box1Count == 2 && manager.box2Count == 4 && manager.box3Count == 3)
+        {
+            active = false;
+            win = true;
+
+        }
+        else
+        {
+            wait = true;
+            ballsLeft = 9;
+            manager.ResetBalls();
+            evilBox.SetActive(true);
+            yield return new WaitForSeconds(1);
+            evilBox.SetActive(false);
+           
+
+
+
+        }
+        wait = false;
+
+    }
+
+  
 }

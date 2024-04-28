@@ -31,6 +31,7 @@ public class ExitWall : MonoBehaviour
 
     public AudioSource source;
     public AudioClip doorRaising;
+    public AudioClip puzzleSolved;
 
 
     void Start()
@@ -58,7 +59,7 @@ public class ExitWall : MonoBehaviour
         if (wallP.win == true && wallWinRun != true)
         {
             StartCoroutine(SwitchToLight(wallLight));
-            wallP.source.PlayOneShot(wallP.puzzleSolved);
+            source.PlayOneShot(puzzleSolved, 0.7f);
             wallWinRun=true;
 
         }

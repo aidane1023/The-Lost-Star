@@ -38,12 +38,13 @@ public class WallPuzzle : MonoBehaviour
     public AudioClip ballDrop;
     public AudioSource machineSource;
     public AudioClip buttonClick;
-    public AudioClip puzzleSolved;
 
     public UIPauseScript uiPauseScript;
 
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera secondaryCamera;
+
+    private bool sound;
 
     private void Start()
     {
@@ -55,6 +56,7 @@ public class WallPuzzle : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         savedSpeed = playerController.speed;
         wait = false;
+        sound = true;
 
     }
 
@@ -62,12 +64,12 @@ public class WallPuzzle : MonoBehaviour
     {
 
 
-        if (inRange && Input.GetKeyDown(KeyCode.Z) && win != true)
+        if (inRange && Input.GetButtonDown("Submit") && win != true)
         {
             StartCoroutine(WaitActive());
         }
 
-        else if (inRange && Input.GetKeyDown(KeyCode.Escape))
+        else if (inRange && Input.GetButtonDown("Cancel"))
         {
           
             StartCoroutine(Finished());
@@ -109,16 +111,19 @@ public class WallPuzzle : MonoBehaviour
 
     IEnumerator WaitActive()
     {
+  
         secondaryCamera.Priority = 20;
         primaryCamera.Priority = 0;
         playerController.speed = 0;
-        source.PlayOneShot(buttonClick);
+        if (sound) { source.PlayOneShot(buttonClick); }
+        sound = false;
         yield return new WaitForSeconds(2);
         active = true;
     }
     IEnumerator Finished()
     {
         active = false;
+        sound = true;
         secondaryCamera.Priority = 0;
         primaryCamera.Priority = 20;
         yield return new WaitForSeconds(2);
@@ -186,8 +191,9 @@ public class WallPuzzle : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown(KeyCode.Z) && wait != true)
+        if (Input.GetButtonDown("Submit") && wait != true)
         {
+           
             StartCoroutine(NoSpam());
             Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
             StartCoroutine("BallSound");
@@ -202,8 +208,9 @@ public class WallPuzzle : MonoBehaviour
     }
     IEnumerator BallSound()
     {
-        yield return new WaitForSeconds(0.7f);
-        source.PlayOneShot(ballDrop);
-    }
+            yield return new WaitForSeconds(0.7f);
+            source.PlayOneShot(ballDrop);
 
-}
+        
+    }
+    }
