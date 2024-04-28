@@ -13,7 +13,7 @@ public class Rocket : MonoBehaviour
     public Transform objectToFollow;
     public int pickUpType; // 1 for top, 2 for middle, 3 for bottom
 
-    private float savedSpeed;
+
     public GameObject trail;
 
     public AudioSource source;
@@ -26,7 +26,7 @@ public class Rocket : MonoBehaviour
         {
             playerController = playerObject.GetComponent<PlayerController>();
         }
-        savedSpeed = playerController.speed;
+
     }
 
     private void OnTriggerEnter(Collider other)
