@@ -338,7 +338,7 @@ public class BattleMenuScript : MonoBehaviour
             }
 
         attackTitle.text = "Jump!";
-        attackDesc.text = "Jump on the enemy and press Z at the right time to jump again and deal even more damage!";
+        attackDesc.text = "Jump on the enemy and press    or   at the right time to jump again and deal even more damage!";
     }
 
     public void EnemySpinSelector()
