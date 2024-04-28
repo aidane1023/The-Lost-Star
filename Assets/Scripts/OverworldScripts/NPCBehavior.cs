@@ -9,6 +9,7 @@ public class NPCBehavior : MonoBehaviour
     public GameObject[] dialogueObjects, interactObjects;
     public Dialogue[] dialogue;
     bool textPlaying = false;
+    public bool isOneShot = false;
     public Animator playerAnimator;
     public int dialogueCount;
     int index = 0;
@@ -65,6 +66,10 @@ public class NPCBehavior : MonoBehaviour
                 player.GetComponent<AudioSource>().enabled = true;
                 playerController.speed = 4f;
                 characterDialogue.SetActive(false);
+                if (isOneShot)
+                {
+                    ShutUp();
+                }
                 if (timer < 2.0f)
                 {
                     timer += Time.deltaTime;
