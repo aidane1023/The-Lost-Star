@@ -16,6 +16,9 @@ public class Rocket : MonoBehaviour
     private float savedSpeed;
     public GameObject trail;
 
+    public AudioSource source;
+    public AudioClip collectRocket;
+
     private void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +34,8 @@ public class Rocket : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PickUpObject();
+            source.PlayOneShot(collectRocket);
+
         }
     }
 

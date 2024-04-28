@@ -6930,8 +6930,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353761114}
-  m_LocalRotation: {x: 0.111836135, y: 0.0013012483, z: -0.00014644543, w: 0.99372584}
-  m_LocalPosition: {x: -2.0809188, y: 3.44, z: -9.778157}
+  m_LocalRotation: {x: 0.2726422, y: 0.35936853, z: -0.11063624, w: 0.8855959}
+  m_LocalPosition: {x: 27.776281, y: 3.44, z: -6.611179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22643,8 +22643,8 @@ Transform:
   - {fileID: 575574709}
   - {fileID: 1822980365}
   - {fileID: 1754839950}
-  - {fileID: 242371691}
   - {fileID: 1867306441}
+  - {fileID: 242371691}
   - {fileID: 320798352}
   - {fileID: 1555470214}
   - {fileID: 1719750764}
@@ -28735,8 +28735,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250421461}
-  m_LocalRotation: {x: 0.111836135, y: 0.0013012483, z: -0.00014644543, w: 0.99372584}
-  m_LocalPosition: {x: -2.07, y: 3.44, z: -11.332001}
+  m_LocalRotation: {x: 0.2726422, y: 0.35936853, z: -0.11063624, w: 0.8855959}
+  m_LocalPosition: {x: 28.75, y: 3.44, z: -11.332001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38886,6 +38886,7 @@ GameObject:
   - component: {fileID: 1818506526}
   - component: {fileID: 1818506525}
   - component: {fileID: 1818506528}
+  - component: {fileID: 1818506529}
   m_Layer: 0
   m_Name: Rocket Part
   m_TagString: Untagged
@@ -38989,6 +38990,104 @@ MonoBehaviour:
   objectToFollow: {fileID: 8820558104436304179}
   pickUpType: 2
   trail: {fileID: 8048444665581204792}
+  source: {fileID: 1818506529}
+  collectRocket: {fileID: 8300000, guid: 9253fa37e54160144aeabd807973cacc, type: 3}
+--- !u!82 &1818506529
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818506524}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1822980364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39786,7 +39885,7 @@ Transform:
   - {fileID: 123943787}
   - {fileID: 1832122414}
   m_Father: {fileID: 948648504}
-  m_RootOrder: 76
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: -93.947, z: 0}
 --- !u!1 &1870355806 stripped
 GameObject:
@@ -55689,7 +55788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8820558104436304183}
   m_LocalRotation: {x: 0.17364815, y: 0, z: 0, w: 0.9848077}
-  m_LocalPosition: {x: -2.07, y: 1.08, z: -6.122}
+  m_LocalPosition: {x: 28.75, y: 1.08, z: -6.122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
