@@ -64,7 +64,7 @@ public class EnemyBattler : MonoBehaviour
         textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         Canvas canvas = GameObject.Find("Damage Canvas").GetComponent<Canvas>();
         textTransform.SetParent(canvas.transform);
-        source.PlayOneShot(hurtSound);
+        source.PlayOneShot(hurtSound, 0.4f);
     }
 
 
