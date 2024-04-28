@@ -23,4 +23,7 @@ public class CountManager : MonoBehaviour
             box3Count = 0;
         }
     }
+
+    public void ResetBalls()
+    { box1Count = 0; box2Count = 0; box3Count = 0; }
 }

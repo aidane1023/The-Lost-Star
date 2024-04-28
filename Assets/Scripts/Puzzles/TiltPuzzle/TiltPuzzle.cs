@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TiltPuzzle : MonoBehaviour
@@ -33,6 +34,8 @@ public class TiltPuzzle : MonoBehaviour
     public CinemachineVirtualCamera secondaryCamera;
     public CinemachineVirtualCamera cam3;
 
+    private bool sound;
+
     private void Start()
     {
         planksRB = new List<Rigidbody>();
@@ -46,20 +49,22 @@ public class TiltPuzzle : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         savedSpeed = playerController.speed;
 
+        sound = true;
+
     }
 
     private void Update()
     {
 
 
-        if (inRange && Input.GetKeyDown(KeyCode.Z) && win != true && noActiveBall)
+        if (inRange && Input.GetButtonDown("Submit") && win != true && noActiveBall)
         {
    
             
             StartCoroutine(WaitActive());
         }
 
-        if (inRange && Input.GetKeyDown(KeyCode.Escape))
+        if (inRange && Input.GetButtonDown("Cancel"))
         {
             
             StartCoroutine(Finished());
@@ -79,7 +84,7 @@ public class TiltPuzzle : MonoBehaviour
             if (x == 0) machineSource.volume = 0;
             else machineSource.volume = 1f;
 
-            if (Input.GetKeyDown(KeyCode.Z) && noActiveBall)
+            if (Input.GetButtonDown("Submit") && noActiveBall)
             {
                 noActiveBall = false;
                 activeBall = Instantiate(sphere, spawner.transform.position + Random.onUnitSphere * 0.1f, spawner.transform.rotation);
@@ -138,13 +143,15 @@ public class TiltPuzzle : MonoBehaviour
         secondaryCamera.Priority = 20;
         
         playerController.speed = 0;
-        source.PlayOneShot(buttonClick);
+        if (sound) { source.PlayOneShot(buttonClick); }
+        sound = false;
         yield return new WaitForSeconds(2);
         active = true;
     }
     IEnumerator Finished()
     {
         active = false;
+        sound = true;
         secondaryCamera.Priority = 0;
         primaryCamera.Priority = 20;
         yield return new WaitForSeconds(2);
