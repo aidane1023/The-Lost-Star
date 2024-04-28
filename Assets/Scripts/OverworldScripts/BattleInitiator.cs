@@ -11,6 +11,9 @@ public class BattleInitiator : MonoBehaviour
     public int enemyID = -1;
     public int level = 0;
     public bool canRunFromFight = true;
+    public float bossNumber = 0; //dictates what rocket piece spawns. 0 means not a boss
+
+    OverworldEnemyManager overworldManager;
 
     public bool isTutorial = false; //variable to check if fighting the dummy
     // Start is called before the first frame update
@@ -18,6 +21,7 @@ public class BattleInitiator : MonoBehaviour
     {
         if(OverworldEnemyManager.enemiesDefeated.Contains(enemyID)) Destroy(this.gameObject);
         if(BattleManager.enemyID == enemyID && enemyID != -1) Defeated();
+        overworldManager = FindObjectOfType<OverworldEnemyManager>();
     }
 
     // Update is called once per frame
@@ -50,6 +54,10 @@ public class BattleInitiator : MonoBehaviour
         {
             Instantiate(pickup, transform.position, Quaternion.identity);
             Debug.Log("Made A Coin");
+        }
+        if(bossNumber > 0)
+        {
+            overworldManager.bossDefeated = true;
         }
         Destroy(this.gameObject);
     }
