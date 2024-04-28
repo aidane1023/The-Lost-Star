@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.5277234, g: 0.5625074, b: 0.6320754, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -982,6 +982,8 @@ MonoBehaviour:
   - {fileID: 88677126}
   - {fileID: 1025069445}
   - {fileID: 2074323924}
+  - {fileID: 1589112488}
+  templateGround: {fileID: 1482599539}
   enemyAttacksLeft: -1
   enemyCount: 0
   backupEnemy: {fileID: 593130735233437778, guid: 63850bdf3e80a5e41a9ef3a3c13f68e5, type: 3}
@@ -8562,9 +8564,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5185aac49df4bcd45a9233ea8f0c2878, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.389
+  m_Volume: 0.93
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

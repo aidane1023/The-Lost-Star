@@ -68,7 +68,7 @@ public class PlayerAttacksHandler : MonoBehaviour
             chargeAmount += chargeRate * Time.deltaTime;
             chargeMeter.fillAmount = chargeAmount/100;
 
-            changingPitch = (chargeRate/2)/100;
+            changingPitch = 1.5f - (1 - chargeAmount/100);
             player.source.pitch = changingPitch;
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -167,15 +167,21 @@ public class PlayerAttacksHandler : MonoBehaviour
         isBalancing = true;
         player.source.PlayOneShot(pinBalanceSound);
         chargeRate = Random.Range(-20f, 20f);
+        Debug.Log("Changed Rate");
         yield return new WaitForSeconds(0.5f);
         chargeRate = Random.Range(-20f, 20f);
+        Debug.Log("Changed Rate");
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(3);
 

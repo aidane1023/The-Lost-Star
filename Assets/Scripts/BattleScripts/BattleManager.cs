@@ -29,6 +29,7 @@ public class BattleManager : MonoBehaviour
     public List<Transform> enemySpots;
 
     public List<GameObject> setPieces;
+    public GameObject templateGround;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
@@ -52,7 +53,12 @@ public class BattleManager : MonoBehaviour
         if(enemiesToSpawn.Count == 0) enemiesToSpawn.Add(backupEnemy);
         InitialSpawn();
 
-        if(level > 0) setPieces[(level - 1)].SetActive(true);
+        if(level > 0)
+        {
+            templateGround.SetActive(false);
+            setPieces[(level - 1)].SetActive(true);
+        } 
+        
 
         source = GetComponent<AudioSource>();
     }
@@ -229,6 +235,7 @@ public class BattleManager : MonoBehaviour
 
     public void BattleEnd(bool fled)
     {
+        Debug.Log("Battle Ended");
         if(fled && canRun)
         {
             source.PlayOneShot(runSound);
