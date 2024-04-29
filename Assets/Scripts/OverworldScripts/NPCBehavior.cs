@@ -19,6 +19,10 @@ public class NPCBehavior : MonoBehaviour
     public Level3Items itemManager;
     public static bool dialogueIsActive;
 
+    public static bool jackFightTriggered = false;
+    public GameObject jackBoss;
+    public Transform endBattleSpot;
+
     public AudioSource source;
     public AudioClip dialoguePress;
     
@@ -75,10 +79,20 @@ public class NPCBehavior : MonoBehaviour
 
                 source.PlayOneShot(dialoguePress);
             }
-            else
+            else if(!jackFightTriggered)
             {
+                jackFightTriggered = true;
                 Debug.Log("Boss Triggered");
-                SceneManager.LoadScene("JackTransition");
+                //SceneManager.LoadScene("JackTransition");
+                BattleManager.enemiesToSpawn.Clear();
+                BattleManager.overworldSpawn = endBattleSpot.position;
+
+                    BattleManager.enemiesToSpawn.Add(jackBoss);
+                BattleManager.enemyID = -1;
+                BattleManager.level = 3;
+                BattleManager.canRun = false;
+                BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene("BattleScene");
             }
         }
         if (dialogue[index] != null)

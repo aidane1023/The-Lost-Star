@@ -9,9 +9,9 @@ public class SockPiece : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RocketPart.SetActive(false);
+        RocketPart.SetActive(true);
 
-        if (JackTransition.tPlayed)
+        if (BossTransition.fightHydra)
         {
             RocketPart.SetActive(true);
         }

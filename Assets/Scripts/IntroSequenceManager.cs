@@ -10,6 +10,14 @@ public class IntroSequenceManager : MonoBehaviour
       StartCoroutine(ToHub());  
     }
 
+    void Update()
+    {
+        if(Input.GetButtonDown("Submit"))
+        {
+            SceneManager.LoadScene("HUBBuild");
+        }
+    }
+
     IEnumerator ToHub()
     {
         yield return new WaitForSeconds(20.5f);

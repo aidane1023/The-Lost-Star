@@ -12,13 +12,15 @@ public class BossTransition : MonoBehaviour
     public Animator anim2;
 
     public GameObject player;
+    public Collider transition;
 
     BattleInitiator battleInitiator;
 
-    public static bool hydraDefeated = false;
+    public static bool fightHydra = false;
 
     void Start() 
     {
+        
         cam1.enabled = true;
         cam2.enabled = false;
         battleInitiator = GetComponent<BattleInitiator>();
@@ -26,9 +28,8 @@ public class BossTransition : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !hydraDefeated) 
+        if (other.tag == "Player" && !fightHydra) 
         {
-            hydraDefeated = true;
             player.GetComponent<PlayerController>().speed = 0;
             player.GetComponent<Transform>().position = new Vector3 (185.7f, 0.63f, 3.13f);
             player.GetComponent<Transform>().eulerAngles = new Vector3 (50f, 0f, 0f);
@@ -46,6 +47,8 @@ public class BossTransition : MonoBehaviour
         anim2.SetBool("rise", true);
         yield return new WaitForSeconds(2.8f);
         BattleManager.sceneToLoad = 4;
+        fightHydra = true;
+        transition.enabled = true;
         battleInitiator.InitiateBattle();
     }
 }

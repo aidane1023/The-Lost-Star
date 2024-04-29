@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 68.73
+      value: 70.49
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -835,11 +835,6 @@ PrefabInstance:
       objectReference: {fileID: 1148752937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
---- !u!1 &85316090 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4319207726966791572, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
-  m_PrefabInstance: {fileID: 85316089}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88598442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4
+      value: -2.82
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1211,7 +1206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 151962248}
-  - component: {fileID: 151962249}
+  - component: {fileID: 151962250}
   m_Layer: 0
   m_Name: OverworldEnemyManager
   m_TagString: Untagged
@@ -1234,7 +1229,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &151962249
+--- !u!114 &151962250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1243,10 +1238,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 151962246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb66079a96636b44bd4211e71da821f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b95eaae53272ac4480de7d1639d6b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RocketPart: {fileID: 85316090}
+  hubReset: 0
+  bossDefeated: 0
+  rocketPiece: {fileID: 0}
+  rocketPieceNum: 0
+  rocketSpawn: {fileID: 0}
 --- !u!1001 &155520005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2227,7 +2226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317832980}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -0.4, y: 6.1805816, z: -7.7092695}
+  m_LocalPosition: {x: -2.82, y: 6.1805816, z: -7.7092695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7371,6 +7370,7 @@ MonoBehaviour:
   anim1: {fileID: 977466235}
   anim2: {fileID: 1047252767}
   player: {fileID: 676945081}
+  transition: {fileID: 1213984814}
 --- !u!114 &1213984817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12144,7 +12144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041243185}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -0.4, y: 6.1805816, z: -7.7092695}
+  m_LocalPosition: {x: -2.82, y: 6.1805816, z: -7.7092695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -24,19 +24,20 @@ public class JackTransition : MonoBehaviour
 
     private BattleInitiator battleInitiator;
 
-    public static bool tPlayed = false;
+    public static bool played = false;
 
 
     void Start()
     {
-        Debug.Log("Player Position " + starry.GetComponent<Transform>().position);
         
-        if (!tPlayed)
+
+        if (!played)
         {
-            transition.enabled = true;
-            metro.enabled = false;
             battleInitiator = GetComponent<BattleInitiator>();
             StartCoroutine(Sequence());
+
+            transition.enabled = true;
+            metro.enabled = false;
         }
         else
         {
@@ -45,6 +46,7 @@ public class JackTransition : MonoBehaviour
             starry.SetActive(true);
             cam.SetBool("Played", true);
             boxObject.SetActive(false);
+
             starry.GetComponent<Transform>().position = new Vector3(0.03f,0.4f,2.4f);
 
             set0.SetActive(true);
@@ -80,7 +82,7 @@ public class JackTransition : MonoBehaviour
         box.SetBool("Open", true);
         yield return new WaitForSeconds(5.5f);
         BattleManager.sceneToLoad = 7;
-        tPlayed = true;
+        played = true;
         Debug.Log("Start Jack Fight");
         starry.GetComponent<Transform>().position = new Vector3(0.03f, 0.4f, 2.4f);
         Debug.Log("Player Position " + starry.GetComponent<Transform>().position);

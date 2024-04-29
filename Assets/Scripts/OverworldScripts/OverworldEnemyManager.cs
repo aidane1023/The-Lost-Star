@@ -19,11 +19,14 @@ public class OverworldEnemyManager : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        if (bossDefeated && !spawnedPiece)
-        {
-            
-        }
-    }
+    //void Update()
+    //{
+       // if (bossDefeated && !spawnedPiece)
+        //{
+            //spawnedPiece = true;
+            //GameObject newRocket = Instantiate(rocketPiece, rocketSpawn.position, Quaternion.identity);
+            //newRocket.GetComponent<Rocket>().pickUpType = rocketPieceNum;
+            //newRocket.GetComponent<Rocket>().UpdateSprite();
+        //}
+    //}
 }

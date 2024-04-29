@@ -64,8 +64,8 @@ public class Rocket : MonoBehaviour
     IEnumerator DespawnDuplicate()
     {
         yield return new WaitForSeconds(0.5f);
-        if (GameManager.Instance.HasTop && pickUpType == 1) Destroy(this.gameObject);
-        if (GameManager.Instance.HasMiddle && pickUpType == 2) Destroy(this.gameObject);
-        if (GameManager.Instance.HasBottom && pickUpType == 3) Destroy(this.gameObject);
+        //if (GameManager.Instance.HasTop && pickUpType == 1) Destroy(this.gameObject);
+        //if (GameManager.Instance.HasMiddle && pickUpType == 2) Destroy(this.gameObject);
+        //if (GameManager.Instance.HasBottom && pickUpType == 3) Destroy(this.gameObject);
     }
 }

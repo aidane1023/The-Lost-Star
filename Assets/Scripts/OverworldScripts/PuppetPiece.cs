@@ -12,7 +12,7 @@ public class PuppetPiece : MonoBehaviour
     {
         RocketPart.SetActive(false);
 
-        if (BossTransition.hydraDefeated)
+        if (JackTransition.played)
         {
             RocketPart.SetActive(true);
         }

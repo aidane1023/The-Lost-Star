@@ -805,7 +805,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 333117196}
-  - component: {fileID: 333117197}
   m_Layer: 0
   m_Name: OverworldEnemyManager
   m_TagString: Untagged
@@ -828,19 +827,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &333117197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333117194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e2594d5e8596c4dbd1ec981641d3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RocketPart: {fileID: 1347465410}
 --- !u!1 &408499081 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8820558103507940418, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
@@ -1673,11 +1659,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 46edcf6d3fc50a14ca60ab67769e5cb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92
+      value: 0.779
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 46edcf6d3fc50a14ca60ab67769e5cb8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.138
+      value: -0.039
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 46edcf6d3fc50a14ca60ab67769e5cb8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1725,11 +1711,6 @@ PrefabInstance:
       objectReference: {fileID: 1422119427}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46edcf6d3fc50a14ca60ab67769e5cb8, type: 3}
---- !u!1 &1347465410 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4319207726966791572, guid: 46edcf6d3fc50a14ca60ab67769e5cb8, type: 3}
-  m_PrefabInstance: {fileID: 1347465409}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1422119426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2183,7 +2164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1581316634
 Transform:
   m_ObjectHideFlags: 0
@@ -5669,6 +5650,10 @@ PrefabInstance:
     - target: {fileID: 4437326806652138090, guid: b7baa232524c32f43b7ac5cc315fff52, type: 3}
       propertyPath: m_Name
       value: Jack'sBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437326806652138090, guid: b7baa232524c32f43b7ac5cc315fff52, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5153178456471579710, guid: b7baa232524c32f43b7ac5cc315fff52, type: 3}
       propertyPath: m_Materials.Array.data[0]
