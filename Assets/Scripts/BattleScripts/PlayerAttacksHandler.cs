@@ -71,12 +71,12 @@ public class PlayerAttacksHandler : MonoBehaviour
             changingPitch = 1.5f - (1 - chargeAmount/100);
             player.source.pitch = changingPitch;
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0)
             {
                 leftDown = true;
                 rightDown = false;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
             {
                 leftDown = false;
                 rightDown = true;
