@@ -16,7 +16,7 @@ public class BridgeBehavior : MonoBehaviour
     public CinemachineVirtualCamera primaryCamera;
     public CinemachineVirtualCamera bridgeCamera;
 
-    public static int enemyCount = 5;
+    public static int enemyCount = 4;
     private bool played = false;
 
     public AudioSource source;

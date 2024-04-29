@@ -133,6 +133,7 @@ public class ItemDisplay : MonoBehaviour
                 playerController.speed = 0f;
                 StartCoroutine(TrailDecay());
                 transform.DOJump(objectToFollow.position, arcHeight, 1, 1.0f, false).OnComplete(() => {
+                    //Debug.Log("Jumping");
                     playerController.speed = savedSpeed;
                     trail.transform.parent = playerObject.transform;
                     Destroy(gameObject);
