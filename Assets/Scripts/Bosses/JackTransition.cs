@@ -18,10 +18,13 @@ public class JackTransition : MonoBehaviour
     public Animator box;
     public Animator crowd;
 
+    private BattleInitiator battleInitiator;
+
 
     void Start()
     {
-     StartCoroutine(Sequence());   
+        battleInitiator = GetComponent<BattleInitiator>();
+        StartCoroutine(Sequence());   
     }
 
     IEnumerator Sequence()
@@ -44,7 +47,7 @@ public class JackTransition : MonoBehaviour
         crowd.SetBool("Cheer",true);
         yield return new WaitForSeconds(0.5f);
         box.SetBool("Open", true);
-        yield retun new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(5.5f);
         BattleManager.sceneToLoad = 7;
         battleInitiator.InitiateBattle();
     }
