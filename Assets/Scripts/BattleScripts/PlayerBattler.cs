@@ -57,22 +57,22 @@ public class PlayerBattler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Horizontal") < -0.75f)
+        if (Input.GetAxis("Horizontal") < 0f)
         {
             Debug.Log("Left Press");
             leftPadPressed = true;
         }
-        if (Input.GetAxis("Horizontal") > -0.75f)
+        if (Input.GetAxis("Horizontal") > 0f)
         {
             //Debug.Log("Left Release");
             //leftPadReleased = true;
             leftPadPressed = false;
         }
-        if (Input.GetAxis("Horizontal") > 0.75f)
-        {
+        //if (Input.GetAxis("Horizontal") > 0f)
+        //{
             //Debug.Log("Right Press");
-            rightPadPressed = true;
-        }
+            //rightPadPressed = true;
+        //}
 
 
 
@@ -175,6 +175,7 @@ public class PlayerBattler : MonoBehaviour
         transform.DOMove(enemy.inFront.position, 1f, false);
         yield return new WaitForSeconds(1f);
         keyCorrect = false;
+        leftPadPressed = false;
         actionKeyNeeded = "left";
         attackHandler.chargeUI.SetActive(true);
         attackHandler.spinPrompts.SetActive(true);
