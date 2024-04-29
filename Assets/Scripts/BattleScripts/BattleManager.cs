@@ -192,7 +192,7 @@ public class BattleManager : MonoBehaviour
             PlayerBattler.starPoints += item.spRestored;
             if(PlayerBattler.starPoints > PlayerBattler.maxStarPoints) PlayerBattler.starPoints = PlayerBattler.maxStarPoints;
             inventory.heldItems[buttonNum] = null;
-            //StartCoroutine("EnemyAttacks");
+            gameState = GameState.PlayerAttack;
             Transition();
             menuScript.battleButtonCanvas.SetActive(false);
         } 
