@@ -9,9 +9,8 @@ using UnityEngine.SceneManagement;
 public class Rocket : MonoBehaviour
 {
     private PlayerController playerController;
-    private Animator playerAnim;
     private GameObject playerObject;
-    public Transform objectToFollow;
+    private Transform objectToFollow;
     public int pickUpType; // 1 for top, 2 for middle, 3 for bottom
 
 
@@ -25,13 +24,16 @@ public class Rocket : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(Wait());
+        Debug.Log("Called");
         playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
             playerController = playerObject.GetComponent<PlayerController>();
-            }
+            Debug.Log("Got controller "+playerController);
+        }
         r = GetComponent<SpriteRenderer>();
-        StartCoroutine("DespawnDuplicate");
+        //StartCoroutine("DespawnDuplicate");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,7 +49,7 @@ public class Rocket : MonoBehaviour
     private void PickUpObject()
     {
         playerController.speed = 0f;
-        playerAnim.SetFloat("Moving", 0);
+        objectToFollow = playerObject.GetComponent<Transform>();
         Vector3 newPosition = objectToFollow.position + (Vector3.up * 0.5f); ;
         transform.DOJump(newPosition, 1, 1, 1.0f, false).OnComplete(() =>
         {
@@ -62,11 +64,17 @@ public class Rocket : MonoBehaviour
         r.sprite = rocketSprite[pickUpType - 1];
     }
 
+/*
     IEnumerator DespawnDuplicate()
     {
         yield return new WaitForSeconds(0.5f);
         if(GameManager.Instance.HasTop && pickUpType == 1) Destroy(this.gameObject);
         if(GameManager.Instance.HasMiddle && pickUpType == 2) Destroy(this.gameObject);
         if(GameManager.Instance.HasBottom && pickUpType == 3) Destroy(this.gameObject);
+    }
+*/
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.2f);
     }
 }

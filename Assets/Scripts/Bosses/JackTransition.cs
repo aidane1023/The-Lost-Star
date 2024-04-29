@@ -21,7 +21,7 @@ public class JackTransition : MonoBehaviour
 
     private BattleInitiator battleInitiator;
 
-    private static bool tPlayed = false;
+    private static bool tPlayed = true;
 
 
     void Start()
@@ -33,8 +33,10 @@ public class JackTransition : MonoBehaviour
         }
         else
         {
+            starry.SetActive(true);
             cam.SetBool("Played", true);
-            starry.GetComponent<Transform>().position = new Vector3(0.0299999993f,0.430000007f,2.41000009f);
+            boxObject.SetActive(false);
+            starry.GetComponent<Transform>().position = new Vector3(0.03f,0.4f,2.4f);
 
             set0.SetActive(true);
             set1.SetActive(true);
@@ -42,7 +44,7 @@ public class JackTransition : MonoBehaviour
             set3.SetActive(true);
             set4.SetActive(true);
             set5.SetActive(true);
-            starry.SetActive(true);
+            
         }
            
     }
@@ -70,6 +72,7 @@ public class JackTransition : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
         BattleManager.sceneToLoad = 7;
         tPlayed = true;
+        Debug.Log("Start Jack Fight");
         GetComponent<BattleInitiator>().InitiateBattle();
     }
 }
