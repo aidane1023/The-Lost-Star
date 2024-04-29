@@ -62,7 +62,7 @@ public class JackTransition : MonoBehaviour
 
     IEnumerator Sequence()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         set0.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         cam.SetBool("Time", true);

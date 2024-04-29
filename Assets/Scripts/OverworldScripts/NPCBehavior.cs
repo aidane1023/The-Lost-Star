@@ -92,7 +92,7 @@ public class NPCBehavior : MonoBehaviour
                 BattleManager.level = 3;
                 BattleManager.canRun = false;
                 BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
-                SceneManager.LoadScene("BattleScene");
+                SceneManager.LoadScene("JackTransition");
             }
         }
         if (dialogue[index] != null)
