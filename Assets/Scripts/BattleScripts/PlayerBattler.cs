@@ -67,7 +67,7 @@ public class PlayerBattler : MonoBehaviour
             if (leftPadPressed = true)
             {
                 Debug.Log("Left Release");
-                leftPadReleased = true;
+                //leftPadReleased = true;
                 leftPadPressed = false;
             }
         }
@@ -93,7 +93,7 @@ public class PlayerBattler : MonoBehaviour
                     StartCoroutine("KeyCooldownTimer");
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || leftPadPressed)
             {
                 if (actionKeyNeeded == "left" && !keyCooldown)
                 {
@@ -101,7 +101,7 @@ public class PlayerBattler : MonoBehaviour
                 }
                 Debug.Log("Left Arrow Pressed");
             }
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            if (Input.GetKeyUp(KeyCode.LeftArrow) || !leftPadPressed)
             {
                 if (actionKeyNeeded == "left" && !keyCooldown)
                 {
@@ -188,6 +188,7 @@ public class PlayerBattler : MonoBehaviour
         attackHandler.isCharging = true;
         attackHandler.chargeRate = 50;
         keyCorrect = false;
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil (() => keyCorrect || attackHandler.chargeAmount >= 107);
         source.Stop();
         if(attackHandler.chargeAmount >= attackHandler.chargeThreshholdMax || attackHandler.chargeAmount < attackHandler.chargeThreshholdMin)
