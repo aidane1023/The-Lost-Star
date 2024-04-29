@@ -62,11 +62,12 @@ public class PlayerBattler : MonoBehaviour
             Debug.Log("Left Press");
             leftPadPressed = true;
         }
-        if (Input.GetAxis("Horizontal") > 0f)
+        if (Input.GetAxis("Horizontal") == 0f)
         {
             //Debug.Log("Left Release");
             //leftPadReleased = true;
             leftPadPressed = false;
+            //Debug.Log("Left Pad Released");
         }
         //if (Input.GetAxis("Horizontal") > 0f)
         //{
@@ -98,7 +99,7 @@ public class PlayerBattler : MonoBehaviour
                 }
                 Debug.Log("Left Arrow Pressed");
             }
-            if (Input.GetKeyUp(KeyCode.LeftArrow) || !leftPadPressed)
+            if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A) || !leftPadPressed)
             {
                 if (actionKeyNeeded == "release" && !keyCooldown)
                 {

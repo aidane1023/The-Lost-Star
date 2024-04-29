@@ -37,13 +37,15 @@ public class BattleMenuScript : MonoBehaviour
     
     private Image attackColor, spinColor, skillColor, runColor, bagColor, inventoryDisabledImage;
     private Image[] backColor, skillButtonColor, inventoryButtonColor;
-    int backButtonLength, skillButtonLength, inventoryButtonLength, currentMenu;
+    int backButtonLength, skillButtonLength, inventoryButtonLength;
+    public static int currentBattleMenu;
     float timer;
 
     int[] spCosts;
     public GameObject audioSource;
     public AudioSource hoverAudio;
     public static bool isTutorial;
+    public static bool[] enemiesDead;
 
     Color disabledColor = new Color(0.4f, 0.4f, 0.4f, 1f);
     Color enabledColor = new Color(0.66f, 0.66f, 0.66f, 1f);
@@ -90,11 +92,17 @@ public class BattleMenuScript : MonoBehaviour
         inventoryButtonColor = new Image[inventoryButtonLength];
         inventoryButtonComponent = new Button[inventoryButtonLength];
         skillButtonComponents = new Button[skillButtonLength];
+        enemiesDead = new bool[3];
         spCosts = new int[3];
 
         spCosts[0] = 2;
         spCosts[1] = 3;
         spCosts[2] = 2;
+
+        for (int i = 0; i < battleManagerScript.enemyCount; i++)
+        {
+            enemiesDead[i] = false;
+        }
 
         for (int i = 0; i < backButtonLength; i++)
         {
@@ -108,11 +116,6 @@ public class BattleMenuScript : MonoBehaviour
         defaultButtons[3] = backButtons[3]; // Skill Default
         defaultButtons[4] = backButtons[4]; // Skill Selector Default
         defaultButtons[5] = backButtons[2]; // Bag Default
-
-        //for (int i = 0; i < defaultButtons.Length; i++)
-        //{
-        //    Debug.Log("Default: " + defaultButtons[i]);
-        //}
 
         if (isTutorial)
         {
@@ -134,6 +137,7 @@ public class BattleMenuScript : MonoBehaviour
 
     void Update()
     {
+
         healthText.text = $"HP: {PlayerBattler.health}/{PlayerBattler.maxHealth}";
         SPText.text = $"SP: {PlayerBattler.starPoints}/{PlayerBattler.maxStarPoints}"; 
         XPText.text = $"XP: {Mathf.Round(PlayerBattler.xp)}/100";  
@@ -145,7 +149,7 @@ public class BattleMenuScript : MonoBehaviour
         // This code is a mess but it works 
         if (EventSystem.current.currentSelectedGameObject == null) 
         {
-            switch(currentMenu)
+            switch(currentBattleMenu)
             {
                 case 0:
                 EventSystem.current.SetSelectedGameObject(defaultButtons[0]);
@@ -179,7 +183,7 @@ public class BattleMenuScript : MonoBehaviour
 
         if (Input.GetButtonDown("Cancel"))
         {
-            switch(currentMenu)
+            switch(currentBattleMenu)
             {
                 case 1:
                 backButtonComponents[0].onClick.Invoke();
@@ -220,7 +224,7 @@ public class BattleMenuScript : MonoBehaviour
             else 
             {
                 promptImage.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetButtonDown("Submit"))
                 {
                     SceneManager.LoadScene(BattleManager.sceneToLoad);
                 }
@@ -234,6 +238,11 @@ public class BattleMenuScript : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(menuAttack);
     }
 
+    public void MenuZero()
+    {
+        currentBattleMenu = 0;
+    }
+
     void menuAnimator()
     {
         //EventSystem.current.currentSelectedGameObject;
@@ -241,7 +250,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public void OpenInventory()
     {
-        currentMenu = 3;
+        currentBattleMenu = 3;
         inventory.RefreshInventory();
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
@@ -290,7 +299,7 @@ public class BattleMenuScript : MonoBehaviour
 
     public void OpenSkills()
     {
-        currentMenu = 4;
+        currentBattleMenu = 4;
         savedOption = menuSkill;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(backButtons[3]);
@@ -333,22 +342,33 @@ public class BattleMenuScript : MonoBehaviour
 
     public void OpenSkillSelector(int menuValue)
     {
-        currentMenu = menuValue;
+        currentBattleMenu = menuValue;
     }
 
     public void EnemyAttackSelector()
     {
-        currentMenu = 1;
+        currentBattleMenu = 1;
         savedOption = EventSystem.current.currentSelectedGameObject;
         //Debug.Log("Selected GameObject is: " + EventSystem.current.currentSelectedGameObject);
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(enemyAttackSelectorButtons[0]);
+        EventSystem.current.SetSelectedGameObject(backButtons[0]);
 
         Debug.Log("Enemy Count: " + battleManagerScript.enemyCount);
+        //for (int i = 0; i < battleManagerScript.enemyCount; i++)
+        //    {
+        //        enemyAttackSelectorButtons[i].SetActive(true);
+        //    }
         for (int i = 0; i < battleManagerScript.enemyCount; i++)
+        {
+            if (enemiesDead[i] == true)
+            {
+                enemyAttackSelectorButtons[i].SetActive(false);
+            }
+            else
             {
                 enemyAttackSelectorButtons[i].SetActive(true);
             }
+        }
 
         attackTitle.text = "Jump!";
         attackDesc.text = "Jump on the enemy and press    or   at the right time to jump again and deal even more damage!";
@@ -356,16 +376,27 @@ public class BattleMenuScript : MonoBehaviour
 
     public void EnemySpinSelector()
     {
-        currentMenu = 2;
+        currentBattleMenu = 2;
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(enemySpinSelectorButtons[0]);
+        EventSystem.current.SetSelectedGameObject(backButtons[1]);
 
         Debug.Log("Enemy Count: " + battleManagerScript.enemyCount);
+        //for (int i = 0; i < battleManagerScript.enemyCount; i++)
+        //    {
+        //        enemySpinSelectorButtons[i].SetActive(true);
+        //    }
         for (int i = 0; i < battleManagerScript.enemyCount; i++)
+        {
+            if (enemiesDead[i] == true)
+            {
+                enemySpinSelectorButtons[i].SetActive(false);
+            }
+            else
             {
                 enemySpinSelectorButtons[i].SetActive(true);
             }
+        }
 
         attackTitle.text = "Spin!";
         attackDesc.text = "Hold    or   until the right time to deal extra damage!";
@@ -373,21 +404,33 @@ public class BattleMenuScript : MonoBehaviour
 
     public void EnemySkillSelector()
     {
-        currentMenu = 5;
+        currentBattleMenu = 5;
         savedOption = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(enemySkillSelectorButtons[0]);
+        EventSystem.current.SetSelectedGameObject(backButtons[4]);
         
         Debug.Log("Enemy Count: " + battleManagerScript.enemyCount);
+        //for (int i = 0; i < battleManagerScript.enemyCount; i++)
+        //    {
+        //        enemySkillSelectorButtons[i].SetActive(true);
+        //    }
+
         for (int i = 0; i < battleManagerScript.enemyCount; i++)
+        {
+            if (enemiesDead[i] == true)
+            {
+                enemySkillSelectorButtons[i].SetActive(false);
+            }
+            else
             {
                 enemySkillSelectorButtons[i].SetActive(true);
             }
+        }
     }
 
     public void ReturnMenu()
     {
-        currentMenu = 0;
+        currentBattleMenu = 0;
         EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Selected GameObject is: Null");
         //Debug.Log("Saved Option is: " + savedOption);
