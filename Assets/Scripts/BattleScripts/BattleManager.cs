@@ -205,7 +205,7 @@ public class BattleManager : MonoBehaviour
         //check if player died
         if(PlayerBattler.health <= 0) SceneManager.LoadScene("GAMEOVER");
         //check if any enemies died
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         for(int i = 0; i < enemies.Count; i++)
         {
             if(enemies[i].gameObject.activeSelf && enemies[i].health <= 0)
@@ -215,7 +215,6 @@ public class BattleManager : MonoBehaviour
                 yield return new  WaitUntil(() => !waitingForEnemyDeath);
                 enemies[i].gameObject.SetActive(false);
                 defeatedEnemies++;
-                BridgeBehavior.enemyCount--;
             }
         }
         if(defeatedEnemies >= enemies.Count) BattleEnd(false);

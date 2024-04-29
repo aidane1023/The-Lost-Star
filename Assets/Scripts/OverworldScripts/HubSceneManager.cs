@@ -10,9 +10,16 @@ public class HubSceneManager : MonoBehaviour
 
     public Transform player;
 
+    PopUp popupScript;
+
+    void Awake()
+    {
+        popupScript = GetComponent<PopUp>();
+    }
+
     void Update()
     {
-        if (TrainingDummy.cleared)
+        if (TrainingDummy.cleared && (popupScript == null || popupScript.interactable))
         {
             if ((Vector3.Distance(player.position, this.transform.position) <= 3f) && Input.GetKeyUp(KeyCode.Z))
             {

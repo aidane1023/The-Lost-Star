@@ -15,6 +15,8 @@ public class BossTransition : MonoBehaviour
 
     BattleInitiator battleInitiator;
 
+    public static bool hydraDefeated = false;
+
     void Start() 
     {
         cam1.enabled = true;
@@ -24,8 +26,9 @@ public class BossTransition : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") 
+        if (other.tag == "Player" && !hydraDefeated) 
         {
+            hydraDefeated = true;
             player.GetComponent<PlayerController>().speed = 0;
             player.GetComponent<Transform>().position = new Vector3 (185.7f, 0.63f, 3.13f);
             player.GetComponent<Transform>().eulerAngles = new Vector3 (50f, 0f, 0f);
@@ -42,7 +45,7 @@ public class BossTransition : MonoBehaviour
         yield return new WaitForSeconds(1.6f);
         anim2.SetBool("rise", true);
         yield return new WaitForSeconds(2.8f);
-        BattleManager.sceneToLoad = 5;
+        BattleManager.sceneToLoad = 4;
         battleInitiator.InitiateBattle();
     }
 }

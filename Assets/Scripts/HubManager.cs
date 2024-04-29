@@ -34,6 +34,9 @@ public class HubManager : MonoBehaviour
     {
         UpdateAppearance();
         rocket.SetActive(false);
+
+        BridgeBehavior.enemyCount = 4;
+        BossTransition.hydraDefeated = false;
        
 
     }

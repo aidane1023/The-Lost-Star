@@ -50,6 +50,7 @@ public class BattleInitiator : MonoBehaviour
     {
         BattleManager.enemyID = -1;
         OverworldEnemyManager.enemiesDefeated.Add(enemyID);
+        if(level == 1) BridgeBehavior.enemyCount--;
         foreach(GameObject pickup in pickups)
         {
             Instantiate(pickup, transform.position, Quaternion.identity);

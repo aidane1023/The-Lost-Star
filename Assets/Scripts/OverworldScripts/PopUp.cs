@@ -11,7 +11,8 @@ public class PopUp : MonoBehaviour
     public AudioSource source;
 
     public int pieceInArea = 0; //if the rocket piece is obtained from here, disable the popup
-    bool interactable = true;
+    [HideInInspector]
+    public bool interactable = true;
 
     void Start()
     {
