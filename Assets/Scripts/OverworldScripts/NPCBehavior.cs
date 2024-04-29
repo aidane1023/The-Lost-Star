@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPCBehavior : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class NPCBehavior : MonoBehaviour
     public GameObject[] dialogueObjects, interactObjects;
     public Dialogue[] dialogue;
     bool textPlaying = false;
-    public bool isOneShot = false;
+    public bool isOneShot = false, isBossTrigger;
     public Animator playerAnimator;
     public int dialogueCount;
     int index = 0;
@@ -23,42 +24,55 @@ public class NPCBehavior : MonoBehaviour
     void Start()
     {
         playerController = player.GetComponent<PlayerController>();
+        if (isBossTrigger)
+        {
+            interactObjects[0].SetActive(false);
+        }   
     }
 
     // Update is called once per frame
     void Update()
-    {       
+    {    
         if ((Vector3.Distance(player.transform.position, this.transform.position) <= 3f) && Input.GetButtonDown("Submit") && !textPlaying)
         {
-            characterDialogue.SetActive(true);
-            playerAnimator.SetFloat("moving", 0);
-            playerController.speed = 0f;
-            player.GetComponent<AudioSource>().enabled = false;
-            player.GetComponent<PlayerController>().enabled = false;
-            textPlaying = true;
-
-            if (isMozzy && itemManager.watchFound && !itemManager.watchGiven)
+            if (!isBossTrigger)
             {
-                index = 2;
-                Debug.Log("Watch Found Dialogue");
-            }
 
-            if (isLegoGuy && itemManager.lighterFound && !itemManager.lighterGiven)
+                characterDialogue.SetActive(true);
+                playerAnimator.SetFloat("moving", 0);
+                playerController.speed = 0f;
+                player.GetComponent<AudioSource>().enabled = false;
+                player.GetComponent<PlayerController>().enabled = false;
+                textPlaying = true;
+
+                if (isMozzy && itemManager.watchFound && !itemManager.watchGiven)
+                {
+                    index = 2;
+                    Debug.Log("Watch Found Dialogue");
+                }
+
+                if (isLegoGuy && itemManager.lighterFound && !itemManager.lighterGiven)
+                {
+                    index = 1;
+                }
+
+                if (isBouncer && itemManager.ticketFound && !itemManager.ticketGiven)
+                {
+                    index = 1;
+                }
+                Debug.Log(index);
+
+                dialogueObjects[index].SetActive(true);
+                interactObjects[0].SetActive(false);
+                dialogue[index].DialogueTriggered();
+
+                source.PlayOneShot(dialoguePress);
+            }
+            else
             {
-                index = 1;
+                Debug.Log("Boss Triggered");
+                SceneManager.LoadScene("JackTransition");
             }
-
-            if (isBouncer && itemManager.ticketFound && !itemManager.ticketGiven)
-            {
-                index = 1;
-            }
-            Debug.Log(index);
-
-            dialogueObjects[index].SetActive(true);
-            interactObjects[0].SetActive(false);
-            dialogue[index].DialogueTriggered();
-
-            source.PlayOneShot(dialoguePress);
         }
         if (dialogue[index] != null)
         {
