@@ -42,7 +42,8 @@ public class HubSceneManager : MonoBehaviour
                         SceneManager.LoadScene("LevelThree");
                         break;
                 case 4:
-                    //WinGame?
+                        leftHub = player.position;
+                        SceneManager.LoadScene("EndSequence");
                     break;
                 }   
             }

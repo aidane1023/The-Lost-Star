@@ -1251,7 +1251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 2
   trail: {fileID: 0}
   source: {fileID: 0}
@@ -2238,7 +2237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 3
   trail: {fileID: 0}
   source: {fileID: 0}
@@ -2581,6 +2579,7 @@ GameObject:
   - component: {fileID: 783060114}
   - component: {fileID: 783060115}
   - component: {fileID: 783060116}
+  - component: {fileID: 783060117}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -7562,6 +7561,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &783060117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783060109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00636fd10236f35408bec7724aca7070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 4
+  player: {fileID: 8820558103518400656}
 --- !u!1 &807904091
 GameObject:
   m_ObjectHideFlags: 0
@@ -7593,9 +7606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hubReset: 1
   bossDefeated: 0
-  rocketPiece: {fileID: 0}
+  RocketPart: {fileID: 0}
+  rocketPlacement: {x: 0, y: 0, z: 0}
   rocketPieceNum: 0
-  rocketSpawn: {fileID: 0}
 --- !u!4 &807904093
 Transform:
   m_ObjectHideFlags: 0
@@ -9692,7 +9705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 1
   trail: {fileID: 0}
   source: {fileID: 0}
