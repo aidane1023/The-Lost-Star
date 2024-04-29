@@ -30,6 +30,7 @@ public class JackTransition : MonoBehaviour
     void Start()
     {
         Debug.Log("Player Position " + starry.GetComponent<Transform>().position);
+        
         if (!tPlayed)
         {
             transition.enabled = true;
