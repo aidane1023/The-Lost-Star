@@ -68,8 +68,8 @@ public class JackBattler : EnemyBattler
 
     public IEnumerator DeathAnimation()
     {
-        anim.Play("Dies");
-        yield return new WaitForSeconds(2.7f);
+        anim.SetBool("IsDead", true);
+        yield return new WaitForSeconds(8f);
         battleManager.waitingForEnemyDeath = false;
     }
 }

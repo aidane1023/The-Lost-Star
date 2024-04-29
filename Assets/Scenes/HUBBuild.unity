@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1251,7 +1251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 2
   trail: {fileID: 0}
   source: {fileID: 0}
@@ -2238,7 +2237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 3
   trail: {fileID: 0}
   source: {fileID: 0}
@@ -2419,6 +2417,11 @@ Transform:
   m_Father: {fileID: 1189234700}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
+--- !u!212 &695803737 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5484063001625381434, guid: eab3cfad0ced4594bbc145bf0a8feee5, type: 3}
+  m_PrefabInstance: {fileID: 1346079485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &713589462
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,6 +2579,7 @@ GameObject:
   - component: {fileID: 783060114}
   - component: {fileID: 783060115}
   - component: {fileID: 783060116}
+  - component: {fileID: 783060117}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -7557,6 +7561,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &783060117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783060109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00636fd10236f35408bec7724aca7070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 4
+  player: {fileID: 8820558103518400656}
 --- !u!1 &807904091
 GameObject:
   m_ObjectHideFlags: 0
@@ -7588,9 +7606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hubReset: 1
   bossDefeated: 0
-  rocketPiece: {fileID: 0}
+  RocketPart: {fileID: 0}
+  rocketPlacement: {x: 0, y: 0, z: 0}
   rocketPieceNum: 0
-  rocketSpawn: {fileID: 0}
 --- !u!4 &807904093
 Transform:
   m_ObjectHideFlags: 0
@@ -8744,6 +8762,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.278
       objectReference: {fileID: 0}
+    - target: {fileID: 5484063003390043249, guid: eab3cfad0ced4594bbc145bf0a8feee5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5484063003554183104, guid: eab3cfad0ced4594bbc145bf0a8feee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.03
@@ -9683,7 +9705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 1
   trail: {fileID: 0}
   source: {fileID: 0}
@@ -9966,6 +9987,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1797500398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797500390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45518fedb1f51ad42b797a6183169147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 695803737}
+  spriteShadow: {fileID: 1957394546}
 --- !u!1 &1836454701
 GameObject:
   m_ObjectHideFlags: 0
@@ -10381,7 +10416,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943484713}
-  m_LocalRotation: {x: 0.24462272, y: -0.0042680847, z: 0.0010767961, w: 0.96960837}
+  m_LocalRotation: {x: 0.24462274, y: -0.00426812, z: 0.0010768052, w: 0.96960837}
   m_LocalPosition: {x: 21.43, y: 3.7811337, z: -12.580624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10390,6 +10425,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1957394546 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5484063003390043249, guid: eab3cfad0ced4594bbc145bf0a8feee5, type: 3}
+  m_PrefabInstance: {fileID: 1346079485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1958482253
 GameObject:
   m_ObjectHideFlags: 0

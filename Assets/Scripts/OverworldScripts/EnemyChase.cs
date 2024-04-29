@@ -13,6 +13,7 @@ public class EnemyChase : MonoBehaviour
     public float range;
     public bool soldier;
     public Animator anim;
+    public Animator anim1;
 
     void Awake()
     {
@@ -22,11 +23,14 @@ public class EnemyChase : MonoBehaviour
 
     void Update()
     {
-            if ((Vector3.Distance(player.position, this.transform.position) <= range))
+        if ((Vector3.Distance(player.position, this.transform.position) <= range))
+        {
+            if (soldier) 
             {
-                if (soldier) StartCoroutine(DelayJump());
-                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                StartCoroutine(DelayJump());
             }
+            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
 
         if ((Vector3.Distance(player.position, this.transform.position) <= 0.4f) && canStartBattle)
         {
@@ -41,18 +45,27 @@ public class EnemyChase : MonoBehaviour
         canStartBattle = true;
     }
 
-    void OnTriggerEnter()
-    {
-        anim.SetBool("InRange", true);
+    void OnTriggerEnter(Collider other)
+    {   
+        if (other.tag == "Player")
+        {
+            Debug.Log("Soldier is in Range");
+            anim.enabled = false;
+        }  
     }
 
     IEnumerator DelayJump()
     {
+        anim1.Play("SoldierHopRight");
         speed = 0;
+        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         yield return new WaitForSeconds(0.25f);
-        speed = 4;
+        speed = 2;
+        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         yield return new WaitForSeconds(0.5f);
         speed = 0;
+        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         yield return new WaitForSeconds(0.25f);
+        StartCoroutine(DelayJump());
     }
 }
