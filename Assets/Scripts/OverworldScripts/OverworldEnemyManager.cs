@@ -10,17 +10,15 @@ public class OverworldEnemyManager : MonoBehaviour
     bool spawnedPiece = false;
 
     public GameObject RocketPart;
-    public Vector3 rocketPlacement;
-    public int rocketPieceNum = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
+        RocketPart.SetActive(false);
+
         if (JackTransition.tPlayed)
         {
-            spawnedPiece = true;
-            Instantiate(RocketPart, rocketPlacement, Quaternion.identity);
-            rocketPieceNum = RocketPart.GetComponent<Rocket>().pickUpType;
-            GameManager.Instance.SetPickupStatus(3);
+            RocketPart.SetActive(true);
         }
 
         if(hubReset) enemiesDefeated.Clear();

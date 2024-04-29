@@ -19,9 +19,12 @@ public class JackTransition : MonoBehaviour
     public Animator box;
     public Animator crowd;
 
+    public AudioSource transition;
+    public AudioSource metro;
+
     private BattleInitiator battleInitiator;
 
-    public static bool tPlayed = true;
+    public static bool tPlayed = false;
 
 
     void Start()
@@ -29,11 +32,15 @@ public class JackTransition : MonoBehaviour
         Debug.Log("Player Position " + starry.GetComponent<Transform>().position);
         if (!tPlayed)
         {
+            transition.enabled = true;
+            metro.enabled = false;
             battleInitiator = GetComponent<BattleInitiator>();
             StartCoroutine(Sequence());
         }
         else
         {
+            transition.enabled = false;
+            metro.enabled = true;
             starry.SetActive(true);
             cam.SetBool("Played", true);
             boxObject.SetActive(false);

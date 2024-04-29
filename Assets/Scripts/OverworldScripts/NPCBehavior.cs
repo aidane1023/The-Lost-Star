@@ -49,6 +49,7 @@ public class NPCBehavior : MonoBehaviour
                 if (isFarmer && NPCCookie.playOnce)
                 {
                     NPCCookie.playOnce = false;
+                    Debug.Log("Get Cookie");
                 }
 
                 if (isMozzy && itemManager.watchFound && !itemManager.watchGiven)

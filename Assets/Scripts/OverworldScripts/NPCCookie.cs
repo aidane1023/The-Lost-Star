@@ -13,9 +13,10 @@ public class NPCCookie : MonoBehaviour
 
     void Update()
     {
-        if (!playOnce)
+        if (playOnce == false)
         {
             playOnce = AddCookie();
+            Debug.Log("Call cookie");
         }
         
     }

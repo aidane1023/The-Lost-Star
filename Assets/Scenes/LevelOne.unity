@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1761517, g: 0.21318072, b: 0.26113912, a: 1}
+  m_IndirectSpecularColor: {r: 0.17615224, g: 0.21318127, b: 0.26113996, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.21508
+      value: 68.73
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -821,8 +821,25 @@ PrefabInstance:
       propertyPath: pickUpType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4319207726966791592, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 676945081}
+    - target: {fileID: 4319207726966791592, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+      propertyPath: objectToFollow
+      value: 
+      objectReference: {fileID: 1148752926}
+    - target: {fileID: 4319207726966791592, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1148752937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+--- !u!1 &85316090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4319207726966791572, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+  m_PrefabInstance: {fileID: 85316089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88598442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 151962248}
-  - component: {fileID: 151962247}
+  - component: {fileID: 151962249}
   m_Layer: 0
   m_Name: OverworldEnemyManager
   m_TagString: Untagged
@@ -1202,23 +1219,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &151962247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151962246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b95eaae53272ac4480de7d1639d6b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hubReset: 0
-  bossDefeated: 0
-  RocketPart: {fileID: 4319207726966791572, guid: 46edcf6d3fc50a14ca60ab67769e5cb8, type: 3}
-  rocketPlacement: {x: 71.19, y: 0.635, z: 9.11}
-  rocketPieceNum: 1
 --- !u!4 &151962248
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,6 +1234,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &151962249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151962246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb66079a96636b44bd4211e71da821f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RocketPart: {fileID: 85316090}
 --- !u!1001 &155520005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5534,6 +5547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 960457883}
+  - component: {fileID: 960457884}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -5559,6 +5573,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &960457884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960457882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4afa913903873645bb7c80780a54d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: 8fe3974b56dfeac479e0ca4e29158578, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 1904ac3a58cb01246b9e7b4b0d1ca54d, type: 2}
 --- !u!1 &977466233
 GameObject:
   m_ObjectHideFlags: 0
