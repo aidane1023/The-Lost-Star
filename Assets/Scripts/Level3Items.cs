@@ -9,12 +9,23 @@ public class Level3Items : MonoBehaviour
     public bool lighterFound, lighterGiven;
     public bool ticketFound, ticketGiven;
 
+    public NPCBehavior behaviorScript;
+
     private void Start()
     {
         mozzieTalked = false;
         watchFound = false;
         lighterFound = false;
         ticketFound = false;
+    }
+
+    public void Update()
+    {
+        if (ticketGiven == true)
+        {
+            behaviorScript.enabled = true;
+            behaviorScript.interactObjects[0].SetActive(true);
+        }
     }
 
     public void mozzie()

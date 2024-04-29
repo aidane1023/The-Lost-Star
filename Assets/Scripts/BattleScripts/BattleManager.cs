@@ -94,6 +94,7 @@ public class BattleManager : MonoBehaviour
 
     public void Transition()
     {
+        Debug.Log("Player Turn");
         if (gameState == GameState.PlayerAttack)
         {
             gameState = GameState.EnemyTurn;
@@ -101,6 +102,7 @@ public class BattleManager : MonoBehaviour
         }
         else if (gameState == GameState.EnemyTurn)
         {
+            
             gameState = GameState.PlayerTurn;
             menuScript.battleButtonCanvas.SetActive(true);
             menuScript.ReturnMenu();
