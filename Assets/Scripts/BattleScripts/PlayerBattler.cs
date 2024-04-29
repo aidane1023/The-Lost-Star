@@ -26,6 +26,7 @@ public class PlayerBattler : MonoBehaviour
     public float jumpAttackPower = 1;
     public float spinAttackPower = 2;
     public float defense = 0;
+    bool leftPadPressed, rightPadPressed, leftPadReleased, rightPadReleased;
 
     //public float buffLength;
     //public string buffType;
@@ -43,6 +44,8 @@ public class PlayerBattler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        leftPadPressed = false;
+        rightPadPressed = false;
         attackHandler = GetComponent<PlayerAttacksHandler>();
         battleManager = GameObject.FindObjectOfType<BattleManager>();
         playerSpot = GameObject.Find("PlayerSpot").transform;
@@ -54,9 +57,31 @@ public class PlayerBattler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetAxis("Horizontal") < -0.75f)
+        {
+            Debug.Log("Left Press");
+            leftPadPressed = true;
+        }
+        if (Input.GetAxis("Horizontal") > -0.75f)
+        {
+            if (leftPadPressed = true)
+            {
+                Debug.Log("Left Release");
+                leftPadReleased = true;
+                leftPadPressed = false;
+            }
+        }
+        if (Input.GetAxis("Horizontal") > 0.75f)
+        {
+            //Debug.Log("Right Press");
+            rightPadPressed = true;
+        }
+
+
+
         if(battleManager.gameState == GameState.PlayerAttack)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetButtonDown("Submit"))
             {
                 if (actionKeyNeeded == "z" && !keyCooldown)
                 {
