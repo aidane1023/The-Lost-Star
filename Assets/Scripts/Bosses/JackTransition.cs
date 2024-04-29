@@ -18,10 +18,13 @@ public class JackTransition : MonoBehaviour
     public Animator box;
     public Animator crowd;
 
+    private BattleInitiator battleInitiator;
+
 
     void Start()
     {
-     StartCoroutine(Sequence());   
+        battleInitiator = GetComponent<BattleInitiator>();
+        StartCoroutine(Sequence());   
     }
 
     IEnumerator Sequence()

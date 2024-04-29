@@ -75,6 +75,8 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         gameState = GameState.PlayerTurn;
         menuScript.battleButtonCanvas.SetActive(true);
+        menuScript.audioSource.SetActive(true);
+        menuScript.hoverAudio.Play();
         //player.StartCoroutine("JumpAttack", enemies[0]);
     }
 
