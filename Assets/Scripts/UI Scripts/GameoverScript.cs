@@ -26,6 +26,7 @@ public class GameoverScript : MonoBehaviour
 
     public void Continue()
     {
+        BattleManager.overworldSpawn = new Vector3(-10,0,-9);
         PlayerBattler.health = PlayerBattler.maxHealth;
         PlayerBattler.starPoints = PlayerBattler.maxStarPoints;
         SceneManager.LoadScene("HUBBuild");
