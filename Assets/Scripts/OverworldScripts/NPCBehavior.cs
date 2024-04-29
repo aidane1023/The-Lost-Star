@@ -15,7 +15,7 @@ public class NPCBehavior : MonoBehaviour
     public int dialogueCount;
     int index = 0;
     float timer = 0f;
-    public bool isMozzy, isBouncer, isLegoGuy;
+    public bool isFarmer, isMozzy, isBouncer, isLegoGuy;
     public Level3Items itemManager;
     public static bool dialogueIsActive;
 
@@ -45,6 +45,11 @@ public class NPCBehavior : MonoBehaviour
                 player.GetComponent<AudioSource>().enabled = false;
                 player.GetComponent<PlayerController>().enabled = false;
                 textPlaying = true;
+
+                if (isFarmer && NPCCookie.playOnce)
+                {
+                    NPCCookie.playOnce = false;
+                }
 
                 if (isMozzy && itemManager.watchFound && !itemManager.watchGiven)
                 {

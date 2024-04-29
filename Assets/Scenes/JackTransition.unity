@@ -998,7 +998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &785671727
 Transform:
   m_ObjectHideFlags: 0
@@ -1524,7 +1524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1264215179
 Transform:
   m_ObjectHideFlags: 0
@@ -1557,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1304163984
 Transform:
   m_ObjectHideFlags: 0
@@ -1789,7 +1789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1432200583
 Transform:
   m_ObjectHideFlags: 0
@@ -2036,7 +2036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1581316634
 Transform:
   m_ObjectHideFlags: 0
@@ -2065,7 +2065,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1658032872}
   - component: {fileID: 1658032871}
-  - component: {fileID: 1658032873}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2092,6 +2091,7 @@ MonoBehaviour:
   set4: {fileID: 1691220855}
   set5: {fileID: 1264215178}
   starry: {fileID: 408499081}
+  boxObject: {fileID: 1890194218}
   cam: {fileID: 225983917}
   box: {fileID: 543450651856973361}
   crowd: {fileID: 1731199458}
@@ -2110,27 +2110,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1658032873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658032870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd06450c3dfe7e345b433b80e16cbf50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battlers:
-  - {fileID: 1397064651577771540, guid: 1645cfc978b9ea244912a125798e6388, type: 3}
-  pickups: []
-  isGrunt: 0
-  enemyID: -1
-  level: 3
-  canRunFromFight: 0
-  bossNumber: 0
-  isTutorial: 0
 --- !u!1 &1691220855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,7 +2125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1691220856
 Transform:
   m_ObjectHideFlags: 0
@@ -2738,6 +2717,11 @@ Transform:
   m_Father: {fileID: 1691220856}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1890194218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4437326806652138090, guid: b7baa232524c32f43b7ac5cc315fff52, type: 3}
+  m_PrefabInstance: {fileID: 3554999174359566048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1999486964
 GameObject:
   m_ObjectHideFlags: 0
@@ -3354,6 +3338,27 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3554999172855533373, guid: b7baa232524c32f43b7ac5cc315fff52, type: 3}
   m_PrefabInstance: {fileID: 3554999174359566048}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &543450651856973362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890194218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd06450c3dfe7e345b433b80e16cbf50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battlers:
+  - {fileID: 1397064651577771540, guid: 1645cfc978b9ea244912a125798e6388, type: 3}
+  pickups: []
+  isGrunt: 0
+  enemyID: 10
+  level: 3
+  canRunFromFight: 0
+  bossNumber: 3
+  isTutorial: 0
 --- !u!4 &543450651967287479
 Transform:
   m_ObjectHideFlags: 0

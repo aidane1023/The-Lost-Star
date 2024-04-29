@@ -78,10 +78,16 @@ public class BearAnimation : MonoBehaviour
                 break;
             case 2:
                 anim.SetInteger("DanceSelection", danceSelect);
-                yield return new WaitForSeconds(6.7f);
+                yield return new WaitForSeconds(0.5f);
                 danceSelect = 10;
                 anim.SetInteger("DanceSelection", danceSelect);
+                yield return new WaitForSeconds(6.2f);
                 break;
         }
+    }
+
+    void ResetBear()
+    {
+        anim.Play("BearReset");
     }
 }

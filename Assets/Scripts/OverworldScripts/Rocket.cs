@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class Rocket : MonoBehaviour
 {
     private PlayerController playerController;
+    private Animator playerAnim;
     private GameObject playerObject;
     public Transform objectToFollow;
     public int pickUpType; // 1 for top, 2 for middle, 3 for bottom
@@ -28,7 +29,7 @@ public class Rocket : MonoBehaviour
         if (playerObject != null)
         {
             playerController = playerObject.GetComponent<PlayerController>();
-        }
+            }
         r = GetComponent<SpriteRenderer>();
         StartCoroutine("DespawnDuplicate");
     }
@@ -46,12 +47,13 @@ public class Rocket : MonoBehaviour
     private void PickUpObject()
     {
         playerController.speed = 0f;
+        playerAnim.SetFloat("Moving", 0);
         Vector3 newPosition = objectToFollow.position + (Vector3.up * 0.5f); ;
         transform.DOJump(newPosition, 1, 1, 1.0f, false).OnComplete(() =>
         {
             // Access GameManager.Instance to set the appropriate property based on pickUpType
             GameManager.Instance.SetPickupStatus(pickUpType);
-            SceneManager.LoadScene("HUBBuild");
+            SceneManager.LoadScene("HubBuild");
         });
     }
 

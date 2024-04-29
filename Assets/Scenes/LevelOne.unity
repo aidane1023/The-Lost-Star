@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17615224, g: 0.21318127, b: 0.26113996, a: 1}
+  m_IndirectSpecularColor: {r: 0.1761517, g: 0.21318072, b: 0.26113912, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1354,7 +1354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162410722}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.49999997}
-  m_LocalPosition: {x: 0, y: -3.61, z: -9.11}
+  m_LocalPosition: {x: -0.53, y: -3.61, z: -8.98}
   m_LocalScale: {x: 100, y: -100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10569,6 +10569,7 @@ MonoBehaviour:
   isBossTrigger: 0
   playerAnimator: {fileID: 1075979787}
   dialogueCount: 0
+  isFarmer: 1
   isMozzy: 0
   isBouncer: 0
   isLegoGuy: 0
@@ -11594,7 +11595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998086953}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: 2.8, y: 1.4, z: -29.6}
+  m_LocalPosition: {x: 3.03, y: 1.4, z: -29.6}
   m_LocalScale: {x: 914.86163, y: 819.75574, z: 461.05008}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11854,7 +11855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023587952}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.49999997}
-  m_LocalPosition: {x: -6.4, y: -0.87, z: -15.38}
+  m_LocalPosition: {x: -5.95, y: -0.87, z: -15.07}
   m_LocalScale: {x: 459.42407, y: -604.1, z: 459.42407}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11937,7 +11938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029918200}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -1.53, y: -2.72, z: -34.09}
+  m_LocalPosition: {x: -1.37, y: -2.72, z: -34.09}
   m_LocalScale: {x: 100, y: -100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
