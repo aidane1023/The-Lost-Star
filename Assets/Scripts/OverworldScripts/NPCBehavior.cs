@@ -87,7 +87,7 @@ public class NPCBehavior : MonoBehaviour
             {
                 player.GetComponent<PlayerController>().enabled = true;
                 player.GetComponent<AudioSource>().enabled = true;
-                playerController.speed = 4f;
+                playerController.speed = 5f;
                 characterDialogue.SetActive(false);
                 dialogueIsActive = false;
                 if (isOneShot)
@@ -121,7 +121,7 @@ public class NPCBehavior : MonoBehaviour
         dialogueIsActive = false;
         player.GetComponent<PlayerController>().enabled = true;
         player.GetComponent<AudioSource>().enabled = true;
-        playerController.speed = 4f;
+        playerController.speed = 5f;
         dialogueObjects[0].SetActive(false);
         this.enabled = false;
     }
