@@ -21,7 +21,7 @@ public class HubSceneManager : MonoBehaviour
     {
         if (TrainingDummy.cleared && (popupScript == null || popupScript.interactable))
         {
-            if ((Vector3.Distance(player.position, this.transform.position) <= 3f) && Input.GetKeyUp(KeyCode.Z))
+            if ((Vector3.Distance(player.position, this.transform.position) <= 3f) && Input.GetButtonUp("Submit"))
             {
                 switch (scene)
                 {

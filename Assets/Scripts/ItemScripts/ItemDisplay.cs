@@ -55,7 +55,7 @@ public class ItemDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (interact && !holding && Input.GetKeyDown(KeyCode.Z) && !IsHoldingItem)
+        if (interact && !holding && Input.GetButtonDown("Submit") && !IsHoldingItem)
         {
             PickUpObject();
             shopUI.SetActive(false);
@@ -71,7 +71,7 @@ public class ItemDisplay : MonoBehaviour
             Vector3 rotatedPosition = desiredRotation * offset;
             transform.position = objectToFollow.position + rotatedPosition;
 
-            if (activeShop && Input.GetKeyDown(KeyCode.Z))
+            if (activeShop && Input.GetButtonDown("Submit"))
             {
                 TryCheckout();
             }

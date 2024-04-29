@@ -37,7 +37,7 @@ public class TrainingDummy : MonoBehaviour
                 if (movingUp) movingUp = false;
             }
 
-            if ((Vector3.Distance(player.position, this.transform.position) <= 2f) && Input.GetKeyUp(KeyCode.Z))
+            if ((Vector3.Distance(player.position, this.transform.position) <= 2f) && Input.GetButtonUp("Submit"))
             {
                 BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
                 battleInitiator.InitiateBattle();
