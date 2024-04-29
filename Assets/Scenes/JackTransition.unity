@@ -805,7 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 333117196}
-  - component: {fileID: 333117195}
+  - component: {fileID: 333117197}
   m_Layer: 0
   m_Name: OverworldEnemyManager
   m_TagString: Untagged
@@ -813,21 +813,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &333117195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333117194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b95eaae53272ac4480de7d1639d6b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hubReset: 0
-  bossDefeated: 0
-  RocketPart: {fileID: 1347465410}
 --- !u!4 &333117196
 Transform:
   m_ObjectHideFlags: 0
@@ -843,6 +828,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &333117197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333117194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e2594d5e8596c4dbd1ec981641d3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RocketPart: {fileID: 1347465410}
 --- !u!1 &408499081 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8820558103507940418, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}

@@ -131,8 +131,9 @@ public class ItemDisplay : MonoBehaviour
                     continue;
                 }
                 playerController.speed = 0f;
-                StartCoroutine(TrailDecay());
-                transform.DOJump(objectToFollow.position, arcHeight, 1, 1.0f, false).OnComplete(() => {
+                StartCoroutine(TrailDecay()); 
+                Vector3 jumpTarget = objectToFollow.position;
+                transform.DOJump(jumpTarget, arcHeight, 1, 1.0f, false).OnComplete(() => {
                     //Debug.Log("Jumping");
                     playerController.speed = savedSpeed;
                     trail.transform.parent = playerObject.transform;

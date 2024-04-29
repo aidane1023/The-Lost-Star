@@ -9,25 +9,20 @@ public class OverworldEnemyManager : MonoBehaviour
     public bool bossDefeated = false;
     bool spawnedPiece = false;
 
-    public GameObject RocketPart;
-    
+    public GameObject rocketPiece;
+    public int rocketPieceNum = 0;
+    public Transform rocketSpawn;
     // Start is called before the first frame update
     void Start()
     {
-        RocketPart.SetActive(false);
+        if (hubReset) enemiesDefeated.Clear();
 
-        if (JackTransition.tPlayed)
-        {
-            RocketPart.SetActive(true);
-        }
-
-        if(hubReset) enemiesDefeated.Clear();
     }
 
     void Update()
     {
-        if(bossDefeated && !spawnedPiece)
-        {   
+        if (bossDefeated && !spawnedPiece)
+        {
             
         }
     }
