@@ -54,40 +54,43 @@ public class UIPauseScript : MonoBehaviour
     void Update()
     {
         isPauseActive = pauseMenu.activeInHierarchy;
-        if (Input.GetButtonDown("Cancel"))
+        if (NPCBehavior.dialogueIsActive == false)
         {
-            if (currentMenu == 0)
+            if (Input.GetButtonDown("Cancel"))
             {
-                pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
-                EventSystem.current.SetSelectedGameObject(null);
-                EventSystem.current.SetSelectedGameObject(defaultButtons[0]);
+                if (currentMenu == 0)
+                {
+                    pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+                    EventSystem.current.SetSelectedGameObject(null);
+                    EventSystem.current.SetSelectedGameObject(defaultButtons[0]);
+                }
+            
+                if (currentMenu == 1)
+                {
+                    ReturnMenu();
+                    itemPanelUI.SetActive(false);
+                    itemDescriptionsUI.SetActive(false);
+                }
+                if (currentMenu == 2)
+                {
+                    ReturnMenu();
+                    controlsUI.SetActive(false);
+                }
             }
-        
-            if (currentMenu == 1)
+            if (EventSystem.current.currentSelectedGameObject == null)
             {
-                ReturnMenu();
-                itemPanelUI.SetActive(false);
-                itemDescriptionsUI.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(defaultButtons[currentMenu]);
+                Debug.Log("Selected");
             }
-            if (currentMenu == 2)
-            {
-                ReturnMenu();
-                controlsUI.SetActive(false);
-            }
-        }
-        if (EventSystem.current.currentSelectedGameObject == null)
-        {
-            EventSystem.current.SetSelectedGameObject(defaultButtons[currentMenu]);
-            Debug.Log("Selected");
-        }
 
-        if (isPauseActive)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
+            if (isPauseActive)
+            {
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
         }
     }
 

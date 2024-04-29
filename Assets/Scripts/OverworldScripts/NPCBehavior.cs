@@ -17,6 +17,7 @@ public class NPCBehavior : MonoBehaviour
     float timer = 0f;
     public bool isMozzy, isBouncer, isLegoGuy;
     public Level3Items itemManager;
+    public static bool dialogueIsActive;
 
     public AudioSource source;
     public AudioClip dialoguePress;
@@ -37,7 +38,7 @@ public class NPCBehavior : MonoBehaviour
         {
             if (!isBossTrigger)
             {
-
+                dialogueIsActive = true;
                 characterDialogue.SetActive(true);
                 playerAnimator.SetFloat("moving", 0);
                 playerController.speed = 0f;
@@ -82,6 +83,7 @@ public class NPCBehavior : MonoBehaviour
                 player.GetComponent<AudioSource>().enabled = true;
                 playerController.speed = 4f;
                 characterDialogue.SetActive(false);
+                dialogueIsActive = false;
                 if (isOneShot)
                 {
                     ShutUp();
@@ -110,6 +112,7 @@ public class NPCBehavior : MonoBehaviour
     }
     public void ShutUp()
     {
+        dialogueIsActive = false;
         player.GetComponent<PlayerController>().enabled = true;
         player.GetComponent<AudioSource>().enabled = true;
         playerController.speed = 4f;
