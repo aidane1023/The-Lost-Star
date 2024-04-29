@@ -367,6 +367,8 @@ public class BattleMenuScript : MonoBehaviour
             else
             {
                 enemyAttackSelectorButtons[i].SetActive(true);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(enemyAttackSelectorButtons[i]);
             }
         }
 
@@ -395,6 +397,8 @@ public class BattleMenuScript : MonoBehaviour
             else
             {
                 enemySpinSelectorButtons[i].SetActive(true);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(enemySpinSelectorButtons[i]);
             }
         }
 
@@ -424,6 +428,8 @@ public class BattleMenuScript : MonoBehaviour
             else
             {
                 enemySkillSelectorButtons[i].SetActive(true);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(enemySkillSelectorButtons[i]);
             }
         }
     }
