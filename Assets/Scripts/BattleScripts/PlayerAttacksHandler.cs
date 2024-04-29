@@ -28,6 +28,9 @@ public class PlayerAttacksHandler : MonoBehaviour
     public bool isBalancing = false;
     bool leftDown, rightDown = false;
 
+    public AudioClip bottleCapSpam, bottleCapLaunched, pinLaunched, rubberBandSling, pinBalanceSound;
+    float changingPitch;
+
     //public bool isTiming = false;
 
     //TODO: ATTACKS(A RYTHYM ONE WHERE A BUTTON FLASHES ON THE SCREEN THAT THE PLAYER PRESSES (EACH PRESS THROWS A BAND), A MASH ONE, AND A BALANCE ONE WHERE THE PLAYER PRESSES LEFT AND RIGHT TO KEEP A BAR IN THE MIDDLE, USE THIS FOR PIN ATTACK)
@@ -55,6 +58,7 @@ public class PlayerAttacksHandler : MonoBehaviour
             if(player.keyCorrect)
             {
                 player.keyCorrect = false;
+                player.source.PlayOneShot(bottleCapSpam);
                 chargeAmount += 5;
             }
             if(chargeAmount > 100) chargeAmount = 100;
@@ -63,6 +67,9 @@ public class PlayerAttacksHandler : MonoBehaviour
         {
             chargeAmount += chargeRate * Time.deltaTime;
             chargeMeter.fillAmount = chargeAmount/100;
+
+            changingPitch = 1.5f - (1 - chargeAmount/100);
+            player.source.pitch = changingPitch;
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
@@ -131,6 +138,7 @@ public class PlayerAttacksHandler : MonoBehaviour
                 if(otherEnemy.gameObject.activeSelf) otherEnemy.RecieveDamage(1);
             }
         }
+        player.source.PlayOneShot(bottleCapLaunched);
         player.actionKeyNeeded = "";
         player.keyCorrect = false;
         chargeUI.SetActive(false);
@@ -144,6 +152,7 @@ public class PlayerAttacksHandler : MonoBehaviour
 
     public IEnumerator PinAttack(EnemyBattler enemy)
     {
+        float originalPitch = player.source.pitch;
         player.playerAnimator.OnNeutral();
 
 
@@ -156,21 +165,32 @@ public class PlayerAttacksHandler : MonoBehaviour
         chargeAmount = 50;
         chargeMeter.fillAmount = chargeAmount/100;
         isBalancing = true;
+        player.source.PlayOneShot(pinBalanceSound);
         chargeRate = Random.Range(-20f, 20f);
+        Debug.Log("Changed Rate");
         yield return new WaitForSeconds(0.5f);
         chargeRate = Random.Range(-20f, 20f);
+        Debug.Log("Changed Rate");
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changed Rate");
         chargeRate = Random.Range(-20f, 20f);
         yield return new WaitForSeconds(3);
+
+        isBalancing = false;
+        player.source.pitch = originalPitch;
         if(chargeAmount >= 45 && chargeAmount < 65)
         {
             //timed correctly
+            player.source.PlayOneShot(pinLaunched);
             StartCoroutine("ItemThrown", enemy.transform.position);
             yield return new WaitForSeconds(0.4f);
             enemy.RecieveDamage(4);
@@ -180,7 +200,6 @@ public class PlayerAttacksHandler : MonoBehaviour
         player.keyCorrect = false;
         chargeUI.SetActive(false);
         pinUIPrompts.SetActive(false);
-        isBalancing = false;
         chargeAmount = 0;
         yield return new WaitForSeconds(1f);
         player.battleManager.Transition();
@@ -208,6 +227,7 @@ public class PlayerAttacksHandler : MonoBehaviour
             if(player.keyCorrect)
             {
                 heldItem.sprite = rubberBand;
+                player.source.PlayOneShot(rubberBandSling);
                 StartCoroutine("ItemThrown", enemy.transform.position);
                 yield return new WaitForSeconds(0.4f);
                 enemy.RecieveDamage(1);

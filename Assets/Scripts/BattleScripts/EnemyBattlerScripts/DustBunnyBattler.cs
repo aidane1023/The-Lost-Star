@@ -7,7 +7,6 @@ public class DustBunnyBattler : EnemyBattler
 {
     public GameObject projectile;
 
-    public AudioSource source;
     public AudioClip bunnyShot;
     // Start is called before the first frame update
     void Start()

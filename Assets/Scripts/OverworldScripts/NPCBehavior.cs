@@ -40,6 +40,7 @@ public class NPCBehavior : MonoBehaviour
             if (isMozzy && itemManager.watchFound && !itemManager.watchGiven)
             {
                 index = 2;
+                Debug.Log("Watch Found Dialogue");
             }
 
             if (isLegoGuy && itemManager.lighterFound && !itemManager.lighterGiven)
@@ -51,6 +52,7 @@ public class NPCBehavior : MonoBehaviour
             {
                 index = 1;
             }
+            Debug.Log(index);
 
             dialogueObjects[index].SetActive(true);
             interactObjects[0].SetActive(false);

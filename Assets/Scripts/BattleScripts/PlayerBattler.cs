@@ -27,14 +27,19 @@ public class PlayerBattler : MonoBehaviour
     public float spinAttackPower = 2;
     public float defense = 0;
 
-    public float buffLength;
-    public string buffType;
+    //public float buffLength;
+    //public string buffType;
 
     [HideInInspector]
     public string actionKeyNeeded; //what is needed to achieve the action input
     bool keyCooldown = false; //if the key was pressed early, this is enabled, to prevent registering anymore inputs until cooldown has ended
     [HideInInspector]
     public bool keyCorrect = false; //made true if the correct key was pressed for an attack
+
+    [Header ("Audio")]
+    [HideInInspector]
+    public AudioSource source;
+    public AudioClip blockedSound, damagedSound, jumpStartSound, jumpMissedSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +48,7 @@ public class PlayerBattler : MonoBehaviour
         playerSpot = GameObject.Find("PlayerSpot").transform;
         playerAnimator = GetComponent<PlayerBattlerAnimator>();
         health = maxHealth;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -102,6 +108,7 @@ public class PlayerBattler : MonoBehaviour
         battleManager.gameState = GameState.PlayerAttack;
         transform.DOMove(enemy.inFront.position, 1f, false);
         yield return new WaitForSeconds(1f);
+        source.PlayOneShot(jumpStartSound);
         transform.DOJump(enemy.head.position, 0.8f, 1, 0.8f, false);
         yield return new WaitForSeconds(0.6f);
         actionKeyNeeded = "z";
@@ -112,6 +119,7 @@ public class PlayerBattler : MonoBehaviour
         {
             //timed correctly!
             keyCorrect = false;
+            source.PlayOneShot(jumpStartSound);
             transform.DOJump(enemy.head.position, 0.8f, 1, 0.8f, false);
             yield return new WaitForSeconds(0.6f);
             actionKeyNeeded = "z";
@@ -124,6 +132,7 @@ public class PlayerBattler : MonoBehaviour
         else
         {
             //timed incorrectly
+            source.PlayOneShot(jumpMissedSound);
             transform.DOJump(enemy.inFront.position, 0.8f, 3, 1, false);
             yield return new WaitForSeconds(1f);
         }
@@ -150,10 +159,12 @@ public class PlayerBattler : MonoBehaviour
         attackHandler.chargeAmount = 0;
         attackHandler.chargeMeter.fillAmount = attackHandler.chargeAmount/100;
         yield return new WaitUntil (() => keyCorrect);
+        source.Play();
         attackHandler.isCharging = true;
         attackHandler.chargeRate = 50;
         keyCorrect = false;
         yield return new WaitUntil (() => keyCorrect || attackHandler.chargeAmount >= 107);
+        source.Stop();
         if(attackHandler.chargeAmount >= attackHandler.chargeThreshholdMax || attackHandler.chargeAmount < attackHandler.chargeThreshholdMin)
         {
             //timed incorrectly
@@ -181,6 +192,9 @@ public class PlayerBattler : MonoBehaviour
         if (damage < 0) damage = 0;
         health -= damage;
         //show the damage star
+
+        if(defense > 0) source.PlayOneShot(blockedSound);
+        else source.PlayOneShot(damagedSound);
 
         RectTransform textTransform = Instantiate(damageStar).GetComponent<RectTransform>();
         textTransform.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();

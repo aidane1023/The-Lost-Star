@@ -29,6 +29,7 @@ public class BattleManager : MonoBehaviour
     public List<Transform> enemySpots;
 
     public List<GameObject> setPieces;
+    public GameObject templateGround;
 
     public int enemyAttacksLeft = -1; //-1 means the enemy turn is done, if 0 set it to -1, and once the enemy turn starts, if -1, set the number to number of enemies
 
@@ -39,6 +40,10 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]
     public bool waitingForEnemyDeath;
 
+    [Header ("Audio")]
+    AudioSource source;
+    public AudioClip runSound, itemUsedSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +53,14 @@ public class BattleManager : MonoBehaviour
         if(enemiesToSpawn.Count == 0) enemiesToSpawn.Add(backupEnemy);
         InitialSpawn();
 
-        if(level > 0) setPieces[(level - 1)].SetActive(true);
+        if(level > 0)
+        {
+            templateGround.SetActive(false);
+            setPieces[(level - 1)].SetActive(true);
+        } 
+        
+
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,6 +75,8 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         gameState = GameState.PlayerTurn;
         menuScript.battleButtonCanvas.SetActive(true);
+        menuScript.audioSource.SetActive(true);
+        menuScript.hoverAudio.Play();
         //player.StartCoroutine("JumpAttack", enemies[0]);
     }
 
@@ -169,6 +183,7 @@ public class BattleManager : MonoBehaviour
     {
         if(inventory.heldItems[buttonNum] != null && inventory.heldItems[buttonNum].isConsumable)
         {
+            source.PlayOneShot(itemUsedSound);
             InventoryItemData item = inventory.heldItems[buttonNum];
             PlayerBattler.health += item.healthRestored;
             if(PlayerBattler.health > PlayerBattler.maxHealth) PlayerBattler.health = PlayerBattler.maxHealth;
@@ -222,8 +237,10 @@ public class BattleManager : MonoBehaviour
 
     public void BattleEnd(bool fled)
     {
+        Debug.Log("Battle Ended");
         if(fled && canRun)
         {
+            source.PlayOneShot(runSound);
             enemyID = -1;
             SceneManager.LoadScene(sceneToLoad);
         }

@@ -49,6 +49,6 @@ public class JackTransition : MonoBehaviour
         box.SetBool("Open", true);
         yield return new WaitForSeconds(5.5f);
         BattleManager.sceneToLoad = 7;
-        battleInitiator.InitiateBattle();
+        GetComponent<BattleInitiator>().InitiateBattle();
     }
 }

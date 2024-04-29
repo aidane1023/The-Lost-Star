@@ -13,6 +13,8 @@ public class UiInventoryScript : MonoBehaviour
     public int[] itemID;
     [HideInInspector]
     public bool[] isEmpty;
+    [HideInInspector]
+    public bool[] isConsumable;
     
     int itemLength;
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class UiInventoryScript : MonoBehaviour
         itemDescriptions = new string[itemLength];
 
         isEmpty = new bool[itemLength];
+        isConsumable = new bool[itemLength];
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class UiInventoryScript : MonoBehaviour
             {
                 itemNames[i] = playerInventory.heldItems[i].Name;
                 itemDescriptions[i] = playerInventory.heldItems[i].Description;
+                isConsumable[i] = playerInventory.heldItems[i].isConsumable;
                 //itemID
                 isEmpty[i] = false;
             }

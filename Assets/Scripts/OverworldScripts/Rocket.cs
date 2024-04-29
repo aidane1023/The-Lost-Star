@@ -13,11 +13,14 @@ public class Rocket : MonoBehaviour
     public Transform objectToFollow;
     public int pickUpType; // 1 for top, 2 for middle, 3 for bottom
 
-    private float savedSpeed;
+
     public GameObject trail;
 
     public AudioSource source;
     public AudioClip collectRocket;
+
+    public Sprite[] rocketSprite;
+    SpriteRenderer r;
 
     private void Start()
     {
@@ -26,7 +29,8 @@ public class Rocket : MonoBehaviour
         {
             playerController = playerObject.GetComponent<PlayerController>();
         }
-        savedSpeed = playerController.speed;
+        r = GetComponent<SpriteRenderer>();
+        StartCoroutine("DespawnDuplicate");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,5 +53,18 @@ public class Rocket : MonoBehaviour
             GameManager.Instance.SetPickupStatus(pickUpType);
             SceneManager.LoadScene("HUBBuild");
         });
+    }
+
+    public void UpdateSprite()
+    {
+        r.sprite = rocketSprite[pickUpType - 1];
+    }
+
+    IEnumerator DespawnDuplicate()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if(GameManager.Instance.HasTop && pickUpType == 1) Destroy(this.gameObject);
+        if(GameManager.Instance.HasMiddle && pickUpType == 2) Destroy(this.gameObject);
+        if(GameManager.Instance.HasBottom && pickUpType == 3) Destroy(this.gameObject);
     }
 }

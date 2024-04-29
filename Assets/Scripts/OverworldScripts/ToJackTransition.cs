@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ToJackTransition : MonoBehaviour
 {
     // Start is called before the first frame update
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
         SceneManager.LoadScene ("JackTransition");
     }

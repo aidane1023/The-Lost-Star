@@ -92,7 +92,7 @@ public class Dialogue : MonoBehaviour
     {
         typewriterSource.Play();
 
-        Debug.Log(index);
+        //Debug.Log(index);
 
         //Effect Code
         if (effect[index] == true)

@@ -41,7 +41,8 @@ public class BattleMenuScript : MonoBehaviour
     float timer;
 
     int[] spCosts;
-
+    public GameObject audioSource;
+    public AudioSource hoverAudio;
     public static bool isTutorial;
 
     Color disabledColor = new Color(0.4f, 0.4f, 0.4f, 1f);
@@ -269,6 +270,18 @@ public class BattleMenuScript : MonoBehaviour
             {
                 inventoryButtonComponent[i].interactable = true;
                 inventoryButtonColor[i].color = enabledColor;
+                inventoryDisabledGraphic[i].SetActive(false);
+                inventorySelectedGraphic[i].SetActive(true);
+            }
+            if (inventory.isConsumable[i] == false)
+            {
+                inventoryButtonComponent[i].interactable = false;
+                inventoryDisabledGraphic[i].SetActive(true);
+                inventorySelectedGraphic[i].SetActive(false);
+            }
+            else
+            {
+                inventoryButtonComponent[i].interactable = true;
                 inventoryDisabledGraphic[i].SetActive(false);
                 inventorySelectedGraphic[i].SetActive(true);
             }
