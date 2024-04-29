@@ -10374,6 +10374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363228751}
   - component: {fileID: 363228750}
+  - component: {fileID: 363228752}
   m_Layer: 0
   m_Name: monster1_fit1_Sprite
   m_TagString: Untagged
@@ -10448,6 +10449,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &363228752
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363228749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.48, y: 20.48, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &368307509
 GameObject:
   m_ObjectHideFlags: 0
@@ -21821,6 +21835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837840392}
   - component: {fileID: 837840391}
+  - component: {fileID: 837840393}
   m_Layer: 0
   m_Name: monster2_fit1_Sprite
   m_TagString: Untagged
@@ -21895,6 +21910,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 38.686, z: 0}
+--- !u!65 &837840393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837840390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.578698, y: 20.48, z: 0.20000064}
+  m_Center: {x: -0.5921261, y: 0, z: -0.0000005684069}
 --- !u!1 &844628859
 GameObject:
   m_ObjectHideFlags: 0
