@@ -13,6 +13,6 @@ public class IntroSequenceManager : MonoBehaviour
     IEnumerator ToHub()
     {
         yield return new WaitForSeconds(21f);
-        SceneManager.LoadScene ("HubBuild");
+        SceneManager.LoadScene ("HUBBuild");
     }
 }
