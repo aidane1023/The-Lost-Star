@@ -13,6 +13,9 @@ public class leavingRocket : MonoBehaviour
 
     public Transform destination;
 
+    public AudioSource source;
+    public AudioClip blastOff;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -29,7 +32,8 @@ public class leavingRocket : MonoBehaviour
         primaryCamera.Priority = 0;
         yield return new WaitForSeconds(2f);
         gameObject.transform.DOJump(destination.position, 1f, 1, 20.0f, false);
-       yield return new WaitForSeconds(2f);
+        source.PlayOneShot(blastOff);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("ThanksForPlayingScene");
     }
 }

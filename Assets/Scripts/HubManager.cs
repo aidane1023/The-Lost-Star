@@ -25,6 +25,9 @@ public class HubManager : MonoBehaviour
     public static bool bottomJumped;
 
     public AudioSource playerSound;
+    public AudioSource source;
+    public AudioClip rocketpieceFound;
+    public AudioClip buildRocket;
 
 
     void Start()
@@ -109,6 +112,8 @@ public class HubManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         primaryCamera.Priority = 0;
         rocketCamera.Priority = 20;
+        yield return new WaitForSeconds(1.5f);
+        source.PlayOneShot(rocketpieceFound);
         yield return new WaitForSeconds(3);
         if (GameManager.Instance.HasTop && GameManager.Instance.HasMiddle && GameManager.Instance.HasBottom)
         {
@@ -131,6 +136,7 @@ public class HubManager : MonoBehaviour
         JumpToObject(topObject, middlePos);
         JumpToObject(middleObject, middlePos);
         JumpToObject(bottomObject, middlePos);
+        source.PlayOneShot(buildRocket);
         yield return new WaitForSeconds(2.75f);
         rocket.SetActive(true);
         topObject.SetActive(false);
