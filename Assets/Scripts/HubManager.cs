@@ -9,6 +9,7 @@ public class HubManager : MonoBehaviour
     public GameObject topObject;
     public GameObject middleObject;
     public GameObject bottomObject;
+    public GameObject rocket;
     public PlayerController playerController;
 
     public CinemachineVirtualCamera primaryCamera;
@@ -19,9 +20,19 @@ public class HubManager : MonoBehaviour
     public Transform middlePos;
     public Transform bottomPos;
 
+    public static bool topJumped;
+    public static bool middleJumped;
+    public static bool bottomJumped;
+
+    public AudioSource playerSound;
+
+
     void Start()
     {
         UpdateAppearance();
+        rocket.SetActive(false);
+       
+
     }
 
     void UpdateAppearance()
@@ -30,28 +41,57 @@ public class HubManager : MonoBehaviour
         middleObject.SetActive(GameManager.Instance.HasMiddle);
         bottomObject.SetActive(GameManager.Instance.HasBottom);
 
-        // Check if any pickup is present in the current level
-        if (GameManager.Instance.HasTop || GameManager.Instance.HasMiddle || GameManager.Instance.HasBottom)
+        if (GameManager.Instance.HasTop)
         {
-            if (GameManager.Instance.HasTop)
+            if (!topJumped)
             {
                 JumpToObject(topObject, topPos);
+                topJumped = true;
             }
-            else if (GameManager.Instance.HasMiddle)
+            else
+            {
+                topObject.transform.position = topPos.position;
+            }
+        }
+
+        if (GameManager.Instance.HasMiddle)
+        {
+            if (!middleJumped)
             {
                 JumpToObject(middleObject, middlePos);
+                middleJumped = true;
             }
-            else if (GameManager.Instance.HasBottom)
+            else
+            {
+                middleObject.transform.position = middlePos.position;
+            }
+        }
+
+        if (GameManager.Instance.HasBottom)
+        {
+            if (!bottomJumped)
             {
                 JumpToObject(bottomObject, bottomPos);
+                bottomJumped = true;
             }
+            else
+            {
+                bottomObject.transform.position = bottomPos.position;
+            }
+        }
 
+        if (GameManager.Instance.HasTop || GameManager.Instance.HasMiddle || GameManager.Instance.HasBottom)
+        {
             StartCoroutine(CameraSwitch());
         }
     }
 
+
+
     void JumpToObject(GameObject obj, Transform target)
     {
+        playerSound.enabled = false;
+        playerController.enabled = false;
         obj.transform.DOJump(target.position, 2f, 1, 3.0f, false)
          .OnComplete(() =>
          {
@@ -67,9 +107,40 @@ public class HubManager : MonoBehaviour
         primaryCamera.Priority = 0;
         rocketCamera.Priority = 20;
         yield return new WaitForSeconds(3);
+        if (GameManager.Instance.HasTop && GameManager.Instance.HasMiddle && GameManager.Instance.HasBottom)
+        {
+            StartCoroutine(DoRocket());
+        }
+        else
+        {
+            rocketCamera.Priority = 0;
+            primaryCamera.Priority = 20;
+            yield return new WaitForSeconds(1);
+            playerController.enabled = true;
+            playerSound.enabled = true;
+        }
+      
+    }
+
+    IEnumerator DoRocket()
+    {
+        yield return new WaitForSeconds(0.5f);
+        JumpToObject(topObject, middlePos);
+        JumpToObject(middleObject, middlePos);
+        JumpToObject(bottomObject, middlePos);
+        yield return new WaitForSeconds(2.75f);
+        rocket.SetActive(true);
+        topObject.SetActive(false);
+        middleObject.SetActive(false);
+        bottomObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         rocketCamera.Priority = 0;
         primaryCamera.Priority = 20;
-        yield return new WaitForSeconds(1);
         playerController.enabled = true;
+        playerSound.enabled = true;
+
+
     }
+
+   
 }
