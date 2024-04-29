@@ -204,7 +204,11 @@ public class BattleManager : MonoBehaviour
     public IEnumerator EnemyAttacks()
     {
         //check if player died
-        if(PlayerBattler.health <= 0) SceneManager.LoadScene("GAMEOVER");
+        if(PlayerBattler.health <= 0)
+        {
+            overworldSpawn = new Vector3 (0,0,0);
+            SceneManager.LoadScene("GAMEOVER");
+        } 
         //check if any enemies died
         yield return new WaitForSeconds(0.5f);
         for(int i = 0; i < enemies.Count; i++)

@@ -19,9 +19,9 @@ public class BattleInitiator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        overworldManager = FindObjectOfType<OverworldEnemyManager>();
         if(OverworldEnemyManager.enemiesDefeated.Contains(enemyID)) Destroy(this.gameObject);
         if(BattleManager.enemyID == enemyID && enemyID != -1) Defeated();
-        overworldManager = FindObjectOfType<OverworldEnemyManager>();
     }
 
     // Update is called once per frame
@@ -61,5 +61,6 @@ public class BattleInitiator : MonoBehaviour
             overworldManager.bossDefeated = true;
         }
         Destroy(this.gameObject);
+        Debug.Log("Destroyed");
     }
 }
