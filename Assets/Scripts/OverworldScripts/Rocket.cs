@@ -29,7 +29,7 @@ public class Rocket : MonoBehaviour
         {
             playerController = playerObject.GetComponent<PlayerController>();
         }
-        savedSpeed = playerController.speed;
+        //savedSpeed = playerController.speed;
         r = GetComponent<SpriteRenderer>();
         StartCoroutine("DespawnDuplicate");
     }
