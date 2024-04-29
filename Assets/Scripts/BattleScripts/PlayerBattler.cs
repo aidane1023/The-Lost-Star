@@ -64,7 +64,7 @@ public class PlayerBattler : MonoBehaviour
         }
         if (Input.GetAxis("Horizontal") > -0.75f)
         {
-            Debug.Log("Left Release");
+            //Debug.Log("Left Release");
             //leftPadReleased = true;
             leftPadPressed = false;
         }
@@ -110,7 +110,7 @@ public class PlayerBattler : MonoBehaviour
 
         if(battleManager.gameState == GameState.EnemyTurn)
         {
-            if (Input.GetKeyDown(KeyCode.Z) && !keyCooldown)
+            if (Input.GetButtonDown("Submit") && !keyCooldown)
             {
                 if(defenseMode == DefenseMode.Guard)
                 {
