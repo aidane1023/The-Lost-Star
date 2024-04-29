@@ -193,6 +193,7 @@ public class BattleManager : MonoBehaviour
             if(PlayerBattler.starPoints > PlayerBattler.maxStarPoints) PlayerBattler.starPoints = PlayerBattler.maxStarPoints;
             inventory.heldItems[buttonNum] = null;
             gameState = GameState.PlayerAttack;
+            BattleMenuScript.currentBattleMenu = 0;
             Transition();
             menuScript.battleButtonCanvas.SetActive(false);
         } 
@@ -215,6 +216,7 @@ public class BattleManager : MonoBehaviour
                 yield return new  WaitUntil(() => !waitingForEnemyDeath);
                 enemies[i].gameObject.SetActive(false);
                 defeatedEnemies++;
+                BattleMenuScript.enemiesDead[i] = true;
             }
         }
         if(defeatedEnemies >= enemies.Count) BattleEnd(false);
