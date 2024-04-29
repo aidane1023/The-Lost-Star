@@ -99,11 +99,13 @@ public class BattleManager : MonoBehaviour
         {
             gameState = GameState.EnemyTurn;
             StartCoroutine(EnemyAttacks());
+
         }
         else if (gameState == GameState.EnemyTurn)
         {
             
             gameState = GameState.PlayerTurn;
+            menuScript.enemyTurn = false;
             menuScript.battleButtonCanvas.SetActive(true);
             menuScript.ReturnMenu();
             menuScript.RestartMenu();
@@ -203,6 +205,7 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator EnemyAttacks()
     {
+        menuScript.enemyTurn = true;
         //check if player died
         if(PlayerBattler.health <= 0) SceneManager.LoadScene("GAMEOVER");
         //check if any enemies died

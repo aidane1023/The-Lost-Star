@@ -40,6 +40,8 @@ public class BattleMenuScript : MonoBehaviour
     int backButtonLength, skillButtonLength, inventoryButtonLength;
     public static int currentBattleMenu;
     float timer;
+    public bool enemyTurn;
+    public GameObject guardPrompt;
 
     int[] spCosts;
     public GameObject audioSource;
@@ -137,6 +139,16 @@ public class BattleMenuScript : MonoBehaviour
 
     void Update()
     {
+        if (enemyTurn == true)
+        {
+            //Debug.Log("Enemy Turn");
+            guardPrompt.SetActive(true);
+        }
+        else
+        {
+            //Debug.Log("Not Enemy Turn");
+            guardPrompt.SetActive(false);
+        }
 
         healthText.text = $"HP: {PlayerBattler.health}/{PlayerBattler.maxHealth}";
         SPText.text = $"SP: {PlayerBattler.starPoints}/{PlayerBattler.maxStarPoints}"; 
