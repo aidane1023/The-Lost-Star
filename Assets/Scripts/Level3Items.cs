@@ -26,6 +26,11 @@ public class Level3Items : MonoBehaviour
             behaviorScript.enabled = true;
             behaviorScript.interactObjects[0].SetActive(true);
         }
+        else
+        {
+            behaviorScript.enabled = false;
+            behaviorScript.interactObjects[0].SetActive(false);
+        }
     }
 
     public void mozzie()
