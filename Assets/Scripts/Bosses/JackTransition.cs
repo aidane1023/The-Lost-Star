@@ -21,11 +21,12 @@ public class JackTransition : MonoBehaviour
 
     private BattleInitiator battleInitiator;
 
-    private static bool tPlayed = false;
+    public static bool tPlayed = true;
 
 
     void Start()
     {
+        Debug.Log("Player Position " + starry.GetComponent<Transform>().position);
         if (!tPlayed)
         {
             battleInitiator = GetComponent<BattleInitiator>();
@@ -73,6 +74,8 @@ public class JackTransition : MonoBehaviour
         BattleManager.sceneToLoad = 7;
         tPlayed = true;
         Debug.Log("Start Jack Fight");
+        starry.GetComponent<Transform>().position = new Vector3(0.03f, 0.4f, 2.4f);
+        Debug.Log("Player Position " + starry.GetComponent<Transform>().position);
         GetComponent<BattleInitiator>().InitiateBattle();
     }
 }

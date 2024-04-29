@@ -50,7 +50,6 @@ public class PlayerBattler : MonoBehaviour
         battleManager = GameObject.FindObjectOfType<BattleManager>();
         playerSpot = GameObject.Find("PlayerSpot").transform;
         playerAnimator = GetComponent<PlayerBattlerAnimator>();
-        health = maxHealth;
         source = GetComponent<AudioSource>();
     }
 
