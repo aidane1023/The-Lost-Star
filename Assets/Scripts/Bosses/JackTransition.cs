@@ -21,7 +21,7 @@ public class JackTransition : MonoBehaviour
 
     private BattleInitiator battleInitiator;
 
-    private static bool tPlayed = true;
+    private static bool tPlayed = false;
 
 
     void Start()

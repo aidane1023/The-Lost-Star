@@ -30,7 +30,6 @@ public class Rocket : MonoBehaviour
         if (playerObject != null)
         {
             playerController = playerObject.GetComponent<PlayerController>();
-            Debug.Log("Got controller "+playerController);
         }
         r = GetComponent<SpriteRenderer>();
         //StartCoroutine("DespawnDuplicate");
@@ -53,8 +52,8 @@ public class Rocket : MonoBehaviour
         Vector3 newPosition = objectToFollow.position + (Vector3.up * 0.5f); ;
         transform.DOJump(newPosition, 1, 1, 1.0f, false).OnComplete(() =>
         {
+            Debug.Log("Back to hub?");
             // Access GameManager.Instance to set the appropriate property based on pickUpType
-            GameManager.Instance.SetPickupStatus(pickUpType);
             SceneManager.LoadScene("HubBuild");
         });
     }
@@ -64,7 +63,6 @@ public class Rocket : MonoBehaviour
         r.sprite = rocketSprite[pickUpType - 1];
     }
 
-/*
     IEnumerator DespawnDuplicate()
     {
         yield return new WaitForSeconds(0.5f);
@@ -72,7 +70,7 @@ public class Rocket : MonoBehaviour
         if(GameManager.Instance.HasMiddle && pickUpType == 2) Destroy(this.gameObject);
         if(GameManager.Instance.HasBottom && pickUpType == 3) Destroy(this.gameObject);
     }
-*/
+
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.2f);

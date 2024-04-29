@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4319207726966791592}
   - component: {fileID: 4319207726966791593}
   m_Layer: 0
-  m_Name: Rocket Part
-  m_TagString: Untagged
+  m_Name: RocketPart3
+  m_TagString: Rocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7805fbd81c83a34408ba08f9fe3b6559, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b74bdf7ed84bad243b22188baa27b3d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,9 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 8820558103507940417, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
-  objectToFollow: {fileID: 0}
-  pickUpType: 2
+  pickUpType: 3
   trail: {fileID: 6071196774184558000}
   source: {fileID: 4319207726966791593}
   collectRocket: {fileID: 8300000, guid: 9253fa37e54160144aeabd807973cacc, type: 3}
