@@ -20,6 +20,7 @@ public class NPCBehavior : MonoBehaviour
     public static bool dialogueIsActive;
 
     public static bool jackFightTriggered = false;
+    public JackTransition jackTransition; 
     public GameObject jackBoss;
     public Transform endBattleSpot;
 
@@ -81,18 +82,17 @@ public class NPCBehavior : MonoBehaviour
             }
             else if(!jackFightTriggered)
             {
+                jackTransition = GetComponent<JackTransition>();
                 jackFightTriggered = true;
                 Debug.Log("Boss Triggered");
-                //SceneManager.LoadScene("JackTransition");
-                BattleManager.enemiesToSpawn.Clear();
-                BattleManager.overworldSpawn = endBattleSpot.position;
-
-                    BattleManager.enemiesToSpawn.Add(jackBoss);
-                BattleManager.enemyID = -1;
-                BattleManager.level = 3;
-                BattleManager.canRun = false;
-                BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
-                SceneManager.LoadScene("JackTransition");
+                jackTransition.LetsGo();
+                //BattleManager.enemiesToSpawn.Clear();
+                //BattleManager.overworldSpawn = endBattleSpot.position;
+                //BattleManager.enemiesToSpawn.Add(jackBoss);
+                //BattleManager.enemyID = -1;
+                //BattleManager.level = 3;
+                //BattleManager.canRun = false;
+                //BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
             }
         }
         if (dialogue[index] != null)

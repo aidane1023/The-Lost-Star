@@ -12,42 +12,56 @@ public class JackTransition : MonoBehaviour
     public GameObject set4;
     public GameObject set5;
 
-    public GameObject starry;
+    public Color newColor;
+    public SpriteRenderer starry;
     public GameObject boxObject;
+    public GameObject rocketPiece;
 
     public Animator cam;
     public Animator box;
     public Animator crowd;
+
+    public Camera cam1;
+    public Camera cam2;
 
     public AudioSource transition;
     public AudioSource metro;
 
     private BattleInitiator battleInitiator;
 
-    public static bool played = false;
+    private static bool played = false;
 
 
     void Start()
     {
-        
+        if(played)
+        {
+            LetsGo();
+        }
 
+        cam1.enabled = true;
+        cam2.enabled = false;
+        battleInitiator = boxObject.GetComponent<BattleInitiator>();
+    }
+
+    public void LetsGo()
+    {
+        cam1.enabled = false;
+        cam2.enabled = true;
         if (!played)
         {
-            battleInitiator = GetComponent<BattleInitiator>();
+            StartCoroutine(OpenBox());
             StartCoroutine(Sequence());
-
-            transition.enabled = true;
-            metro.enabled = false;
+            
         }
         else
         {
-            transition.enabled = false;
-            metro.enabled = true;
-            starry.SetActive(true);
-            cam.SetBool("Played", true);
-            boxObject.SetActive(false);
+            metro.Play();
 
-            starry.GetComponent<Transform>().position = new Vector3(0.03f,0.4f,2.4f);
+            
+            cam.SetBool("Played", true);
+            //boxObject.SetActive(false);
+            rocketPiece.SetActive(true);
 
             set0.SetActive(true);
             set1.SetActive(true);
@@ -55,21 +69,20 @@ public class JackTransition : MonoBehaviour
             set3.SetActive(true);
             set4.SetActive(true);
             set5.SetActive(true);
-            
         }
-           
     }
 
     IEnumerator Sequence()
     {
         yield return new WaitForSeconds(0.5f);
+        transition.Play();
         set0.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         cam.SetBool("Time", true);
         set1.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         set2.SetActive(true);
-        starry.SetActive(true);
+        starry.color = newColor;
         yield return new WaitForSeconds(0.5f);
         set3.SetActive(true);
         yield return new WaitForSeconds(0.5f);
@@ -78,14 +91,16 @@ public class JackTransition : MonoBehaviour
         set5.SetActive(true);
         yield return new WaitForSeconds(0.3f);
         crowd.SetBool("Cheer",true);
-        yield return new WaitForSeconds(0.5f);
-        box.SetBool("Open", true);
-        yield return new WaitForSeconds(5.5f);
-        BattleManager.sceneToLoad = 7;
+        yield return new WaitForSeconds(5.3f);
+        BattleManager.sceneToLoad = 6;
         played = true;
         Debug.Log("Start Jack Fight");
-        starry.GetComponent<Transform>().position = new Vector3(0.03f, 0.4f, 2.4f);
-        Debug.Log("Player Position " + starry.GetComponent<Transform>().position);
-        GetComponent<BattleInitiator>().InitiateBattle();
+        battleInitiator.GetComponent<BattleInitiator>().InitiateBattle();
+    }
+
+    IEnumerator OpenBox()
+    {
+        yield return new WaitForSeconds(3.8f);
+        box.SetBool("Open", true);
     }
 }

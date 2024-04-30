@@ -8,6 +8,9 @@ public class JackBattler : EnemyBattler
     PlayerBattler player;
     Vector3 origin;
     public Animator anim;
+
+    public AudioClip jackSlap;
+    public AudioClip jackDies;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +45,9 @@ public class JackBattler : EnemyBattler
         transform.DOJump(playerLow, 1.4f, 3, 1.2f, false);
         yield return new WaitForSeconds(1.4f);
         anim.SetBool("Attack1", true);
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.3f); //Working Here
+        source.PlayOneShot(jackSlap);
+        yield return new WaitForSeconds(0.1f);
         player.RecieveDamage(1);
         yield return new WaitForSeconds(0.9f);
         anim.SetBool("Attack1", false);
@@ -57,7 +62,9 @@ public class JackBattler : EnemyBattler
         transform.DOJump(playerLow, 1.4f, 3, 1.2f, false);
         yield return new WaitForSeconds(1.4f);
         anim.SetBool("Attack2", true);
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.3f); //Working Here
+        source.PlayOneShot(jackSlap);
+        yield return new WaitForSeconds(0.1f);
         player.RecieveDamage(1);
         yield return new WaitForSeconds(0.9f);
         anim.SetBool("Attack2", false);
@@ -69,7 +76,8 @@ public class JackBattler : EnemyBattler
     public IEnumerator DeathAnimation()
     {
         anim.SetBool("IsDead", true);
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(7f);
+        source.PlayOneShot(jackDies);
         battleManager.waitingForEnemyDeath = false;
     }
 }

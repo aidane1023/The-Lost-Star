@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyChase : MonoBehaviour
+public class SoldierFight : MonoBehaviour
 {
     public Transform player;
     BattleInitiator battleInitiator;
     bool canStartBattle = false;
 
-    public float speed;
     public float range;
 
     void Awake()
@@ -20,12 +19,7 @@ public class EnemyChase : MonoBehaviour
 
     void Update()
     {
-        if ((Vector3.Distance(player.position, this.transform.position) <= range))
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-
-        if ((Vector3.Distance(player.position, this.transform.position) <= 0.8f) && canStartBattle)
+        if ((Vector3.Distance(player.position, this.transform.position) <= range) && canStartBattle)
         {
             BattleManager.sceneToLoad = SceneManager.GetActiveScene().buildIndex;
             battleInitiator.InitiateBattle();

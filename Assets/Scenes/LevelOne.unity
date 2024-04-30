@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17615224, g: 0.21318127, b: 0.26113996, a: 1}
+  m_IndirectSpecularColor: {r: 0.1761517, g: 0.21318072, b: 0.26113912, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -769,6 +769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket Part
       objectReference: {fileID: 0}
+    - target: {fileID: 4319207726966791572, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791574, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -779,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.49
+      value: 63.53
       objectReference: {fileID: 0}
     - target: {fileID: 4319207726966791575, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -835,6 +839,11 @@ PrefabInstance:
       objectReference: {fileID: 1148752937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+--- !u!1 &85316090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4319207726966791572, guid: 8690ad6c846f0bf4291f8a66be9db95f, type: 3}
+  m_PrefabInstance: {fileID: 85316089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88598442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.82
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: 8820558103507940422, guid: 7e7ccdab07a7a6d4997e089cee7ea08e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1726,6 +1735,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4544452988847421644, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
+      propertyPath: range
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544452988847421644, guid: 7d29f266458d80242abdbaae1e40de5d, type: 3}
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
@@ -2226,7 +2239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317832980}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -2.82, y: 6.1805816, z: -7.7092695}
+  m_LocalPosition: {x: -5.12, y: 6.1805816, z: -7.7092695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5962,7 +5975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006154131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.958834, y: 46.369038, z: -90.131035}
+  m_LocalPosition: {x: 35.1, y: 46.369038, z: -90.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7317,6 +7330,7 @@ GameObject:
   - component: {fileID: 1213984814}
   - component: {fileID: 1213984816}
   - component: {fileID: 1213984817}
+  - component: {fileID: 1213984818}
   m_Layer: 0
   m_Name: Boss Transition
   m_TagString: Untagged
@@ -7370,7 +7384,11 @@ MonoBehaviour:
   anim1: {fileID: 977466235}
   anim2: {fileID: 1047252767}
   player: {fileID: 676945081}
+  part: {fileID: 85316090}
   transition: {fileID: 1213984814}
+  source: {fileID: 1213984818}
+  bushes: {fileID: 8300000, guid: c81857dcacffb9546bb9fe934e9d8026, type: 3}
+  hiss: {fileID: 8300000, guid: 531505a0f2590b44795ef29330aff470, type: 3}
 --- !u!114 &1213984817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7387,13 +7405,110 @@ MonoBehaviour:
   - {fileID: 5561330905851064923, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
   - {fileID: 5561330905851064923, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
   - {fileID: 5561330905851064923, guid: 7a75a04bd7c242f4ba36b993bf01de08, type: 3}
-  pickups: []
-  isGrunt: 0
-  enemyID: 10
+  pickups:
+  - {fileID: 545769850984177784, guid: 1143520f33f4622498d07da488d05115, type: 3}
+  isGrunt: 1
+  enemyID: 30
   level: 1
   canRunFromFight: 0
   bossNumber: 1
   isTutorial: 0
+--- !u!82 &1213984818
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213984813}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0
+  MaxDistance: 6.180312
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1224621123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10558,6 +10673,9 @@ MonoBehaviour:
   isBouncer: 0
   isLegoGuy: 0
   itemManager: {fileID: 0}
+  jackTransition: {fileID: 0}
+  jackBoss: {fileID: 0}
+  endBattleSpot: {fileID: 0}
   source: {fileID: 1891736723}
   dialoguePress: {fileID: 8300000, guid: bc651c2bf55856b4096fb474b3de9105, type: 3}
 --- !u!82 &1891736723
@@ -12144,7 +12262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041243185}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -2.82, y: 6.1805816, z: -7.7092695}
+  m_LocalPosition: {x: -5.12, y: 6.1805816, z: -7.7092695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

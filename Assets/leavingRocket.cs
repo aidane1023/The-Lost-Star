@@ -34,6 +34,6 @@ public class leavingRocket : MonoBehaviour
         gameObject.transform.DOJump(destination.position, 1f, 1, 20.0f, false);
         source.PlayOneShot(blastOff);
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("ThanksForPlayingScene");
+        SceneManager.LoadScene("EndSequence");
     }
 }

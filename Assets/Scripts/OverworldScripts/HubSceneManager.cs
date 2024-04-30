@@ -28,23 +28,23 @@ public class HubSceneManager : MonoBehaviour
                 case 0:
                     leftHub = player.position;
                     SceneManager.LoadScene ("BearShop");
+                    HubManager.fromShop = false;
                     break;
                 case 1:
                     leftHub = player.position;
                     SceneManager.LoadScene ("LevelOne");
+                    HubManager.fromShop = false;
                     break;
                 case 2:
                         leftHub = player.position;
                         SceneManager.LoadScene("LevelTwo");
+                        HubManager.fromShop = false;
                         break;
                 case 3:
                         leftHub = player.position;
                         SceneManager.LoadScene("LevelThree");
+                        HubManager.fromShop = false;
                         break;
-                case 4:
-                        leftHub = player.position;
-                        SceneManager.LoadScene("EndSequence");
-                    break;
                 }   
             }
         }

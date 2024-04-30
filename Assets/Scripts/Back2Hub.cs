@@ -12,5 +12,6 @@ public class Back2Hub : MonoBehaviour
     {
         shopManager.ResetTotalValue();
         SceneManager.LoadScene("HUBBuild");
+        HubManager.fromShop = true;
     }
 }

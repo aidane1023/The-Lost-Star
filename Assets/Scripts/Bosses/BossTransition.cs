@@ -12,15 +12,20 @@ public class BossTransition : MonoBehaviour
     public Animator anim2;
 
     public GameObject player;
+    public GameObject part;
     public Collider transition;
 
     BattleInitiator battleInitiator;
 
+    public AudioSource source;
+    public AudioClip bushes;
+    public AudioClip hiss;
+
     public static bool fightHydra = false;
 
     void Start() 
-    {
-        
+    {   
+        if(fightHydra) part.SetActive(true);
         cam1.enabled = true;
         cam2.enabled = false;
         battleInitiator = GetComponent<BattleInitiator>();
@@ -42,10 +47,14 @@ public class BossTransition : MonoBehaviour
 
     IEnumerator PlayTransition()
     {
+        source.PlayOneShot(bushes);
         anim1.SetBool("pan", true);
         yield return new WaitForSeconds(1.6f);
         anim2.SetBool("rise", true);
-        yield return new WaitForSeconds(2.8f);
+        yield return new WaitForSeconds(2.1f);
+        source.Stop();
+        source.PlayOneShot(hiss);
+        yield return new WaitForSeconds(0.7f);
         BattleManager.sceneToLoad = 4;
         fightHydra = true;
         transition.enabled = true;

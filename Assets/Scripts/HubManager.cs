@@ -24,6 +24,8 @@ public class HubManager : MonoBehaviour
     public static bool middleJumped;
     public static bool bottomJumped;
 
+    public static bool fromShop = false;
+
     public AudioSource playerSound;
     public AudioSource source;
     public AudioClip rocketpieceFound;
@@ -83,7 +85,7 @@ public class HubManager : MonoBehaviour
             }
         }
 
-        if (GameManager.Instance.HasTop || GameManager.Instance.HasMiddle || GameManager.Instance.HasBottom)
+        if ((GameManager.Instance.HasTop || GameManager.Instance.HasMiddle || GameManager.Instance.HasBottom) && !fromShop)
         {
             StartCoroutine(CameraSwitch());
         }

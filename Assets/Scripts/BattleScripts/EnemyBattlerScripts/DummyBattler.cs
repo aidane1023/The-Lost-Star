@@ -22,7 +22,7 @@ public class DummyBattler : EnemyBattler
 
     public IEnumerator DeathAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         if(battleManager == null) battleManager = FindObjectOfType<BattleManager>();
         battleManager.waitingForEnemyDeath = false;
     }

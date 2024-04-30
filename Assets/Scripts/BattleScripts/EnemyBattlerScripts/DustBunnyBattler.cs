@@ -8,6 +8,7 @@ public class DustBunnyBattler : EnemyBattler
     public GameObject projectile;
 
     public AudioClip bunnyShot;
+    public AudioClip bunnyDies;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,8 @@ public class DustBunnyBattler : EnemyBattler
     }
     public IEnumerator DeathAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
+        source.PlayOneShot(bunnyDies);
         battleManager.waitingForEnemyDeath = false;
     }
 }

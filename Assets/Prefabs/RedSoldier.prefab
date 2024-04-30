@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 435333498609075214}
   - component: {fileID: 435333498609075215}
-  - component: {fileID: 1803377071072667363}
   - component: {fileID: 5067437046564712080}
   - component: {fileID: 1442033628260906092}
   - component: {fileID: 692933752402273374}
@@ -58,23 +57,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1803377071072667363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435333498609075213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b19cc30b7271bed4780de604f6d56234, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 4
-  range: 10
-  soldier: 1
-  anim: {fileID: 435333498609075215}
 --- !u!114 &5067437046564712080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,12 +70,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battlers:
-  - {fileID: 0}
-  pickups: []
-  isGrunt: 0
-  enemyID: -1
-  level: 0
-  canRunFromFight: 1
+  - {fileID: 3586424861711419957, guid: 19f57941605914142bcd5b8601ef6110, type: 3}
+  pickups:
+  - {fileID: 4353301494756480417, guid: 7128c68079793c24a8290edf1d6b4d7d, type: 3}
+  - {fileID: 4353301494756480417, guid: 7128c68079793c24a8290edf1d6b4d7d, type: 3}
+  - {fileID: 5328788372462658421, guid: 7899ff3453a606f45b3c9f710a3cff90, type: 3}
+  isGrunt: 1
+  enemyID: 1
+  level: 2
+  canRunFromFight: 0
+  bossNumber: 0
   isTutorial: 0
 --- !u!114 &1442033628260906092
 MonoBehaviour:

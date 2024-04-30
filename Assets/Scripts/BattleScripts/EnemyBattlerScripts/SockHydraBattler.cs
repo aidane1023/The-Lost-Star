@@ -9,6 +9,8 @@ public class SockHydraBattler : EnemyBattler
     Vector3 origin;
     public Animator anim;
 
+    public AudioClip sockAttack;
+    public AudioClip sockDies;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,9 @@ public class SockHydraBattler : EnemyBattler
         transform.DOMove(playerFront2.position, 1.4f, false);
         yield return new WaitForSeconds(1.9f);
         anim.Play("Attack");
-        yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(1.7f); //Here
+        source.PlayOneShot(sockAttack);
+        yield return new WaitForSeconds(0f); //Here
         player.RecieveDamage(1);
         yield return new WaitForSeconds(0.9f);
         anim.Play("Slither");
@@ -51,7 +55,9 @@ public class SockHydraBattler : EnemyBattler
     public IEnumerator DeathAnimation()
     {
         anim.Play("Dies");
-        yield return new WaitForSeconds(2.7f);
+        yield return new WaitForSeconds(2.3f);
+        source.PlayOneShot(sockDies);
+        yield return new WaitForSeconds(0.4f);
         battleManager.waitingForEnemyDeath = false;
     }
 }

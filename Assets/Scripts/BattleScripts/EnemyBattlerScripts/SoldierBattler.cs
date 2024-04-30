@@ -9,6 +9,9 @@ public class SoldierBattler : EnemyBattler
     SpriteRenderer renderer;
     public Sprite[] sprites;
     Vector3 origin;
+
+    public AudioClip attackSFX;
+    public AudioClip dieSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +19,6 @@ public class SoldierBattler : EnemyBattler
         renderer = GetComponent<SpriteRenderer>();
         base.Start();
         origin = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public override void Attack() 
@@ -39,6 +36,7 @@ public class SoldierBattler : EnemyBattler
         yield return new WaitForSeconds(r);
         renderer.sprite = sprites[1];
         yield return new WaitForSeconds(0.4f);
+        source.PlayOneShot(attackSFX);
         player.RecieveDamage(2);
         renderer.sprite = sprites[2];
         yield return new WaitForSeconds(0.9f);
@@ -51,6 +49,7 @@ public class SoldierBattler : EnemyBattler
     public IEnumerator DeathAnimation()
     {
         yield return new WaitForSeconds(0.5f);
+        source.PlayOneShot(dieSFX);
         battleManager.waitingForEnemyDeath = false;
     }
 }
