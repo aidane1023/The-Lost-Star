@@ -25,6 +25,7 @@ public class HubManager : MonoBehaviour
     public static bool bottomJumped;
 
     public static bool fromShop = false;
+    public static bool noWalk = false;
 
     public AudioSource playerSound;
     public AudioSource source;
@@ -107,6 +108,7 @@ public class HubManager : MonoBehaviour
 
     IEnumerator CameraSwitch()
     {
+        noWalk = true;
         playerController.enabled = false;
         yield return new WaitForSeconds(0.1f);
         primaryCamera.Priority = 0;
@@ -124,6 +126,7 @@ public class HubManager : MonoBehaviour
             primaryCamera.Priority = 20;
             yield return new WaitForSeconds(1);
             playerController.enabled = true;
+            noWalk = false;
             playerSound.enabled = true;
         }
       

@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("moving", moving);
         animator.SetBool("flip", flip);
 
-        if (UIPauseScript.isPauseActive)
+        if (UIPauseScript.isPauseActive || HubManager.noWalk)
         {
             source.enabled = false;
         }
