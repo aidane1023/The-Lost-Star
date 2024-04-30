@@ -96,6 +96,7 @@ public class HubManager : MonoBehaviour
 
     void JumpToObject(GameObject obj, Transform target)
     {
+        noWalk = true;
         playerSound.enabled = false;
         playerController.enabled = false;
         obj.transform.DOJump(target.position, 2f, 1, 3.0f, false)
@@ -108,7 +109,6 @@ public class HubManager : MonoBehaviour
 
     IEnumerator CameraSwitch()
     {
-        noWalk = true;
         playerController.enabled = false;
         yield return new WaitForSeconds(0.1f);
         primaryCamera.Priority = 0;
