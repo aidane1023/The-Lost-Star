@@ -13,7 +13,7 @@ public class EndTheGame : MonoBehaviour
     {
         if(Input.GetButtonDown("Submit"))
         {
-            SceneManager.LoadScene("HUBBuild");
+            SceneManager.LoadScene("ThanksForPlayingScene");
         }
     }
 
