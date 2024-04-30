@@ -28,7 +28,7 @@ public class ItemDisplay : MonoBehaviour
     private InventoryItemData currentItem;
     private Vector3 startingPosition;
     public bool holding = false;
-    private static List<ItemDisplay> pickedItems = new List<ItemDisplay>(); // List to track picked up items
+    private List<ItemDisplay> pickedItems = new List<ItemDisplay>(); // List to track picked up items
     private static bool IsHoldingItem;
 
     public AudioSource source;
