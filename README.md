@@ -1,4 +1,4 @@
-# Unintended
+# The Lost Star
 3D Explorer with Turn Based Combat <br />
 Group Name: StarBit Developers <br />
 
