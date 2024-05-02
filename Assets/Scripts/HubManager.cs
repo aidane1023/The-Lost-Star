@@ -26,6 +26,7 @@ public class HubManager : MonoBehaviour
 
     public static bool fromShop = false;
     public static bool noWalk = false;
+    public static bool allCleared = false;
 
     public AudioSource playerSound;
     public AudioSource source;
@@ -147,10 +148,9 @@ public class HubManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         rocketCamera.Priority = 0;
         primaryCamera.Priority = 20;
+        allCleared = true;
         playerController.enabled = true;
         noWalk = false;
-
-
     }
 
    

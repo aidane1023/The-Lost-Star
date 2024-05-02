@@ -19,7 +19,7 @@ public class HubSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (TrainingDummy.cleared && (popupScript == null || popupScript.interactable))
+        if (TrainingDummy.cleared && (popupScript == null || popupScript.interactable) && !HubManager.allCleared)
         {
             if ((Vector3.Distance(player.position, this.transform.position) <= 3f) && Input.GetButtonUp("Submit"))
             {
