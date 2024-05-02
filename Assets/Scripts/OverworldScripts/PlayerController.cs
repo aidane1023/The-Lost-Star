@@ -55,6 +55,15 @@ public class PlayerController : MonoBehaviour
             source.enabled = true;
         }
 
+        //if (HubManager.CameraSwitch)
+        //{
+        //    source.enabled = false;
+        //}
+        //else
+        //{
+        //    source.enabled = true;
+        //}
+
         if (rb.velocity.magnitude == 0) source.volume = 0;
         else source.volume = 0.3f;
 

@@ -107,6 +107,8 @@ public class HubManager : MonoBehaviour
 
     IEnumerator CameraSwitch()
     {
+        noWalk = true;
+        yield return new WaitForSeconds(0.2f);
         playerController.enabled = false;
         yield return new WaitForSeconds(0.1f);
         primaryCamera.Priority = 0;
@@ -146,7 +148,7 @@ public class HubManager : MonoBehaviour
         rocketCamera.Priority = 0;
         primaryCamera.Priority = 20;
         playerController.enabled = true;
-        playerSound.enabled = true;
+        noWalk = false;
 
 
     }

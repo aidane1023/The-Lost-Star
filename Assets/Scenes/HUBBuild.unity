@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1251,9 +1251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  playerObject: {fileID: 0}
-  objectToFollow: {fileID: 0}
+  playerController: {fileID: 8820558103518400663}
+  playerObject: {fileID: 8820558103518400660}
+  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 2
   trail: {fileID: 0}
   source: {fileID: 0}
@@ -1333,7 +1333,8 @@ Transform:
   m_LocalPosition: {x: -8.85, y: 0.69, z: -6.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 686931425}
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2240,9 +2241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  playerObject: {fileID: 0}
-  objectToFollow: {fileID: 0}
+  playerController: {fileID: 8820558103518400663}
+  playerObject: {fileID: 8820558103518400660}
+  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 3
   trail: {fileID: 0}
   source: {fileID: 0}
@@ -2318,13 +2319,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686931420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.82, y: 0.69, z: -6.66}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.0300026, y: 0.0000007748604, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_Father: {fileID: 367076191}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690712378
 GameObject:
@@ -7995,7 +7996,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1121644112
 GameObject:
@@ -9662,9 +9663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  playerObject: {fileID: 0}
-  objectToFollow: {fileID: 0}
+  playerController: {fileID: 8820558103518400663}
+  playerObject: {fileID: 8820558103518400660}
+  objectToFollow: {fileID: 8820558103518400656}
   pickUpType: 1
   trail: {fileID: 0}
   source: {fileID: 0}
