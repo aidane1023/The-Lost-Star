@@ -113,6 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed117c44e2985534796c4e0f2afd5294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  playerObject: {fileID: 0}
+  objectToFollow: {fileID: 0}
   pickUpType: 3
   trail: {fileID: 6071196774184558000}
   source: {fileID: 4319207726966791593}
@@ -133,7 +136,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.299
   m_Pitch: 1
   Loop: 0
   Mute: 0
