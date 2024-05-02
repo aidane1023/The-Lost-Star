@@ -15,6 +15,7 @@ public class ItemPickup : MonoBehaviour
     public ParticleSystem particleEffects;
 
     public AudioClip pickUp;
+    public AudioClip heartpickUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +87,7 @@ public class ItemPickup : MonoBehaviour
             if(type == PickupType.Heart && PlayerBattler.health < PlayerBattler.maxHealth)
             {
                 PlayerBattler.health++;
+                source.PlayOneShot(heartpickUp);
             }
             if(type == PickupType.Sp && PlayerBattler.starPoints < PlayerBattler.maxStarPoints)
             {

@@ -5,15 +5,21 @@ using UnityEngine;
 using static Unity.VisualScripting.Member;
 
 public class Watch : MonoBehaviour
+
 {
     public PlayerController playerController;
     public Transform objectToFollow;
     public Level3Items level3Items;
+
+    public AudioClip watchPickup;
+    public AudioSource source;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             PickUpObject();
+            source.PlayOneShot(watchPickup);
 
 
         }
