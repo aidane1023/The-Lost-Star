@@ -7,16 +7,17 @@ public class Level3Items : MonoBehaviour
     public bool mozzieTalked;
     public bool watchFound, watchGiven;
     public bool lighterFound, lighterGiven;
-    public bool ticketFound, ticketGiven;
+    public bool ticketFound; 
+    public static bool ticketGiven;
 
     public NPCBehavior behaviorScript;
 
     private void Start()
     {
-        mozzieTalked = false;
-        watchFound = false;
-        lighterFound = false;
-        ticketFound = false;
+        //mozzieTalked = false;
+        //watchFound = false;
+        //lighterFound = false;
+        //ticketFound = false;
     }
 
     public void Update()

@@ -29,6 +29,7 @@ public class NPCBehavior : MonoBehaviour
     
     void Start()
     {
+        jackFightTriggered = false;
         playerController = player.GetComponent<PlayerController>();
         if (isBossTrigger)
         {
@@ -68,7 +69,7 @@ public class NPCBehavior : MonoBehaviour
                     index = 1;
                 }
 
-                if (isBouncer && itemManager.ticketFound && !itemManager.ticketGiven)
+                if (isBouncer && itemManager.ticketFound && !Level3Items.ticketGiven)
                 {
                     index = 1;
                 }
@@ -164,7 +165,7 @@ public class NPCBehavior : MonoBehaviour
 
     public void giveTicket()
     {
-        itemManager.ticketGiven = true;
+        Level3Items.ticketGiven = true;
         index = 2;
     }
     //IEnumerator Reset()
