@@ -26,25 +26,25 @@ public class HubSceneManager : MonoBehaviour
                 switch (scene)
                 {
                 case 0:
-                    leftHub = player.position;
+                    HubManager.hubSpawn = player.position;
                     SceneManager.LoadScene ("BearShop");
                     HubManager.fromShop = false;
                     break;
                 case 1:
-                    leftHub = player.position;
+                    HubManager.hubSpawn = player.position;
                     SceneManager.LoadScene ("LevelOne");
                     HubManager.fromShop = false;
                     break;
                 case 2:
-                        leftHub = player.position;
-                        SceneManager.LoadScene("LevelTwo");
-                        HubManager.fromShop = false;
-                        break;
+                    HubManager.hubSpawn = player.position;
+                    SceneManager.LoadScene("LevelTwo");
+                    HubManager.fromShop = false;
+                    break;
                 case 3:
-                        leftHub = player.position;
-                        SceneManager.LoadScene("LevelThree");
-                        HubManager.fromShop = false;
-                        break;
+                    HubManager.hubSpawn = player.position;
+                    SceneManager.LoadScene("LevelThree");
+                    HubManager.fromShop = false;
+                    break;
                 }   
             }
         }

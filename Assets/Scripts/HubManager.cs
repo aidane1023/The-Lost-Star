@@ -28,6 +28,8 @@ public class HubManager : MonoBehaviour
     public static bool noWalk = false;
     public static bool allCleared = false;
 
+    public static Vector3 hubSpawn = new Vector3(-10.5f,0f,-9.01000023f);
+
     public AudioSource playerSound;
     public AudioSource source;
     public AudioClip rocketpieceFound;
@@ -36,6 +38,7 @@ public class HubManager : MonoBehaviour
 
     void Start()
     {
+        player.position = hubSpawn;
         UpdateAppearance();
         rocket.SetActive(false);
     }

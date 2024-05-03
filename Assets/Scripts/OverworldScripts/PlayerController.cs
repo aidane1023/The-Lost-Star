@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         if(BattleManager.overworldSpawn != new Vector3 (0,0,0)) RelocateAfterBattle();
-        //if (HubSceneManager.leftHub != new Vector3 (0,0,0) && DemoSceneManager.home) RelocateAfterStage();
     }
 
     void Update()
@@ -55,14 +54,6 @@ public class PlayerController : MonoBehaviour
             source.enabled = true;
         }
 
-        //if (HubManager.CameraSwitch)
-        //{
-        //    source.enabled = false;
-        //}
-        //else
-        //{
-        //    source.enabled = true;
-        //}
 
         if (rb.velocity.magnitude == 0) source.volume = 0;
         else source.volume = 0.3f;
@@ -74,12 +65,5 @@ public class PlayerController : MonoBehaviour
         transform.position = BattleManager.overworldSpawn;
         BattleManager.overworldSpawn = new Vector3(0,0,0);   
     }
-
-    //void RelocateAfterStage()
-    //{
-        //transform.position = HubSceneManager.leftHub;
-        //HubSceneManager.leftHub = new Vector3(0,0,0);
-        //DemoSceneManager.home = false;
-    //}
 }
 

@@ -62,9 +62,9 @@ public class BearAnimation : MonoBehaviour
         {
             case 0:
                 anim.SetBool("Swing", true);
-                yield return new WaitForSeconds(1.1f);
+                yield return new WaitForSeconds(0.1f);
                 anim.SetBool("OpenIdle", false);
-                yield return new WaitForSeconds(4.66f);
+                yield return new WaitForSeconds(7.5f);
                 anim.SetBool("OpenIdle", true);
                 anim.SetBool("Swing", false);
                 break;
