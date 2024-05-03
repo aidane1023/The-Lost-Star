@@ -29,16 +29,10 @@ public class JackTransition : MonoBehaviour
 
     private BattleInitiator battleInitiator;
 
-    private static bool played = false;
-
-
     void Start()
     {
-        if(played)
-        {
-            LetsGo();
-        }
-
+        StartCoroutine(DelaySearch());
+        
         cam1.enabled = true;
         cam2.enabled = false;
         battleInitiator = boxObject.GetComponent<BattleInitiator>();
@@ -48,7 +42,7 @@ public class JackTransition : MonoBehaviour
     {
         cam1.enabled = false;
         cam2.enabled = true;
-        if (!played)
+        if (GameObject.FindGameObjectsWithTag("Box").Length > 0)
         {
             StartCoroutine(OpenBox());
             StartCoroutine(Sequence());
@@ -93,7 +87,6 @@ public class JackTransition : MonoBehaviour
         crowd.SetBool("Cheer",true);
         yield return new WaitForSeconds(5.3f);
         BattleManager.sceneToLoad = 6;
-        played = true;
         Debug.Log("Start Jack Fight");
         battleInitiator.GetComponent<BattleInitiator>().InitiateBattle();
     }
@@ -102,5 +95,14 @@ public class JackTransition : MonoBehaviour
     {
         yield return new WaitForSeconds(3.8f);
         box.SetBool("Open", true);
+    }
+
+    IEnumerator DelaySearch()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if((GameObject.FindGameObjectsWithTag("Box").Length <= 0))
+        {
+            LetsGo();
+        }
     }
 }
