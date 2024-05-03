@@ -36,6 +36,7 @@ public class HubManager : MonoBehaviour
 
     void Start()
     {
+        player.position = new Vector3 (0,0,0);
         UpdateAppearance();
         rocket.SetActive(false);
     }
